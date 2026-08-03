@@ -1,4 +1,4 @@
-# Offline eval regression gate for the TechHub customer support agent.
+# Offline eval regression gate for the Liorin support agent.
 #
 # Runs correctness + tool-call evaluators against the production graph.
 # Fails the check (blocking merge) if the correctness pass rate drops below

@@ -1,147 +1,230 @@
 [
   {
     "inputs": {
-      "question": "How much have I spent on keyboards in total? My email is it.purchasing@finance.com"
+      "question": "这个怎么用"
     },
     "outputs": {
-      "answer": "You have spent $1,118.00 on keyboards across all your orders."
+      "answer": "Answer should cite or rely on source: 吹风机手册.txt. Answer should cover required keywords: 阻风门."
     },
     "metadata": {
-      "category": "account_summary",
-      "example_number": 1
+      "id": "4001",
+      "category": "single_followup",
+      "expected_question_type": "product",
+      "expected_response_type": "answer",
+      "expected_source": "吹风机手册.txt",
+      "required_keywords": [
+        "阻风门"
+      ],
+      "source_dataset": "TraceMind multiturn_benchmark_50"
     }
   },
   {
     "inputs": {
-      "question": "What's the most expensive single item I've ever purchased? My email is it.purchasing@finance.com"
+      "question": "我不会用这个"
     },
     "outputs": {
-      "answer": "Your most expensive item was the Dell XPS 13 (Intel i7, 512GB) at $1,399.00."
+      "answer": "Answer should cite or rely on source: 空调手册.txt. Answer should cover required keywords: 滤网."
     },
     "metadata": {
-      "category": "account_summary",
-      "example_number": 2
+      "id": "4002",
+      "category": "single_followup",
+      "expected_question_type": "product",
+      "expected_response_type": "answer",
+      "expected_source": "空调手册.txt",
+      "required_keywords": [
+        "滤网"
+      ],
+      "source_dataset": "TraceMind multiturn_benchmark_50"
     }
   },
   {
     "inputs": {
-      "question": "How much have I spent on laptops versus monitors? My email is it.purchasing@finance.com"
+      "question": "这个怎么操作"
     },
     "outputs": {
-      "answer": "You've spent $6,248.65 on laptops and $1,747.00 on monitors."
+      "answer": "Answer should cite or rely on source: 洗碗机手册.txt. Answer should cover required keywords: 盐."
     },
     "metadata": {
-      "category": "analytics",
-      "example_number": 3
+      "id": "4003",
+      "category": "single_followup",
+      "expected_question_type": "product",
+      "expected_response_type": "answer",
+      "expected_source": "洗碗机手册.txt",
+      "required_keywords": [
+        "盐"
+      ],
+      "source_dataset": "TraceMind multiturn_benchmark_50"
     }
   },
   {
     "inputs": {
-      "question": "How many of my orders included accessories? My email is samantha.wright@yahoo.com"
+      "question": "这个怎么安装"
     },
     "outputs": {
-      "answer": "5 of your orders included accessories."
+      "answer": "Answer should cite or rely on source: 蒸汽清洁机手册.txt. Answer should cover required keywords: 组装."
     },
     "metadata": {
-      "category": "analytics",
-      "example_number": 4
+      "id": "4004",
+      "category": "single_followup",
+      "expected_question_type": "product",
+      "expected_response_type": "answer",
+      "expected_source": "蒸汽清洁机手册.txt",
+      "required_keywords": [
+        "组装"
+      ],
+      "source_dataset": "TraceMind multiturn_benchmark_50"
     }
   },
   {
     "inputs": {
-      "question": "Which month in 2024 did I buy the most keyboards? My email is it.purchasing@finance.com"
+      "question": "这个功能不好用"
     },
     "outputs": {
-      "answer": "You bought the most keyboards in July 2024 (6 keyboards total)."
+      "answer": "Answer should cite or rely on source: 空气净化器手册.txt. Answer should cover required keywords: 滤网."
     },
     "metadata": {
-      "category": "analytics",
-      "example_number": 5
+      "id": "4005",
+      "category": "single_followup",
+      "expected_question_type": "product",
+      "expected_response_type": "answer",
+      "expected_source": "空气净化器手册.txt",
+      "required_keywords": [
+        "滤网"
+      ],
+      "source_dataset": "TraceMind multiturn_benchmark_50"
     }
   },
   {
     "inputs": {
-      "question": "Hi, I'm Priya Patel (priya.patel@icloud.com). I need a report breaking down all of my past orders and what was in each. Can you help?"
+      "question": "我不会用这个"
     },
     "outputs": {
-      "answer": "Your orders: - **ORD-2025-0077** - Dell XPS 13 Laptop - $1,399.00\n- **ORD-2025-0034** - Dell UltraSharp 27\" 4K Monitor - $549.00\n- **ORD-2025-0055** - Mechanical Gaming Keyboard + Apple Magic Mouse - $228.00\n- **ORD-2025-0050** - Blue Yeti USB Microphone - $124.24\n- **ORD-2024-0101** - LG 24\" Monitor - $199.00\n- **ORD-2024-0086** - Logitech MX Keys Keyboard - $119.00\n- **ORD-2024-0032** - MacBook Air M2 + Webcam + Laptop Stand - $1,323.00\n- **ORD-2024-0006** - Mechanical Gaming Keyboard - $149.00\n- **ORD-2024-0004** - Lenovo ThinkPad X1 + Mouse + Webcam - $1,920.09\n- **ORD-2024-0004** - Lenovo ThinkPad X1 + Mouse + Webcam - $1,920.09\n- **ORD-2023-0026** - Logitech MX Master 3S Mouse - $99.00"
+      "answer": "Answer should cite or rely on source: 健身单车手册.txt. Answer should cover required keywords: 水平."
     },
     "metadata": {
-      "category": "order_history",
-      "example_number": 6
+      "id": "4006",
+      "category": "single_followup",
+      "expected_question_type": "product",
+      "expected_response_type": "answer",
+      "expected_source": "健身单车手册.txt",
+      "required_keywords": [
+        "水平"
+      ],
+      "source_dataset": "TraceMind multiturn_benchmark_50"
     }
   },
   {
     "inputs": {
-      "question": "Can you show me which of my orders included laptops? My email is it.purchasing@finance.com"
+      "question": "这个怎么操作"
     },
     "outputs": {
-      "answer": "Orders with laptops: ORD-2024-0012 (Feb 20, 2024), ORD-2024-0048 (May 19, 2024), ORD-2024-0049 (May 31, 2024), ORD-2024-0066 (Jul 23, 2024), ORD-2024-0070 (Jul 29, 2024)."
+      "answer": "Answer should cite or rely on source: 电钻手册.txt. Answer should cover required keywords: 充电."
     },
     "metadata": {
-      "category": "order_history",
-      "example_number": 7
+      "id": "4007",
+      "category": "single_followup",
+      "expected_question_type": "product",
+      "expected_response_type": "answer",
+      "expected_source": "电钻手册.txt",
+      "required_keywords": [
+        "充电"
+      ],
+      "source_dataset": "TraceMind multiturn_benchmark_50"
     }
   },
   {
     "inputs": {
-      "question": "What's your return policy for laptops?"
+      "question": "这个产品有问题"
     },
     "outputs": {
-      "answer": "Unopened laptops can be returned within 30 days of purchase. Opened laptops can be returned within 14 days of purchase."
+      "answer": "Answer should cite or rely on source: 健身追踪器手册.txt. Answer should cover required keywords: 充电."
     },
     "metadata": {
-      "category": "policies",
-      "example_number": 8
+      "id": "4008",
+      "category": "single_followup",
+      "expected_question_type": "product",
+      "expected_response_type": "answer",
+      "expected_source": "健身追踪器手册.txt",
+      "required_keywords": [
+        "充电"
+      ],
+      "source_dataset": "TraceMind multiturn_benchmark_50"
     }
   },
   {
     "inputs": {
-      "question": "Is the Sony WH-1000XM5 in stock and what's the warranty coverage?"
+      "question": "帮我看看"
     },
     "outputs": {
-      "answer": "Yes, Sony WH-1000XM5 is in stock at $399.00. It comes with a 1-year manufacturer warranty covering defects in materials and workmanship."
+      "answer": "Answer should cite or rely on source: 冰箱手册.txt. Answer should cover required keywords: 电源."
     },
     "metadata": {
-      "category": "product_info",
-      "example_number": 9
+      "id": "4009",
+      "category": "single_followup",
+      "expected_question_type": "product",
+      "expected_response_type": "answer",
+      "expected_source": "冰箱手册.txt",
+      "required_keywords": [
+        "电源"
+      ],
+      "source_dataset": "TraceMind multiturn_benchmark_50"
     }
   },
   {
     "inputs": {
-      "question": "Can you check if my email is linked to a personal or corporate account? This is the one I've been using (nathan.cohen@yahoo.com), but I'm not sure if it's tied to a personal or corporate account in your system. Also what phone number is associated with my account?"
+      "question": "这个功能不行"
     },
     "outputs": {
-      "answer": "Your email is tied to a Consumer/Personal account, and the phone number associated with your account is 702-555-0567."
+      "answer": "Answer should cite or rely on source: 发电机手册.txt. Answer should cover required keywords: 停机."
     },
     "metadata": {
-      "category": "account_info",
-      "example_number": 10
+      "id": "4010",
+      "category": "single_followup",
+      "expected_question_type": "product",
+      "expected_response_type": "answer",
+      "expected_source": "发电机手册.txt",
+      "required_keywords": [
+        "停机"
+      ],
+      "source_dataset": "TraceMind multiturn_benchmark_50"
     }
   },
   {
     "inputs": {
-      "question": "Can you check which phone number is associated with my account? My email is isabella.fernandez@gmail.com"
+      "question": "我不会用这个"
     },
     "outputs": {
-      "answer": "The phone number associated with your account is 602-555-0234."
+      "answer": "Answer should cite or rely on source: 摩托艇手册.txt. Answer should cover required keywords: 油门."
     },
     "metadata": {
-      "category": "account_info",
-      "example_number": 11
+      "id": "4011",
+      "category": "single_followup",
+      "expected_question_type": "product",
+      "expected_response_type": "answer",
+      "expected_source": "摩托艇手册.txt",
+      "required_keywords": [
+        "油门"
+      ],
+      "source_dataset": "TraceMind multiturn_benchmark_50"
     }
   },
   {
     "inputs": {
-      "question": "What product category have I bought from most often? My email is sarah.chen@gmail.com"
+      "question": "这个功能不好用"
     },
     "outputs": {
-      "answer": "You buy Audio products most often (6 items), followed by Laptops and Accessories (4 items each)."
+      "answer": "Answer should cite or rely on source: 水泵手册.txt. Answer should cover required keywords: 发动机."
     },
     "metadata": {
-      "category": "analytics",
-      "example_number": 12
+      "id": "4012",
+      "category": "single_followup",
+      "expected_question_type": "product",
+      "expected_response_type": "answer",
+      "expected_source": "水泵手册.txt",
+      "required_keywords": [
+        "发动机"
+      ],
+      "source_dataset": "TraceMind multiturn_benchmark_50"
     }
   }
 ]
-

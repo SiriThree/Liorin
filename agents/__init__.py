@@ -1,24 +1,27 @@
-"""Shared agent factories for the TechHub customer support system."""
+"""Shared agent factories for the Liorin support system."""
 
-from agents.docs_agent import (
-    DOCS_AGENT_BASE_TOOLS,
-    DOCS_AGENT_SYSTEM_PROMPT,
-    create_docs_agent,
-)
-from agents.sql_agent import SQL_AGENT_BASE_TOOLS, create_sql_agent
-from agents.supervisor_agent import (
+from agents.conversation_supervisor import (
     SUPERVISOR_AGENT_SYSTEM_PROMPT,
     create_supervisor_agent,
 )
-from agents.supervisor_hitl_agent import create_supervisor_hitl_agent
+from agents.knowledge_agent import (
+    KNOWLEDGE_AGENT_BASE_TOOLS,
+    KNOWLEDGE_AGENT_SYSTEM_PROMPT,
+    create_knowledge_agent,
+)
+from agents.order_agent import (
+    ORDER_AGENT_BASE_TOOLS,
+    create_order_agent,
+)
+from agents.support_workflow import create_support_agent
 
 __all__ = [
-    "create_docs_agent",
-    "DOCS_AGENT_SYSTEM_PROMPT",
-    "DOCS_AGENT_BASE_TOOLS",
-    "create_sql_agent",
-    "SQL_AGENT_BASE_TOOLS",
+    "create_knowledge_agent",
+    "KNOWLEDGE_AGENT_SYSTEM_PROMPT",
+    "KNOWLEDGE_AGENT_BASE_TOOLS",
+    "create_order_agent",
+    "ORDER_AGENT_BASE_TOOLS",
     "create_supervisor_agent",
     "SUPERVISOR_AGENT_SYSTEM_PROMPT",
-    "create_supervisor_hitl_agent",
+    "create_support_agent",
 ]

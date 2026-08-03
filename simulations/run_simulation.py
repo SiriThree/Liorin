@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Main simulation script for generating continuous TechHub agent traces.
+Main simulation script for generating continuous Liorin support agent traces.
 
 Usage:
     uv run python simulations/run_simulation.py
@@ -459,7 +459,7 @@ async def main():
     """CLI entry point."""
     import argparse
 
-    parser = argparse.ArgumentParser(description="Run TechHub agent simulations")
+    parser = argparse.ArgumentParser(description="Run Liorin agent simulations")
     parser.add_argument(
         "--count",
         type=int,

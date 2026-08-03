@@ -1,11 +1,14 @@
-"""Shared tools for the TechHub customer support agent."""
+"""Shared tools for the Liorin support agent."""
 
 from tools.database import execute_sql, get_database
-from tools.documents import search_policy_docs, search_product_docs
+from tools.documents import (
+    search_manuals,
+    search_support_policies,
+)
 
 __all__ = [
     "execute_sql",
     "get_database",
-    "search_product_docs",
-    "search_policy_docs",
+    "search_manuals",
+    "search_support_policies",
 ]

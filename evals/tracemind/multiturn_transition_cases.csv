@@ -1,0 +1,3 @@
+id,question,turns_json,expected_response_type,expect_clarification,expect_resolution,expect_topic_switch,notes
+3001,这个功能不好用,"[""这个功能不好用"", ""另外，这个页面进不去""]",clarification,1,0,1,显式引入新问题后重置旧澄清状态
+3002,This feature is not working,"[""This feature is not working"", ""Another question: this page is not working""]",clarification,1,0,1,英文显式话题切换

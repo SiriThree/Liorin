@@ -1,7 +1,7 @@
 {
   "dependencies": ["."],
   "graphs": {
-    "customer_support_agent": "./deployments/customer_support_agent_graph.py:graph"
+    "support_agent": "./deployments/support_agent_graph.py:graph"
   },
   "env": ".env",
   "python_version": "3.13"

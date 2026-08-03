@@ -1,220 +1,148 @@
 # Liorin
 
-Liorin 是一个基于 LangGraph 的电商客服 Agent 项目。它面向虚构科技电商 TechHub，能够结合订单数据库、产品/政策文档检索和客户身份验证，回答用户关于订单、商品、退货、保修、配送、兼容性等问题。
+Liorin 是一个面向企业技术产品与订单售后的可信客服 Agent 平台。项目基于 LangGraph 构建多 Agent 编排，结合 TraceMind 产品手册、结构化订单/工单数据、身份验证、离线评测与仿真流量，用来探索真实客服 Agent 的工程化落地。
 
-这个仓库已经从原来的教学演示结构收束为一个更干净的项目形态：只保留一条生产 Agent 路径，即 `customer_support_agent`。
+当前仓库已经从教程演示版收束为干净的项目形态：只保留一条生产图 `support_agent`，数据语境统一为 Liorin + TraceMind。
 
-## 核心能力
+## 项目定位
 
-- 查询结构化数据：客户、订单、订单明细、商品、库存、历史价格。
-- 检索非结构化文档：产品规格、兼容性说明、退货政策、保修政策、配送说明、支持 FAQ。
-- 处理客户身份验证：涉及“我的订单”“我的购买记录”等账户相关问题时，会要求用户提供邮箱并验证客户身份。
-- 多 Agent 协作：Supervisor 负责理解用户问题，并把任务分发给 SQL 数据库专家或文档检索专家。
-- 支持评测和仿真：保留离线评测、CI 回归门禁和模拟客服流量脚本。
+Liorin 面向这类场景：
+
+- 技术产品售前咨询：规格、使用方式、故障排查、保养说明。
+- 订单售后：订单状态、物流、历史购买、取消资格、退款前置判断。
+- 维修与保修：工单状态、保修覆盖、维修下一步。
+- 企业客户上下文：租户、客户身份、企业设备售后记录。
 
 ## 架构
 
-```text
-customer_support_agent
-  -> query_router
-  -> verify_customer / collect_email
-  -> supervisor_agent
-      -> sql_agent
-      -> docs_agent
+```mermaid
+flowchart TB
+    U["Web Chat / API Client"] --> G["support_agent"]
+    G --> V["Identity Verification / HITL"]
+    V --> S["Conversation Supervisor"]
+    S --> O["Order Agent"]
+    S --> K["Knowledge Agent"]
+    O --> DB["SQLite: customers, products, orders, tickets, warranty_cases"]
+    K --> RAG["Agentic RAG over TraceMind manuals and Liorin policies"]
+    RAG --> VS["InMemoryVectorStore"]
+    G --> LS["LangSmith Trace / Eval / Simulation"]
 ```
 
-主要流程：
+## 核心模块
 
-1. `query_router` 判断问题是否需要客户身份验证。
-2. `verify_customer` / `collect_email` 负责提取、收集并验证客户邮箱。
-3. `supervisor_agent` 与用户交互，并决定调用哪个专家 Agent。
-4. `sql_agent` 通过只读 SQL 查询 TechHub SQLite 数据库。
-5. `docs_agent` 检索产品文档和政策文档，提供 RAG 支撑。
+```text
+agents/
+  support_workflow.py          # 身份验证 + Supervisor 的生产图
+  conversation_supervisor.py   # 会话路由与最终答复
+  order_agent.py               # 只读 SQL 结构化数据查询
+  knowledge_agent.py           # 产品手册与售后政策检索
 
-生产图在 [langgraph.json](langgraph.json) 中配置为：
+tools/
+  database.py                  # 只允许 SELECT 的数据库工具
+  documents.py                 # 手册/政策向量检索工具
+
+deployments/
+  support_agent_graph.py       # LangGraph 部署入口
+
+data/
+  knowledge/                   # TraceMind 手册和 Liorin 售后政策
+  structured/                  # Liorin 订单、客户、工单、保修数据
+  data_generation/             # 数据库与向量库重建脚本
+
+evals/
+  baseline_dataset.json        # CI 基线评测集
+  tracemind/                   # TraceMind 原始评测/公开问题数据
+
+simulations/
+  scenarios.json               # Liorin 仿真场景
+  run_simulation.py            # LangSmith trace 生成
+```
+
+## 技术栈如何落地
+
+- LangChain：用于创建 `order_agent`、`knowledge_agent` 和 `conversation_supervisor`，并封装 SQL/检索工具。
+- LangGraph：定义生产图 `support_agent`，把查询分类、身份验证、中断恢复和 Supervisor 串成可部署工作流。
+- MCP：当前代码还没有独立 MCP Server；下一阶段适合把维修工单、退款申请、订单取消等动作封装成 MCP Tools。
+- Agentic RAG：`knowledge_agent` 会主动调用手册/政策检索工具，基于 TraceMind 手册和 Liorin 政策回答问题。
+- Context Engineering：通过 `Context`、`customer_id` 状态、Supervisor prompt 和数据库 schema 注入运行时上下文。
+- Human-in-the-loop：账号/订单类问题会先验证邮箱；高风险动作目前只判断资格和下一步，不直接执行。
+- Agent Evaluation：`evals/run_ci_eval.py` 将 `baseline_dataset.json` 同步到 LangSmith 数据集并执行回归评测。
+- Agent Observability：仿真脚本和 LangSmith tracing 用于生成多轮客服轨迹、观察工具调用和失败案例。
+
+## 快速开始
+
+```bash
+uv sync
+copy .env.example .env
+uv run python data/data_generation/create_database.py
+uv run python data/data_generation/validate_database.py
+uv run python data/data_generation/build_vectorstore.py
+uv run langgraph dev
+```
+
+本地 LangGraph 会读取 `langgraph.json`：
 
 ```json
 {
   "graphs": {
-    "customer_support_agent": "./deployments/customer_support_agent_graph.py:graph"
+    "support_agent": "./deployments/support_agent_graph.py:graph"
   }
 }
 ```
 
-## 项目结构
+## 环境变量
+
+```bash
+LIORIN_MODEL=anthropic:claude-haiku-4-5
+EMBEDDING_PROVIDER=huggingface
+LANGSMITH_TRACING=false
+LANGSMITH_API_KEY=
+LANGGRAPH_DEPLOYMENT_URL=
+```
+
+默认 embedding 使用 HuggingFace，可在本地无 API Key 构建向量库。使用 OpenAI embedding 时设置：
+
+```bash
+EMBEDDING_PROVIDER=openai
+OPENAI_API_KEY=...
+```
+
+## 数据
+
+Liorin 当前数据来自两部分：
+
+- TraceMind：产品手册、公开问题、多轮评测集。
+- Liorin：围绕 TraceMind 产品生成的客户、订单、工单、保修样例数据。
+
+关键路径：
 
 ```text
-agents/
-  sql_agent.py                     # 数据库查询专家，使用只读 SQL
-  docs_agent.py                    # 产品和政策文档检索专家
-  supervisor_agent.py              # 负责路由和整合答案
-  supervisor_hitl_agent.py         # 身份验证 + Supervisor 的完整图
-
-tools/
-  database.py                      # SQLite 连接和只读 SQL 工具
-  documents.py                     # 产品文档/政策文档检索工具
-
-deployments/
-  customer_support_agent_graph.py  # LangGraph 部署入口
-
-evals/
-  baseline_dataset.json            # 离线评测数据集
-  run_ci_eval.py                   # CI 回归评测脚本
-
-evaluators/                        # 正确性和工具调用数评测器
-simulations/                       # 生产流量仿真脚本
-data/                              # TechHub 示例数据和文档
-config.py                          # 全局配置
-langgraph.json                     # LangGraph 图配置
-pyproject.toml                     # Python 依赖配置
+data/knowledge/manuals/
+data/knowledge/policies/
+data/structured/liorin.db
+evals/tracemind/
 ```
 
-## 环境要求
-
-- Python 3.13
-- Git
-- [uv](https://docs.astral.sh/uv/)
-- 至少一个模型提供商 API Key，例如 Anthropic 或 OpenAI
-- 可选：LangSmith API Key，用于 tracing、评测和部署观测
-
-## 安装
-
-安装依赖：
+## 评测与仿真
 
 ```bash
-uv sync
-```
-
-创建环境变量文件：
-
-```bash
-cp .env.example .env
-```
-
-在 `.env` 中配置模型和 API Key。常用配置如下：
-
-```bash
-LIORIN_MODEL="anthropic:claude-haiku-4-5"
-ANTHROPIC_API_KEY="your-anthropic-api-key"
-
-LANGSMITH_TRACING="true"
-LANGSMITH_PROJECT="liorin"
-LANGSMITH_API_KEY="your-langsmith-api-key"
-
-EMBEDDING_PROVIDER="huggingface"
-```
-
-如果使用 OpenAI 模型或 OpenAI Embeddings，也可以配置：
-
-```bash
-LIORIN_MODEL="openai:gpt-5-mini"
-OPENAI_API_KEY="your-openai-api-key"
-EMBEDDING_PROVIDER="openai"
-```
-
-## 构建向量库
-
-文档检索依赖本地向量库。首次运行时会自动构建，也可以手动构建：
-
-```bash
-uv run python data/data_generation/build_vectorstore.py
-```
-
-默认使用 HuggingFace Embeddings，本地运行，不需要额外 API Key。若设置 `EMBEDDING_PROVIDER=openai`，则需要配置 `OPENAI_API_KEY`。
-
-## 本地运行
-
-启动 LangGraph 本地开发服务：
-
-```bash
-uv run langgraph dev
-```
-
-可用图名称：
-
-```text
-customer_support_agent
-```
-
-## 数据集
-
-项目内置 TechHub 合成数据，可直接用于开发和测试：
-
-- 50 个客户
-- 25 个商品
-- 250 个订单
-- 439 条订单明细
-- 30 份 Markdown 文档，包括产品规格、兼容性、退货、保修、配送和支持 FAQ
-
-关键数据位置：
-
-```text
-data/structured/techhub.db          # SQLite 数据库
-data/structured/SCHEMA.md           # 数据库 schema 说明
-data/documents/                     # 产品和政策文档
-data/data_generation/               # 数据生成与校验脚本
-```
-
-## 评测
-
-运行离线回归评测：
-
-```bash
-uv run python evals/run_ci_eval.py --threshold 0.8
-```
-
-评测内容：
-
-- `correctness_evaluator`：基于参考答案判断最终回答是否正确。
-- `count_total_tool_calls_evaluator`：统计 trace 中的工具调用次数。
-
-运行评测需要配置：
-
-```bash
-LANGSMITH_API_KEY
-ANTHROPIC_API_KEY 或 OPENAI_API_KEY
-```
-
-GitHub Actions 中的回归门禁配置在：
-
-```text
-.github/workflows/eval-regression.yml
-```
-
-## 仿真
-
-模拟真实客服对话流量：
-
-```bash
-uv run python simulations/run_simulation.py
-uv run python simulations/run_simulation.py --count 5
+uv run python evals/run_ci_eval.py
 uv run python simulations/run_simulation.py --count 3 --mode static
 ```
 
-仿真系统会：
+CI 评测数据集名称为 `liorin-tracemind-baseline-ci`。仿真默认目标图为 `support_agent`。
 
-- 从数据库中选择真实的合成客户和订单。
-- 生成不同类型的客服场景。
-- 自动处理邮箱验证 interrupt。
-- 将 trace 写入 LangSmith，便于观察线上表现。
+## 当前边界
 
-## 部署入口
+项目已经具备可信客服 Agent 的核心骨架，但仍有几类能力处于下一阶段：
 
-生产图入口文件：
+- MCP Server 尚未独立实现。
+- 订单取消、退款、维修工单创建还未作为真实动作执行。
+- RBAC、审批策略、Verifier Agent、独立 Trace Console 还未补齐。
+- OCR/截图理解、混合检索、reranker、Evidence Coverage 评测尚待从 TraceMind 继续迁移。
 
-```text
-deployments/customer_support_agent_graph.py
-```
+## 推荐改造路线
 
-该文件导出 `graph`，由 `langgraph.json` 引用。部署到 LangGraph / LangSmith 时，平台会加载这个图。
-
-## 当前裁剪状态
-
-这个仓库已经移除了原教学仓库中的基础版和教程资产，包括：
-
-- Jupyter 教程 notebooks
-- 基础版 `db_agent.py`
-- 多个演示用 deployment graph
-- 教程图片和演示脚本
-
-现在项目保留的是面向实际使用的核心路径：`customer_support_agent`。
+1. 完成 Liorin 领域建模：扩展 Schema、租户上下文、权限策略和真实售后动作。
+2. 迁移 TraceMind 强项：混合检索、reranker、OCR/截图理解、多轮澄清、source top-k 与 topic switch 评测。
+3. 补齐企业 Agent 治理：MCP Server、RBAC、高风险 HITL、Verifier、trajectory evaluation、Trace Console 与回归 CI。

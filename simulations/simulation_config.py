@@ -15,7 +15,7 @@ MAX_TURNS_PER_CONVERSATION = 8     # Prevent runaway conversations
 SIMULATION_MODEL = DEFAULT_MODEL  # Use same model as rest of project
 
 # Deployment settings
-DEPLOYMENT_GRAPH_NAME = "customer_support_agent"
+DEPLOYMENT_GRAPH_NAME = "support_agent"
 
 # Deployment URL from config (can be overridden via --url CLI arg)
 # Set LANGGRAPH_DEPLOYMENT_URL in .env to configure

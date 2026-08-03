@@ -1,178 +1,202 @@
 [
   {
-    "product_id": "TECH-LAP-001",
-    "name": "MacBook Air M2 (13-inch, 256GB)",
-    "category": "Laptops",
-    "price": 1199.00,
-    "in_stock": 1
+    "product_id": "LIO-PROD-001",
+    "name": "VR头显手册",
+    "manual_file": "LIO-PROD-001_VR头显手册.md",
+    "source_file": "VR头显手册.txt",
+    "category": "xr_device",
+    "warranty_months": 24,
+    "price": 170.37,
+    "in_stock": true
   },
   {
-    "product_id": "TECH-LAP-002",
-    "name": "MacBook Pro M3 (14-inch, 512GB)",
-    "category": "Laptops",
-    "price": 1999.00,
-    "in_stock": 1
+    "product_id": "LIO-PROD-002",
+    "name": "人体工学椅手册",
+    "manual_file": "LIO-PROD-002_人体工学椅手册.md",
+    "source_file": "人体工学椅手册.txt",
+    "category": "ergonomics",
+    "warranty_months": 36,
+    "price": 211.74,
+    "in_stock": true
   },
   {
-    "product_id": "TECH-LAP-003",
-    "name": "Dell XPS 13 (Intel i7, 512GB)",
-    "category": "Laptops",
-    "price": 1399.00,
-    "in_stock": 1
+    "product_id": "LIO-PROD-003",
+    "name": "健身单车手册",
+    "manual_file": "LIO-PROD-003_健身单车手册.md",
+    "source_file": "健身单车手册.txt",
+    "category": "fitness",
+    "warranty_months": 12,
+    "price": 253.11,
+    "in_stock": true
   },
   {
-    "product_id": "TECH-LAP-004",
-    "name": "Lenovo ThinkPad X1 Carbon (Intel i7, 1TB)",
-    "category": "Laptops",
-    "price": 1699.00,
-    "in_stock": 1
+    "product_id": "LIO-PROD-004",
+    "name": "健身追踪器手册",
+    "manual_file": "LIO-PROD-004_健身追踪器手册.md",
+    "source_file": "健身追踪器手册.txt",
+    "category": "appliance",
+    "warranty_months": 24,
+    "price": 294.48,
+    "in_stock": true
   },
   {
-    "product_id": "TECH-LAP-005",
-    "name": "HP Pavilion 15 (AMD Ryzen 5, 256GB)",
-    "category": "Laptops",
-    "price": 899.00,
-    "in_stock": 1
+    "product_id": "LIO-PROD-005",
+    "name": "儿童电动摩托车手册",
+    "manual_file": "LIO-PROD-005_儿童电动摩托车手册.md",
+    "source_file": "儿童电动摩托车手册.txt",
+    "category": "power_tool",
+    "warranty_months": 36,
+    "price": 335.85,
+    "in_stock": true
   },
   {
-    "product_id": "TECH-MON-006",
-    "name": "Dell UltraSharp 27\" 4K Monitor",
-    "category": "Monitors",
-    "price": 549.00,
-    "in_stock": 1
+    "product_id": "LIO-PROD-006",
+    "name": "冰箱手册",
+    "manual_file": "LIO-PROD-006_冰箱手册.md",
+    "source_file": "冰箱手册.txt",
+    "category": "hvac",
+    "warranty_months": 12,
+    "price": 377.22,
+    "in_stock": true
   },
   {
-    "product_id": "TECH-MON-007",
-    "name": "LG 24\" 1080p Monitor",
-    "category": "Monitors",
-    "price": 199.00,
-    "in_stock": 1
+    "product_id": "LIO-PROD-007",
+    "name": "功能键盘手册",
+    "manual_file": "LIO-PROD-007_功能键盘手册.md",
+    "source_file": "功能键盘手册.txt",
+    "category": "cleaning",
+    "warranty_months": 24,
+    "price": 418.59,
+    "in_stock": false
   },
   {
-    "product_id": "TECH-MON-008",
-    "name": "Samsung 32\" Curved Gaming Monitor",
-    "category": "Monitors",
-    "price": 449.00,
-    "in_stock": 0
+    "product_id": "LIO-PROD-008",
+    "name": "发电机手册",
+    "manual_file": "LIO-PROD-008_发电机手册.md",
+    "source_file": "发电机手册.txt",
+    "category": "camera",
+    "warranty_months": 36,
+    "price": 459.96,
+    "in_stock": true
   },
   {
-    "product_id": "TECH-MON-009",
-    "name": "BenQ 27\" Designer Monitor (Color Accurate)",
-    "category": "Monitors",
-    "price": 599.00,
-    "in_stock": 1
+    "product_id": "LIO-PROD-009",
+    "name": "可编程温控器手册",
+    "manual_file": "LIO-PROD-009_可编程温控器手册.md",
+    "source_file": "可编程温控器手册.txt",
+    "category": "input_device",
+    "warranty_months": 12,
+    "price": 501.33,
+    "in_stock": true
   },
   {
-    "product_id": "TECH-KEY-010",
-    "name": "Apple Magic Keyboard",
-    "category": "Keyboards",
-    "price": 99.00,
-    "in_stock": 1
+    "product_id": "LIO-PROD-010",
+    "name": "吹风机手册",
+    "manual_file": "LIO-PROD-010_吹风机手册.md",
+    "source_file": "吹风机手册.txt",
+    "category": "xr_device",
+    "warranty_months": 24,
+    "price": 542.7,
+    "in_stock": true
   },
   {
-    "product_id": "TECH-KEY-011",
-    "name": "Logitech MX Keys Wireless Keyboard",
-    "category": "Keyboards",
-    "price": 119.00,
-    "in_stock": 1
+    "product_id": "LIO-PROD-011",
+    "name": "摩托艇手册",
+    "manual_file": "LIO-PROD-011_摩托艇手册.md",
+    "source_file": "摩托艇手册.txt",
+    "category": "ergonomics",
+    "warranty_months": 36,
+    "price": 584.07,
+    "in_stock": true
   },
   {
-    "product_id": "TECH-KEY-012",
-    "name": "Mechanical Gaming Keyboard (RGB, Cherry MX)",
-    "category": "Keyboards",
-    "price": 149.00,
-    "in_stock": 1
+    "product_id": "LIO-PROD-012",
+    "name": "水泵手册",
+    "manual_file": "LIO-PROD-012_水泵手册.md",
+    "source_file": "水泵手册.txt",
+    "category": "fitness",
+    "warranty_months": 12,
+    "price": 625.44,
+    "in_stock": true
   },
   {
-    "product_id": "TECH-KEY-013",
-    "name": "Apple Magic Mouse",
-    "category": "Keyboards",
-    "price": 79.00,
-    "in_stock": 1
+    "product_id": "LIO-PROD-013",
+    "name": "洗碗机手册",
+    "manual_file": "LIO-PROD-013_洗碗机手册.md",
+    "source_file": "洗碗机手册.txt",
+    "category": "appliance",
+    "warranty_months": 24,
+    "price": 666.81,
+    "in_stock": true
   },
   {
-    "product_id": "TECH-KEY-014",
-    "name": "Logitech MX Master 3S Mouse",
-    "category": "Keyboards",
-    "price": 99.00,
-    "in_stock": 1
+    "product_id": "LIO-PROD-014",
+    "name": "烤箱手册",
+    "manual_file": "LIO-PROD-014_烤箱手册.md",
+    "source_file": "烤箱手册.txt",
+    "category": "power_tool",
+    "warranty_months": 36,
+    "price": 708.18,
+    "in_stock": false
   },
   {
-    "product_id": "TECH-KEY-015",
-    "name": "Wireless Mouse & Keyboard Combo",
-    "category": "Keyboards",
-    "price": 39.00,
-    "in_stock": 1
+    "product_id": "LIO-PROD-015",
+    "name": "电钻手册",
+    "manual_file": "LIO-PROD-015_电钻手册.md",
+    "source_file": "电钻手册.txt",
+    "category": "hvac",
+    "warranty_months": 12,
+    "price": 749.55,
+    "in_stock": true
   },
   {
-    "product_id": "TECH-AUD-016",
-    "name": "Sony WH-1000XM5 Wireless Headphones",
-    "category": "Audio",
-    "price": 399.00,
-    "in_stock": 1
+    "product_id": "LIO-PROD-016",
+    "name": "相机手册",
+    "manual_file": "LIO-PROD-016_相机手册.md",
+    "source_file": "相机手册.txt",
+    "category": "cleaning",
+    "warranty_months": 24,
+    "price": 790.92,
+    "in_stock": true
   },
   {
-    "product_id": "TECH-AUD-017",
-    "name": "AirPods Pro (2nd Generation)",
-    "category": "Audio",
-    "price": 249.00,
-    "in_stock": 1
+    "product_id": "LIO-PROD-017",
+    "name": "空气净化器手册",
+    "manual_file": "LIO-PROD-017_空气净化器手册.md",
+    "source_file": "空气净化器手册.txt",
+    "category": "camera",
+    "warranty_months": 36,
+    "price": 832.29,
+    "in_stock": true
   },
   {
-    "product_id": "TECH-AUD-018",
-    "name": "Blue Yeti USB Microphone",
-    "category": "Audio",
-    "price": 129.00,
-    "in_stock": 0
+    "product_id": "LIO-PROD-018",
+    "name": "空调手册",
+    "manual_file": "LIO-PROD-018_空调手册.md",
+    "source_file": "空调手册.txt",
+    "category": "input_device",
+    "warranty_months": 12,
+    "price": 873.66,
+    "in_stock": true
   },
   {
-    "product_id": "TECH-AUD-019",
-    "name": "Logitech USB Desktop Speakers",
-    "category": "Audio",
-    "price": 79.00,
-    "in_stock": 1
+    "product_id": "LIO-PROD-019",
+    "name": "蒸汽清洁机手册",
+    "manual_file": "LIO-PROD-019_蒸汽清洁机手册.md",
+    "source_file": "蒸汽清洁机手册.txt",
+    "category": "xr_device",
+    "warranty_months": 24,
+    "price": 915.03,
+    "in_stock": true
   },
   {
-    "product_id": "TECH-AUD-020",
-    "name": "JBL Flip 6 Bluetooth Speaker",
-    "category": "Audio",
-    "price": 129.00,
-    "in_stock": 1
-  },
-  {
-    "product_id": "TECH-ACC-021",
-    "name": "USB-C Hub (7-in-1, HDMI, USB-A, SD)",
-    "category": "Accessories",
-    "price": 49.00,
-    "in_stock": 1
-  },
-  {
-    "product_id": "TECH-ACC-022",
-    "name": "Aluminum Laptop Stand (Adjustable)",
-    "category": "Accessories",
-    "price": 45.00,
-    "in_stock": 1
-  },
-  {
-    "product_id": "TECH-ACC-023",
-    "name": "Logitech C920 Webcam (1080p)",
-    "category": "Accessories",
-    "price": 79.00,
-    "in_stock": 1
-  },
-  {
-    "product_id": "TECH-ACC-024",
-    "name": "Laptop Sleeve (13-15 inch, Water Resistant)",
-    "category": "Accessories",
-    "price": 29.00,
-    "in_stock": 0
-  },
-  {
-    "product_id": "TECH-ACC-025",
-    "name": "Cable Management Kit (10 pieces)",
-    "category": "Accessories",
-    "price": 19.00,
-    "in_stock": 1
+    "product_id": "LIO-PROD-020",
+    "name": "蓝牙激光鼠标手册",
+    "manual_file": "LIO-PROD-020_蓝牙激光鼠标手册.md",
+    "source_file": "蓝牙激光鼠标手册.txt",
+    "category": "ergonomics",
+    "warranty_months": 36,
+    "price": 956.4,
+    "in_stock": true
   }
 ]
-

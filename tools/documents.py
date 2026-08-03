@@ -1,15 +1,15 @@
 """
-Documents tools for searching TechHub product documentation and policies.
+Documents tools for searching Liorin product manuals and support policies.
 
 These tools provide semantic search over:
-- Product documentation (specs, features, setup guides)
-- Store policies (returns, warranties, shipping)
+- Product manuals from the TraceMind dataset (setup, usage, troubleshooting)
+- Support policies (returns, warranties, shipping, repair intake, refunds)
 
 The vectorstore is pre-built from markdown documents and uses:
 - Configurable embeddings (HuggingFace by default, or OpenAI)
 - InMemoryVectorStore for fast retrieval
 - VectorStoreRetriever for proper tracing and Runnable interface
-- Metadata filtering to separate products from policies
+- Metadata filtering to separate manuals from policies
 
 Tools use response_format="content_and_artifact" to return both:
 - Formatted content string for the LLM
@@ -26,7 +26,7 @@ from config import DEFAULT_VECTORSTORE_PATH
 
 # Cached vectorstore and retrievers (lazy loaded)
 _vectorstore = None
-_product_retriever = None
+_manual_retriever = None
 _policy_retriever = None
 
 
@@ -68,26 +68,26 @@ def get_vectorstore():
     return _vectorstore
 
 
-def get_product_retriever():
-    """Lazy load the product documents retriever.
+def get_manual_retriever():
+    """Lazy load the product manual retriever.
 
     Creates the retriever on first call, then returns the cached instance
     for all subsequent calls.
 
     Returns:
-        VectorStoreRetriever: Cached retriever for product documents.
+        VectorStoreRetriever: Cached retriever for product manuals.
     """
-    global _product_retriever
-    if _product_retriever is None:
+    global _manual_retriever
+    if _manual_retriever is None:
         vectorstore = get_vectorstore()
-        _product_retriever = vectorstore.as_retriever(
+        _manual_retriever = vectorstore.as_retriever(
             search_type="similarity",
             search_kwargs={
                 "k": 3,
-                "filter": lambda doc: doc.metadata.get("doc_type") == "product",
+                "filter": lambda doc: doc.metadata.get("doc_type") == "manual",
             },
         )
-    return _product_retriever
+    return _manual_retriever
 
 
 def get_policy_retriever():
@@ -113,46 +113,48 @@ def get_policy_retriever():
 
 
 @tool(response_format="content_and_artifact")
-def search_product_docs(query: str) -> tuple[str, list[Document]]:
-    """Search product documentation for specifications, features, and details.
+def search_manuals(query: str) -> tuple[str, list[Document]]:
+    """Search product manuals for specifications, setup, usage, and troubleshooting.
 
     Use this tool when users ask about:
-    - Product specifications (CPU, RAM, storage, ports, etc.)
+    - Product specifications
     - Features and capabilities
     - Setup and usage instructions
+    - Troubleshooting symptoms and error handling
+    - Safety notes and maintenance
     - Technical details
     - Product comparisons
 
     Args:
-        query: What to search for (e.g., "USB-C ports on MacBook", "Sony headphone battery life")
+        query: What to search for (e.g., "air purifier filter reset", "hair dryer cold start")
 
     Returns:
         Tuple of (formatted_content, documents) where:
         - formatted_content: Clean string for the LLM with product info
         - documents: List of raw Document objects for downstream use and tracing
     """
-    retriever = get_product_retriever()
+    retriever = get_manual_retriever()
 
     # Use retriever to get documents (better tracing in LangSmith)
     results = retriever.invoke(query)
 
     if not results:
-        return "No relevant product documentation found.", []
+        return "No relevant product manual content found.", []
 
     # Format results with sources for the LLM
     formatted_results = []
     for doc in results:
-        product_name = doc.metadata.get("product_name", "Unknown Product")
+        manual_name = doc.metadata.get("manual_name", "Unknown Manual")
         product_id = doc.metadata.get("product_id", "")
-        formatted_results.append(f"[{product_name} ({product_id})]\n{doc.page_content}")
+        formatted_results.append(f"[{manual_name} ({product_id})]\n{doc.page_content}")
 
     # Return tuple: (content for LLM, raw docs as artifact)
     return "\n\n---\n\n".join(formatted_results), results
 
 
 @tool(response_format="content_and_artifact")
-def search_policy_docs(query: str) -> tuple[str, list[Document]]:
-    """Search store policies including returns, warranties, and shipping information.
+def search_support_policies(query: str) -> tuple[str, list[Document]]:
+    """Search support policies including returns, warranties, repairs, refunds, and shipping.
 
     Use this tool when users ask about:
     - Return and refund policies
@@ -162,7 +164,7 @@ def search_policy_docs(query: str) -> tuple[str, list[Document]]:
     - General store policies
 
     Args:
-        query: What policy information to find (e.g., "return policy", "warranty coverage", "shipping times")
+        query: What policy information to find (e.g., "return policy", "warranty coverage", "repair ticket")
 
     Returns:
         Tuple of (formatted_content, documents) where:

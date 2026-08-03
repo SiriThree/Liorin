@@ -1,6 +1,6 @@
 # Simulations
 
-Automated conversation simulation for the deployed `customer_support_agent`.
+Automated conversation simulation for the deployed `support_agent`.
 
 The simulator can generate dynamic, data-grounded customer conversations or run
 fixed scenarios from `scenarios.json`. It is useful for smoke testing, LangSmith
@@ -23,7 +23,7 @@ uv run python simulations/run_simulation.py --url https://custom-deployment.lang
 
 ## Modes
 
-- `dynamic`: query the local TechHub database, choose a customer and archetype,
+- `dynamic`: query the local Liorin database, choose a customer and archetype,
   then generate a grounded opening query.
 - `static`: run hand-authored scenarios from `scenarios.json`.
 - `mixed`: combine static and dynamic scenarios.

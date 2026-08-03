@@ -1,0 +1,3 @@
+id,question,turns_json,expected_response_type,expect_clarification,expect_resolution,required_keywords,notes
+2001,这个功能不好用,"[""这个功能不好用"", ""我不知道"", ""还是不知道""]",handoff,1,0,人工,连续无效补充后转人工
+2002,This feature is not working,"[""This feature is not working"", ""I don't know"", ""I'm not sure""]",handoff,1,0,human,英文连续无效补充后转人工

@@ -1,4 +1,4 @@
-"""CI/CD regression gate for the TechHub customer support agent.
+"""CI/CD regression gate for the Liorin support agent.
 
 Runs offline correctness and tool-call evaluations against the production
 customer support graph. The process exits non-zero when the correctness pass
@@ -23,10 +23,10 @@ from pathlib import Path
 from dotenv import load_dotenv
 from langsmith import Client
 
-from agents import create_docs_agent, create_sql_agent, create_supervisor_hitl_agent
+from agents import create_knowledge_agent, create_order_agent, create_support_agent
 from evaluators import correctness_evaluator, count_total_tool_calls_evaluator
 
-DATASET_NAME = "techhub-baseline-ci"
+DATASET_NAME = "liorin-tracemind-baseline-ci"
 DATASET_PATH = Path(__file__).parent / "baseline_dataset.json"
 
 
@@ -103,10 +103,13 @@ def sync_dataset_from_json(client: Client, dataset_name: str, json_path: Path):
 
 
 def build_target_agent():
-    """Compose the production customer support agent."""
-    sql_agent = create_sql_agent()
-    docs_agent = create_docs_agent()
-    return create_supervisor_hitl_agent(database_agent=sql_agent, docs_agent=docs_agent)
+    """Compose the production Liorin support agent."""
+    order_agent = create_order_agent()
+    knowledge_agent = create_knowledge_agent()
+    return create_support_agent(
+        order_agent=order_agent,
+        knowledge_agent=knowledge_agent,
+    )
 
 
 def make_target_function(agent):
@@ -151,7 +154,7 @@ def main():
         data=dataset.name,
         evaluators=[correctness_evaluator, count_total_tool_calls_evaluator],
         experiment_prefix=experiment_prefix,
-        description="CI regression gate for customer_support_agent",
+        description="CI regression gate for support_agent",
         metadata=experiment_metadata,
         max_concurrency=5,
     )

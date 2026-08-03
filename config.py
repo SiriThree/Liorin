@@ -57,12 +57,12 @@ if Path("/deps/liorin").exists():
 else:
     BASE_PATH = Path(__file__).parent
 
-DEFAULT_DB_PATH = BASE_PATH / "data" / "structured" / "techhub.db"
+DEFAULT_DB_PATH = BASE_PATH / "data" / "structured" / "liorin.db"
 DEFAULT_VECTORSTORE_PATH = (
     BASE_PATH
     / "data"
     / "vector_stores"
-    / f"techhub_vectorstore_{DEFAULT_EMBEDDING_PROVIDER}.pkl"
+    / f"liorin_vectorstore_{DEFAULT_EMBEDDING_PROVIDER}.pkl"
 )
 
 # ============================================================================

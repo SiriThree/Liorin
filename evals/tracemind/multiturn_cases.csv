@@ -1,0 +1,9 @@
+id,question,turns_json,expected_question_type,expected_response_type,expected_source,expect_clarification,expect_resolution,required_keywords,notes
+1001,这个功能不好用,"[""这个功能不好用"", ""吹风机，故障，按启动开关没有反应""]",product,answer,吹风机手册.txt,1,1,启动,单轮补充同时补齐产品、任务类型和现象
+1002,我不会用这个,"[""我不会用这个"", ""空调，功能使用，我想开启自清洁运行功能""]",product,answer,空调手册.txt,1,1,自清洁,从模糊功能咨询收敛到空调自清洁
+1003,这个页面进不去,"[""这个页面进不去"", ""空气净化器，故障，模式设置页面没有反应""]",product,answer,空气净化器手册.txt,1,1,安全锁,产品和页面现象在一次追问中补齐
+1004,帮我看看,"[""帮我看看"", ""安装连接"", ""洗碗机，首次使用时需要连接排水口""]",product,answer,洗碗机手册.txt,1,1,排水,需要两次澄清后进入检索
+1005,这个功能不行,"[""这个功能不行"", ""故障报错"", ""吹风机"", ""按启动开关没有反应""]",product,answer,吹风机手册.txt,1,1,启动,按任务类型、产品、现象逐步收集
+1006,这个产品有问题,"[""这个产品有问题"", ""故障报错"", ""不是吹风机，是空调，型号 KFR-35GW"", ""开启自清洁时没有反应""]",product,answer,空调手册.txt,1,1,自清洁,包含产品纠正的澄清链路
+1007,This feature is not working,"[""This feature is not working"", ""Air purifier, feature usage, I need to set the operating mode""]",product,answer,空气净化器手册.txt,1,1,mode,英文模糊问题闭环
+1008,这个怎么安装,"[""这个怎么安装"", ""蒸汽清洁机，安装时不知道如何组装""]",product,answer,蒸汽清洁机手册.txt,1,1,组装,明确任务类型但缺产品目标

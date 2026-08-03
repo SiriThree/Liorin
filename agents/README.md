@@ -1,13 +1,13 @@
 # Agents
 
-Reusable agent factories for the TechHub support system.
+Reusable agent factories for the Liorin support system.
 
 | Agent | Purpose |
 |---|---|
-| `sql_agent.py` | Answers database questions with read-only SQL queries. |
-| `docs_agent.py` | Retrieves product documentation and policy information. |
-| `supervisor_agent.py` | Routes customer questions to the right specialist. |
-| `supervisor_hitl_agent.py` | Adds customer verification before account-specific work. |
+| `order_agent.py` | Answers structured-data questions with read-only SQL queries. |
+| `knowledge_agent.py` | Retrieves TraceMind product manuals and Liorin policy information. |
+| `conversation_supervisor.py` | Routes customer questions to the right specialist. |
+| `support_workflow.py` | Adds customer verification before account-specific work. |
 
-The production graph is created by `create_supervisor_hitl_agent()`, which
-defaults to the SQL database specialist and documentation specialist.
+The production graph is created by `create_support_agent()`, which defaults to
+the Order Agent and Knowledge Agent behind the Conversation Supervisor.

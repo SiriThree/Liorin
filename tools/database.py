@@ -1,4 +1,4 @@
-"""Database access tools for the TechHub customer support agent."""
+"""Database access tools for the Liorin support agent."""
 
 from langchain.tools import tool
 from langchain_community.utilities import SQLDatabase
@@ -18,7 +18,7 @@ def get_database() -> SQLDatabase:
 
 @tool
 def execute_sql(query: str) -> str:
-    """Execute a read-only SELECT query against the TechHub database."""
+    """Execute a read-only SELECT query against the Liorin database."""
     normalized_query = query.strip().upper()
     if not normalized_query.startswith("SELECT"):
         return "Error: Only SELECT queries are allowed."

@@ -1,0 +1,134 @@
+[
+  {
+    "ticket_id": "TCK-2026-0001",
+    "customer_id": "CUST-001",
+    "product_id": "LIO-PROD-001",
+    "order_id": "ORD-2026-0001",
+    "issue_type": "startup_failure",
+    "priority": "medium",
+    "status": "open",
+    "created_at": "2026-01-12",
+    "summary": "VR头显手册 after-sales support case"
+  },
+  {
+    "ticket_id": "TCK-2026-0002",
+    "customer_id": "CUST-002",
+    "product_id": "LIO-PROD-002",
+    "order_id": "ORD-2026-0002",
+    "issue_type": "noise_or_vibration",
+    "priority": "high",
+    "status": "pending_customer",
+    "created_at": "2026-01-16",
+    "summary": "人体工学椅手册 after-sales support case"
+  },
+  {
+    "ticket_id": "TCK-2026-0003",
+    "customer_id": "CUST-003",
+    "product_id": "LIO-PROD-003",
+    "order_id": "ORD-2026-0003",
+    "issue_type": "connectivity",
+    "priority": "low",
+    "status": "resolved",
+    "created_at": "2026-01-20",
+    "summary": "健身单车手册 after-sales support case"
+  },
+  {
+    "ticket_id": "TCK-2026-0004",
+    "customer_id": "CUST-004",
+    "product_id": "LIO-PROD-004",
+    "order_id": "ORD-2026-0004",
+    "issue_type": "battery_or_power",
+    "priority": "medium",
+    "status": "open",
+    "created_at": "2026-01-24",
+    "summary": "健身追踪器手册 after-sales support case"
+  },
+  {
+    "ticket_id": "TCK-2026-0005",
+    "customer_id": "CUST-005",
+    "product_id": "LIO-PROD-005",
+    "order_id": "ORD-2026-0005",
+    "issue_type": "water_leak",
+    "priority": "high",
+    "status": "pending_customer",
+    "created_at": "2026-01-28",
+    "summary": "儿童电动摩托车手册 after-sales support case"
+  },
+  {
+    "ticket_id": "TCK-2026-0006",
+    "customer_id": "CUST-002",
+    "product_id": "LIO-PROD-007",
+    "order_id": "ORD-2026-0007",
+    "issue_type": "performance_drop",
+    "priority": "low",
+    "status": "resolved",
+    "created_at": "2026-02-05",
+    "summary": "功能键盘手册 after-sales support case"
+  },
+  {
+    "ticket_id": "TCK-2026-0007",
+    "customer_id": "CUST-003",
+    "product_id": "LIO-PROD-008",
+    "order_id": "ORD-2026-0008",
+    "issue_type": "startup_failure",
+    "priority": "medium",
+    "status": "open",
+    "created_at": "2026-02-09",
+    "summary": "发电机手册 after-sales support case"
+  },
+  {
+    "ticket_id": "TCK-2026-0008",
+    "customer_id": "CUST-004",
+    "product_id": "LIO-PROD-009",
+    "order_id": "ORD-2026-0009",
+    "issue_type": "noise_or_vibration",
+    "priority": "high",
+    "status": "pending_customer",
+    "created_at": "2026-02-13",
+    "summary": "可编程温控器手册 after-sales support case"
+  },
+  {
+    "ticket_id": "TCK-2026-0009",
+    "customer_id": "CUST-005",
+    "product_id": "LIO-PROD-010",
+    "order_id": "ORD-2026-0010",
+    "issue_type": "connectivity",
+    "priority": "low",
+    "status": "resolved",
+    "created_at": "2026-02-17",
+    "summary": "吹风机手册 after-sales support case"
+  },
+  {
+    "ticket_id": "TCK-2026-0010",
+    "customer_id": "CUST-001",
+    "product_id": "LIO-PROD-011",
+    "order_id": "ORD-2026-0011",
+    "issue_type": "battery_or_power",
+    "priority": "medium",
+    "status": "open",
+    "created_at": "2026-02-21",
+    "summary": "摩托艇手册 after-sales support case"
+  },
+  {
+    "ticket_id": "TCK-2026-0011",
+    "customer_id": "CUST-003",
+    "product_id": "LIO-PROD-013",
+    "order_id": "ORD-2026-0013",
+    "issue_type": "water_leak",
+    "priority": "high",
+    "status": "pending_customer",
+    "created_at": "2026-03-01",
+    "summary": "洗碗机手册 after-sales support case"
+  },
+  {
+    "ticket_id": "TCK-2026-0012",
+    "customer_id": "CUST-004",
+    "product_id": "LIO-PROD-014",
+    "order_id": "ORD-2026-0014",
+    "issue_type": "performance_drop",
+    "priority": "low",
+    "status": "resolved",
+    "created_at": "2026-03-05",
+    "summary": "烤箱手册 after-sales support case"
+  }
+]
