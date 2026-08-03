@@ -311,7 +311,7 @@ def validate_customer_segments(cursor):
 
 
 def test_query_performance(cursor):
-    """Test query performance for key workshop scenarios."""
+    """Test query performance for key support scenarios."""
     print("\n" + "=" * 60)
     print("QUERY PERFORMANCE TEST")
     print("=" * 60)
@@ -374,7 +374,7 @@ def test_query_performance(cursor):
 
 
 def run_sample_queries(cursor):
-    """Run a few sample workshop queries."""
+    """Run a few sample support queries."""
     print("\n" + "=" * 60)
     print("SAMPLE QUERY RESULTS")
     print("=" * 60)
@@ -446,7 +446,7 @@ def main():
         print("\n" + "=" * 60)
         print("✓ ALL VALIDATIONS PASSED")
         print("=" * 60)
-        print("\nDatabase is ready for workshop use!")
+        print("\nDatabase is ready for support agent use!")
         print("Next steps:")
         print("  - Try queries from scripts/sample_queries.sql")
         print("  - Build multi-agent system using this database")

@@ -1,7 +1,7 @@
 # TechHub Database Schema
 
 **Database:** `techhub.db` (SQLite 3, 156 KB)  
-**Purpose:** E-commerce customer support system for workshop scenarios  
+**Purpose:** E-commerce customer support system for TechHub support scenarios
 **Records:** 50 customers, 25 products, 250 orders, 439 order items
 
 ## Tables Overview

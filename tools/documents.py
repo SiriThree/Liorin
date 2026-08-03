@@ -24,7 +24,7 @@ from langchain_core.vectorstores import InMemoryVectorStore
 
 from config import DEFAULT_VECTORSTORE_PATH
 
-# Module-level vectorstore and retrievers (lazy loaded)
+# Cached vectorstore and retrievers (lazy loaded)
 _vectorstore = None
 _product_retriever = None
 _policy_retriever = None

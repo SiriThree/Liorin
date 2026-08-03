@@ -1,4 +1,4 @@
--- Sample Queries for TechHub Workshop Scenarios
+-- Sample Queries for TechHub Support Scenarios
 -- These queries demonstrate the multi-agent system use cases
 
 -- ============================================================
@@ -119,7 +119,7 @@ WHERE order_id = 'ORD-2024-0001';
 -- ============================================================
 -- Scenario 8: Recent Orders Needing Attention
 -- ============================================================
--- Workshop scenario: Show orders still processing
+-- Support scenario: Show orders still processing
 
 -- Get processing orders (older than 3 days needs attention)
 SELECT order_id, customer_id, order_date, status, 
@@ -199,4 +199,3 @@ SELECT
 FROM orders
 WHERE shipped_date IS NOT NULL
 GROUP BY status;
-

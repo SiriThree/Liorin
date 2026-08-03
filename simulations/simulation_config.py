@@ -8,17 +8,17 @@ from typing import Literal
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from config import DEFAULT_MODEL, DEFAULT_DEPLOYMENT_URL, DEFAULT_DB_PATH  # noqa: F401 (re-exported)
 
-# Simulation Parameters
+# Simulation parameters
 DEFAULT_CONVERSATIONS_PER_RUN = 1  # GHA runs multiple times/day; keep per-run count low
 DEFAULT_SIMULATION_MODE = "dynamic"  # static | dynamic | mixed
 MAX_TURNS_PER_CONVERSATION = 8     # Prevent runaway conversations
 SIMULATION_MODEL = DEFAULT_MODEL  # Use same model as rest of project
 
-# Deployment Settings
-DEPLOYMENT_GRAPH_NAME = "supervisor_hitl_sql_agent"
+# Deployment settings
+DEPLOYMENT_GRAPH_NAME = "customer_support_agent"
 
 # Deployment URL from config (can be overridden via --url CLI arg)
-# Set LANGRAPH_DEPLOYMENT_URL in .env to configure
+# Set LANGGRAPH_DEPLOYMENT_URL in .env to configure
 
 # Scenario Selection Strategy
 SCENARIO_SELECTION: Literal["random", "round_robin", "all"] = "random"
@@ -34,7 +34,7 @@ RESULTS_DIR = SIMULATION_DIR / "results"  # Optional: save conversation logs
 # LangSmith Tagging
 SIMULATION_METADATA = {
     "source": "automated_simulation",
-    "system": "techhub_demo_generator",
+    "system": "liorin_simulation",
     "environment": "production"
 }
 

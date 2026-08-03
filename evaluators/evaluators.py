@@ -1,10 +1,4 @@
-"""
-Evaluators for TechHub customer support agent evaluation.
-
-This module contains evaluators developed in Module 2, Section 1 for measuring
-agent performance on our baseline dataset. These evaluators help us quantify
-how well our agent performs and identify areas for improvement.
-"""
+"""Evaluators for TechHub customer support agent evaluation."""
 
 from langchain.chat_models import init_chat_model
 from langsmith.schemas import Run

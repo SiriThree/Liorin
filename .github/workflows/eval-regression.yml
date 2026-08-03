@@ -1,7 +1,6 @@
-# Offline eval regression gate for the TechHub supervisor agent.
+# Offline eval regression gate for the TechHub customer support agent.
 #
-# Runs the Module 2 correctness + tool-call evaluators against
-# supervisor_hitl_sql_agent on every PR that touches agent-relevant code.
+# Runs correctness + tool-call evaluators against the production graph.
 # Fails the check (blocking merge) if the correctness pass rate drops below
 # the threshold in evals/run_ci_eval.py.
 
@@ -19,7 +18,7 @@ on:
       - 'deployments/**'
       - 'evals/**'
       - 'config.py'
-      - 'workshop_modules/module_2/baseline_dataset.json'
+      - 'evals/baseline_dataset.json'
 
 jobs:
   eval:
@@ -29,8 +28,8 @@ jobs:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       LANGSMITH_API_KEY: ${{ secrets.LANGSMITH_API_KEY }}
       LANGSMITH_TRACING: "true"
-      LANGSMITH_PROJECT: "langsmith-agent-lifecycle-workshop-ci"
-      WORKSHOP_MODEL: "anthropic:claude-haiku-4-5"
+      LANGSMITH_PROJECT: "liorin-ci"
+      LIORIN_MODEL: "anthropic:claude-haiku-4-5"
       # Route embeddings through LangSmith's LLM Gateway (private beta) instead
       # of a raw OpenAI key: the gateway authenticates with LANGSMITH_API_KEY
       # and resolves the actual OpenAI credential from workspace Provider

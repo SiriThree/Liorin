@@ -1,197 +1,106 @@
-# AI Engineering Lifecycle on LangSmith Platform
+# Liorin
 
-Enterprise workshop series teaching the complete AI engineering lifecycle using LangChain, LangGraph, and LangSmith—centered around building a customer support agent for a fictional online technology e-commerce store called TechHub.
+Liorin is a LangGraph customer support agent for TechHub, a synthetic technology
+e-commerce store. It answers customer questions by combining:
 
-<div align="center">
-    <img src="images/main_graphic.png">
-</div>
+- SQL access to order, customer, product, and order-item data
+- Retrieval over product documentation and store policies
+- Customer email verification for account- and order-specific requests
+- A supervisor that routes work to database and documentation specialists
 
-## What You'll Build
+## Architecture
 
-A customer support agent system featuring:
-- **Multi-agent architecture** with specialized Database and Documents agents coordinated by a Supervisor
-- **Human-in-the-loop (HITL)** customer verification with LangGraph primitives
-- **Evaluation-driven development** using offline evaluation to identify and fix bottlenecks
-- **Production deployment** to LangSmith with online evaluation and data flywheels for continuous improvement
-
-## Quick Setup
-
-This workshop uses [uv](https://docs.astral.sh/uv/) - a fast Python package installer and resolver. If you don't have it:
-
-```bash
-# Install uv
-curl -LsSf https://astral.sh/uv/install.sh | sh
+```text
+customer_support_agent
+  -> query_router
+  -> verify_customer / collect_email
+  -> supervisor_agent
+      -> sql_agent
+      -> docs_agent
 ```
 
-Then set up the workshop:
+The single production graph is configured in `langgraph.json` as
+`customer_support_agent`.
+
+## Setup
+
+Install dependencies with `uv`:
 
 ```bash
-# Clone repository
-git clone https://github.com/langchain-ai/langsmith-agent-lifecycle-workshop.git
-cd langsmith-agent-lifecycle-workshop
-
-# Install dependencies (creates virtual environment automatically)
 uv sync
-
-# Configure API keys
-cp .env.example .env
-# Edit .env and add your API keys:
-#   ANTHROPIC_API_KEY=sk-ant-...
-#   LANGSMITH_API_KEY=lsv2_pt_...
-
-# Build vectorstore (one-time setup, ~60 seconds)
-uv run python data/data_generation/build_vectorstore.py
-
-# Launch Jupyter
-uv run jupyter lab
 ```
 
-### Embedding Configuration (Optional)
-
-By default, the vectorstore uses **HuggingFace embeddings** (local model, no API key required). If you're in an environment where downloading models from HuggingFace is restricted, you can use **OpenAI embeddings** instead:
+Create a `.env` file from the example and add the model provider keys you plan
+to use:
 
 ```bash
-# Add to your .env file:
-EMBEDDING_PROVIDER=openai
+cp .env.example .env
+```
 
-# Rebuild the vectorstore with OpenAI embeddings
+By default, the agent uses:
+
+- `LIORIN_MODEL=anthropic:claude-haiku-4-5`
+- `EMBEDDING_PROVIDER=huggingface`
+
+The vector store is generated on demand, or you can build it explicitly:
+
+```bash
 uv run python data/data_generation/build_vectorstore.py
 ```
 
-## Workshop Outline
+## Run Locally
 
-This workshop consists of three modules that take you from manual tool calling to production deployment:
+Start LangGraph locally:
 
-1. **Module 1: Agent Development** - Build from basics to multi-agent systems with HITL
-2. **Module 2: Evaluation & Improvement** - Use eval-driven development to systematically improve agents
-3. **Module 3: Deployment & Continuous Improvement** - Deploy to production and build a data flywheel
-
-📚 To get started, see [workshop_modules/README.md](workshop_modules/README.md)
-
-## Continuous Evaluation (CI/CD)
-
-Every PR that touches agent-relevant code (`agents/`, `tools/`, `evaluators/`, `deployments/`, `evals/`, `config.py`) is automatically evaluated against the Module 2 baseline dataset — the same `correctness` and `total_tool_calls` evaluators from Module 2, wired into GitHub Actions as a merge-blocking regression test rather than something you have to remember to run by hand.
-
-- **See it in code:** [`evals/run_ci_eval.py`](evals/run_ci_eval.py) and [`.github/workflows/eval-regression.yml`](.github/workflows/eval-regression.yml)
-- **See it explained:** [`workshop_modules/module_3/section_3_cicd_regression_gate.ipynb`](workshop_modules/module_3/section_3_cicd_regression_gate.ipynb)
-- **Demo it live:** run `./scripts/demo_ci_pr.sh` to open a throwaway PR that only touches `evals/DEMO_TRIGGER.md` — no real agent/eval code changes — so you can show the gate triggering and passing (or failing) an audience without needing a real code change every time. Close the PR without merging when you're done.
-
-## Repo Structure
-
-```
-langsmith-agent-lifecycle-workshop/
-├── workshop_modules/        # Interactive Jupyter notebooks
-│   ├── module_1/            # Agent Development (4 sections)
-│   ├── module_2/            # Evaluation & Improvement (3 sections)
-│   └── module_3/            # Deployment & Continuous Improvement (3 sections)
-│
-├── agents/                  # Reusable agent factory functions
-│   ├── db_agent.py          # Database queries (rigid tools)
-│   ├── sql_agent.py         # Flexible SQL generation (improved)
-│   ├── docs_agent.py        # RAG for product docs & policies
-│   ├── supervisor_agent.py  # Multi-agent coordinator
-│   └── supervisor_hitl_agent.py  # Full verification + routing system
-│
-├── tools/                   # Database & document search tools
-│   ├── database.py          # 6 DB tools (orders, products, SQL)
-│   └── documents.py         # 2 RAG tools (products, policies)
-│
-├── evaluators/              # Evaluation metrics
-│   └── evaluators.py        # Correctness & tool call counters
-│
-├── evals/                   # CI/CD regression gate
-│   ├── run_ci_eval.py       # Runs Module 2 evaluators, gates on threshold
-│   └── DEMO_TRIGGER.md      # No-op file for demoing the CI gate via a PR
-│
-├── deployments/             # Production-ready graph configurations
-│   ├── db_agent_graph.py                   # Baseline database agent
-│   ├── docs_agent_graph.py                 # RAG documents agent
-│   ├── sql_agent_graph.py                  # Improved SQL agent
-│   ├── supervisor_agent_graph.py           # Basic supervisor
-│   ├── supervisor_hitl_agent_graph.py      # Supervisor with verification
-│   └── supervisor_hitl_sql_agent_graph.py  # Complete system (best)
-│
-├── data/                    # Complete dataset & generation scripts
-│   ├── structured/          # SQLite DB + JSON files
-│   ├── documents/           # Markdown docs for RAG
-│   ├── vector_stores/       # Pre-built vectorstore
-│   └── data_generation/     # Scripts to regenerate data
-│
-├── scripts/                 # Maintenance & demo scripts
-│   └── demo_ci_pr.sh        # Opens a throwaway PR to demo the eval gate
-│
-├── .github/workflows/       # CI/CD
-│   ├── eval-regression.yml  # Eval Regression Gate (this section)
-│   └── simulate_traffic.yml # Simulated production traffic for demos
-│
-├── config.py                # Workshop-wide configuration
-├── langgraph.json           # LangGraph deployment config
-└── pyproject.toml           # Dependencies
+```bash
+uv run langgraph dev
 ```
 
-## Key Concepts Covered
+The graph exposed by the local server is `customer_support_agent`.
 
-- **Agent Development:** Tool calling, multi-agent systems, supervisor pattern, HITL with interrupts
-- **Evaluation & Testing:** Offline evaluation, LLM-as-judge, trace metrics, eval-driven development
-- **Deployment & Production:** LangSmith deployments, online evaluation, annotation queues, SDK integration
-- **Best Practices:** Factory functions, state management, dynamic prompts, structured outputs, streaming
+## Project Structure
 
-See [workshop_modules/README.md](workshop_modules/README.md) for detailed breakdown by module.
+```text
+agents/
+  sql_agent.py                 # SQL database specialist
+  docs_agent.py                # Product and policy documentation specialist
+  supervisor_agent.py          # Routes between specialists
+  supervisor_hitl_agent.py     # Verification + supervisor graph
+tools/
+  database.py                  # Read-only SQL execution and DB connection
+  documents.py                 # Product and policy retrieval tools
+deployments/
+  customer_support_agent_graph.py
+evals/
+  baseline_dataset.json
+  run_ci_eval.py
+evaluators/
+simulations/
+data/
+config.py
+langgraph.json
+```
 
-## Dataset Overview
+## Evaluation
 
-The **TechHub dataset** is a high-quality synthetic e-commerce dataset:
-- **50 customers** across consumer, corporate, and home office segments
-- **25 products** (laptops, monitors, keyboards, audio, accessories)
-- **250 orders** spanning 2 years with realistic patterns
-- **439 order items** with product affinity patterns
-- **SQLite database** (156 KB) with full schema and indexes
-- **30 documents** (25 product specs + 5 policies) for RAG
+The CI regression gate runs the production agent against
+`evals/baseline_dataset.json` with correctness and tool-call evaluators:
 
-All data is ready to use! See `data/data_generation/README.md` for details.
+```bash
+uv run python evals/run_ci_eval.py --threshold 0.8
+```
 
-## Additional Resources
+This requires `LANGSMITH_API_KEY` and a model provider key in the environment.
 
-### Documentation
-- **Data Generation Guide:** `data/data_generation/README.md` - Complete dataset documentation
-- **Database Schema:** `data/structured/SCHEMA.md` - Full schema reference
-- **RAG Documents:** `data/documents/DOCUMENTS_OVERVIEW.md` - Document corpus guide
-- **Agent Architecture:** `agents/README.md` - Agent factory patterns
+## Data
 
-### External Links
-- [LangChain Python Docs](https://python.langchain.com)
-- [LangGraph Python Docs](https://langchain-ai.github.io/langgraph)
-- [LangSmith Platform](https://smith.langchain.com)
-- [LangChain Academy](https://academy.langchain.com)
+The included TechHub dataset is synthetic:
 
-## Prerequisites
+- 50 customers
+- 25 products
+- 250 orders
+- 439 order items
+- 30 Markdown documents for product specs, compatibility, support, warranty,
+  shipping, and returns
 
-### Required (Complete Before Workshop)
-
-Free courses from [LangChain Academy](https://academy.langchain.com):
-- [LangChain Essentials - Python](https://academy.langchain.com/courses/langchain-essentials-python) (30 min)
-- [LangGraph Essentials - Python](https://academy.langchain.com/courses/langgraph-essentials-python) (1 hour)
-- [LangSmith Essentials](https://academy.langchain.com/courses/quickstart-langsmith-essentials) (30 min)
-
-### Recommended (For Deeper Understanding)
-
-- [Foundation: Introduction to LangGraph](https://academy.langchain.com/courses/intro-to-langgraph) (6 hours)
-- [Foundation: Introduction to Agent Observability & Evaluations](https://academy.langchain.com/courses/intro-to-langsmith) (3.5 hours)
-
-### Technical Requirements
-
-- **Python 3.10+**
-- **API Keys:**
-  - LangSmith (free tier: [smith.langchain.com](https://smith.langchain.com))
-  - Anthropic or OpenAI (workshop uses Claude Haiku 4.5 by default)
-- **Tools:** Git, Jupyter, uv (or pip)
-
-## License
-
-This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
-
-Educational workshop materials. Synthetic dataset free to use and distribute.
-
----
-
-**Ready to begin?** Open `workshop_modules/module_1/section_1_foundation.ipynb` and start building! 🚀
+The SQLite database is at `data/structured/techhub.db`.

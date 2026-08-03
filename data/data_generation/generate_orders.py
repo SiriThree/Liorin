@@ -189,7 +189,7 @@ def adjust_status_distribution(orders, current_date):
     """
     Adjust order statuses to match target distribution.
 
-    This ensures workshop scenarios have enough examples of each status type,
+    This ensures support scenarios have enough examples of each status type,
     even though naturally most old orders would be delivered.
     """
     target_delivered = int(0.80 * len(orders))  # 200
@@ -291,7 +291,7 @@ def generate_orders(customers, current_date=CURRENT_DATE):
     orders.sort(key=lambda x: x["order_id"])
 
     # Adjust distribution to match targets (80% Delivered, 12% Shipped, 7% Processing, 1% Cancelled)
-    # This ensures workshop scenarios have enough examples of each status
+    # This ensures support scenarios have enough examples of each status
     print("Adjusting status distribution to match targets...")
     orders = adjust_status_distribution(orders, current_date)
 

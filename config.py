@@ -1,12 +1,4 @@
-"""
-Workshop-wide configuration for the AI Engineering Lifecycle workshop.
-
-All default settings can be customized via environment variables in .env file.
-This makes it easy to adapt the workshop for different:
-- Model providers (OpenAI, Anthropic, Azure, etc.)
-- Model versions (GPT-4, Claude Sonnet, etc.)
-- Performance profiles (fast models vs. high-quality models)
-"""
+"""Configuration for the Liorin customer support agent."""
 
 import os
 from dataclasses import dataclass
@@ -17,14 +9,14 @@ from typing import Literal
 # MODEL CONFIGURATION
 # ============================================================================
 
-# Primary model used by all agents throughout the workshop
-# Set WORKSHOP_MODEL in .env to change the model for all sections
+# Primary model used by all agents.
+# Set LIORIN_MODEL in .env to change the model.
 # Examples:
 #   - "anthropic:claude-haiku-4-5" (fast, cost-effective)
 #   - "anthropic:claude-sonnet-4" (balanced)
 #   - "openai:gpt-5-mini" (fast, OpenAI)
 #   - "openai:gpt-5-nano" (lightweight, OpenAI)
-DEFAULT_MODEL = os.getenv("WORKSHOP_MODEL", "anthropic:claude-haiku-4-5")
+DEFAULT_MODEL = os.getenv("LIORIN_MODEL", "anthropic:claude-haiku-4-5")
 
 # ============================================================================
 # EMBEDDING CONFIGURATION
@@ -45,10 +37,6 @@ class Context:
     """Runtime configuration for all agents.
 
     This enables model selection in LangSmith Studio's configurable Assistants UI.
-    When deployed, users can choose from these models via a dropdown.
-
-    The model options are constrained to ensure compatibility and provide
-    a curated experience in the workshop.
     """
 
     model: Literal[
@@ -64,11 +52,9 @@ class Context:
 # ============================================================================
 
 # Determine the base path (works in both local dev and LS deployment environments)
-if Path("/deps/langsmith-agent-lifecycle-workshop").exists():
-    # Running in LangSmith deployment (data files are at /deps, not /api)
-    BASE_PATH = Path("/deps/langsmith-agent-lifecycle-workshop")
+if Path("/deps/liorin").exists():
+    BASE_PATH = Path("/deps/liorin")
 else:
-    # Running locally
     BASE_PATH = Path(__file__).parent
 
 DEFAULT_DB_PATH = BASE_PATH / "data" / "structured" / "techhub.db"

@@ -81,7 +81,7 @@
       "expected_flow": [
         "classification -> verify_customer",
         "collect_email (interrupt)",
-        "supervisor -> db_agent (simpler query)",
+        "supervisor -> sql_agent (order lookup)",
         "2-3 turns, straightforward resolution"
       ],
       "tags": ["order_tracking", "simple_query", "hitl", "positive_experience"]
@@ -237,7 +237,7 @@
       "expected_flow": [
         "classification -> verify_customer",
         "collect_email (interrupt)",
-        "supervisor -> db_agent (order status)",
+        "supervisor -> sql_agent (order status)",
         "likely remains frustrated, demands updates"
       ],
       "tags": ["negative_sentiment", "order_issue", "urgent", "hitl", "complaint"]
@@ -283,7 +283,6 @@
       "no_verification": 2,
       "uses_sql_agent": 5,
       "uses_docs_agent": 3,
-      "uses_db_agent": 2,
       "sentiment_neutral": 6,
       "sentiment_positive": 2,
       "sentiment_negative": 2

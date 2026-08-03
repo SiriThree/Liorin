@@ -1,11 +1,8 @@
-"""
-CI/CD regression gate for the TechHub supervisor agent.
+"""CI/CD regression gate for the TechHub customer support agent.
 
-Runs the same offline evaluation built in Module 2 (correctness + tool-call
-count) against the full supervisor_hitl_sql_agent, and fails (exit code 1)
-if the correctness pass rate drops below --threshold. Intended to run in
-.github/workflows/eval-regression.yml on every PR touching agent code, but
-can also be run locally:
+Runs offline correctness and tool-call evaluations against the production
+customer support graph. The process exits non-zero when the correctness pass
+rate falls below --threshold.
 
     uv run python evals/run_ci_eval.py
     uv run python evals/run_ci_eval.py --threshold 0.9
@@ -30,12 +27,7 @@ from agents import create_docs_agent, create_sql_agent, create_supervisor_hitl_a
 from evaluators import correctness_evaluator, count_total_tool_calls_evaluator
 
 DATASET_NAME = "techhub-baseline-ci"
-DATASET_PATH = (
-    Path(__file__).parent.parent
-    / "workshop_modules"
-    / "module_2"
-    / "baseline_dataset.json"
-)
+DATASET_PATH = Path(__file__).parent / "baseline_dataset.json"
 
 
 def get_experiment_prefix_and_metadata():
@@ -75,9 +67,7 @@ def sync_dataset_from_json(client: Client, dataset_name: str, json_path: Path):
     from the JSON file) on every call so the git-tracked JSON file remains
     the single source of truth for the CI regression fixture.
 
-    Mirrors the {"question": ...} -> {"messages": [...]} transform from
-    workshop_modules/module_2/section_1_baseline_evaluation.ipynb, so the
-    dataset is directly invokable against a MessagesState-based agent graph.
+    The JSON fixture stays the source of truth for CI and local evaluations.
     """
     raw_examples = json.loads(json_path.read_text())
     examples = [
@@ -105,8 +95,7 @@ def sync_dataset_from_json(client: Client, dataset_name: str, json_path: Path):
     else:
         dataset = client.create_dataset(
             dataset_name=dataset_name,
-            description="CI regression fixture, synced from "
-            "workshop_modules/module_2/baseline_dataset.json",
+            description="CI regression fixture, synced from evals/baseline_dataset.json",
         )
 
     client.create_examples(dataset_id=dataset.id, examples=examples)
@@ -114,13 +103,10 @@ def sync_dataset_from_json(client: Client, dataset_name: str, json_path: Path):
 
 
 def build_target_agent():
-    """Compose the full supervisor HITL agent with the improved SQL sub-agent.
-
-    Mirrors workshop_modules/module_2/section_2_eval_driven_development.ipynb.
-    """
+    """Compose the production customer support agent."""
     sql_agent = create_sql_agent()
     docs_agent = create_docs_agent()
-    return create_supervisor_hitl_agent(db_agent=sql_agent, docs_agent=docs_agent)
+    return create_supervisor_hitl_agent(database_agent=sql_agent, docs_agent=docs_agent)
 
 
 def make_target_function(agent):
@@ -165,7 +151,7 @@ def main():
         data=dataset.name,
         evaluators=[correctness_evaluator, count_total_tool_calls_evaluator],
         experiment_prefix=experiment_prefix,
-        description="CI regression gate for supervisor_hitl_sql_agent",
+        description="CI regression gate for customer_support_agent",
         metadata=experiment_metadata,
         max_concurrency=5,
     )
