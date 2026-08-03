@@ -1,0 +1,53 @@
+# Offline eval regression gate for the TechHub supervisor agent.
+#
+# Runs the Module 2 correctness + tool-call evaluators against
+# supervisor_hitl_sql_agent on every PR that touches agent-relevant code.
+# Fails the check (blocking merge) if the correctness pass rate drops below
+# the threshold in evals/run_ci_eval.py.
+
+name: Eval Regression Gate
+
+permissions:
+  contents: read
+
+on:
+  pull_request:
+    paths:
+      - 'agents/**'
+      - 'tools/**'
+      - 'evaluators/**'
+      - 'deployments/**'
+      - 'evals/**'
+      - 'config.py'
+      - 'workshop_modules/module_2/baseline_dataset.json'
+
+jobs:
+  eval:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      LANGSMITH_API_KEY: ${{ secrets.LANGSMITH_API_KEY }}
+      LANGSMITH_TRACING: "true"
+      LANGSMITH_PROJECT: "langsmith-agent-lifecycle-workshop-ci"
+      WORKSHOP_MODEL: "anthropic:claude-haiku-4-5"
+      # Route embeddings through LangSmith's LLM Gateway (private beta) instead
+      # of a raw OpenAI key: the gateway authenticates with LANGSMITH_API_KEY
+      # and resolves the actual OpenAI credential from workspace Provider
+      # Secrets. Requires the org to have gateway access - if this org loses
+      # access or the beta changes, drop these 3 vars to fall back to the
+      # default local HuggingFace embeddings (see build_vectorstore.py).
+      EMBEDDING_PROVIDER: "openai"
+      OPENAI_API_KEY: ${{ secrets.LANGSMITH_API_KEY }}
+      OPENAI_BASE_URL: "https://gateway.smith.langchain.com/openai/v1"
+      # PR/commit context so LangSmith experiment names + metadata are
+      # traceable back to the PR that produced them (see run_ci_eval.py).
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+      COMMIT_SHA: ${{ github.event.pull_request.head.sha }}
+      BRANCH_NAME: ${{ github.head_ref }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v4
+      - run: uv sync
+      - run: uv run python data/data_generation/build_vectorstore.py
+      - run: uv run python evals/run_ci_eval.py --threshold 0.8

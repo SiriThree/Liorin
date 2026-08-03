@@ -1,0 +1,83 @@
+# Simulates realistic customer support traffic for TechHub to keep LangSmith
+# monitoring dashboards looking like a live production system.
+#
+# Traffic shape:
+#   - Daytime (8am-8pm ET): every ~2hrs with irregular minute offsets, 1-3 convos/run
+#   - Overnight (9pm-7am ET): sparse single-convo runs every ~3hrs to avoid a
+#     hard drop-to-zero on charts — mimics off-hours tickets from other time zones
+#   - Weekends: lighter daytime cadence (~every 4hrs), same overnight baseline
+#
+# Count is randomized per run (weekdays 1-3, weekends/overnight 1) so volume
+# looks organic rather than uniform. Manual dispatch overrides count and mode.
+
+name: Simulate TechHub Traffic
+permissions:
+  contents: read
+
+on:
+  schedule:
+    # --- Weekday daytime (~every 2hrs, 8am-8pm ET) ---
+    - cron: '15 12 * * 1-5'   # ~8:15am ET
+    - cron: '40 14 * * 1-5'   # ~10:40am ET
+    - cron: '10 17 * * 1-5'   # ~1:10pm ET
+    - cron: '25 19 * * 1-5'   # ~3:25pm ET
+    - cron: '50 21 * * 1-5'   # ~5:50pm ET
+    - cron: '05 23 * * 1-5'   # ~7:05pm ET
+
+    # --- Overnight baseline, every day (keeps charts from flatlining) ---
+    - cron: '35 01 * * *'     # ~9:35pm ET
+    - cron: '20 04 * * *'     # ~12:20am ET
+    - cron: '50 06 * * *'     # ~2:50am ET
+    - cron: '15 09 * * *'     # ~5:15am ET
+    - cron: '40 11 * * *'     # ~7:40am ET
+
+    # --- Weekend daytime (~every 4hrs, lighter) ---
+    - cron: '30 13 * * 0,6'   # ~9:30am ET
+    - cron: '45 17 * * 0,6'   # ~1:45pm ET
+    - cron: '15 21 * * 0,6'   # ~5:15pm ET
+
+  workflow_dispatch:
+    inputs:
+      count:
+        description: 'Number of conversations'
+        default: '2'
+      mode:
+        description: 'Scenario mode (static/dynamic/mixed)'
+        default: 'dynamic'
+
+jobs:
+  simulate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v4
+      - run: uv sync
+      - run: |
+          if [ -n "${{ github.event.inputs.count }}" ]; then
+            # Manual dispatch: use the specified count
+            COUNT="${{ github.event.inputs.count }}"
+          else
+            HOUR=$(date +%H)  # UTC hour (0-23)
+            DAY=$(date +%u)   # 1=Mon ... 7=Sun
+
+            # Overnight hours (UTC 01-11 = ~9pm-7am ET): always 1 convo to keep
+            # traffic trickling without inflating volume during off-hours
+            if [ "$HOUR" -ge 1 ] && [ "$HOUR" -le 11 ]; then
+              COUNT=1
+            elif [ "$DAY" -ge 6 ]; then
+              COUNT=$(( (RANDOM % 2) + 1 ))  # weekends: 1-2
+            else
+              COUNT=$(( (RANDOM % 3) + 1 ))  # weekdays: 1-3
+            fi
+          fi
+
+          MODE=${{ github.event.inputs.mode || 'dynamic' }}
+          uv run python simulations/run_simulation.py --count $COUNT --mode $MODE
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          LANGSMITH_API_KEY: ${{ secrets.LANGSMITH_API_KEY }}
+          LANGSMITH_TRACING: "true"
+          LANGSMITH_PROJECT: "langsmith-agent-lifecycle-workshop"
+          LANGGRAPH_DEPLOYMENT_URL: ${{ secrets.LANGGRAPH_DEPLOYMENT_URL }}
+          WORKSHOP_MODEL: "anthropic:claude-haiku-4-5"
