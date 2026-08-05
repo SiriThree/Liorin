@@ -1,0 +1,813 @@
+[
+  {
+    "id": "UND7-0001",
+    "layer": "query_understanding",
+    "category": "explicit_product_0",
+    "difficulty": "easy",
+    "template_family": "explicit_product_0",
+    "input": {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "孩子使用VR后出现头晕、恶心或身体不适时，应该立即停止使用吗，症状持续又该怎么办？"
+        }
+      ],
+      "question": "孩子使用VR后出现头晕、恶心或身体不适时，应该立即停止使用吗，症状持续又该怎么办？"
+    },
+    "gold": {
+      "entities": {
+        "product_name": "VR头显",
+        "product_id": "LIO-PROD-001",
+        "product_model": null,
+        "product_alias": null,
+        "accessory_model": null,
+        "error_code": null
+      },
+      "task_type": "product_support",
+      "requirements": [
+        {
+          "concept_id": "manual:LIO-PROD-001-H007",
+          "description": "孩子使用VR后出现头晕、恶心或身体不适时，应该立即停止使用吗，症状持续又该怎么办"
+        }
+      ],
+      "needs_clarification": false,
+      "clarification_slots": [],
+      "rewrite_semantic_contract": {
+        "must_preserve": [
+          "manual:LIO-PROD-001-H007",
+          "VR头显"
+        ],
+        "must_not_invent": [
+          "order_id",
+          "customer_id",
+          "warranty_status",
+          "completed_business_action"
+        ]
+      },
+      "supporting_source_refs": [
+        {
+          "source_file": "LIO-PROD-001_VR头显手册.md",
+          "chunk_id": "LIO-PROD-001-H007",
+          "heading": "出现以下症状时请立即停止游玩"
+        }
+      ],
+      "required_atomic_facts": []
+    },
+    "split": "dev",
+    "annotation": {
+      "construction": "source-grounded curation",
+      "review_status": "semantic consistency checked",
+      "human_double_annotation": false,
+      "dataset_version": "v7.3",
+      "review_method": "source-grounding checks + cross-split leakage audit + independent model-assisted semantic review"
+    },
+    "surface_template_id": "87b629c6caa8"
+  },
+  {
+    "id": "UND7-0002",
+    "layer": "query_understanding",
+    "category": "explicit_product_1",
+    "difficulty": "easy",
+    "template_family": "explicit_product_1",
+    "input": {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "VR头显提示温度过高时还能继续玩吗，正确处理方式是什么？"
+        }
+      ],
+      "question": "VR头显提示温度过高时还能继续玩吗，正确处理方式是什么？"
+    },
+    "gold": {
+      "entities": {
+        "product_name": "VR头显",
+        "product_id": "LIO-PROD-001",
+        "product_model": null,
+        "product_alias": null,
+        "accessory_model": null,
+        "error_code": null
+      },
+      "task_type": "product_support",
+      "requirements": [
+        {
+          "concept_id": "manual:LIO-PROD-001-H025",
+          "description": "VR头显提示温度过高时还能继续玩吗，正确处理方式是什么"
+        }
+      ],
+      "needs_clarification": false,
+      "clarification_slots": [],
+      "rewrite_semantic_contract": {
+        "must_preserve": [
+          "manual:LIO-PROD-001-H025",
+          "VR头显"
+        ],
+        "must_not_invent": [
+          "order_id",
+          "customer_id",
+          "warranty_status",
+          "completed_business_action"
+        ]
+      },
+      "supporting_source_refs": [
+        {
+          "source_file": "LIO-PROD-001_VR头显手册.md",
+          "chunk_id": "LIO-PROD-001-H025",
+          "heading": "高温提示"
+        }
+      ],
+      "required_atomic_facts": []
+    },
+    "split": "dev",
+    "annotation": {
+      "construction": "source-grounded curation",
+      "review_status": "semantic consistency checked",
+      "human_double_annotation": false,
+      "dataset_version": "v7.3",
+      "review_method": "source-grounding checks + cross-split leakage audit + independent model-assisted semantic review"
+    },
+    "surface_template_id": "ce1f94bac9b5"
+  },
+  {
+    "id": "ROU7-0001",
+    "layer": "routing",
+    "category": "manual_need_0",
+    "difficulty": "easy",
+    "template_family": "manual_need_0",
+    "input": {
+      "question": "孩子使用VR后出现头晕、恶心或身体不适时，应该立即停止使用吗，症状持续又该怎么办？",
+      "conversation": [
+        {
+          "role": "user",
+          "content": "孩子使用VR后出现头晕、恶心或身体不适时，应该立即停止使用吗，症状持续又该怎么办？"
+        }
+      ]
+    },
+    "gold": {
+      "required_sources": [
+        "manual"
+      ],
+      "conditional_sources": [],
+      "optional_sources": [
+        "faq"
+      ],
+      "forbidden_sources": [
+        "policy",
+        "database",
+        "ticket_history"
+      ],
+      "expected_plan": {
+        "min_queries": 1,
+        "parallelizable": false
+      },
+      "required_atomic_facts": []
+    },
+    "split": "dev",
+    "annotation": {
+      "construction": "scenario-curated",
+      "review_status": "source necessity reviewed",
+      "human_double_annotation": false,
+      "dataset_version": "v7.3",
+      "review_method": "source-grounding checks + cross-split leakage audit + independent model-assisted semantic review"
+    },
+    "surface_template_id": "87b629c6caa8"
+  },
+  {
+    "id": "ROU7-0002",
+    "layer": "routing",
+    "category": "manual_need_1",
+    "difficulty": "easy",
+    "template_family": "manual_need_1",
+    "input": {
+      "question": "调节人体工学椅高度时，身体姿势和升降拉杆应该怎么配合？",
+      "conversation": [
+        {
+          "role": "user",
+          "content": "调节人体工学椅高度时，身体姿势和升降拉杆应该怎么配合？"
+        }
+      ]
+    },
+    "gold": {
+      "required_sources": [
+        "manual"
+      ],
+      "conditional_sources": [],
+      "optional_sources": [
+        "faq"
+      ],
+      "forbidden_sources": [
+        "policy",
+        "database",
+        "ticket_history"
+      ],
+      "expected_plan": {
+        "min_queries": 1,
+        "parallelizable": false
+      },
+      "required_atomic_facts": []
+    },
+    "split": "dev",
+    "annotation": {
+      "construction": "scenario-curated",
+      "review_status": "source necessity reviewed",
+      "human_double_annotation": false,
+      "dataset_version": "v7.3",
+      "review_method": "source-grounding checks + cross-split leakage audit + independent model-assisted semantic review"
+    },
+    "surface_template_id": "6efaa3929d2d"
+  },
+  {
+    "id": "RET7-0001",
+    "layer": "retrieval",
+    "category": "manual_single_requirement",
+    "difficulty": "medium",
+    "template_family": "manual_single_safety_symptom",
+    "input": {
+      "query": "孩子使用VR后出现头晕、恶心或身体不适时，应该立即停止使用吗，症状持续又该怎么办？",
+      "conversation": [
+        {
+          "role": "user",
+          "content": "孩子使用VR后出现头晕、恶心或身体不适时，应该立即停止使用吗，症状持续又该怎么办？"
+        }
+      ],
+      "source_scope": "manual",
+      "filters": {
+        "product_id": "LIO-PROD-001"
+      }
+    },
+    "gold": {
+      "qrels": {
+        "LIO-PROD-001-H007": 3,
+        "LIO-PROD-001-H006": 1
+      },
+      "primary_chunk_ids": [
+        "LIO-PROD-001-H007"
+      ],
+      "acceptable_chunk_ids": [],
+      "hard_negative_chunk_ids": [
+        "LIO-PROD-001-H004",
+        "LIO-PROD-001-H003",
+        "LIO-PROD-001-H005",
+        "LIO-PROD-001-H017"
+      ],
+      "required_atomic_facts": [
+        {
+          "fact_id": "LIO-PROD-001-H007-FACT-a4a014cfe272",
+          "text": "除上述症状外，若游玩期间出现头痛、头晕、恶心、疲劳、类似晕动症的症状，或眼睛、耳朵、手、手臂、脚等身体任何部位感到不适或疼痛，请立即停止使用。",
+          "source_refs": [
+            {
+              "source_file": "LIO-PROD-001_VR头显手册.md",
+              "chunk_id": "LIO-PROD-001-H007",
+              "heading": "出现以下症状时请立即停止游玩",
+              "source_type": "manual"
+            }
+          ]
+        }
+      ],
+      "evaluation": {
+        "recall_k": [
+          1,
+          3,
+          5,
+          10
+        ],
+        "mrr": true,
+        "ndcg_k": 10,
+        "map_k": 10,
+        "full_corpus": true
+      }
+    },
+    "split": "dev",
+    "annotation": {
+      "construction": "source-grounded curation",
+      "review_status": "two independent automated checks + independent model-assisted semantic pass",
+      "human_double_annotation": false,
+      "dataset_version": "v7.3",
+      "review_method": "source-grounding checks + cross-split leakage audit + independent model-assisted semantic review"
+    },
+    "surface_template_id": "87b629c6caa8",
+    "sub_category": "safety_symptom"
+  },
+  {
+    "id": "RET7-0002",
+    "layer": "retrieval",
+    "category": "manual_single_requirement",
+    "difficulty": "medium",
+    "template_family": "manual_single_overheat",
+    "input": {
+      "query": "VR头显提示温度过高时还能继续玩吗，正确处理方式是什么？",
+      "conversation": [
+        {
+          "role": "user",
+          "content": "VR头显提示温度过高时还能继续玩吗，正确处理方式是什么？"
+        }
+      ],
+      "source_scope": "manual",
+      "filters": {
+        "product_id": "LIO-PROD-001"
+      }
+    },
+    "gold": {
+      "qrels": {
+        "LIO-PROD-001-H025": 3,
+        "LIO-PROD-001-H024": 1
+      },
+      "primary_chunk_ids": [
+        "LIO-PROD-001-H025"
+      ],
+      "acceptable_chunk_ids": [],
+      "hard_negative_chunk_ids": [
+        "LIO-PROD-001-H026",
+        "LIO-PROD-001-H027",
+        "LIO-PROD-001-H023",
+        "LIO-PROD-001-H003"
+      ],
+      "required_atomic_facts": [
+        {
+          "fact_id": "LIO-PROD-001-H025-FACT-0c9c1d65fc19",
+          "text": "待处理器单元冷却后，将其移至通风良好的位置，再继续使用。",
+          "source_refs": [
+            {
+              "source_file": "LIO-PROD-001_VR头显手册.md",
+              "chunk_id": "LIO-PROD-001-H025",
+              "heading": "高温提示",
+              "source_type": "manual"
+            }
+          ]
+        },
+        {
+          "fact_id": "LIO-PROD-001-H025-FACT-a09033d38a30",
+          "text": "请勿遮挡处理器单元的通风口，请勿在封闭橱柜等易积热的环境中使用本产品。",
+          "source_refs": [
+            {
+              "source_file": "LIO-PROD-001_VR头显手册.md",
+              "chunk_id": "LIO-PROD-001-H025",
+              "heading": "高温提示",
+              "source_type": "manual"
+            }
+          ]
+        }
+      ],
+      "evaluation": {
+        "recall_k": [
+          1,
+          3,
+          5,
+          10
+        ],
+        "mrr": true,
+        "ndcg_k": 10,
+        "map_k": 10,
+        "full_corpus": true
+      }
+    },
+    "split": "dev",
+    "annotation": {
+      "construction": "source-grounded curation",
+      "review_status": "two independent automated checks + independent model-assisted semantic pass",
+      "human_double_annotation": false,
+      "dataset_version": "v7.3",
+      "review_method": "source-grounding checks + cross-split leakage audit + independent model-assisted semantic review"
+    },
+    "surface_template_id": "ce1f94bac9b5",
+    "sub_category": "overheat"
+  },
+  {
+    "id": "ANS7-0001",
+    "layer": "answer_generation",
+    "category": "manual_answer_0",
+    "difficulty": "medium",
+    "template_family": "manual_answer_0",
+    "input": {
+      "question": "孩子使用VR后出现头晕、恶心或身体不适时，应该立即停止使用吗，症状持续又该怎么办？ 请把操作步骤和限制分开说。",
+      "evidences": [
+        {
+          "citation_id": "E1",
+          "chunk_id": "LIO-PROD-001-H007",
+          "source_type": "manual",
+          "heading": "出现以下症状时请立即停止游玩",
+          "text": "除上述症状外，若游玩期间出现头痛、头晕、恶心、疲劳、类似晕动症的症状，或眼睛、耳朵、手、手臂、脚等身体任何部位感到不适或疼痛，请立即停止使用。若症状持续，请就医。"
+        }
+      ]
+    },
+    "gold": {
+      "required_atomic_facts": [
+        {
+          "fact_id": "LIO-PROD-001-H007-FACT-a4a014cfe272",
+          "text": "除上述症状外，若游玩期间出现头痛、头晕、恶心、疲劳、类似晕动症的症状，或眼睛、耳朵、手、手臂、脚等身体任何部位感到不适或疼痛，请立即停止使用。",
+          "source_refs": [
+            {
+              "source_file": "LIO-PROD-001_VR头显手册.md",
+              "chunk_id": "LIO-PROD-001-H007",
+              "heading": "出现以下症状时请立即停止游玩",
+              "source_type": "manual"
+            }
+          ],
+          "match": {
+            "required_anchors": [],
+            "min_anchor_hits": 0,
+            "exact_numbers": []
+          }
+        }
+      ],
+      "optional_facts": [],
+      "forbidden_claims": [
+        "声称已经完成维修或退款",
+        "忽略手册安全限制",
+        "把推测写成确定事实"
+      ],
+      "required_citation_map": {
+        "LIO-PROD-001-H007-FACT-a4a014cfe272": [
+          "E1"
+        ]
+      },
+      "expected_response_type": "answer",
+      "max_unsupported_claims": 0,
+      "evaluation_mode": "deterministic_facts_citations_and_safety"
+    },
+    "split": "dev",
+    "annotation": {
+      "construction": "evidence-grounded curation",
+      "review_status": "fact-source alignment checked",
+      "human_double_annotation": false,
+      "dataset_version": "v7.3",
+      "review_method": "source-grounding checks + cross-split leakage audit + independent model-assisted semantic review"
+    },
+    "surface_template_id": "c0bdf596296a"
+  },
+  {
+    "id": "ANS7-0002",
+    "layer": "answer_generation",
+    "category": "manual_answer_1",
+    "difficulty": "medium",
+    "template_family": "manual_answer_1",
+    "input": {
+      "question": "用户问：VR头显提示温度过高时还能继续玩吗，正确处理方式是什么？ 请给出简洁、可执行且带引用的回答。",
+      "evidences": [
+        {
+          "citation_id": "E1",
+          "chunk_id": "LIO-PROD-001-H025",
+          "source_type": "manual",
+          "heading": "高温提示",
+          "text": "● 若处理器单元内部温度升高，屏幕将显示提示信息。此时，请关闭系统并静置一段时间。待处理器单元冷却后，将其移至通风良好的位置，再继续使用。 ● 请勿遮挡处理器单元的通风口，请勿在封闭橱柜等易积热的环境中使用本产品。"
+        }
+      ]
+    },
+    "gold": {
+      "required_atomic_facts": [
+        {
+          "fact_id": "LIO-PROD-001-H025-FACT-0c9c1d65fc19",
+          "text": "待处理器单元冷却后，将其移至通风良好的位置，再继续使用。",
+          "source_refs": [
+            {
+              "source_file": "LIO-PROD-001_VR头显手册.md",
+              "chunk_id": "LIO-PROD-001-H025",
+              "heading": "高温提示",
+              "source_type": "manual"
+            }
+          ],
+          "match": {
+            "required_anchors": [],
+            "min_anchor_hits": 0,
+            "exact_numbers": []
+          }
+        },
+        {
+          "fact_id": "LIO-PROD-001-H025-FACT-a09033d38a30",
+          "text": "请勿遮挡处理器单元的通风口，请勿在封闭橱柜等易积热的环境中使用本产品。",
+          "source_refs": [
+            {
+              "source_file": "LIO-PROD-001_VR头显手册.md",
+              "chunk_id": "LIO-PROD-001-H025",
+              "heading": "高温提示",
+              "source_type": "manual"
+            }
+          ],
+          "match": {
+            "required_anchors": [],
+            "min_anchor_hits": 0,
+            "exact_numbers": []
+          }
+        }
+      ],
+      "optional_facts": [],
+      "forbidden_claims": [
+        "声称已经完成维修或退款",
+        "忽略手册安全限制",
+        "把推测写成确定事实"
+      ],
+      "required_citation_map": {
+        "LIO-PROD-001-H025-FACT-0c9c1d65fc19": [
+          "E1"
+        ],
+        "LIO-PROD-001-H025-FACT-a09033d38a30": [
+          "E1"
+        ]
+      },
+      "expected_response_type": "answer",
+      "max_unsupported_claims": 0,
+      "evaluation_mode": "deterministic_facts_citations_and_safety"
+    },
+    "split": "dev",
+    "annotation": {
+      "construction": "evidence-grounded curation",
+      "review_status": "fact-source alignment checked",
+      "human_double_annotation": false,
+      "dataset_version": "v7.3",
+      "review_method": "source-grounding checks + cross-split leakage audit + independent model-assisted semantic review"
+    },
+    "surface_template_id": "980b41e6f247"
+  },
+  {
+    "id": "BEH7-0001",
+    "layer": "agent_behavior",
+    "category": "missing_product",
+    "difficulty": "medium",
+    "template_family": "missing_product",
+    "input": {
+      "question": "用户只说指示灯异常，之前对话没有产品信息。",
+      "state_fixture": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "用户只说指示灯异常，之前对话没有产品信息。"
+          }
+        ],
+        "original_question": "用户只说指示灯异常，之前对话没有产品信息。",
+        "rewritten_question": "用户只说指示灯异常，之前对话没有产品信息。",
+        "product_name": null,
+        "product_id": null,
+        "product_model": null,
+        "error_code": null,
+        "task_type": "product_support",
+        "requirements": [],
+        "needs_clarification": true,
+        "clarification_question": null,
+        "retrieval_plan": [],
+        "candidate_documents": [],
+        "evidences": [],
+        "relevance_passed": false,
+        "coverage_score": 0.0,
+        "evidence_conflict": false,
+        "retry_count": 0,
+        "verification_retry_count": 0,
+        "trace_events": [],
+        "estimated_cost": {},
+        "latency_ms": 0.0,
+        "verification_action": "",
+        "handoff_reason": null,
+        "identity_verified": true,
+        "tool_errors": [],
+        "budget": {
+          "max_retrieval_rounds": 2,
+          "dense_queries_used": 0,
+          "sparse_queries_used": 0
+        }
+      }
+    },
+    "gold": {
+      "expected_action": "clarify",
+      "allowed_actions": [
+        "clarify"
+      ],
+      "reason_codes": [
+        "missing_product_context"
+      ],
+      "required_clarification_slots": [
+        "product_name_or_model"
+      ],
+      "required_supplemental_sources": [],
+      "must_not_claim_completed_action": false,
+      "max_retrieval_rounds": 0,
+      "required_atomic_facts": []
+    },
+    "split": "dev",
+    "annotation": {
+      "construction": "executable-state curation",
+      "review_status": "state schema and route checked",
+      "human_double_annotation": false,
+      "dataset_version": "v7.3",
+      "review_method": "source-grounding checks + cross-split leakage audit + independent model-assisted semantic review"
+    },
+    "surface_template_id": "81bb3067b039"
+  },
+  {
+    "id": "BEH7-0002",
+    "layer": "agent_behavior",
+    "category": "partial_coverage",
+    "difficulty": "medium",
+    "template_family": "partial_coverage",
+    "input": {
+      "question": "已经找到VR头显的手册排查，但用户还问是否保修；当前证据只覆盖了一半。",
+      "state_fixture": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "已经找到VR头显的手册排查，但用户还问是否保修；当前证据只覆盖了一半。"
+          }
+        ],
+        "original_question": "已经找到VR头显的手册排查，但用户还问是否保修；当前证据只覆盖了一半。",
+        "rewritten_question": "已经找到VR头显的手册排查，但用户还问是否保修；当前证据只覆盖了一半。",
+        "product_name": "VR头显",
+        "product_id": "LIO-PROD-001",
+        "product_model": null,
+        "error_code": null,
+        "task_type": "troubleshooting_and_warranty",
+        "requirements": [
+          "manual_steps",
+          "warranty_eligibility"
+        ],
+        "needs_clarification": false,
+        "clarification_question": null,
+        "retrieval_plan": [],
+        "candidate_documents": [],
+        "evidences": [
+          {
+            "citation_id": "E1",
+            "source_type": "manual",
+            "chunk_id": "LIO-PROD-001-H007",
+            "text": "除上述症状外，若游玩期间出现头痛、头晕、恶心、疲劳、类似晕动症的症状，或眼睛、耳朵、手、手臂、脚等身体任何部位感到不适或疼痛，请立即停止使用。若症状持续，请就医。"
+          }
+        ],
+        "relevance_passed": true,
+        "coverage_score": 0.5,
+        "evidence_conflict": false,
+        "retry_count": 0,
+        "verification_retry_count": 0,
+        "trace_events": [],
+        "estimated_cost": {},
+        "latency_ms": 0.0,
+        "verification_action": "",
+        "handoff_reason": null,
+        "identity_verified": true,
+        "tool_errors": [],
+        "budget": {
+          "max_retrieval_rounds": 2,
+          "dense_queries_used": 0,
+          "sparse_queries_used": 0
+        }
+      }
+    },
+    "gold": {
+      "expected_action": "retrieve_more",
+      "allowed_actions": [
+        "retrieve_more"
+      ],
+      "reason_codes": [
+        "missing_warranty_evidence"
+      ],
+      "required_clarification_slots": [],
+      "required_supplemental_sources": [
+        "policy",
+        "database"
+      ],
+      "must_not_claim_completed_action": false,
+      "max_retrieval_rounds": 2,
+      "required_atomic_facts": []
+    },
+    "split": "dev",
+    "annotation": {
+      "construction": "executable-state curation",
+      "review_status": "state schema and route checked",
+      "human_double_annotation": false,
+      "dataset_version": "v7.3",
+      "review_method": "source-grounding checks + cross-split leakage audit + independent model-assisted semantic review"
+    },
+    "surface_template_id": "15b4344fc76c"
+  },
+  {
+    "id": "E2E7-0001",
+    "layer": "end_to_end",
+    "category": "manual_support",
+    "difficulty": "medium",
+    "template_family": "manual_support",
+    "input": {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "孩子使用VR后出现头晕、恶心或身体不适时，应该立即停止使用吗，症状持续又该怎么办？"
+        }
+      ],
+      "evaluation_date": "2026-08-05",
+      "identity_verified": false
+    },
+    "gold": {
+      "required_sources": [
+        "manual"
+      ],
+      "required_atomic_facts": [
+        {
+          "fact_id": "LIO-PROD-001-H007-FACT-a4a014cfe272",
+          "text": "除上述症状外，若游玩期间出现头痛、头晕、恶心、疲劳、类似晕动症的症状，或眼睛、耳朵、手、手臂、脚等身体任何部位感到不适或疼痛，请立即停止使用。",
+          "source_refs": [
+            {
+              "source_file": "LIO-PROD-001_VR头显手册.md",
+              "chunk_id": "LIO-PROD-001-H007",
+              "heading": "出现以下症状时请立即停止游玩",
+              "source_type": "manual"
+            }
+          ],
+          "match": {
+            "required_anchors": [],
+            "min_anchor_hits": 0,
+            "exact_numbers": []
+          }
+        }
+      ],
+      "expected_response_type": "answer",
+      "decision_code": "manual_guidance",
+      "forbidden_claims": [
+        "声称已执行维修",
+        "添加手册未支持的步骤"
+      ],
+      "required_actions": [],
+      "max_retrieval_rounds": 2
+    },
+    "split": "dev",
+    "annotation": {
+      "construction": "source-and-db grounded curation",
+      "review_status": "end-to-end facts recomputed",
+      "human_double_annotation": false,
+      "dataset_version": "v7.3",
+      "review_method": "source-grounding checks + cross-split leakage audit + independent model-assisted semantic review"
+    },
+    "surface_template_id": "87b629c6caa8"
+  },
+  {
+    "id": "E2E7-0002",
+    "layer": "end_to_end",
+    "category": "manual_support",
+    "difficulty": "medium",
+    "template_family": "manual_support",
+    "input": {
+      "conversation": [
+        {
+          "role": "user",
+          "content": "人体工学椅到货后，底座、气杆、扶手和椅背应按什么顺序装好？"
+        }
+      ],
+      "evaluation_date": "2026-08-05",
+      "identity_verified": false
+    },
+    "gold": {
+      "required_sources": [
+        "manual"
+      ],
+      "required_atomic_facts": [
+        {
+          "fact_id": "LIO-PROD-002-H006-FACT-839d81ac4a4d",
+          "text": "请保留原包装箱，以备可能需要退换产品时使用。",
+          "source_refs": [
+            {
+              "source_file": "LIO-PROD-002_人体工学椅手册.md",
+              "chunk_id": "LIO-PROD-002-H006",
+              "heading": "安装说明",
+              "source_type": "manual"
+            }
+          ],
+          "match": {
+            "required_anchors": [],
+            "min_anchor_hits": 0,
+            "exact_numbers": []
+          }
+        },
+        {
+          "fact_id": "LIO-PROD-002-H006-FACT-860ce10e42d5",
+          "text": "用螺丝将 C1 与 C2 组装在一起 安装脚轮。",
+          "source_refs": [
+            {
+              "source_file": "LIO-PROD-002_人体工学椅手册.md",
+              "chunk_id": "LIO-PROD-002-H006",
+              "heading": "安装说明",
+              "source_type": "manual"
+            }
+          ],
+          "match": {
+            "required_anchors": [
+              "c1",
+              "c2"
+            ],
+            "min_anchor_hits": 2,
+            "exact_numbers": []
+          }
+        }
+      ],
+      "expected_response_type": "answer",
+      "decision_code": "manual_guidance",
+      "forbidden_claims": [
+        "声称已执行维修",
+        "添加手册未支持的步骤"
+      ],
+      "required_actions": [],
+      "max_retrieval_rounds": 2
+    },
+    "split": "dev",
+    "annotation": {
+      "construction": "source-and-db grounded curation",
+      "review_status": "end-to-end facts recomputed",
+      "human_double_annotation": false,
+      "dataset_version": "v7.3",
+      "review_method": "source-grounding checks + cross-split leakage audit + independent model-assisted semantic review"
+    },
+    "surface_template_id": "e9c703f5a9df"
+  }
+]

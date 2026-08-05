@@ -168,3 +168,14 @@ cython_debug/
 build_plans/
 data/vector_stores/*.pkl
 skills-lock.json
+
+# Evaluation artifacts
+.codex_handoff/
+evals/annotation_runs/
+evals/reports/
+evals/benchmark/reports/*.json
+!evals/benchmark/reports/bm25_validation_predictions_v7_3.json
+!evals/benchmark/reports/bm25_validation_scores_v7_3.json
+data/*benchmark*.zip
+data/*maintainer*.zip
+data/*custodian*.zip

@@ -1,0 +1,33 @@
+{
+  "active_build_id": "404c47e113f24dc0bd44e9c7fdb7c7a5",
+  "builds": {
+    "404c47e113f24dc0bd44e9c7fdb7c7a5": {
+      "build_mode": "full_green",
+      "changed_document_ids": [],
+      "checksum": "648f321664dfb311bc45f82370e44f2345ba84ebdc0069c10c437c3ee8ab99c7",
+      "chunk_count": 1222,
+      "chunking_version": "retrieval.document_corpus.CHUNK_SIZE=1000;CHUNK_OVERLAP=200",
+      "collection_name": "liorin_documents_huggingface",
+      "corpus_version": "56077204bbc7bb1c9a9e",
+      "created_at": "2026-08-05T12:39:12.642119+00:00",
+      "document_count": 22,
+      "embedding_dimension": 768,
+      "embedding_model_version": "sentence-transformers/all-mpnet-base-v2",
+      "index_build_id": "404c47e113f24dc0bd44e9c7fdb7c7a5",
+      "metadata_schema_version": "stage2.1-document-section-chunk",
+      "parent_build_id": null,
+      "status": "ready",
+      "tokenizer_version": "retrieval.sparse_retriever.tokenize"
+    }
+  },
+  "pending_changes": [],
+  "previous_build_id": null,
+  "rebuild_history": [
+    {
+      "at": "2026-08-05T12:40:00.217236+00:00",
+      "build_id": "404c47e113f24dc0bd44e9c7fdb7c7a5",
+      "event": "activate"
+    }
+  ],
+  "tombstones": []
+}

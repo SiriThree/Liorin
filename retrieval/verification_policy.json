@@ -1,0 +1,109 @@
+{
+  "version": "3.0",
+  "authority_scores": {
+    "policy": 1.0,
+    "manual": 0.95,
+    "structured_db": 0.95,
+    "database": 0.95,
+    "ticket_history": 0.78,
+    "faq": 0.62,
+    "unknown": 0.25
+  },
+  "protected_filters": [
+    "tenant_id",
+    "allowed_user_ids",
+    "allowed_groups",
+    "required_permissions",
+    "classification",
+    "region"
+  ],
+  "safe_relaxable_filters": [
+    "doc_type",
+    "product_name",
+    "product_model",
+    "error_code",
+    "source",
+    "document_id",
+    "policy_id"
+  ],
+  "requirement_rules": [
+    {
+      "type": "fault_meaning",
+      "patterns": ["故障", "错误码", "报错", "异常", "含义", "原因", "无法启动", "不能启动"],
+      "evidence_patterns": ["错误码", "故障", "原因", "表示", "含义", "排查", "异常"],
+      "preferred_sources": ["manual"],
+      "acceptable_sources": ["manual", "faq"],
+      "authority_threshold": 0.85,
+      "authority_required": true,
+      "critical": true,
+      "needs_product": true
+    },
+    {
+      "type": "warranty_eligibility",
+      "patterns": ["免费维修", "保修", "质保", "是否免费", "维修条件", "保内", "保外"],
+      "evidence_patterns": ["免费维修", "保修", "质保", "人为损坏", "非人为", "保修期", "维修条件"],
+      "preferred_sources": ["policy"],
+      "acceptable_sources": ["policy"],
+      "authority_threshold": 0.9,
+      "authority_required": true,
+      "critical": true,
+      "needs_product": true,
+      "needs_region": true,
+      "temporal_required": true
+    },
+    {
+      "type": "return_refund_policy",
+      "patterns": ["退货", "退款", "换货", "到账", "退换"],
+      "evidence_patterns": ["退货", "退款", "换货", "到账", "有效期", "条件"],
+      "preferred_sources": ["policy"],
+      "acceptable_sources": ["policy"],
+      "authority_threshold": 0.9,
+      "authority_required": true,
+      "critical": true,
+      "needs_region": true,
+      "temporal_required": true
+    },
+    {
+      "type": "repair_duration",
+      "patterns": ["多久修好", "维修周期", "修多久", "预计多久", "检测周期", "处理时长", "维修时长"],
+      "evidence_patterns": ["维修周期", "检测周期", "处理时长", "工作日", "预计", "平均", "完成维修"],
+      "preferred_sources": ["structured_db", "ticket_history", "policy"],
+      "acceptable_sources": ["structured_db", "ticket_history", "policy"],
+      "authority_threshold": 0.72,
+      "authority_required": true,
+      "critical": true,
+      "needs_product": true
+    },
+    {
+      "type": "order_status",
+      "patterns": ["订单状态", "物流", "金额", "是否发货", "取消订单", "订单"],
+      "evidence_patterns": ["订单", "状态", "物流", "金额", "发货", "取消"],
+      "preferred_sources": ["structured_db"],
+      "acceptable_sources": ["structured_db"],
+      "authority_threshold": 0.9,
+      "authority_required": true,
+      "critical": true
+    },
+    {
+      "type": "operation",
+      "patterns": ["怎么操作", "如何使用", "安装", "设置", "复位", "维护", "规格", "步骤"],
+      "evidence_patterns": ["步骤", "安装", "设置", "复位", "维护", "规格", "操作"],
+      "preferred_sources": ["manual"],
+      "acceptable_sources": ["manual", "faq"],
+      "authority_threshold": 0.8,
+      "authority_required": true,
+      "critical": true,
+      "needs_product": true
+    },
+    {
+      "type": "general",
+      "patterns": [],
+      "evidence_patterns": [],
+      "preferred_sources": ["manual", "policy", "faq", "structured_db", "ticket_history"],
+      "acceptable_sources": ["manual", "policy", "faq", "structured_db", "ticket_history"],
+      "authority_threshold": 0.55,
+      "authority_required": false,
+      "critical": true
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Liorin v7.3 prediction row",
+  "type": "object",
+  "required": [
+    "id",
+    "prediction"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "prediction": {
+      "type": "object",
+      "description": "Layer-specific prediction. See EVALUATION_PROTOCOL.md."
+    }
+  },
+  "additionalProperties": false
+}

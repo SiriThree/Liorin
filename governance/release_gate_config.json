@@ -1,0 +1,19 @@
+{
+  "version": "1.0",
+  "policy": "Safety invariants are fixed. Quality/latency thresholds remain null until a reviewed reproducible baseline is approved; required null thresholds block release.",
+  "checks": {
+    "unit_tests": {"path": "tests.unit_passed", "operator": "eq", "value": true, "required": true},
+    "integration_tests": {"path": "tests.integration_passed", "operator": "eq", "value": true, "required": true},
+    "end_to_end_tests": {"path": "tests.end_to_end_passed", "operator": "eq", "value": true, "required": true},
+    "security_tests": {"path": "tests.security_passed", "operator": "eq", "value": true, "required": true},
+    "acl_violation_rate": {"path": "metrics.acl_violation_rate", "operator": "eq", "value": 0.0, "required": true},
+    "sql_injection": {"path": "security.sql_injection_passed", "operator": "eq", "value": true, "required": true},
+    "prompt_injection": {"path": "security.prompt_injection_passed", "operator": "eq", "value": true, "required": true},
+    "dependency_degradation": {"path": "resilience.degradation_tests_passed", "operator": "eq", "value": true, "required": true},
+    "index_compatibility": {"path": "index.compatible", "operator": "eq", "value": true, "required": true},
+    "reproducible_benchmark": {"path": "benchmark.reproducible", "operator": "eq", "value": true, "required": true},
+    "retrieval_recall_at_10": {"path": "metrics.recall_at_10", "operator": "gte", "value": null, "required": true},
+    "unsupported_claim_rate": {"path": "metrics.unsupported_claim_rate", "operator": "lte", "value": null, "required": true},
+    "p95_latency_ms": {"path": "metrics.p95_latency_ms", "operator": "lte", "value": null, "required": true}
+  }
+}

@@ -1,0 +1,876 @@
+[
+  {
+    "id": "RET7-0049",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "LIO-PROD-013-H016",
+        "LIO-PROD-013-H029",
+        "LIO-PROD-013-H078",
+        "LIO-PROD-013-H077",
+        "LIO-PROD-013-H034",
+        "LIO-PROD-013-H012",
+        "LIO-PROD-013-H038",
+        "LIO-PROD-013-H010",
+        "LIO-PROD-013-H015",
+        "LIO-PROD-013-H043"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0050",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "LIO-PROD-013-H080",
+        "LIO-PROD-013-H034",
+        "LIO-PROD-013-H033",
+        "LIO-PROD-013-H032",
+        "LIO-PROD-013-H083",
+        "LIO-PROD-013-H077",
+        "LIO-PROD-013-H036",
+        "LIO-PROD-013-H078",
+        "LIO-PROD-013-H052",
+        "LIO-PROD-013-H065"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0051",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "LIO-PROD-013-H071",
+        "LIO-PROD-013-H085",
+        "LIO-PROD-013-H070",
+        "LIO-PROD-013-H079",
+        "LIO-PROD-013-H077",
+        "LIO-PROD-013-H074",
+        "LIO-PROD-013-H015",
+        "LIO-PROD-013-H067",
+        "LIO-PROD-013-H082",
+        "LIO-PROD-013-H073"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0052",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "LIO-PROD-013-H077",
+        "LIO-PROD-013-H032",
+        "LIO-PROD-013-H080",
+        "LIO-PROD-013-H078",
+        "LIO-PROD-013-H065",
+        "LIO-PROD-013-H082",
+        "LIO-PROD-013-H056",
+        "LIO-PROD-013-H033",
+        "LIO-PROD-013-H079",
+        "LIO-PROD-013-H007"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0053",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "LIO-PROD-014-H008",
+        "LIO-PROD-014-H031",
+        "LIO-PROD-014-H007",
+        "LIO-PROD-014-H036",
+        "LIO-PROD-014-H004",
+        "LIO-PROD-014-H018",
+        "LIO-PROD-014-H034",
+        "LIO-PROD-014-H016",
+        "LIO-PROD-014-H060",
+        "LIO-PROD-014-H025"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0054",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "LIO-PROD-014-H019",
+        "LIO-PROD-014-H027",
+        "LIO-PROD-014-H025",
+        "LIO-PROD-014-H023",
+        "LIO-PROD-014-H031",
+        "LIO-PROD-014-H030",
+        "LIO-PROD-014-H018",
+        "LIO-PROD-014-H004",
+        "LIO-PROD-014-H007",
+        "LIO-PROD-014-H024"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0055",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "LIO-PROD-014-H025",
+        "LIO-PROD-014-H027",
+        "LIO-PROD-014-H024",
+        "LIO-PROD-014-H023",
+        "LIO-PROD-014-H060",
+        "LIO-PROD-014-H011",
+        "LIO-PROD-014-H019",
+        "LIO-PROD-014-H044",
+        "LIO-PROD-014-H059",
+        "LIO-PROD-014-H026"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0056",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "LIO-PROD-014-H052",
+        "LIO-PROD-014-H015",
+        "LIO-PROD-014-H051",
+        "LIO-PROD-014-H048",
+        "LIO-PROD-014-H060",
+        "LIO-PROD-014-H037",
+        "LIO-PROD-014-H047",
+        "LIO-PROD-014-H059",
+        "LIO-PROD-014-H056",
+        "LIO-PROD-014-H057"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0057",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "LIO-PROD-015-H015",
+        "LIO-PROD-015-H022",
+        "LIO-PROD-015-H018",
+        "LIO-PROD-015-H010",
+        "LIO-PROD-015-H025",
+        "LIO-PROD-015-H016",
+        "LIO-PROD-015-H021",
+        "LIO-PROD-015-H037",
+        "LIO-PROD-015-H011",
+        "LIO-PROD-015-H026"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0058",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "LIO-PROD-015-H016",
+        "LIO-PROD-015-H018",
+        "LIO-PROD-015-H023",
+        "LIO-PROD-015-H022",
+        "LIO-PROD-015-H025",
+        "LIO-PROD-015-H015",
+        "LIO-PROD-015-H020",
+        "LIO-PROD-015-H021",
+        "LIO-PROD-015-H013",
+        "LIO-PROD-015-H010"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0059",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "LIO-PROD-015-H030",
+        "LIO-PROD-015-H038",
+        "LIO-PROD-015-H028",
+        "LIO-PROD-015-H006",
+        "LIO-PROD-015-H034",
+        "LIO-PROD-015-H005",
+        "LIO-PROD-015-H040",
+        "LIO-PROD-015-H009",
+        "LIO-PROD-015-H039",
+        "LIO-PROD-015-H018"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0060",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "LIO-PROD-015-H038",
+        "LIO-PROD-015-H040",
+        "LIO-PROD-015-H009",
+        "LIO-PROD-015-H025",
+        "LIO-PROD-015-H005",
+        "LIO-PROD-015-H011",
+        "LIO-PROD-015-H006",
+        "LIO-PROD-015-H013",
+        "LIO-PROD-015-H024",
+        "LIO-PROD-015-H028"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0061",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "LIO-PROD-016-H019",
+        "LIO-PROD-016-H097",
+        "LIO-PROD-016-H101",
+        "LIO-PROD-016-H021",
+        "LIO-PROD-016-H113",
+        "LIO-PROD-016-H115",
+        "LIO-PROD-016-H114",
+        "LIO-PROD-016-H112",
+        "LIO-PROD-016-H116",
+        "LIO-PROD-016-H022"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0062",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "LIO-PROD-016-H039",
+        "LIO-PROD-016-H002",
+        "LIO-PROD-016-H019",
+        "LIO-PROD-016-H097",
+        "LIO-PROD-016-H046",
+        "LIO-PROD-016-H070",
+        "LIO-PROD-016-H055",
+        "LIO-PROD-016-H069",
+        "LIO-PROD-016-H099",
+        "LIO-PROD-016-H057"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0063",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "LIO-PROD-016-H026",
+        "LIO-PROD-016-H002",
+        "LIO-PROD-016-H113",
+        "LIO-PROD-016-H047",
+        "LIO-PROD-016-H053",
+        "LIO-PROD-016-H039",
+        "LIO-PROD-016-H032",
+        "LIO-PROD-016-H007",
+        "LIO-PROD-016-H046",
+        "LIO-PROD-016-H101"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0064",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "LIO-PROD-016-H109",
+        "LIO-PROD-016-H117",
+        "LIO-PROD-016-H107",
+        "LIO-PROD-016-H119",
+        "LIO-PROD-016-H101",
+        "LIO-PROD-016-H039",
+        "LIO-PROD-016-H040",
+        "LIO-PROD-016-H032",
+        "LIO-PROD-016-H097",
+        "LIO-PROD-016-H074"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0093",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "LIO-PROD-013-H034",
+        "LIO-PROD-013-H077",
+        "LIO-PROD-013-H078",
+        "LIO-PROD-013-H036",
+        "LIO-PROD-013-H080",
+        "LIO-PROD-013-H033",
+        "LIO-PROD-013-H032",
+        "LIO-PROD-013-H035",
+        "LIO-PROD-013-H083",
+        "LIO-PROD-013-H065"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0094",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "LIO-PROD-014-H007",
+        "LIO-PROD-014-H019",
+        "LIO-PROD-014-H031",
+        "LIO-PROD-014-H008",
+        "LIO-PROD-014-H004",
+        "LIO-PROD-014-H027",
+        "LIO-PROD-014-H023",
+        "LIO-PROD-014-H006",
+        "LIO-PROD-014-H025",
+        "LIO-PROD-014-H018"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0095",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "LIO-PROD-015-H018",
+        "LIO-PROD-015-H025",
+        "LIO-PROD-015-H016",
+        "LIO-PROD-015-H022",
+        "LIO-PROD-015-H015",
+        "LIO-PROD-015-H023",
+        "LIO-PROD-015-H013",
+        "LIO-PROD-015-H021",
+        "LIO-PROD-015-H010",
+        "LIO-PROD-015-H020"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0096",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "LIO-PROD-016-H019",
+        "LIO-PROD-016-H097",
+        "LIO-PROD-016-H039",
+        "LIO-PROD-016-H002",
+        "LIO-PROD-016-H101",
+        "LIO-PROD-016-H047",
+        "LIO-PROD-016-H113",
+        "LIO-PROD-016-H029",
+        "LIO-PROD-016-H046",
+        "LIO-PROD-016-H070"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0101",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "POL-003",
+        "POL-007",
+        "POL-005",
+        "POL-001",
+        "POL-002",
+        "POL-004",
+        "POL-006"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0104",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "POL-005",
+        "POL-004",
+        "POL-003",
+        "POL-002",
+        "POL-006",
+        "POL-007",
+        "POL-001"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0107",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "POL-002",
+        "POL-001",
+        "POL-006",
+        "POL-005",
+        "POL-007",
+        "POL-003",
+        "POL-004"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0111",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "POL-003",
+        "POL-004",
+        "POL-007",
+        "POL-005",
+        "POL-002",
+        "POL-001",
+        "POL-006"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0125",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "FAQ-LIO-PROD-013-01",
+        "FAQ-LIO-PROD-013-02"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0126",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "FAQ-LIO-PROD-014-01",
+        "FAQ-LIO-PROD-014-02"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0127",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "FAQ-LIO-PROD-015-01",
+        "FAQ-LIO-PROD-015-02"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0128",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "FAQ-LIO-PROD-016-01",
+        "FAQ-LIO-PROD-016-02"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0135",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "FAQ-POL-003",
+        "FAQ-POL-007",
+        "FAQ-POL-004",
+        "FAQ-POL-001",
+        "FAQ-POL-005",
+        "FAQ-POL-010",
+        "FAQ-POL-015",
+        "FAQ-LIO-PROD-002-01",
+        "FAQ-POL-002",
+        "FAQ-LIO-PROD-016-01"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0136",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "FAQ-POL-004",
+        "FAQ-POL-007",
+        "FAQ-POL-005",
+        "FAQ-POL-011",
+        "FAQ-POL-003",
+        "FAQ-POL-002",
+        "FAQ-LIO-PROD-002-01",
+        "FAQ-POL-010",
+        "FAQ-POL-008",
+        "FAQ-POL-001"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0162",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "TCK-2026-00144",
+        "TCK-2026-00111",
+        "TCK-2026-00155",
+        "TCK-2026-00027",
+        "TCK-2026-00014",
+        "TCK-2026-00175",
+        "TCK-2026-00134",
+        "TCK-2026-00017",
+        "TCK-2026-00143",
+        "TCK-2026-00028"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0163",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "TCK-2026-00155",
+        "TCK-2026-00027",
+        "TCK-2026-00124",
+        "TCK-2026-00146",
+        "TCK-2026-00100",
+        "TCK-2026-00133",
+        "TCK-2026-00119",
+        "TCK-2026-00022",
+        "TCK-2026-00046",
+        "TCK-2026-00103"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0164",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "TCK-2026-00125",
+        "TCK-2026-00088",
+        "TCK-2026-00162",
+        "TCK-2026-00145",
+        "TCK-2026-00132",
+        "TCK-2026-00152",
+        "TCK-2026-00193",
+        "TCK-2026-00187",
+        "TCK-2026-00038",
+        "TCK-2026-00040"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0165",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "TCK-2026-00145",
+        "TCK-2026-00155",
+        "TCK-2026-00152",
+        "TCK-2026-00050",
+        "TCK-2026-00051",
+        "TCK-2026-00193",
+        "TCK-2026-00027",
+        "TCK-2026-00102",
+        "TCK-2026-00003",
+        "TCK-2026-00160"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0166",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "TCK-2026-00046",
+        "TCK-2026-00063",
+        "TCK-2026-00029",
+        "TCK-2026-00290",
+        "TCK-2026-00050",
+        "TCK-2026-00020",
+        "TCK-2026-00051",
+        "TCK-2026-00021",
+        "TCK-2026-00066",
+        "TCK-2026-00133"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0167",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "TCK-2026-00059",
+        "TCK-2026-00004",
+        "TCK-2026-00046",
+        "TCK-2026-00386",
+        "TCK-2026-00138",
+        "TCK-2026-00050",
+        "TCK-2026-00070",
+        "TCK-2026-00051",
+        "TCK-2026-00140",
+        "TCK-2026-00089"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0181",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "DB-ORDER-ORD-2026-01120",
+        "DB-ORDER-ORD-2026-00217",
+        "DB-ORDER-ORD-2024-00172",
+        "DB-ORDER-ORD-2024-00993",
+        "DB-ORDER-ORD-2024-00715",
+        "DB-ORDER-ORD-2024-00416",
+        "DB-ORDER-ORD-2024-00024",
+        "DB-ORDER-ORD-2024-00009",
+        "DB-ORDER-ORD-2024-00109",
+        "DB-ORDER-ORD-2024-00021"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0182",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "DB-ORDER-ORD-2026-01264",
+        "DB-ORDER-ORD-2026-00217",
+        "DB-ORDER-ORD-2024-00172",
+        "DB-ORDER-ORD-2024-00993",
+        "DB-ORDER-ORD-2024-00715",
+        "DB-ORDER-ORD-2024-00416",
+        "DB-ORDER-ORD-2024-00024",
+        "DB-ORDER-ORD-2024-00009",
+        "DB-ORDER-ORD-2024-00109",
+        "DB-ORDER-ORD-2026-01120"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0183",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "DB-ORDER-ORD-2026-00098",
+        "DB-ORDER-ORD-2026-00217",
+        "DB-ORDER-ORD-2024-00172",
+        "DB-ORDER-ORD-2024-00993",
+        "DB-ORDER-ORD-2024-00715",
+        "DB-ORDER-ORD-2024-00416",
+        "DB-ORDER-ORD-2024-00024",
+        "DB-ORDER-ORD-2024-00009",
+        "DB-ORDER-ORD-2024-00109",
+        "DB-ORDER-ORD-2026-01120"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0184",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "DB-ORDER-ORD-2026-00825",
+        "DB-ORDER-ORD-2026-00217",
+        "DB-ORDER-ORD-2024-00172",
+        "DB-ORDER-ORD-2024-00993",
+        "DB-ORDER-ORD-2024-00715",
+        "DB-ORDER-ORD-2024-00416",
+        "DB-ORDER-ORD-2024-00024",
+        "DB-ORDER-ORD-2024-00009",
+        "DB-ORDER-ORD-2024-00109",
+        "DB-ORDER-ORD-2026-01120"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0185",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "DB-ORDER-ORD-2024-00202",
+        "DB-ORDER-ORD-2026-00217",
+        "DB-ORDER-ORD-2024-00172",
+        "DB-ORDER-ORD-2024-00993",
+        "DB-ORDER-ORD-2024-00715",
+        "DB-ORDER-ORD-2024-00416",
+        "DB-ORDER-ORD-2024-00024",
+        "DB-ORDER-ORD-2024-00009",
+        "DB-ORDER-ORD-2024-00109",
+        "DB-ORDER-ORD-2026-01120"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0186",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "DB-ORDER-ORD-2025-00809",
+        "DB-ORDER-ORD-2024-00967",
+        "DB-ORDER-ORD-2026-01120",
+        "DB-ORDER-ORD-2024-00859",
+        "DB-ORDER-ORD-2024-00638"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0187",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "DB-ORDER-ORD-2024-00586",
+        "DB-ORDER-ORD-2024-00238",
+        "DB-ORDER-ORD-2024-00641",
+        "DB-ORDER-ORD-2026-00098"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0188",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "DB-ORDER-ORD-2026-00236",
+        "DB-ORDER-ORD-2026-00825",
+        "DB-ORDER-ORD-2024-00851",
+        "DB-ORDER-ORD-2024-00265",
+        "DB-ORDER-ORD-2024-00400",
+        "DB-ORDER-ORD-2024-00273",
+        "DB-ORDER-ORD-2024-00868",
+        "DB-ORDER-ORD-2024-00021",
+        "DB-ORDER-ORD-2024-00123",
+        "DB-ORDER-ORD-2024-00068"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0189",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "DB-WARRANTY-WAR-2026-00005",
+        "DB-WARRANTY-WAR-2026-00138",
+        "DB-WARRANTY-WAR-2026-00137",
+        "DB-WARRANTY-WAR-2026-00131",
+        "DB-WARRANTY-WAR-2026-00129",
+        "DB-WARRANTY-WAR-2026-00126",
+        "DB-WARRANTY-WAR-2026-00123",
+        "DB-WARRANTY-WAR-2026-00121",
+        "DB-WARRANTY-WAR-2026-00118",
+        "DB-WARRANTY-WAR-2026-00114"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0190",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "DB-WARRANTY-WAR-2026-00006",
+        "DB-WARRANTY-WAR-2026-00138",
+        "DB-WARRANTY-WAR-2026-00137",
+        "DB-WARRANTY-WAR-2026-00131",
+        "DB-WARRANTY-WAR-2026-00129",
+        "DB-WARRANTY-WAR-2026-00126",
+        "DB-WARRANTY-WAR-2026-00123",
+        "DB-WARRANTY-WAR-2026-00121",
+        "DB-WARRANTY-WAR-2026-00118",
+        "DB-WARRANTY-WAR-2026-00114"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0191",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "DB-WARRANTY-WAR-2026-00014",
+        "DB-WARRANTY-WAR-2026-00138",
+        "DB-WARRANTY-WAR-2026-00137",
+        "DB-WARRANTY-WAR-2026-00131",
+        "DB-WARRANTY-WAR-2026-00129",
+        "DB-WARRANTY-WAR-2026-00126",
+        "DB-WARRANTY-WAR-2026-00123",
+        "DB-WARRANTY-WAR-2026-00121",
+        "DB-WARRANTY-WAR-2026-00118",
+        "DB-WARRANTY-WAR-2026-00114"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0192",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "DB-WARRANTY-WAR-2026-00017",
+        "DB-WARRANTY-WAR-2026-00138",
+        "DB-WARRANTY-WAR-2026-00137",
+        "DB-WARRANTY-WAR-2026-00131",
+        "DB-WARRANTY-WAR-2026-00129",
+        "DB-WARRANTY-WAR-2026-00126",
+        "DB-WARRANTY-WAR-2026-00123",
+        "DB-WARRANTY-WAR-2026-00121",
+        "DB-WARRANTY-WAR-2026-00118",
+        "DB-WARRANTY-WAR-2026-00114"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0193",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "DB-WARRANTY-WAR-2026-00025",
+        "DB-WARRANTY-WAR-2026-00138",
+        "DB-WARRANTY-WAR-2026-00137",
+        "DB-WARRANTY-WAR-2026-00131",
+        "DB-WARRANTY-WAR-2026-00129",
+        "DB-WARRANTY-WAR-2026-00126",
+        "DB-WARRANTY-WAR-2026-00123",
+        "DB-WARRANTY-WAR-2026-00121",
+        "DB-WARRANTY-WAR-2026-00118",
+        "DB-WARRANTY-WAR-2026-00114"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0209",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "POL-005",
+        "POL-002",
+        "POL-007",
+        "POL-006",
+        "POL-001",
+        "POL-003",
+        "POL-004"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0210",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "POL-006",
+        "POL-003",
+        "POL-004",
+        "POL-005",
+        "POL-002",
+        "POL-001",
+        "POL-007"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0225",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "LIO-PROD-013-H077",
+        "LIO-PROD-013-H078",
+        "LIO-PROD-013-H082",
+        "LIO-PROD-013-H080",
+        "LIO-PROD-013-H085",
+        "LIO-PROD-013-H079",
+        "LIO-PROD-013-H065",
+        "LIO-PROD-013-H005",
+        "LIO-PROD-013-H056",
+        "LIO-PROD-013-H033"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0226",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "LIO-PROD-014-H060",
+        "LIO-PROD-014-H025",
+        "LIO-PROD-014-H015",
+        "LIO-PROD-014-H052",
+        "LIO-PROD-014-H027",
+        "LIO-PROD-014-H059",
+        "LIO-PROD-014-H056",
+        "LIO-PROD-014-H048",
+        "LIO-PROD-014-H044",
+        "LIO-PROD-014-H037"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0227",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "LIO-PROD-015-H038",
+        "LIO-PROD-015-H030",
+        "LIO-PROD-015-H040",
+        "LIO-PROD-015-H009",
+        "LIO-PROD-015-H028",
+        "LIO-PROD-015-H006",
+        "LIO-PROD-015-H005",
+        "LIO-PROD-015-H034",
+        "LIO-PROD-015-H011",
+        "LIO-PROD-015-H025"
+      ]
+    }
+  },
+  {
+    "id": "RET7-0228",
+    "prediction": {
+      "ranked_chunk_ids": [
+        "LIO-PROD-016-H026",
+        "LIO-PROD-016-H002",
+        "LIO-PROD-016-H101",
+        "LIO-PROD-016-H039",
+        "LIO-PROD-016-H053",
+        "LIO-PROD-016-H032",
+        "LIO-PROD-016-H117",
+        "LIO-PROD-016-H047",
+        "LIO-PROD-016-H107",
+        "LIO-PROD-016-H097"
+      ]
+    }
+  }
+]

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Liorin v7.3 benchmark sample",
+  "type": "object",
+  "required": [
+    "id",
+    "layer",
+    "category",
+    "difficulty",
+    "input",
+    "gold",
+    "split",
+    "annotation"
+  ],
+  "properties": {
+    "id": {},
+    "layer": {},
+    "category": {},
+    "difficulty": {},
+    "template_family": {},
+    "input": {},
+    "gold": {},
+    "split": {},
+    "annotation": {},
+    "surface_template_id": {}
+  }
+}

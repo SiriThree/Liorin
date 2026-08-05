@@ -3,7 +3,6 @@
 import os
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Literal
 
 # ============================================================================
 # MODEL CONFIGURATION
@@ -12,20 +11,36 @@ from typing import Literal
 # Primary model used by all agents.
 # Set LIORIN_MODEL in .env to change the model.
 # Examples:
-#   - "anthropic:claude-haiku-4-5" (fast, cost-effective)
-#   - "anthropic:claude-sonnet-4" (balanced)
-#   - "openai:gpt-5-mini" (fast, OpenAI)
-#   - "openai:gpt-5-nano" (lightweight, OpenAI)
-DEFAULT_MODEL = os.getenv("LIORIN_MODEL", "anthropic:claude-haiku-4-5")
+#   - "openai:deepseek-chat" with OPENAI_BASE_URL="https://api.deepseek.com"
+#   - "openai:qwen-plus" with a compatible DashScope endpoint
+#   - "openai:glm-4-flash" with a compatible Zhipu endpoint
+DEFAULT_MODEL = os.getenv("LIORIN_MODEL", "openai:deepseek-chat")
 
 # ============================================================================
 # EMBEDDING CONFIGURATION
 # ============================================================================
 
-# Embedding provider for document vectorstore
+# Embedding provider for document retrieval
 # Options: "huggingface" (local, no API key) or "openai" (requires OPENAI_API_KEY)
 # Default is HuggingFace for backwards compatibility and no external dependencies
 DEFAULT_EMBEDDING_PROVIDER = os.getenv("EMBEDDING_PROVIDER", "huggingface")
+
+# Milvus vector database configuration.
+# Use a local/server Milvus URI such as "http://localhost:19530".
+DEFAULT_MILVUS_URI = os.getenv("MILVUS_URI", "http://localhost:19530")
+DEFAULT_MILVUS_TOKEN = os.getenv("MILVUS_TOKEN") or None
+DEFAULT_MILVUS_COLLECTION = os.getenv(
+    "MILVUS_COLLECTION",
+    f"liorin_documents_{DEFAULT_EMBEDDING_PROVIDER}",
+)
+
+
+def get_milvus_connection_args() -> dict:
+    """Return connection arguments for the LangChain Milvus vector store."""
+    connection_args = {"uri": DEFAULT_MILVUS_URI}
+    if DEFAULT_MILVUS_TOKEN:
+        connection_args["token"] = DEFAULT_MILVUS_TOKEN
+    return connection_args
 
 # ============================================================================
 # RUNTIME CONFIGURATION
@@ -36,15 +51,10 @@ DEFAULT_EMBEDDING_PROVIDER = os.getenv("EMBEDDING_PROVIDER", "huggingface")
 class Context:
     """Runtime configuration for all agents.
 
-    This enables model selection in LangSmith Studio's configurable Assistants UI.
+    Use provider-prefixed model names such as "openai:deepseek-chat".
     """
 
-    model: Literal[
-        "anthropic:claude-haiku-4-5",
-        "anthropic:claude-sonnet-4-5",
-        "openai:gpt-5-mini",
-        "openai:gpt-5-nano",
-    ] = DEFAULT_MODEL
+    model: str = DEFAULT_MODEL
 
 
 # ============================================================================
@@ -58,13 +68,7 @@ else:
     BASE_PATH = Path(__file__).parent
 
 DEFAULT_DB_PATH = BASE_PATH / "data" / "structured" / "liorin.db"
-DEFAULT_VECTORSTORE_PATH = (
-    BASE_PATH
-    / "data"
-    / "vector_stores"
-    / f"liorin_vectorstore_{DEFAULT_EMBEDDING_PROVIDER}.pkl"
-)
-
+DEFAULT_INDEX_REGISTRY_PATH = BASE_PATH / "data" / "index_registry.json"
 # ============================================================================
 # DEPLOYMENT CONFIGURATION
 # ============================================================================

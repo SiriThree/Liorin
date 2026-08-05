@@ -1,0 +1,435 @@
+{
+  "query_understanding": {
+    "product_f1": 1.0,
+    "model_f1": 1.0,
+    "error_code_f1": 1.0,
+    "task_type_accuracy": 1.0,
+    "overall_extraction_f1": 1.0
+  },
+  "routing": {
+    "knowledge_source_selection_accuracy": 1.0,
+    "tool_selection_f1": 0.95
+  },
+  "retrieval": {
+    "recall_at_k": 1.0,
+    "mrr": 1.0,
+    "ndcg_at_k": 1.0,
+    "error_count": 0,
+    "p95_latency_ms": 104.68,
+    "cases": [
+      {
+        "id": "policy_refund",
+        "hits": 1,
+        "recall_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0,
+        "latency_ms": 52.75,
+        "top_doc_type": "policy",
+        "top_source": "sparse_bm25"
+      },
+      {
+        "id": "faq_flow",
+        "hits": 1,
+        "recall_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0,
+        "latency_ms": 1.71,
+        "top_doc_type": "faq",
+        "top_source": "sparse_bm25"
+      },
+      {
+        "id": "ticket_history",
+        "hits": 5,
+        "recall_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0,
+        "latency_ms": 104.68,
+        "top_doc_type": "ticket_history",
+        "top_source": "sparse_bm25"
+      },
+      {
+        "id": "database_order",
+        "hits": 2,
+        "recall_at_k": 1.0,
+        "mrr": 1.0,
+        "ndcg_at_k": 1.0,
+        "latency_ms": 5.03,
+        "top_doc_type": "structured_db",
+        "top_source": "structured_sql"
+      }
+    ]
+  },
+  "rerank": {
+    "top1_accuracy": 0.75,
+    "ndcg_before": 0.6577324383928644,
+    "ndcg_after": 0.75,
+    "ndcg_lift": 0.09226756160713556
+  },
+  "evidence": {
+    "evidence_coverage": 0.9166666666666666,
+    "conflict_identification_accuracy": 1.0
+  },
+  "generation": {
+    "answer_correctness": 1.0,
+    "faithfulness": 1.0,
+    "unsafe_action_avoidance": 1.0
+  },
+  "agent": {
+    "query_rewrite_success_rate": 1.0,
+    "avg_retrieval_rounds": 2,
+    "tool_selection_accuracy": 1.0,
+    "fallback_rate": 0.0
+  },
+  "system": {
+    "p95_latency_ms": 164.47,
+    "avg_estimated_tokens": 4.75,
+    "avg_dense_queries": 0.5,
+    "avg_sparse_queries": 1.5,
+    "fallback_rate": 0.0
+  },
+  "ablations": {
+    "dense_only": {
+      "recall_at_k": 0.25,
+      "mrr": 0.25,
+      "ndcg_at_k": 0.25,
+      "error_count": 0,
+      "p95_latency_ms": 36.6,
+      "cases": [
+        {
+          "id": "policy_refund",
+          "hits": 5,
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0,
+          "latency_ms": 36.6,
+          "top_doc_type": "manual",
+          "top_source": "dense_milvus"
+        },
+        {
+          "id": "faq_flow",
+          "hits": 5,
+          "recall_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0,
+          "latency_ms": 24.43,
+          "top_doc_type": "manual",
+          "top_source": "dense_milvus"
+        },
+        {
+          "id": "ticket_history",
+          "hits": 5,
+          "recall_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0,
+          "latency_ms": 35.83,
+          "top_doc_type": "manual",
+          "top_source": "dense_milvus"
+        },
+        {
+          "id": "database_order",
+          "hits": 5,
+          "recall_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0,
+          "latency_ms": 33.76,
+          "top_doc_type": "policy",
+          "top_source": "dense_milvus"
+        }
+      ]
+    },
+    "dense_bm25": {
+      "recall_at_k": 0.75,
+      "mrr": 0.4375,
+      "ndcg_at_k": 0.5203993719701314,
+      "error_count": 0,
+      "p95_latency_ms": 2308.76,
+      "cases": [
+        {
+          "id": "policy_refund",
+          "hits": 5,
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0,
+          "latency_ms": 2308.76,
+          "top_doc_type": "manual",
+          "top_source": "dense_milvus"
+        },
+        {
+          "id": "faq_flow",
+          "hits": 5,
+          "recall_at_k": 1.0,
+          "mrr": 0.25,
+          "ndcg_at_k": 0.43067655807339306,
+          "latency_ms": 2165.38,
+          "top_doc_type": "manual",
+          "top_source": "dense_milvus"
+        },
+        {
+          "id": "ticket_history",
+          "hits": 5,
+          "recall_at_k": 1.0,
+          "mrr": 0.5,
+          "ndcg_at_k": 0.6509209298071326,
+          "latency_ms": 2221.71,
+          "top_doc_type": "manual",
+          "top_source": "dense_milvus"
+        },
+        {
+          "id": "database_order",
+          "hits": 5,
+          "recall_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0,
+          "latency_ms": 2223.05,
+          "top_doc_type": "policy",
+          "top_source": "dense_milvus"
+        }
+      ]
+    },
+    "dense_bm25_rerank": {
+      "recall_at_k": 0.75,
+      "mrr": 0.75,
+      "ndcg_at_k": 0.75,
+      "error_count": 0,
+      "p95_latency_ms": 6234.77,
+      "cases": [
+        {
+          "id": "policy_refund",
+          "hits": 5,
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0,
+          "latency_ms": 5947.93,
+          "top_doc_type": "manual",
+          "top_source": "dense_milvus"
+        },
+        {
+          "id": "faq_flow",
+          "hits": 5,
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0,
+          "latency_ms": 6234.77,
+          "top_doc_type": "faq",
+          "top_source": "sparse_bm25"
+        },
+        {
+          "id": "ticket_history",
+          "hits": 5,
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0,
+          "latency_ms": 5077.22,
+          "top_doc_type": "ticket_history",
+          "top_source": "sparse_bm25"
+        },
+        {
+          "id": "database_order",
+          "hits": 5,
+          "recall_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0,
+          "latency_ms": 5254.85,
+          "top_doc_type": "faq",
+          "top_source": "sparse_bm25"
+        }
+      ]
+    },
+    "metadata_filter": {
+      "recall_at_k": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_k": 1.0,
+      "error_count": 0,
+      "p95_latency_ms": 212.36,
+      "cases": [
+        {
+          "id": "policy_refund",
+          "hits": 1,
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0,
+          "latency_ms": 4.38,
+          "top_doc_type": "policy",
+          "top_source": "sparse_bm25"
+        },
+        {
+          "id": "faq_flow",
+          "hits": 1,
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0,
+          "latency_ms": 4.38,
+          "top_doc_type": "faq",
+          "top_source": "sparse_bm25"
+        },
+        {
+          "id": "ticket_history",
+          "hits": 5,
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0,
+          "latency_ms": 212.36,
+          "top_doc_type": "ticket_history",
+          "top_source": "sparse_bm25"
+        },
+        {
+          "id": "database_order",
+          "hits": 2,
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0,
+          "latency_ms": 2.62,
+          "top_doc_type": "structured_db",
+          "top_source": "structured_sql"
+        }
+      ]
+    },
+    "query_rewrite": {
+      "recall_at_k": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_k": 1.0,
+      "error_count": 0,
+      "p95_latency_ms": 3874.75,
+      "cases": [
+        {
+          "id": "policy_refund",
+          "hits": 5,
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0,
+          "latency_ms": 2165.47,
+          "top_doc_type": "faq",
+          "top_source": "sparse_bm25"
+        },
+        {
+          "id": "faq_flow",
+          "hits": 5,
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0,
+          "latency_ms": 2947.96,
+          "top_doc_type": "faq",
+          "top_source": "sparse_bm25"
+        },
+        {
+          "id": "ticket_history",
+          "hits": 5,
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0,
+          "latency_ms": 3874.75,
+          "top_doc_type": "ticket_history",
+          "top_source": "sparse_bm25"
+        },
+        {
+          "id": "database_order",
+          "hits": 2,
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0,
+          "latency_ms": 2.24,
+          "top_doc_type": "structured_db",
+          "top_source": "structured_sql"
+        }
+      ]
+    },
+    "evidence_grading": {
+      "recall_at_k": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_k": 1.0,
+      "error_count": 0,
+      "p95_latency_ms": 3986.66,
+      "cases": [
+        {
+          "id": "policy_refund",
+          "hits": 5,
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0,
+          "latency_ms": 3817.55,
+          "top_doc_type": "faq",
+          "top_source": "sparse_bm25"
+        },
+        {
+          "id": "faq_flow",
+          "hits": 1,
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0,
+          "latency_ms": 3986.66,
+          "top_doc_type": "faq",
+          "top_source": "sparse_bm25"
+        },
+        {
+          "id": "ticket_history",
+          "hits": 5,
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0,
+          "latency_ms": 2614.02,
+          "top_doc_type": "ticket_history",
+          "top_source": "sparse_bm25"
+        },
+        {
+          "id": "database_order",
+          "hits": 2,
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0,
+          "latency_ms": 1.55,
+          "top_doc_type": "structured_db",
+          "top_source": "structured_sql"
+        }
+      ]
+    },
+    "full_agentic_rag": {
+      "recall_at_k": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_k": 1.0,
+      "error_count": 0,
+      "p95_latency_ms": 95.27,
+      "cases": [
+        {
+          "id": "policy_refund",
+          "hits": 1,
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0,
+          "latency_ms": 1.76,
+          "top_doc_type": "policy",
+          "top_source": "sparse_bm25"
+        },
+        {
+          "id": "faq_flow",
+          "hits": 1,
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0,
+          "latency_ms": 1.55,
+          "top_doc_type": "faq",
+          "top_source": "sparse_bm25"
+        },
+        {
+          "id": "ticket_history",
+          "hits": 5,
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0,
+          "latency_ms": 95.27,
+          "top_doc_type": "ticket_history",
+          "top_source": "sparse_bm25"
+        },
+        {
+          "id": "database_order",
+          "hits": 2,
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0,
+          "latency_ms": 1.48,
+          "top_doc_type": "structured_db",
+          "top_source": "structured_sql"
+        }
+      ]
+    }
+  }
+}

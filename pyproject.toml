@@ -16,17 +16,28 @@ dependencies = [
     "langgraph>=0.2.0",
     "langsmith>=0.8.18",
     "langchain-huggingface>=0.1.0",
+    "langchain-milvus>=0.4.0",
     "langchain-community>=0.3.0",
     "langchain-text-splitters>=1.1.2",
     "sentence-transformers>=3.0.0",
+    "jieba>=0.42.1",
     "python-dotenv>=1.2.2",
     "langgraph-cli[inmem]>=0.4.4",
     "agentevals>=0.0.9",
     "openevals>=0.0.9",
+    "httpx>=0.28.0",
+    "pyyaml>=6.0.0",
 ]
 
 [dependency-groups]
-dev = []
+dev = [
+    "pytest>=9.1.1",
+]
 
 [tool.hatch.build.targets.wheel]
-packages = ["tools", "agents", "deployments", "evaluators"]
+packages = ["tools", "agents", "retrieval", "governance", "deployments", "evaluators", "evals"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"retrieval/verification_policy.json" = "retrieval/verification_policy.json"
+"governance/degradation_matrix.json" = "governance/degradation_matrix.json"
+"governance/release_gate_config.json" = "governance/release_gate_config.json"

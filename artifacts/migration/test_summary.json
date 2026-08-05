@@ -1,0 +1,49 @@
+{
+  "pytest_all": {
+    "command": ".venv\\Scripts\\python.exe -m pytest -q",
+    "exit_code": 0,
+    "key_output": "137 passed in 26.27s"
+  },
+  "benchmark_smoke": {
+    "command": ".venv\\Scripts\\python.exe -m evals.benchmark.cli smoke",
+    "exit_code": 0,
+    "macro_objective_score": 0.7021322892868052,
+    "sample_count": 6
+  },
+  "validation_small": {
+    "command": ".venv\\Scripts\\python.exe -m evals.benchmark.cli run --dataset validation --limit 6 --allow-partial",
+    "exit_code": 0,
+    "macro_objective_score": 0.5,
+    "sample_count": 6
+  },
+  "annotation_mock_audit": {
+    "status": "PASS_FLOW_ONLY",
+    "semantic_results_valid": false,
+    "sample_count": 12,
+    "disagreements": 2,
+    "adjudicator_calls": 2,
+    "human_review_queue": 7
+  },
+  "agreement_gate": {
+    "exit_code": 2,
+    "status": "INVALID_MOCK_RUN",
+    "semantic_results_valid": false
+  },
+  "stage4_local_bm25": {
+    "exit_code": 0,
+    "sample_count": 55,
+    "ndcg_at_10": 0.451660576473385,
+    "acl_violation_rate": 0.0,
+    "claim_scope": "local_production_bm25_only"
+  },
+  "release_gate": {
+    "exit_code": 2,
+    "passed": false,
+    "reason": "fail-closed: aggregate report fields missing and required thresholds are null"
+  },
+  "security_scan": {
+    "workspace_findings": 0,
+    "large_files_over_5mb": 0,
+    "git_grep_findings": "only .env.example placeholders"
+  }
+}

@@ -1,0 +1,32 @@
+dataset_path: tests/fixtures/annotation_smoke_dataset.json
+corpus_path: benchmark/corpus/corpus_v7_3.json
+output_dir: annotation_runs/mock_full_test
+max_concurrency: 8
+random_review_rate: 0.10
+random_seed: 20260805
+allow_correlated_agents: false
+include_blind_samples: false
+annotator_a:
+  agent_id: annotator_a
+  role: annotator
+  backend: mock
+  provider: mock-a
+  model: mock-model-a
+  base_url: mock://a
+  prompt_profile: evidence_first
+annotator_b:
+  agent_id: annotator_b
+  role: annotator
+  backend: mock
+  provider: mock-b
+  model: mock-model-b
+  base_url: mock://b
+  prompt_profile: counterexample_first
+adjudicator_c:
+  agent_id: adjudicator_c
+  role: adjudicator
+  backend: mock
+  provider: mock-c
+  model: mock-model-c
+  base_url: mock://c
+  prompt_profile: risk_first

@@ -1,0 +1,1157 @@
+[
+  {
+    "chunk_id": "FAQ-POL-001",
+    "document_id": "FAQ-POL-001",
+    "source_type": "faq",
+    "faq_kind": "customer_policy_faq",
+    "question": "查询订单前为什么必须验证邮箱？",
+    "answer": "查询订单、工单、退款或保修状态前必须先验证客户邮箱。未验证身份时，只能回答通用产品、手册和政策问题。",
+    "text": "问题：查询订单前为什么必须验证邮箱？\n回答：查询订单、工单、退款或保修状态前必须先验证客户邮箱。未验证身份时，只能回答通用产品、手册和政策问题。",
+    "product_id": null,
+    "product_name": null,
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "查询订单前为什么必须验证邮箱？",
+    "source_refs": [
+      {
+        "source_file": "after_sales_policy.md",
+        "chunk_id": "POL-002",
+        "heading": "身份验证"
+      }
+    ],
+    "content_sha256": "29bf306189b27f5865612c7fb6563494f05996bc43f5b830457f355e6ca085b6"
+  },
+  {
+    "chunk_id": "FAQ-POL-002",
+    "document_id": "FAQ-POL-002",
+    "source_type": "faq",
+    "faq_kind": "customer_policy_faq",
+    "question": "企业客户查询售后信息还需要什么上下文？",
+    "answer": "除客户身份外，还应结合 tenant_id 判断企业租户上下文；具体企业协议优先于通用政策。",
+    "text": "问题：企业客户查询售后信息还需要什么上下文？\n回答：除客户身份外，还应结合 tenant_id 判断企业租户上下文；具体企业协议优先于通用政策。",
+    "product_id": null,
+    "product_name": null,
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "企业客户查询售后信息还需要什么上下文？",
+    "source_refs": [
+      {
+        "source_file": "after_sales_policy.md",
+        "chunk_id": "POL-002",
+        "heading": "身份验证"
+      }
+    ],
+    "content_sha256": "b3779a17ad12d8d2e10e2f0f7ecdd43c18ec07326ce37cb99a8e62bdbd386f9a"
+  },
+  {
+    "chunk_id": "FAQ-POL-003",
+    "document_id": "FAQ-POL-003",
+    "source_type": "faq",
+    "faq_kind": "customer_policy_faq",
+    "question": "已签收商品通常需要多久内提交退货或退款申请？",
+    "answer": "通常需要在签收后 7 天内提交申请，同时保留完整包装、配件、序列号和购买凭证。",
+    "text": "问题：已签收商品通常需要多久内提交退货或退款申请？\n回答：通常需要在签收后 7 天内提交申请，同时保留完整包装、配件、序列号和购买凭证。",
+    "product_id": null,
+    "product_name": null,
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "已签收商品通常需要多久内提交退货或退款申请？",
+    "source_refs": [
+      {
+        "source_file": "after_sales_policy.md",
+        "chunk_id": "POL-003",
+        "heading": "退货与退款"
+      }
+    ],
+    "content_sha256": "6b39099862201482f10d61cc69206557dbd71b17db423069be2b8cb94dfe1793"
+  },
+  {
+    "chunk_id": "FAQ-POL-004",
+    "document_id": "FAQ-POL-004",
+    "source_type": "faq",
+    "faq_kind": "customer_policy_faq",
+    "question": "商品已经安装或激活还能直接退货吗？",
+    "answer": "不一定。已安装、已激活、有人为损坏或缺少关键配件的商品可能需要人工复核。",
+    "text": "问题：商品已经安装或激活还能直接退货吗？\n回答：不一定。已安装、已激活、有人为损坏或缺少关键配件的商品可能需要人工复核。",
+    "product_id": null,
+    "product_name": null,
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "商品已经安装或激活还能直接退货吗？",
+    "source_refs": [
+      {
+        "source_file": "after_sales_policy.md",
+        "chunk_id": "POL-003",
+        "heading": "退货与退款"
+      }
+    ],
+    "content_sha256": "0c387fbb07208a536f7f5ffe6a11d2af215ec2b85207c9dafc6f5d5f7ae5f373"
+  },
+  {
+    "chunk_id": "FAQ-POL-005",
+    "document_id": "FAQ-POL-005",
+    "source_type": "faq",
+    "faq_kind": "customer_policy_faq",
+    "question": "客服 Agent 可以直接完成退款吗？",
+    "answer": "不可以。退款、部分退款、订单取消和账户状态变更属于高风险操作，Agent 只能说明资格与下一步。",
+    "text": "问题：客服 Agent 可以直接完成退款吗？\n回答：不可以。退款、部分退款、订单取消和账户状态变更属于高风险操作，Agent 只能说明资格与下一步。",
+    "product_id": null,
+    "product_name": null,
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "客服 Agent 可以直接完成退款吗？",
+    "source_refs": [
+      {
+        "source_file": "after_sales_policy.md",
+        "chunk_id": "POL-003",
+        "heading": "退货与退款"
+      }
+    ],
+    "content_sha256": "e11eb5125b32cc49fa5e15d16c7e5eca4aa39890cf375c4691a2f7b45376052a"
+  },
+  {
+    "chunk_id": "FAQ-POL-006",
+    "document_id": "FAQ-POL-006",
+    "source_type": "faq",
+    "faq_kind": "customer_policy_faq",
+    "question": "Processing 状态的订单能取消吗？",
+    "answer": "Processing 状态订单可以进入取消资格检查，但是否最终取消仍需按流程确认。",
+    "text": "问题：Processing 状态的订单能取消吗？\n回答：Processing 状态订单可以进入取消资格检查，但是否最终取消仍需按流程确认。",
+    "product_id": null,
+    "product_name": null,
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "Processing 状态的订单能取消吗？",
+    "source_refs": [
+      {
+        "source_file": "after_sales_policy.md",
+        "chunk_id": "POL-004",
+        "heading": "订单取消"
+      }
+    ],
+    "content_sha256": "ab0d1f2dd6beff98868b898b5e0b9988d9e2a3b056ba56f73083f18d1b816752"
+  },
+  {
+    "chunk_id": "FAQ-POL-007",
+    "document_id": "FAQ-POL-007",
+    "source_type": "faq",
+    "faq_kind": "customer_policy_faq",
+    "question": "Shipped 或 Delivered 状态订单能直接取消吗？",
+    "answer": "通常不能直接取消，应转入退货或退款流程。",
+    "text": "问题：Shipped 或 Delivered 状态订单能直接取消吗？\n回答：通常不能直接取消，应转入退货或退款流程。",
+    "product_id": null,
+    "product_name": null,
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "Shipped 或 Delivered 状态订单能直接取消吗？",
+    "source_refs": [
+      {
+        "source_file": "after_sales_policy.md",
+        "chunk_id": "POL-004",
+        "heading": "订单取消"
+      }
+    ],
+    "content_sha256": "8438de12b4a503213ebd171311bb4c481212c202ad3f7e35c55ecb2f6a055352"
+  },
+  {
+    "chunk_id": "FAQ-POL-008",
+    "document_id": "FAQ-POL-008",
+    "source_type": "faq",
+    "faq_kind": "customer_policy_faq",
+    "question": "Cancelled 状态订单还可以再次取消吗？",
+    "answer": "不应重复提交取消，只能解释取消原因和可选的后续处理。",
+    "text": "问题：Cancelled 状态订单还可以再次取消吗？\n回答：不应重复提交取消，只能解释取消原因和可选的后续处理。",
+    "product_id": null,
+    "product_name": null,
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "Cancelled 状态订单还可以再次取消吗？",
+    "source_refs": [
+      {
+        "source_file": "after_sales_policy.md",
+        "chunk_id": "POL-004",
+        "heading": "订单取消"
+      }
+    ],
+    "content_sha256": "51a25e885c067b511c1efda9059576854b62b95d161d48dec4613666b0874137"
+  },
+  {
+    "chunk_id": "FAQ-POL-009",
+    "document_id": "FAQ-POL-009",
+    "source_type": "faq",
+    "faq_kind": "customer_policy_faq",
+    "question": "维修工单应包含哪些信息？",
+    "answer": "应包含客户身份、订单号、产品、故障现象、发生时间以及截图或照片证据。",
+    "text": "问题：维修工单应包含哪些信息？\n回答：应包含客户身份、订单号、产品、故障现象、发生时间以及截图或照片证据。",
+    "product_id": null,
+    "product_name": null,
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "维修工单应包含哪些信息？",
+    "source_refs": [
+      {
+        "source_file": "after_sales_policy.md",
+        "chunk_id": "POL-005",
+        "heading": "维修工单"
+      }
+    ],
+    "content_sha256": "94c6f8ddf8a8ea4f297b115bf6bf49235ae6b95c54861311ee57e39e5ca3a044"
+  },
+  {
+    "chunk_id": "FAQ-POL-010",
+    "document_id": "FAQ-POL-010",
+    "source_type": "faq",
+    "faq_kind": "customer_policy_faq",
+    "question": "高优先级工单应该补充什么？",
+    "answer": "需要说明临时缓解措施和预计下一步。",
+    "text": "问题：高优先级工单应该补充什么？\n回答：需要说明临时缓解措施和预计下一步。",
+    "product_id": null,
+    "product_name": null,
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "高优先级工单应该补充什么？",
+    "source_refs": [
+      {
+        "source_file": "after_sales_policy.md",
+        "chunk_id": "POL-005",
+        "heading": "维修工单"
+      }
+    ],
+    "content_sha256": "d0344e917427dd4a70bd5381642e56c719374a686b66868dd0ac0d7e451f0b9d"
+  },
+  {
+    "chunk_id": "FAQ-POL-011",
+    "document_id": "FAQ-POL-011",
+    "source_type": "faq",
+    "faq_kind": "customer_policy_faq",
+    "question": "Agent 可以直接创建维修工单吗？",
+    "answer": "当前项目版本只能建议创建维修工单，不能声称已经完成创建。",
+    "text": "问题：Agent 可以直接创建维修工单吗？\n回答：当前项目版本只能建议创建维修工单，不能声称已经完成创建。",
+    "product_id": null,
+    "product_name": null,
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "Agent 可以直接创建维修工单吗？",
+    "source_refs": [
+      {
+        "source_file": "after_sales_policy.md",
+        "chunk_id": "POL-005",
+        "heading": "维修工单"
+      }
+    ],
+    "content_sha256": "70d7e5470675902129af112bed7a9621120d72adccb8c86951506a471298c73f"
+  },
+  {
+    "chunk_id": "FAQ-POL-012",
+    "document_id": "FAQ-POL-012",
+    "source_type": "faq",
+    "faq_kind": "customer_policy_faq",
+    "question": "标准保修期如何确定？",
+    "answer": "以产品表中的 warranty_months 为准，并结合订单购买时间与具体质保案例判断。",
+    "text": "问题：标准保修期如何确定？\n回答：以产品表中的 warranty_months 为准，并结合订单购买时间与具体质保案例判断。",
+    "product_id": null,
+    "product_name": null,
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "标准保修期如何确定？",
+    "source_refs": [
+      {
+        "source_file": "after_sales_policy.md",
+        "chunk_id": "POL-006",
+        "heading": "保修"
+      }
+    ],
+    "content_sha256": "d18da1bb3c2f357e1b7f66fe694d7c4b79c2c3bc794a12a21092b84427d99bea"
+  },
+  {
+    "chunk_id": "FAQ-POL-013",
+    "document_id": "FAQ-POL-013",
+    "source_type": "faq",
+    "faq_kind": "customer_policy_faq",
+    "question": "标准保修通常覆盖哪些问题？",
+    "answer": "通常覆盖制造缺陷、非人为功能故障，以及符合手册要求的正常使用问题。",
+    "text": "问题：标准保修通常覆盖哪些问题？\n回答：通常覆盖制造缺陷、非人为功能故障，以及符合手册要求的正常使用问题。",
+    "product_id": null,
+    "product_name": null,
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "标准保修通常覆盖哪些问题？",
+    "source_refs": [
+      {
+        "source_file": "after_sales_policy.md",
+        "chunk_id": "POL-006",
+        "heading": "保修"
+      }
+    ],
+    "content_sha256": "3c0c8b6802d3d50c1e4d019d3469ec353d148e954ecc3feb3552ecd621b5d68f"
+  },
+  {
+    "chunk_id": "FAQ-POL-014",
+    "document_id": "FAQ-POL-014",
+    "source_type": "faq",
+    "faq_kind": "customer_policy_faq",
+    "question": "哪些情况通常不属于标准保修？",
+    "answer": "进水、跌落、私拆、非授权维修或耗材自然损耗通常不属于标准保修。",
+    "text": "问题：哪些情况通常不属于标准保修？\n回答：进水、跌落、私拆、非授权维修或耗材自然损耗通常不属于标准保修。",
+    "product_id": null,
+    "product_name": null,
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "哪些情况通常不属于标准保修？",
+    "source_refs": [
+      {
+        "source_file": "after_sales_policy.md",
+        "chunk_id": "POL-006",
+        "heading": "保修"
+      }
+    ],
+    "content_sha256": "4dc2b860229bdc8d8450e3e6f666420882ffa579925088e09b25e59640526c8c"
+  },
+  {
+    "chunk_id": "FAQ-POL-015",
+    "document_id": "FAQ-POL-015",
+    "source_type": "faq",
+    "faq_kind": "customer_policy_faq",
+    "question": "哪些售后情况必须人工审批？",
+    "answer": "退款、赔付、取消订单、修改收货信息、企业批量售后、合同例外、保修争议、疑似欺诈、身份验证失败后索取账号信息，以及证据不足或冲突等情况。",
+    "text": "问题：哪些售后情况必须人工审批？\n回答：退款、赔付、取消订单、修改收货信息、企业批量售后、合同例外、保修争议、疑似欺诈、身份验证失败后索取账号信息，以及证据不足或冲突等情况。",
+    "product_id": null,
+    "product_name": null,
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "哪些售后情况必须人工审批？",
+    "source_refs": [
+      {
+        "source_file": "after_sales_policy.md",
+        "chunk_id": "POL-007",
+        "heading": "人工审批"
+      }
+    ],
+    "content_sha256": "464812cbd8e57d62df5604ccb3b2d8b67a7db5b67c8f8665f4e7902adadf0902"
+  },
+  {
+    "chunk_id": "FAQ-LIO-PROD-001-01",
+    "document_id": "FAQ-LIO-PROD-001-01",
+    "source_type": "faq",
+    "faq_kind": "customer_product_faq",
+    "question": "孩子使用VR后出现头晕、恶心或身体不适时，应该立即停止使用吗，症状持续又该怎么办？",
+    "answer": "除上述症状外，若游玩期间出现头痛、头晕、恶心、疲劳、类似晕动症的症状，或眼睛、耳朵、手、手臂、脚等身体任何部位感到不适或疼痛，请立即停止使用。",
+    "text": "问题：孩子使用VR后出现头晕、恶心或身体不适时，应该立即停止使用吗，症状持续又该怎么办？\n回答：除上述症状外，若游玩期间出现头痛、头晕、恶心、疲劳、类似晕动症的症状，或眼睛、耳朵、手、手臂、脚等身体任何部位感到不适或疼痛，请立即停止使用。",
+    "product_id": "LIO-PROD-001",
+    "product_name": "VR头显",
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "孩子使用VR后出现头晕、恶心或身体不适时，应该立即停止使用吗，症状持续又该怎么办？",
+    "source_refs": [
+      {
+        "source_file": "LIO-PROD-001_VR#U5934#U663e#U624b#U518c.md",
+        "chunk_id": "LIO-PROD-001-H007",
+        "heading": "出现以下症状时请立即停止游玩"
+      }
+    ],
+    "content_sha256": "1f159387171972dc6c76ac7c55878d995d4753e5ab8023db909b2f8a2b5465bf"
+  },
+  {
+    "chunk_id": "FAQ-LIO-PROD-001-02",
+    "document_id": "FAQ-LIO-PROD-001-02",
+    "source_type": "faq",
+    "faq_kind": "customer_product_faq",
+    "question": "VR头显提示温度过高时还能继续玩吗，正确处理方式是什么？",
+    "answer": "待处理器单元冷却后，将其移至通风良好的位置，再继续使用。 请勿遮挡处理器单元的通风口，请勿在封闭橱柜等易积热的环境中使用本产品。",
+    "text": "问题：VR头显提示温度过高时还能继续玩吗，正确处理方式是什么？\n回答：待处理器单元冷却后，将其移至通风良好的位置，再继续使用。 请勿遮挡处理器单元的通风口，请勿在封闭橱柜等易积热的环境中使用本产品。",
+    "product_id": "LIO-PROD-001",
+    "product_name": "VR头显",
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "VR头显提示温度过高时还能继续玩吗，正确处理方式是什么？",
+    "source_refs": [
+      {
+        "source_file": "LIO-PROD-001_VR#U5934#U663e#U624b#U518c.md",
+        "chunk_id": "LIO-PROD-001-H025",
+        "heading": "高温提示"
+      }
+    ],
+    "content_sha256": "875a7f73860e4961fe387863cdc081a664491930c777f5be7d23d094dd817f9d"
+  },
+  {
+    "chunk_id": "FAQ-LIO-PROD-002-01",
+    "document_id": "FAQ-LIO-PROD-002-01",
+    "source_type": "faq",
+    "faq_kind": "customer_product_faq",
+    "question": "人体工学椅到货后，底座、气杆、扶手和椅背应按什么顺序装好？",
+    "answer": "请保留原包装箱，以备可能需要退换产品时使用。 用螺丝将 C1 与 C2 组装在一起 安装脚轮。",
+    "text": "问题：人体工学椅到货后，底座、气杆、扶手和椅背应按什么顺序装好？\n回答：请保留原包装箱，以备可能需要退换产品时使用。 用螺丝将 C1 与 C2 组装在一起 安装脚轮。",
+    "product_id": "LIO-PROD-002",
+    "product_name": "人体工学椅",
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "人体工学椅到货后，底座、气杆、扶手和椅背应按什么顺序装好？",
+    "source_refs": [
+      {
+        "source_file": "LIO-PROD-002_#U4eba#U4f53#U5de5#U5b66#U6905#U624b#U518c.md",
+        "chunk_id": "LIO-PROD-002-H006",
+        "heading": "安装说明"
+      }
+    ],
+    "content_sha256": "9f4597be8f55d9a38a1821f3ba7e07512845f69f19c94f4be1c5c13b22a072bf"
+  },
+  {
+    "chunk_id": "FAQ-LIO-PROD-002-02",
+    "document_id": "FAQ-LIO-PROD-002-02",
+    "source_type": "faq",
+    "faq_kind": "customer_product_faq",
+    "question": "椅子用了一段时间后扶手变松，用户可以先做什么检查？",
+    "answer": "Q：使用一段时间后扶手变松怎么办？ A：大多数情况下，扶手和椅背的螺丝会在使用一段时间后松动，重新拧紧螺丝即可解决问题。",
+    "text": "问题：椅子用了一段时间后扶手变松，用户可以先做什么检查？\n回答：Q：使用一段时间后扶手变松怎么办？ A：大多数情况下，扶手和椅背的螺丝会在使用一段时间后松动，重新拧紧螺丝即可解决问题。",
+    "product_id": "LIO-PROD-002",
+    "product_name": "人体工学椅",
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "椅子用了一段时间后扶手变松，用户可以先做什么检查？",
+    "source_refs": [
+      {
+        "source_file": "LIO-PROD-002_#U4eba#U4f53#U5de5#U5b66#U6905#U624b#U518c.md",
+        "chunk_id": "LIO-PROD-002-H007",
+        "heading": "常见问题："
+      }
+    ],
+    "content_sha256": "975fd7819b000bc0a899da9f28efef4dc5ba29d64cb8e5c4e8b1f830a13a4037"
+  },
+  {
+    "chunk_id": "FAQ-LIO-PROD-003-01",
+    "document_id": "FAQ-LIO-PROD-003-01",
+    "source_type": "faq",
+    "faq_kind": "customer_product_faq",
+    "question": "装健身单车前应该怎样安排工作区，并提前检查哪些部件？",
+    "answer": "装配本机时请遵循以下要点： 装配前阅读并理解“重要安全说明”。 使用推荐扳手，顺时针拧紧螺栓和螺母，逆时针松开，除非另有说明。",
+    "text": "问题：装健身单车前应该怎样安排工作区，并提前检查哪些部件？\n回答：装配本机时请遵循以下要点： 装配前阅读并理解“重要安全说明”。 使用推荐扳手，顺时针拧紧螺栓和螺母，逆时针松开，除非另有说明。",
+    "product_id": "LIO-PROD-003",
+    "product_name": "健身单车",
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "装健身单车前应该怎样安排工作区，并提前检查哪些部件？",
+    "source_refs": [
+      {
+        "source_file": "LIO-PROD-003_#U5065#U8eab#U5355#U8f66#U624b#U518c.md",
+        "chunk_id": "LIO-PROD-003-H007",
+        "heading": "基本装配提示"
+      }
+    ],
+    "content_sha256": "337540dd0c29f647a0b460142633ffab30393b9e164033d9a1964f53bc0a9a81"
+  },
+  {
+    "chunk_id": "FAQ-LIO-PROD-003-02",
+    "document_id": "FAQ-LIO-PROD-003-02",
+    "source_type": "faq",
+    "faq_kind": "customer_product_faq",
+    "question": "骑行时座椅位置不舒服，应该怎样调整高度和前后位置？",
+    "answer": "正确的座椅位置可提升运动效率与舒适度，降低受伤风险。 松开并拉出座管上的调节旋钮，将座椅调至所需高度，松开旋钮使锁销卡入。",
+    "text": "问题：骑行时座椅位置不舒服，应该怎样调整高度和前后位置？\n回答：正确的座椅位置可提升运动效率与舒适度，降低受伤风险。 松开并拉出座管上的调节旋钮，将座椅调至所需高度，松开旋钮使锁销卡入。",
+    "product_id": "LIO-PROD-003",
+    "product_name": "健身单车",
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "骑行时座椅位置不舒服，应该怎样调整高度和前后位置？",
+    "source_refs": [
+      {
+        "source_file": "LIO-PROD-003_#U5065#U8eab#U5355#U8f66#U624b#U518c.md",
+        "chunk_id": "LIO-PROD-003-H046",
+        "heading": "座椅调节"
+      }
+    ],
+    "content_sha256": "96b04fb01e4148d1a7c79552aef5b16d297cc33c5d7825088f48396ed5323878"
+  },
+  {
+    "chunk_id": "FAQ-LIO-PROD-004-01",
+    "document_id": "FAQ-LIO-PROD-004-01",
+    "source_type": "faq",
+    "faq_kind": "customer_product_faq",
+    "question": "健身追踪器第一次充电时，应该怎样连接电源并判断充电状态？",
+    "answer": "为健身追踪器充电： 将充电线插入电脑的USB端口、UL认证的USB墙充充电器或其他低功耗充电设备。 将充电线的另一端靠近手表背面的充电接口，直至磁吸吸附。",
+    "text": "问题：健身追踪器第一次充电时，应该怎样连接电源并判断充电状态？\n回答：为健身追踪器充电： 将充电线插入电脑的USB端口、UL认证的USB墙充充电器或其他低功耗充电设备。 将充电线的另一端靠近手表背面的充电接口，直至磁吸吸附。",
+    "product_id": "LIO-PROD-004",
+    "product_name": "健身追踪器",
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "健身追踪器第一次充电时，应该怎样连接电源并判断充电状态？",
+    "source_refs": [
+      {
+        "source_file": "LIO-PROD-004_#U5065#U8eab#U8ffd#U8e2a#U5668#U624b#U518c.md",
+        "chunk_id": "LIO-PROD-004-H008",
+        "heading": "为手表充电"
+      }
+    ],
+    "content_sha256": "2fb6e466396c560660e9f7f4701f7e8a1ba492a534337c987da349421b029a4a"
+  },
+  {
+    "chunk_id": "FAQ-LIO-PROD-004-02",
+    "document_id": "FAQ-LIO-PROD-004-02",
+    "source_type": "faq",
+    "faq_kind": "customer_product_faq",
+    "question": "手机消息没有显示在手环上，通知功能应从哪些设置开始检查？",
+    "answer": "然后设置通知： 在健身追踪器应用的今日页面，点击左上角图标 > 健身追踪器卡片。 如需开启手机上已安装应用（包括健身追踪器和WhatsApp）的通知，请点击应用通知，开启你希望在手表上查看的通知。",
+    "text": "问题：手机消息没有显示在手环上，通知功能应从哪些设置开始检查？\n回答：然后设置通知： 在健身追踪器应用的今日页面，点击左上角图标 > 健身追踪器卡片。 如需开启手机上已安装应用（包括健身追踪器和WhatsApp）的通知，请点击应用通知，开启你希望在手表上查看的通知。",
+    "product_id": "LIO-PROD-004",
+    "product_name": "健身追踪器",
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "手机消息没有显示在手环上，通知功能应从哪些设置开始检查？",
+    "source_refs": [
+      {
+        "source_file": "LIO-PROD-004_#U5065#U8eab#U8ffd#U8e2a#U5668#U624b#U518c.md",
+        "chunk_id": "LIO-PROD-004-H044",
+        "heading": "设置通知"
+      }
+    ],
+    "content_sha256": "3d224787b95281c3839889551646e05ea99f87e7da508b4c5d52baebd4055fd9"
+  },
+  {
+    "chunk_id": "FAQ-LIO-PROD-005-01",
+    "document_id": "FAQ-LIO-PROD-005-01",
+    "source_type": "faq",
+    "faq_kind": "customer_product_faq",
+    "question": "儿童骑电动摩托车前，家长应确认哪些安全规则？",
+    "answer": "确保所有使用者充分理解以下安全规则 骑行时务必佩戴头盔及防护装备 在安全区域内骑行： 切勿在车道、机动车附近、草坪、陡坡或台阶上/附近、游泳池或其他水域上/附近使用。 遵守车辆安全使用的载重及年龄限制 严禁改装车辆电路或其他部件 定期检查电线、接头，确保紧固件及部件牢固。",
+    "text": "问题：儿童骑电动摩托车前，家长应确认哪些安全规则？\n回答：确保所有使用者充分理解以下安全规则 骑行时务必佩戴头盔及防护装备 在安全区域内骑行： 切勿在车道、机动车附近、草坪、陡坡或台阶上/附近、游泳池或其他水域上/附近使用。 遵守车辆安全使用的载重及年龄限制 严禁改装车辆电路或其他部件 定期检查电线、接头，确保紧固件及部件牢固。",
+    "product_id": "LIO-PROD-005",
+    "product_name": "儿童电动摩托车",
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "儿童骑电动摩托车前，家长应确认哪些安全规则？",
+    "source_refs": [
+      {
+        "source_file": "LIO-PROD-005_#U513f#U7ae5#U7535#U52a8#U6469#U6258#U8f66#U624b#U518c.md",
+        "chunk_id": "LIO-PROD-005-H019",
+        "heading": "安全骑行规则"
+      }
+    ],
+    "content_sha256": "bfa5f3fdeba0b2fecae8e6fa24e994a5e7591dcd2ae3e32466df97536d1beb7c"
+  },
+  {
+    "chunk_id": "FAQ-LIO-PROD-005-02",
+    "document_id": "FAQ-LIO-PROD-005-02",
+    "source_type": "faq",
+    "faq_kind": "customer_product_faq",
+    "question": "儿童电动摩托车通电后不能行驶，手册建议检查哪些原因？",
+    "answer": "每次使用后，或至少每月一次，为电池充电8至12小时。 当车辆过载或操作不当，自恢复保险丝会暂停工作5至20秒，之后恢复正常。",
+    "text": "问题：儿童电动摩托车通电后不能行驶，手册建议检查哪些原因？\n回答：每次使用后，或至少每月一次，为电池充电8至12小时。 当车辆过载或操作不当，自恢复保险丝会暂停工作5至20秒，之后恢复正常。",
+    "product_id": "LIO-PROD-005",
+    "product_name": "儿童电动摩托车",
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "儿童电动摩托车通电后不能行驶，手册建议检查哪些原因？",
+    "source_refs": [
+      {
+        "source_file": "LIO-PROD-005_#U513f#U7ae5#U7535#U52a8#U6469#U6258#U8f66#U624b#U518c.md",
+        "chunk_id": "LIO-PROD-005-H029",
+        "heading": "问题：车辆无法行驶"
+      }
+    ],
+    "content_sha256": "353867b69d6ed5d7fb824dd17e27db9b7af3570bc87baece701aab37bc7c108b"
+  },
+  {
+    "chunk_id": "FAQ-LIO-PROD-006-01",
+    "document_id": "FAQ-LIO-PROD-006-01",
+    "source_type": "faq",
+    "faq_kind": "customer_product_faq",
+    "question": "冰箱手册中的“危险”“警告”和“注意”分别代表多严重的风险？",
+    "answer": "所有安全提示前均会标注安全警示符号及危险警示词：危险、警告或注意。 表示存在潜在危险，如不避免，可能导致轻微或中度伤害，或仅造成产品损坏。",
+    "text": "问题：冰箱手册中的“危险”“警告”和“注意”分别代表多严重的风险？\n回答：所有安全提示前均会标注安全警示符号及危险警示词：危险、警告或注意。 表示存在潜在危险，如不避免，可能导致轻微或中度伤害，或仅造成产品损坏。",
+    "product_id": "LIO-PROD-006",
+    "product_name": "冰箱",
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "冰箱手册中的“危险”“警告”和“注意”分别代表多严重的风险？",
+    "source_refs": [
+      {
+        "source_file": "LIO-PROD-006_#U51b0#U7bb1#U624b#U518c.md",
+        "chunk_id": "LIO-PROD-006-H003",
+        "heading": "基本安全注意事项"
+      }
+    ],
+    "content_sha256": "2545fb1a19888287cab0358cc511d40747e5a2b289d537149bd06effa2c487f8"
+  },
+  {
+    "chunk_id": "FAQ-LIO-PROD-006-02",
+    "document_id": "FAQ-LIO-PROD-006-02",
+    "source_type": "faq",
+    "faq_kind": "customer_product_faq",
+    "question": "冷藏室温度不合适时，控制面板上的温度应该怎样调整？",
+    "answer": "实际内部温度随食物状态变化，设定温度为目标温度，非冰箱实际温度。 初始运行时制冷效果较弱，请至少使用2~3天后再按上述方法调节温度。",
+    "text": "问题：冷藏室温度不合适时，控制面板上的温度应该怎样调整？\n回答：实际内部温度随食物状态变化，设定温度为目标温度，非冰箱实际温度。 初始运行时制冷效果较弱，请至少使用2~3天后再按上述方法调节温度。",
+    "product_id": "LIO-PROD-006",
+    "product_name": "冰箱",
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "冷藏室温度不合适时，控制面板上的温度应该怎样调整？",
+    "source_refs": [
+      {
+        "source_file": "LIO-PROD-006_#U51b0#U7bb1#U624b#U518c.md",
+        "chunk_id": "LIO-PROD-006-H079",
+        "heading": "冷藏室温度调节方法"
+      }
+    ],
+    "content_sha256": "98b2eb3d3e0ede62cb63159347c5466c39c15197c44ec2f8996e924a31022c83"
+  },
+  {
+    "chunk_id": "FAQ-LIO-PROD-007-01",
+    "document_id": "FAQ-LIO-PROD-007-01",
+    "source_type": "faq",
+    "faq_kind": "customer_product_faq",
+    "question": "新键盘首次使用时，连接电脑和完成基础设置需要哪些步骤？",
+    "answer": "a. 将USB-C线连接键盘背面接口，另一端连接电脑上可用的USB 0（或更高速度）接口。 c. 若需要更高的打字倾斜角度，可展开键盘底部的可调节支撑脚。",
+    "text": "问题：新键盘首次使用时，连接电脑和完成基础设置需要哪些步骤？\n回答：a. 将USB-C线连接键盘背面接口，另一端连接电脑上可用的USB 0（或更高速度）接口。 c. 若需要更高的打字倾斜角度，可展开键盘底部的可调节支撑脚。",
+    "product_id": "LIO-PROD-007",
+    "product_name": "功能键盘",
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "新键盘首次使用时，连接电脑和完成基础设置需要哪些步骤？",
+    "source_refs": [
+      {
+        "source_file": "LIO-PROD-007_#U529f#U80fd#U952e#U76d8#U624b#U518c.md",
+        "chunk_id": "LIO-PROD-007-H008",
+        "heading": "5. 键盘设置"
+      }
+    ],
+    "content_sha256": "c5b289db56876842b25359c6830e4bc9e197bea0f87569e22b61771cf1dc1a2b"
+  },
+  {
+    "chunk_id": "FAQ-LIO-PROD-007-02",
+    "document_id": "FAQ-LIO-PROD-007-02",
+    "source_type": "faq",
+    "faq_kind": "customer_product_faq",
+    "question": "想更换功能键盘的键帽，拆卸和重新安装时要注意什么？",
+    "answer": "使用附赠的拔键器，将工具套在键帽顶部，轻轻向上拔出即可。 若轴体随键帽一同拔出，请参考下文安装指南重新安装。",
+    "text": "问题：想更换功能键盘的键帽，拆卸和重新安装时要注意什么？\n回答：使用附赠的拔键器，将工具套在键帽顶部，轻轻向上拔出即可。 若轴体随键帽一同拔出，请参考下文安装指南重新安装。",
+    "product_id": "LIO-PROD-007",
+    "product_name": "功能键盘",
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "想更换功能键盘的键帽，拆卸和重新安装时要注意什么？",
+    "source_refs": [
+      {
+        "source_file": "LIO-PROD-007_#U529f#U80fd#U952e#U76d8#U624b#U518c.md",
+        "chunk_id": "LIO-PROD-007-H010",
+        "heading": "6.1 键帽拆卸/重新安装"
+      }
+    ],
+    "content_sha256": "b02f470c93772ed5788b622e7e27515e77608ec01bd73c7ff5f1b2eee7348fea"
+  },
+  {
+    "chunk_id": "FAQ-LIO-PROD-008-01",
+    "document_id": "FAQ-LIO-PROD-008-01",
+    "source_type": "faq",
+    "faq_kind": "customer_product_faq",
+    "question": "发电机的型号、产品编号或序列信息应该记录在哪里，维修时有什么用？",
+    "answer": "请在指定位置记录您的产品识别码和序列号，以便向发电机经销商订购零配件。 同时请将这些识别码另行妥善保管，以防机器被盗。",
+    "text": "问题：发电机的型号、产品编号或序列信息应该记录在哪里，维修时有什么用？\n回答：请在指定位置记录您的产品识别码和序列号，以便向发电机经销商订购零配件。 同时请将这些识别码另行妥善保管，以防机器被盗。",
+    "product_id": "LIO-PROD-008",
+    "product_name": "发电机",
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "发电机的型号、产品编号或序列信息应该记录在哪里，维修时有什么用？",
+    "source_refs": [
+      {
+        "source_file": "LIO-PROD-008_#U53d1#U7535#U673a#U624b#U518c.md",
+        "chunk_id": "LIO-PROD-008-H004",
+        "heading": "识别码记录"
+      }
+    ],
+    "content_sha256": "33f2940517519d318758ef4117a1ecf23699715e1ccba32f74c16e7acc1a387d"
+  },
+  {
+    "chunk_id": "FAQ-LIO-PROD-008-02",
+    "document_id": "FAQ-LIO-PROD-008-02",
+    "source_type": "faq",
+    "faq_kind": "customer_product_faq",
+    "question": "发电机运行时，怎样避免儿童接触、高温积聚和排气口附近的起火风险？",
+    "answer": "请将发电机放置在行人或儿童不易触碰的地方。 请将发电机与建筑物或其他设备保持至少1米（3英尺）距离，否则发动机可能过热。",
+    "text": "问题：发电机运行时，怎样避免儿童接触、高温积聚和排气口附近的起火风险？\n回答：请将发电机放置在行人或儿童不易触碰的地方。 请将发电机与建筑物或其他设备保持至少1米（3英尺）距离，否则发动机可能过热。",
+    "product_id": "LIO-PROD-008",
+    "product_name": "发电机",
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "发电机运行时，怎样避免儿童接触、高温积聚和排气口附近的起火风险？",
+    "source_refs": [
+      {
+        "source_file": "LIO-PROD-008_#U53d1#U7535#U673a#U624b#U518c.md",
+        "chunk_id": "LIO-PROD-008-H018",
+        "heading": "发动机及消音器可能高温发烫"
+      }
+    ],
+    "content_sha256": "0383b4ac4182683ca135c6da8191256a0347d4c640a2822dd18c289b83a3f816"
+  },
+  {
+    "chunk_id": "FAQ-LIO-PROD-009-01",
+    "document_id": "FAQ-LIO-PROD-009-01",
+    "source_type": "faq",
+    "faq_kind": "customer_product_faq",
+    "question": "温控器导线穿过UWP底座后，怎样安装墙塞、设置R开关并接入R线？",
+    "answer": "10 整理并将电线穿过UWP底座 打开UWP底座，将成束电线从底座背面穿过。 ：使用7/32英寸钻头 12 设置R开关位置并插入R线。",
+    "text": "问题：温控器导线穿过UWP底座后，怎样安装墙塞、设置R开关并接入R线？\n回答：10 整理并将电线穿过UWP底座 打开UWP底座，将成束电线从底座背面穿过。 ：使用7/32英寸钻头 12 设置R开关位置并插入R线。",
+    "product_id": "LIO-PROD-009",
+    "product_name": "可编程温控器",
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "温控器导线穿过UWP底座后，怎样安装墙塞、设置R开关并接入R线？",
+    "source_refs": [
+      {
+        "source_file": "LIO-PROD-009_#U53ef#U7f16#U7a0b#U6e29#U63a7#U5668#U624b#U518c.md",
+        "chunk_id": "LIO-PROD-009-H007",
+        "heading": "安装温控器"
+      }
+    ],
+    "content_sha256": "0a61fb2f6b512f46cc71c53ca423a7d6634138967decb74caeb5a77a332be28c"
+  },
+  {
+    "chunk_id": "FAQ-LIO-PROD-009-02",
+    "document_id": "FAQ-LIO-PROD-009-02",
+    "source_type": "faq",
+    "faq_kind": "customer_product_faq",
+    "question": "如何在温控器上切换制热、制冷或关闭等系统运行模式？",
+    "answer": "系统模式： - 自动：温控器根据需要自动选择供暖或制冷。 制冷：温控器仅控制制冷系统 - 应急供暖（仅适用于带辅助加热的热泵）：温控器控制辅助加热。",
+    "text": "问题：如何在温控器上切换制热、制冷或关闭等系统运行模式？\n回答：系统模式： - 自动：温控器根据需要自动选择供暖或制冷。 制冷：温控器仅控制制冷系统 - 应急供暖（仅适用于带辅助加热的热泵）：温控器控制辅助加热。",
+    "product_id": "LIO-PROD-009",
+    "product_name": "可编程温控器",
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "如何在温控器上切换制热、制冷或关闭等系统运行模式？",
+    "source_refs": [
+      {
+        "source_file": "LIO-PROD-009_#U53ef#U7f16#U7a0b#U6e29#U63a7#U5668#U624b#U518c.md",
+        "chunk_id": "LIO-PROD-009-H010",
+        "heading": "系统运行设置"
+      }
+    ],
+    "content_sha256": "76b0217f007c420af1978d2711a09d75413688b644f4e1f99db2f8065e794dc6"
+  },
+  {
+    "chunk_id": "FAQ-LIO-PROD-010-01",
+    "document_id": "FAQ-LIO-PROD-010-01",
+    "source_type": "faq",
+    "faq_kind": "customer_product_faq",
+    "question": "把吹风机作为吸尘设备使用时，集尘袋和吸尘管应该怎么安装？",
+    "answer": "安装管道至吹风机时，必须关闭发动机且停机开关处于停机位置。 打开集尘袋，将集尘袋接管从袋内穿入，按图示安装至集尘袋吸尘入口，拉上集尘袋拉链。",
+    "text": "问题：把吹风机作为吸尘设备使用时，集尘袋和吸尘管应该怎么安装？\n回答：安装管道至吹风机时，必须关闭发动机且停机开关处于停机位置。 打开集尘袋，将集尘袋接管从袋内穿入，按图示安装至集尘袋吸尘入口，拉上集尘袋拉链。",
+    "product_id": "LIO-PROD-010",
+    "product_name": "吹风机",
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "把吹风机作为吸尘设备使用时，集尘袋和吸尘管应该怎么安装？",
+    "source_refs": [
+      {
+        "source_file": "LIO-PROD-010_#U5439#U98ce#U673a#U624b#U518c.md",
+        "chunk_id": "LIO-PROD-010-H042",
+        "heading": "安装集尘袋及各类吸尘管"
+      }
+    ],
+    "content_sha256": "b25c868c2499119d02d0dc5f6444b75436a18f393d242dc5e62a89b04aae0f60"
+  },
+  {
+    "chunk_id": "FAQ-LIO-PROD-010-02",
+    "document_id": "FAQ-LIO-PROD-010-02",
+    "source_type": "faq",
+    "faq_kind": "customer_product_faq",
+    "question": "冷机启动吹风机时，阻风门、油门和停机开关应如何操作？",
+    "answer": "启动 冷机启动 点火：将停机开关调至启动位置 阻风门：将阻风门控制器调至阻风门位置（A），该位置同时为自动启动油门位置。 热机启动 点火：将停机开关调至启动位置 阻风门：先将阻风门控制器调至阻风门位置，再转回原位（B），仅启用启动油门，不使用阻风门。",
+    "text": "问题：冷机启动吹风机时，阻风门、油门和停机开关应如何操作？\n回答：启动 冷机启动 点火：将停机开关调至启动位置 阻风门：将阻风门控制器调至阻风门位置（A），该位置同时为自动启动油门位置。 热机启动 点火：将停机开关调至启动位置 阻风门：先将阻风门控制器调至阻风门位置，再转回原位（B），仅启用启动油门，不使用阻风门。",
+    "product_id": "LIO-PROD-010",
+    "product_name": "吹风机",
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "冷机启动吹风机时，阻风门、油门和停机开关应如何操作？",
+    "source_refs": [
+      {
+        "source_file": "LIO-PROD-010_#U5439#U98ce#U673a#U624b#U518c.md",
+        "chunk_id": "LIO-PROD-010-H035",
+        "heading": "启动与停机"
+      }
+    ],
+    "content_sha256": "803478d199a90c22790cb09cfa83c38c9c6d77405eddc5b59a4be60790406ae0"
+  },
+  {
+    "chunk_id": "FAQ-LIO-PROD-011-01",
+    "document_id": "FAQ-LIO-PROD-011-01",
+    "source_type": "faq",
+    "faq_kind": "customer_product_faq",
+    "question": "摩托艇下水前，驾驶者需要完成哪些外观和操控检查？",
+    "answer": "训练1中你已了解各部件位置。 现在确认所有部件工作正常，特别注意转向操控与油门手柄。",
+    "text": "问题：摩托艇下水前，驾驶者需要完成哪些外观和操控检查？\n回答：训练1中你已了解各部件位置。 现在确认所有部件工作正常，特别注意转向操控与油门手柄。",
+    "product_id": "LIO-PROD-011",
+    "product_name": "摩托艇",
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "摩托艇下水前，驾驶者需要完成哪些外观和操控检查？",
+    "source_refs": [
+      {
+        "source_file": "LIO-PROD-011_#U6469#U6258#U8247#U624b#U518c.md",
+        "chunk_id": "LIO-PROD-011-H012",
+        "heading": "训练2：驾驶前检查"
+      }
+    ],
+    "content_sha256": "ffba3510df2fb934f188a2c3516e17343c6e2b350c183222cc09484520bf3028"
+  },
+  {
+    "chunk_id": "FAQ-LIO-PROD-011-02",
+    "document_id": "FAQ-LIO-PROD-011-02",
+    "source_type": "faq",
+    "faq_kind": "customer_product_faq",
+    "question": "摩托艇发动机启动前，安全绳、油门和启动按钮应处于什么状态？",
+    "answer": "将发动机熄火绳①系在手腕上，将卡扣②插入发动机熄火开关③下方。 确保熄火绳不缠绕车把，以防驾驶者落水时发动机无法停止。",
+    "text": "问题：摩托艇发动机启动前，安全绳、油门和启动按钮应处于什么状态？\n回答：将发动机熄火绳①系在手腕上，将卡扣②插入发动机熄火开关③下方。 确保熄火绳不缠绕车把，以防驾驶者落水时发动机无法停止。",
+    "product_id": "LIO-PROD-011",
+    "product_name": "摩托艇",
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "摩托艇发动机启动前，安全绳、油门和启动按钮应处于什么状态？",
+    "source_refs": [
+      {
+        "source_file": "LIO-PROD-011_#U6469#U6258#U8247#U624b#U518c.md",
+        "chunk_id": "LIO-PROD-011-H018",
+        "heading": "训练1：启动发动机"
+      }
+    ],
+    "content_sha256": "eac57bba15011af40740b0130f27475c7e6353c77e6e83185bddff2f2e28544d"
+  },
+  {
+    "chunk_id": "FAQ-LIO-PROD-012-01",
+    "document_id": "FAQ-LIO-PROD-012-01",
+    "source_type": "faq",
+    "faq_kind": "customer_product_faq",
+    "question": "水泵发动机无法启动时，应依次检查燃油、机油、点火和压缩哪些项目？",
+    "answer": "燃油系统 燃油未供给至燃烧室。 火花弱 火花塞积碳或受潮……清除积碳或擦干火花塞。",
+    "text": "问题：水泵发动机无法启动时，应依次检查燃油、机油、点火和压缩哪些项目？\n回答：燃油系统 燃油未供给至燃烧室。 火花弱 火花塞积碳或受潮……清除积碳或擦干火花塞。",
+    "product_id": "LIO-PROD-012",
+    "product_name": "水泵",
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "水泵发动机无法启动时，应依次检查燃油、机油、点火和压缩哪些项目？",
+    "source_refs": [
+      {
+        "source_file": "LIO-PROD-012_#U6c34#U6cf5#U624b#U518c.md",
+        "chunk_id": "LIO-PROD-012-H058",
+        "heading": "发动机无法启动"
+      }
+    ],
+    "content_sha256": "33b18cda8d64267d9460b7c2c69eb6e424f38f114861d2a0f2548519a166eb63"
+  },
+  {
+    "chunk_id": "FAQ-LIO-PROD-012-02",
+    "document_id": "FAQ-LIO-PROD-012-02",
+    "source_type": "faq",
+    "faq_kind": "customer_product_faq",
+    "question": "启动水泵发动机时，发动机开关、燃油开关和阻风门应怎样设置？",
+    "answer": "①阻风门手柄 提示 热机启动无需关闭阻风门，将阻风门手柄置于工作位置即可。 发动机启动后预热，直至阻风门复位至工作位置也不会熄火。",
+    "text": "问题：启动水泵发动机时，发动机开关、燃油开关和阻风门应怎样设置？\n回答：①阻风门手柄 提示 热机启动无需关闭阻风门，将阻风门手柄置于工作位置即可。 发动机启动后预热，直至阻风门复位至工作位置也不会熄火。",
+    "product_id": "LIO-PROD-012",
+    "product_name": "水泵",
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "启动水泵发动机时，发动机开关、燃油开关和阻风门应怎样设置？",
+    "source_refs": [
+      {
+        "source_file": "LIO-PROD-012_#U6c34#U6cf5#U624b#U518c.md",
+        "chunk_id": "LIO-PROD-012-H032",
+        "heading": "发动机启动"
+      }
+    ],
+    "content_sha256": "46e4a818e45af1cbf42a2568345f70e127d7dba7df73cb3e5cbe6b5909218c62"
+  },
+  {
+    "chunk_id": "FAQ-LIO-PROD-013-01",
+    "document_id": "FAQ-LIO-PROD-013-01",
+    "source_type": "faq",
+    "faq_kind": "customer_product_faq",
+    "question": "洗碗机安装位置需要满足哪些地面、空间和环境条件？",
+    "answer": "产品必须安装在平整表面，以确保机门能顺畅、牢固关闭。 请将产品放置在坚硬的地面上， 请勿放置在长毛地毯或类似表面上。",
+    "text": "问题：洗碗机安装位置需要满足哪些地面、空间和环境条件？\n回答：产品必须安装在平整表面，以确保机门能顺畅、牢固关闭。 请将产品放置在坚硬的地面上， 请勿放置在长毛地毯或类似表面上。",
+    "product_id": "LIO-PROD-013",
+    "product_name": "洗碗机",
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "洗碗机安装位置需要满足哪些地面、空间和环境条件？",
+    "source_refs": [
+      {
+        "source_file": "LIO-PROD-013_#U6d17#U7897#U673a#U624b#U518c.md",
+        "chunk_id": "LIO-PROD-013-H016",
+        "heading": "合适的安装位置"
+      }
+    ],
+    "content_sha256": "6f31222c1ba89b961228f5562b769725d69a742d53f7437b39bac7cf24e9ffff"
+  },
+  {
+    "chunk_id": "FAQ-LIO-PROD-013-02",
+    "document_id": "FAQ-LIO-PROD-013-02",
+    "source_type": "faq",
+    "faq_kind": "customer_product_faq",
+    "question": "洗碗机应该放多少洗涤剂，洗涤剂盒该怎样使用？",
+    "answer": "请按照下图所示，在即将运行机器前将洗涤剂加入洗涤剂盒。 根据机器装载量和 / 或餐具脏污程度，将洗涤剂加至 15cm³ 或 25cm³ 刻度线（1）。",
+    "text": "问题：洗碗机应该放多少洗涤剂，洗涤剂盒该怎样使用？\n回答：请按照下图所示，在即将运行机器前将洗涤剂加入洗涤剂盒。 根据机器装载量和 / 或餐具脏污程度，将洗涤剂加至 15cm³ 或 25cm³ 刻度线（1）。",
+    "product_id": "LIO-PROD-013",
+    "product_name": "洗碗机",
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "洗碗机应该放多少洗涤剂，洗涤剂盒该怎样使用？",
+    "source_refs": [
+      {
+        "source_file": "LIO-PROD-013_#U6d17#U7897#U673a#U624b#U518c.md",
+        "chunk_id": "LIO-PROD-013-H033",
+        "heading": "添加洗涤剂"
+      }
+    ],
+    "content_sha256": "32707f022fac846a41ea2c40c48922f1d6cd4f71db5aec4efd4acb7c23094561"
+  },
+  {
+    "chunk_id": "FAQ-LIO-PROD-014-01",
+    "document_id": "FAQ-LIO-PROD-014-01",
+    "source_type": "faq",
+    "faq_kind": "customer_product_faq",
+    "question": "安装烤箱时，电源连接应由谁完成，并核对哪些电气条件？",
+    "answer": "请确认设备铭牌上标注的电源电压与市电电压一致。 电源线更换（型号：H05 RR‑F 3× 5mm²）必须由合格电工执行。",
+    "text": "问题：安装烤箱时，电源连接应由谁完成，并核对哪些电气条件？\n回答：请确认设备铭牌上标注的电源电压与市电电压一致。 电源线更换（型号：H05 RR‑F 3× 5mm²）必须由合格电工执行。",
+    "product_id": "LIO-PROD-014",
+    "product_name": "烤箱",
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "安装烤箱时，电源连接应由谁完成，并核对哪些电气条件？",
+    "source_refs": [
+      {
+        "source_file": "LIO-PROD-014_#U70e4#U7bb1#U624b#U518c.md",
+        "chunk_id": "LIO-PROD-014-H008",
+        "heading": "电气连接"
+      }
+    ],
+    "content_sha256": "0b33d5670d258ff22ecff06a381a3d6d32f51b7357e2d41bbfb50d500c29d765"
+  },
+  {
+    "chunk_id": "FAQ-LIO-PROD-014-02",
+    "document_id": "FAQ-LIO-PROD-014-02",
+    "source_type": "faq",
+    "faq_kind": "customer_product_faq",
+    "question": "烤箱门在清洁或运行后打不开，用户应该先等待还是强行打开？",
+    "answer": "重要提示：自清洁期间，烤箱门将锁定无法打开。 等待自动解锁（参见“带高温自清洁功能烤箱的清洁程序”章节）。",
+    "text": "问题：烤箱门在清洁或运行后打不开，用户应该先等待还是强行打开？\n回答：重要提示：自清洁期间，烤箱门将锁定无法打开。 等待自动解锁（参见“带高温自清洁功能烤箱的清洁程序”章节）。",
+    "product_id": "LIO-PROD-014",
+    "product_name": "烤箱",
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "烤箱门在清洁或运行后打不开，用户应该先等待还是强行打开？",
+    "source_refs": [
+      {
+        "source_file": "LIO-PROD-014_#U70e4#U7bb1#U624b#U518c.md",
+        "chunk_id": "LIO-PROD-014-H019",
+        "heading": "烤箱门无法打开："
+      }
+    ],
+    "content_sha256": "857ec0287f581fe56ec4e32fc7acc6ec23272b097cd6e1dcd941dd514aa26eb4"
+  },
+  {
+    "chunk_id": "FAQ-LIO-PROD-015-01",
+    "document_id": "FAQ-LIO-PROD-015-01",
+    "source_type": "faq",
+    "faq_kind": "customer_product_faq",
+    "question": "电钻电池组放入充电器后，充电步骤和指示状态怎么看？",
+    "answer": "如图1所示，将电池组（K）插入充电器，确保电池组完全就位。 红色（充电）指示灯持续闪烁，表示充电过程已开始。",
+    "text": "问题：电钻电池组放入充电器后，充电步骤和指示状态怎么看？\n回答：如图1所示，将电池组（K）插入充电器，确保电池组完全就位。 红色（充电）指示灯持续闪烁，表示充电过程已开始。",
+    "product_id": "LIO-PROD-015",
+    "product_name": "电钻",
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "电钻电池组放入充电器后，充电步骤和指示状态怎么看？",
+    "source_refs": [
+      {
+        "source_file": "LIO-PROD-015_#U7535#U94bb#U624b#U518c.md",
+        "chunk_id": "LIO-PROD-015-H015",
+        "heading": "充电步骤（图1）"
+      }
+    ],
+    "content_sha256": "07f7ab4c20fef29c823ea55600527f17001d6dd2ec95f1a7f3f1eb6a499d0712"
+  },
+  {
+    "chunk_id": "FAQ-LIO-PROD-015-02",
+    "document_id": "FAQ-LIO-PROD-015-02",
+    "source_type": "faq",
+    "faq_kind": "customer_product_faq",
+    "question": "DCB101充电器提示电源故障时，应该检查插座还是电池？",
+    "answer": "部分充电器带有电源故障指示灯。 当充电器与发电机等便携式电源或直流转交流电源配合使用时，充电器可能暂时停止工作，红色指示灯快速闪烁两次后暂停。",
+    "text": "问题：DCB101充电器提示电源故障时，应该检查插座还是电池？\n回答：部分充电器带有电源故障指示灯。 当充电器与发电机等便携式电源或直流转交流电源配合使用时，充电器可能暂时停止工作，红色指示灯快速闪烁两次后暂停。",
+    "product_id": "LIO-PROD-015",
+    "product_name": "电钻",
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "DCB101充电器提示电源故障时，应该检查插座还是电池？",
+    "source_refs": [
+      {
+        "source_file": "LIO-PROD-015_#U7535#U94bb#U624b#U518c.md",
+        "chunk_id": "LIO-PROD-015-H023",
+        "heading": "电源故障（DCB101）"
+      }
+    ],
+    "content_sha256": "b4d2b4f70e2fb6e01c2772b40197cbac84b7eb4f4bd1a969b3480fbf9b01b56e"
+  },
+  {
+    "chunk_id": "FAQ-LIO-PROD-016-01",
+    "document_id": "FAQ-LIO-PROD-016-01",
+    "source_type": "faq",
+    "faq_kind": "customer_product_faq",
+    "question": "相机电池怎样连接适配器充电，适配器输出要求和大约充电时间是多少？",
+    "answer": "使用随附的USB线将相机与智能手机专用交流电源适配器连接，然后将交流电源适配器插入室内电源插座。 使用符合以下额定输出的交流电源适配器：直流 0伏/1000毫安 充电过程中可以拍摄或打印图像。",
+    "text": "问题：相机电池怎样连接适配器充电，适配器输出要求和大约充电时间是多少？\n回答：使用随附的USB线将相机与智能手机专用交流电源适配器连接，然后将交流电源适配器插入室内电源插座。 使用符合以下额定输出的交流电源适配器：直流 0伏/1000毫安 充电过程中可以拍摄或打印图像。",
+    "product_id": "LIO-PROD-016",
+    "product_name": "相机",
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "相机电池怎样连接适配器充电，适配器输出要求和大约充电时间是多少？",
+    "source_refs": [
+      {
+        "source_file": "LIO-PROD-016_#U76f8#U673a#U624b#U518c.md",
+        "chunk_id": "LIO-PROD-016-H019",
+        "heading": "电池充电"
+      }
+    ],
+    "content_sha256": "6d089a363e47003b6a15a47b2baf2c3bf923c8ff6d45f17c752f502ea5180982"
+  },
+  {
+    "chunk_id": "FAQ-LIO-PROD-016-02",
+    "document_id": "FAQ-LIO-PROD-016-02",
+    "source_type": "faq",
+    "faq_kind": "customer_product_faq",
+    "question": "使用相机拍摄并输出照片时，快门和打印流程怎样衔接？",
+    "answer": "对焦成功：相机发出蜂鸣声，显示屏上出现绿色对焦框。 （第55页） 完全按下快门拍摄照片。",
+    "text": "问题：使用相机拍摄并输出照片时，快门和打印流程怎样衔接？\n回答：对焦成功：相机发出蜂鸣声，显示屏上出现绿色对焦框。 （第55页） 完全按下快门拍摄照片。",
+    "product_id": "LIO-PROD-016",
+    "product_name": "相机",
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "使用相机拍摄并输出照片时，快门和打印流程怎样衔接？",
+    "source_refs": [
+      {
+        "source_file": "LIO-PROD-016_#U76f8#U673a#U624b#U518c.md",
+        "chunk_id": "LIO-PROD-016-H039",
+        "heading": "拍摄照片"
+      }
+    ],
+    "content_sha256": "0d9ad54b9127364d9422885492d2d5549453138f71d2837d469eb2d06ad3ec51"
+  },
+  {
+    "chunk_id": "FAQ-LIO-PROD-017-01",
+    "document_id": "FAQ-LIO-PROD-017-01",
+    "source_type": "faq",
+    "faq_kind": "customer_product_faq",
+    "question": "新空气净化器开机前，为什么必须拆掉滤网塑料袋，具体怎样取出？",
+    "answer": "3 拆除滤网上的塑料包装。 未拆除包装会产生异响，滤网无法正常工作，且可能引发火灾或损坏设备。",
+    "text": "问题：新空气净化器开机前，为什么必须拆掉滤网塑料袋，具体怎样取出？\n回答：3 拆除滤网上的塑料包装。 未拆除包装会产生异响，滤网无法正常工作，且可能引发火灾或损坏设备。",
+    "product_id": "LIO-PROD-017",
+    "product_name": "空气净化器",
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "新空气净化器开机前，为什么必须拆掉滤网塑料袋，具体怎样取出？",
+    "source_refs": [
+      {
+        "source_file": "LIO-PROD-017_#U7a7a#U6c14#U51c0#U5316#U5668#U624b#U518c.md",
+        "chunk_id": "LIO-PROD-017-H010",
+        "heading": "如何拆除滤网塑料包装"
+      }
+    ],
+    "content_sha256": "e6a68e28620e3cda1af10f42267becf513eb5eb0f9faaa25436c29227338dc31"
+  },
+  {
+    "chunk_id": "FAQ-LIO-PROD-017-02",
+    "document_id": "FAQ-LIO-PROD-017-02",
+    "source_type": "faq",
+    "faq_kind": "customer_product_faq",
+    "question": "夜间使用空气净化器时，睡眠模式会怎样改变风速和显示？",
+    "answer": "1 睡眠模式下设备正常运行，但显示屏熄灭，避免干扰睡眠。 可在 1 档（F1）至 18 档（F18）之间调节。",
+    "text": "问题：夜间使用空气净化器时，睡眠模式会怎样改变风速和显示？\n回答：1 睡眠模式下设备正常运行，但显示屏熄灭，避免干扰睡眠。 可在 1 档（F1）至 18 档（F18）之间调节。",
+    "product_id": "LIO-PROD-017",
+    "product_name": "空气净化器",
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "夜间使用空气净化器时，睡眠模式会怎样改变风速和显示？",
+    "source_refs": [
+      {
+        "source_file": "LIO-PROD-017_#U7a7a#U6c14#U51c0#U5316#U5668#U624b#U518c.md",
+        "chunk_id": "LIO-PROD-017-H019",
+        "heading": "睡眠运行"
+      }
+    ],
+    "content_sha256": "9c8bcf43e3f514cf1774117a3420353d22e4b6e8f384edbabfd9c35756ddd685"
+  },
+  {
+    "chunk_id": "FAQ-LIO-PROD-018-01",
+    "document_id": "FAQ-LIO-PROD-018-01",
+    "source_type": "faq",
+    "faq_kind": "customer_product_faq",
+    "question": "夏天第一次开启空调制冷时，怎样选择模式并设定目标温度？",
+    "answer": "2 反复按下模式键，选择制冷模式，显示屏上会显示雪花图标。 3 按下温度上升 / 下降键，设置所需温度，温度调节范围为 18-30 摄氏度。",
+    "text": "问题：夏天第一次开启空调制冷时，怎样选择模式并设定目标温度？\n回答：2 反复按下模式键，选择制冷模式，显示屏上会显示雪花图标。 3 按下温度上升 / 下降键，设置所需温度，温度调节范围为 18-30 摄氏度。",
+    "product_id": "LIO-PROD-018",
+    "product_name": "空调",
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "夏天第一次开启空调制冷时，怎样选择模式并设定目标温度？",
+    "source_refs": [
+      {
+        "source_file": "LIO-PROD-018_#U7a7a#U8c03#U624b#U518c.md",
+        "chunk_id": "LIO-PROD-018-H030",
+        "heading": "室内制冷（制冷模式）"
+      }
+    ],
+    "content_sha256": "4d255a4c637df062338fda0ac3faf99c76067367108ecbc3fe2e4352f8a81302"
+  },
+  {
+    "chunk_id": "FAQ-LIO-PROD-018-02",
+    "document_id": "FAQ-LIO-PROD-018-02",
+    "source_type": "faq",
+    "faq_kind": "customer_product_faq",
+    "question": "空调的定时开机分钟数怎样调整，设置成功后显示屏会出现什么标志？",
+    "answer": "1 按下定时开键，显示屏底部对应的图标开始闪烁。 4 定时设置完成后，显示屏会显示当前时间和定时开图标。",
+    "text": "问题：空调的定时开机分钟数怎样调整，设置成功后显示屏会出现什么标志？\n回答：1 按下定时开键，显示屏底部对应的图标开始闪烁。 4 定时设置完成后，显示屏会显示当前时间和定时开图标。",
+    "product_id": "LIO-PROD-018",
+    "product_name": "空调",
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "空调的定时开机分钟数怎样调整，设置成功后显示屏会出现什么标志？",
+    "source_refs": [
+      {
+        "source_file": "LIO-PROD-018_#U7a7a#U8c03#U624b#U518c.md",
+        "chunk_id": "LIO-PROD-018-H041",
+        "heading": "定时开机"
+      }
+    ],
+    "content_sha256": "57ed33fd84dff585b03164669e0cc7a3a9327e510b5c5817c131fd3fa363c6b0"
+  },
+  {
+    "chunk_id": "FAQ-LIO-PROD-019-01",
+    "document_id": "FAQ-LIO-PROD-019-01",
+    "source_type": "faq",
+    "faq_kind": "customer_product_faq",
+    "question": "蒸汽清洁机第一次使用前，怎样安装拖布并给水箱加水？",
+    "answer": "安装拖布 按下拖布释放扣（部件 17）拉开挡板 装入拖布（部件 16） 加水 A. 使用配套量杯按图示加水，见图 A B. 也可按下水箱解锁扣（部件 10），取下水箱在水槽加水，见图 B",
+    "text": "问题：蒸汽清洁机第一次使用前，怎样安装拖布并给水箱加水？\n回答：安装拖布 按下拖布释放扣（部件 17）拉开挡板 装入拖布（部件 16） 加水 A. 使用配套量杯按图示加水，见图 A B. 也可按下水箱解锁扣（部件 10），取下水箱在水槽加水，见图 B",
+    "product_id": "LIO-PROD-019",
+    "product_name": "蒸汽清洁机",
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "蒸汽清洁机第一次使用前，怎样安装拖布并给水箱加水？",
+    "source_refs": [
+      {
+        "source_file": "LIO-PROD-019_#U84b8#U6c7d#U6e05#U6d01#U673a#U624b#U518c.md",
+        "chunk_id": "LIO-PROD-019-H011",
+        "heading": "准备工作"
+      }
+    ],
+    "content_sha256": "f944e4be7705a6ac6cb2079043bfae2ba9a440a0a4ecaabe4c98f827b739600b"
+  },
+  {
+    "chunk_id": "FAQ-LIO-PROD-019-02",
+    "document_id": "FAQ-LIO-PROD-019-02",
+    "source_type": "faq",
+    "faq_kind": "customer_product_faq",
+    "question": "需要清洁高处时，延长管应该怎样安装到手持蒸汽器上？",
+    "answer": "从手持蒸汽器（部件 13）底部孔位拔出转接头（部件 25）。 将延长管（部件 21）上的锁扣与手持蒸汽器机身（部件 13）卡槽对齐，插入延长管。",
+    "text": "问题：需要清洁高处时，延长管应该怎样安装到手持蒸汽器上？\n回答：从手持蒸汽器（部件 13）底部孔位拔出转接头（部件 25）。 将延长管（部件 21）上的锁扣与手持蒸汽器机身（部件 13）卡槽对齐，插入延长管。",
+    "product_id": "LIO-PROD-019",
+    "product_name": "蒸汽清洁机",
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "需要清洁高处时，延长管应该怎样安装到手持蒸汽器上？",
+    "source_refs": [
+      {
+        "source_file": "LIO-PROD-019_#U84b8#U6c7d#U6e05#U6d01#U673a#U624b#U518c.md",
+        "chunk_id": "LIO-PROD-019-H015",
+        "heading": "安装延长管"
+      }
+    ],
+    "content_sha256": "4b3cfb32ae7bba2454a1ccaaca1032c9c1351cc59498a184f906be85e9a134c1"
+  },
+  {
+    "chunk_id": "FAQ-LIO-PROD-020-01",
+    "document_id": "FAQ-LIO-PROD-020-01",
+    "source_type": "faq",
+    "faq_kind": "customer_product_faq",
+    "question": "蓝牙激光鼠标装电池时，极性方向和电池盖应该怎样处理？",
+    "answer": "鼠标需使用两节 AA 型号电池。 按照鼠标内部标注的正负极（+ 和 -）装入两节 AA 电池。",
+    "text": "问题：蓝牙激光鼠标装电池时，极性方向和电池盖应该怎样处理？\n回答：鼠标需使用两节 AA 型号电池。 按照鼠标内部标注的正负极（+ 和 -）装入两节 AA 电池。",
+    "product_id": "LIO-PROD-020",
+    "product_name": "蓝牙激光鼠标",
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "蓝牙激光鼠标装电池时，极性方向和电池盖应该怎样处理？",
+    "source_refs": [
+      {
+        "source_file": "LIO-PROD-020_#U84dd#U7259#U6fc0#U5149#U9f20#U6807#U624b#U518c.md",
+        "chunk_id": "LIO-PROD-020-H008",
+        "heading": "2. 安装电池"
+      }
+    ],
+    "content_sha256": "79b719edf078263646ecc8d8f23a39421e2ff22c561cccef6214bf35f58cb80d"
+  },
+  {
+    "chunk_id": "FAQ-LIO-PROD-020-02",
+    "document_id": "FAQ-LIO-PROD-020-02",
+    "source_type": "faq",
+    "faq_kind": "customer_product_faq",
+    "question": "Windows电脑首次连接鼠标时，怎样完成快速蓝牙配对？",
+    "answer": "将 USB 蓝牙接收器插入电脑的 USB 接口。 配对按钮 按下 USB 蓝牙接收器底部的按钮，直至 LED 指示灯每秒闪烁一次。",
+    "text": "问题：Windows电脑首次连接鼠标时，怎样完成快速蓝牙配对？\n回答：将 USB 蓝牙接收器插入电脑的 USB 接口。 配对按钮 按下 USB 蓝牙接收器底部的按钮，直至 LED 指示灯每秒闪烁一次。",
+    "product_id": "LIO-PROD-020",
+    "product_name": "蓝牙激光鼠标",
+    "source_file": "liorin_support_faq_v3.json",
+    "heading": "Windows电脑首次连接鼠标时，怎样完成快速蓝牙配对？",
+    "source_refs": [
+      {
+        "source_file": "LIO-PROD-020_#U84dd#U7259#U6fc0#U5149#U9f20#U6807#U624b#U518c.md",
+        "chunk_id": "LIO-PROD-020-H013",
+        "heading": "4.1 Windows 系统快速配对"
+      }
+    ],
+    "content_sha256": "14be3ae176ad78c21a1cc211f4db0960c67c5d05fdc448ddea0866a802306b50"
+  }
+]

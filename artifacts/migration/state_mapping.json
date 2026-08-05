@@ -1,0 +1,23 @@
+{
+  "knowledge_agent": {
+    "entrypoint": "agents.knowledge_agent.create_knowledge_agent",
+    "principal": "state.principal",
+    "understanding": "state.query_understanding",
+    "plan": "state.retrieval_plan",
+    "retrieval": "state.retrieval_responses",
+    "verification": "state.verification_decision",
+    "evidence": "state.evidences",
+    "trace": "state.trace_events"
+  },
+  "benchmark": {
+    "default_principal": "public-only benchmark principal unless sample input provides principal",
+    "chunk_mapping": "exact chunk_id first; exact source_file/heading/text containment only when unique; no fuzzy guessing"
+  },
+  "annotation": {
+    "A": "annotator_a.jsonl",
+    "B": "annotator_b.jsonl",
+    "C": "adjudicator_c.jsonl for disagreements only",
+    "human_queue": "human_review_queue.json",
+    "reviewed_export": "reviewed_gold_export.json"
+  }
+}

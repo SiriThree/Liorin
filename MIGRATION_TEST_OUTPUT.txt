@@ -1,0 +1,120 @@
+Final migration validation command log
+=====================================
+
+Target baseline before migration
+--------------------------------
+Command: .venv\Scripts\python.exe -m pytest -q
+Exit: 0
+Key output: 13 passed in 21.62s
+
+Source ZIP baseline
+-------------------
+Command: D:\...\Liorin\.venv\Scripts\python.exe -m pytest -q tests evals\tests
+Exit: 1
+Key output: 112 passed, 25 failed
+
+Compile
+-------
+Command: .venv\Scripts\python.exe -m compileall agents retrieval governance evals tests tools
+Exit: 0
+Key output: COMPILE_EXIT:0
+
+Full tests
+----------
+Command: .venv\Scripts\python.exe -m pytest -q tests evals\tests
+Exit: 0
+Key output: 137 passed in 9.43s
+
+Command: .venv\Scripts\python.exe -m pytest -q
+Exit: 0
+Key output: 137 passed in 26.27s
+
+Benchmark smoke
+---------------
+Command: .venv\Scripts\python.exe -m evals.benchmark.cli smoke
+Exit: 0
+Key output: macro_objective_score=0.7021322892868052, sample_count=6
+
+Benchmark validation small run
+------------------------------
+Command: .venv\Scripts\python.exe -m evals.benchmark.cli run --dataset validation --limit 6 --allow-partial --predictions evals\reports\migration_validation_predictions.json --report evals\reports\migration_validation_report.json
+Exit: 0
+Key output: macro_objective_score=0.5, sample_count=6
+
+Benchmark scorer
+----------------
+Command: .venv\Scripts\python.exe -m evals.benchmark.cli score evals\reports\migration_validation_predictions.json --dataset-path evals\benchmark\data\validation_v7_3.json --allow-partial --report evals\reports\migration_validation_rescore.json
+Exit: 0
+Key output: macro_objective_score=0.5, sample_count=6
+
+Agentic RAG CI wrapper
+----------------------
+Command: .venv\Scripts\python.exe evals\run_ci_eval.py
+Exit: 0
+Key output: benchmark smoke passed; PASS agentic_rag_eval
+
+Annotation mock flow
+--------------------
+Command: .venv\Scripts\python.exe evals\scripts\run_multi_agent_annotation.py --config evals\annotation_runs\migration_mock_20260805202309.yaml
+Exit: 0
+Key output: sample_count=12, disagreements=2, adjudicator_calls=2, human_review_queue=7
+
+Annotation audit
+----------------
+Command: .venv\Scripts\python.exe evals\scripts\audit_annotation_pipeline.py --run-dir evals\annotation_runs\migration_mock_20260805202309
+Exit: 0
+Key output: status=PASS_FLOW_ONLY, semantic_results_valid=false, no_gold_in_agent_packets=true, c_called_only_for_disagreements=true
+
+Agreement gate
+--------------
+Command: .venv\Scripts\python.exe evals\scripts\check_agreement_thresholds.py evals\annotation_runs\migration_mock_20260805202309\agreement_report.json --manifest evals\annotation_runs\migration_mock_20260805202309\run_manifest.json
+Exit: 2
+Key output: status=INVALID_MOCK_RUN, semantic_results_valid=false
+
+Human review loop
+-----------------
+Command: .venv\Scripts\python.exe evals\scripts\apply_human_reviews.py --run-dir evals\annotation_runs\migration_mock_20260805202309 --reviews evals\annotation_runs\migration_mock_20260805202309\migration_human_reviews.json --output evals\annotation_runs\migration_mock_20260805202309\final_annotations_after_human_review.json
+Exit: 0
+Key output: total=12, reviewed=7, approved=5, modified=1, rejected=1
+
+Reviewed gold export
+--------------------
+Command: .venv\Scripts\python.exe evals\scripts\export_reviewed_dataset.py --dataset evals\tests\fixtures\annotation_smoke_dataset.json --reviewed-annotations evals\annotation_runs\migration_mock_20260805202309\final_annotations_after_human_review.json --output evals\annotation_runs\migration_mock_20260805202309\reviewed_gold_export.json
+Exit: 0
+Key output: sample_count=12, rejected_count=1
+
+Stage4 local BM25 evaluation
+----------------------------
+Command: .venv\Scripts\python.exe evals\run_stage4_local_retrieval_eval.py --predictions evals\reports\stage4_local_bm25_predictions.json --report evals\reports\stage4_local_bm25_report.json
+Exit: 0
+Key output: sample_count=55, retrieval ndcg@10=0.451660576473385, acl_violation_rate=0.0, claim_scope=local_production_bm25_only
+
+Ablation CLI
+------------
+Command: .venv\Scripts\python.exe evals\run_ablations.py --local-bm25-report evals\reports\stage4_local_bm25_report.json --output evals\reports\stage4_ablation_report.json --repetitions 1
+Exit: 0
+Key output: bm25_only=completed; other nine ablations=not_run
+
+Release gate dry run
+--------------------
+Command: .venv\Scripts\python.exe governance\release_gate.py --report evals\reports\stage4_local_bm25_report.json --output evals\reports\stage4_release_gate_result.json
+Exit: 2
+Key output: passed=false; missing aggregate checks and null required thresholds block release
+
+Security scans
+--------------
+Command: git grep -n -E "(blind_test_with_gold|all_with_gold|sk-[A-Za-z0-9]{20,}|BEGIN (RSA|OPENSSH|PRIVATE) KEY|API_KEY=)" -- . ':!uv.lock'
+Exit: 0
+Key output: only .env.example placeholder/empty API key names
+
+Command: workspace heuristic secret scan excluding .git/.venv/cache/run/report directories
+Exit: 0
+Key output: FINDING_COUNT:0
+
+Command: large file scan > 5MB excluding .git/.venv
+Exit: 0
+Key output: LARGE_FILE_COUNT:0
+
+Command: git status --short --ignored -- evals\annotation_runs evals\reports
+Exit: 0
+Key output: evals/annotation_runs/ and evals/reports/ are ignored

@@ -1,0 +1,16 @@
+{
+  "source_zip": "C:/Users/ZhuanZ（无密码）/Downloads/Liorin_stage4_enterprise_governance.zip",
+  "target_repo": "D:/找实习/Liorin",
+  "policy": "module-batch migration, no whole-repo overwrite",
+  "core_mappings": {
+    "agents/knowledge_agent.py": "merged into existing production graph entry",
+    "retrieval/": "Stage 4 protocol/retrieval/security/verification modules migrated",
+    "governance/": "source-only enterprise governance package migrated",
+    "evals/run_stage4_local_retrieval_eval.py": "local BM25-only helper migrated with explicit claim scope",
+    "evals/run_ablations.py": "ablation runner migrated; unavailable real-dependency rows are not imputed"
+  },
+  "not_migrated": [
+    "source private/custodian/maintainer benchmark ZIPs",
+    "source stale PASS reports as release evidence"
+  ]
+}

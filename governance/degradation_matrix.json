@@ -1,0 +1,34 @@
+{
+  "version": "1.0",
+  "policies": {
+    "dense": {
+      "when_failed": "continue_with_bm25_if_available",
+      "status": "partial",
+      "degraded_reason": "dense_dependency_error",
+      "must_not_claim": "normal_dual_retrieval"
+    },
+    "bm25": {
+      "when_failed": "continue_with_dense_if_available",
+      "status": "partial",
+      "degraded_reason": "bm25_dependency_error",
+      "must_not_claim": "normal_dual_retrieval"
+    },
+    "reranker": {
+      "when_failed": "use_validated_heuristic_reranker",
+      "status": "partial",
+      "degraded_reason": "reranker_fallback"
+    },
+    "database": {
+      "when_failed": "handoff_if_requirement_needs_current_business_data",
+      "status": "dependency_error",
+      "degraded_reason": "structured_data_unavailable",
+      "must_not_substitute": "historical_document_as_live_state"
+    },
+    "verifier": {
+      "when_failed": "rules_only_then_handoff_for_high_risk",
+      "status": "verification_failed",
+      "degraded_reason": "verifier_model_fallback",
+      "must_not_accept": "high_risk_without_rule_pass"
+    }
+  }
+}

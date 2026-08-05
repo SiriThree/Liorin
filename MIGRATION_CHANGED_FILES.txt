@@ -1,0 +1,90 @@
+Migration changed/added files explicitly touched in this pass
+============================================================
+
+Pre-existing fact
+-----------------
+The target worktree was already dirty before this migration. `git status --short`
+therefore includes unrelated/pre-existing changes as well as this pass.
+
+Core Agentic RAG / production path
+----------------------------------
+agents/__init__.py
+agents/knowledge_agent.py
+config.py
+pyproject.toml
+tools/__init__.py
+tools/database.py
+tools/documents.py
+
+Retrieval stack
+---------------
+retrieval/__init__.py
+retrieval/budget.py
+retrieval/context_expander.py
+retrieval/database_retriever.py
+retrieval/dense_retriever.py
+retrieval/document_corpus.py
+retrieval/embeddings.py
+retrieval/evidence_verifier.py
+retrieval/filters.py
+retrieval/fusion.py
+retrieval/hybrid_retriever.py
+retrieval/index_lifecycle.py
+retrieval/metadata.py
+retrieval/metadata_lookup.py
+retrieval/observability.py
+retrieval/protocols.py
+retrieval/reranker.py
+retrieval/resilience.py
+retrieval/security.py
+retrieval/sparse_retriever.py
+retrieval/trace.py
+retrieval/verification_policy.json
+
+Governance
+----------
+governance/__init__.py
+governance/README.md
+governance/degradation.py
+governance/degradation_matrix.json
+governance/feedback.py
+governance/health.py
+governance/release_gate.py
+governance/release_gate_config.json
+
+Evaluation / benchmark / annotation compatibility
+-------------------------------------------------
+evals/ablation.py
+evals/agentic_rag_eval.py
+evals/annotation_pipeline/io_utils.py
+evals/benchmark/adapters/behavior.py
+evals/benchmark/adapters/common.py
+evals/benchmark/adapters/end_to_end.py
+evals/benchmark/corpus_registry.py
+evals/benchmark/scoring/scorer.py
+evals/gold_isolation.py
+evals/retrieval_evaluation.py
+evals/run_ablations.py
+evals/run_stage4_local_retrieval_eval.py
+
+Tests
+-----
+tests/test_agentic_rag_protocols.py
+tests/test_enterprise_governance_stage4.py
+tests/test_evidence_verifier_stage3.py
+tests/test_retrieval_execution_stage2.py
+
+Migration deliverables
+----------------------
+MIGRATION_DIFF_AUDIT.md
+MIGRATION_PLAN.md
+MIGRATION_CHANGED_FILES.txt
+MIGRATION_STATE_MAPPING.md
+MIGRATION_DEPENDENCY_REPORT.md
+MIGRATION_TEST_OUTPUT.txt
+MIGRATION_REMAINING_GAPS.md
+MIGRATION_HANDOFF.md
+artifacts/migration/file_mapping.json
+artifacts/migration/state_mapping.json
+artifacts/migration/test_summary.json
+artifacts/migration/unresolved_conflicts.json

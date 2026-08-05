@@ -1,0 +1,13 @@
+{
+  "critical_code_conflicts": [],
+  "blocked_claims": [
+    "real_three_model_annotation",
+    "blind_test_formal_evaluation",
+    "real_milvus_production_validation",
+    "release_gate_pass"
+  ],
+  "notes": [
+    "Release gate intentionally exits 2 until an aggregate release report and approved thresholds exist.",
+    "Stage4 local BM25 report is not a full Agentic RAG or real Milvus result."
+  ]
+}

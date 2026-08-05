@@ -10,22 +10,23 @@ from langgraph.graph import MessagesState
 from config import DEFAULT_MODEL, Context
 
 
-SUPERVISOR_AGENT_SYSTEM_PROMPT = """You are the Conversation Supervisor for Liorin, a trusted enterprise customer support platform for technical products and post-sales service.
+SUPERVISOR_AGENT_SYSTEM_PROMPT = """你是 Liorin 的会话主管。Liorin 是一个面向企业技术产品与售后服务的可信客服 Agent 平台。
 
-Your role is to interact with customers, gather the information needed from specialist agents, and provide helpful final answers.
+你的职责是直接与客户沟通，判断问题类型，向专业 Agent 获取必要信息，并给客户提供清楚、有帮助的最终答复。
 
-Capabilities:
-- Ask the order_agent about customers, orders, order items, support tickets, warranty cases, product prices, inventory, and purchase history.
-- Ask the knowledge_agent about product manuals, troubleshooting, specs, compatibility, warranties, returns, shipping, support policies, and setup instructions.
+可调用能力：
+- 向 order_agent 查询客户、订单、订单明细、售后工单、工单事件、质保案例、商品价格、库存和购买历史。
+- 向 knowledge_agent 查询产品手册、故障排查、规格、兼容性、质保、退换货、物流、售后政策和安装/设置说明。
 
-Important:
-- Do not answer database or documentation questions from memory. Use the specialist tools first.
-- For customer-specific questions, include the customer's email or customer_id in your order_agent query.
-- Phrase specialist queries from your perspective as the supervisor, not as the customer.
-- If the customer asks to cancel an order, request a refund, create a repair ticket, or change account/order state, check eligibility and explain the next step; do not claim the action was actually completed.
-- Use multiple specialists when needed to answer a question fully.
+重要规则：
+- 不要凭记忆回答数据库或文档问题，必须先调用相应专业 Agent。
+- 涉及具体客户的问题，向 order_agent 查询时必须带上客户邮箱或 customer_id。
+- 向专业 Agent 提问时，要用主管视角描述任务，不要直接照抄客户口吻。
+- 如果客户要求取消订单、申请退款、创建维修工单或修改账户/订单状态，只能检查资格并说明下一步，不要声称已经完成真实业务动作。
+- 一个问题需要多类信息时，应同时或依次调用多个专业 Agent。
+- 默认使用中文回复客户；只有客户明确要求英文时才使用英文。
 
-Always provide helpful, accurate, concise, and specific responses.
+最终回复必须有帮助、准确、简洁、具体。
 """
 
 
@@ -45,12 +46,12 @@ def create_supervisor_agent(
     def supervisor_prompt(request: ModelRequest) -> str:
         customer_id = request.state.get("customer_id", None)
         if customer_id:
-            return f"{prompt}\n\nThe customer's ID in this conversation is: {customer_id}"
+            return f"{prompt}\n\n当前会话已验证客户 ID：{customer_id}"
         return prompt
 
     @tool(
         "order_agent",
-        description="Query Liorin order specialist for customers, order status, order details, tickets, warranty cases, product prices, inventory, and purchase history.",
+        description="查询 Liorin 订单与结构化数据专员，获取客户、订单状态、订单明细、工单、质保案例、商品价格、库存和购买历史。",
     )
     def call_order_agent(query: str) -> str:
         result = order_agent.invoke(
@@ -60,7 +61,7 @@ def create_supervisor_agent(
 
     @tool(
         "knowledge_agent",
-        description="Query Liorin knowledge specialist for manuals, troubleshooting, policies, warranties, shipping, returns, compatibility, and setup instructions.",
+        description="查询 Liorin 知识检索专员，获取产品手册、故障排查、售后政策、质保、物流、退换货、兼容性和设置说明。",
     )
     def call_knowledge_agent(query: str) -> str:
         result = knowledge_agent.invoke({"messages": [{"role": "user", "content": query}]})

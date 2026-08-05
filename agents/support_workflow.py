@@ -25,25 +25,25 @@ class IntermediateState(MessagesState):
 
 
 class QueryClassification(TypedDict):
-    """Classification of whether customer identity verification is required."""
+    """判断用户问题是否需要客户身份验证。"""
 
     reasoning: Annotated[
-        str, ..., "Brief explanation of why verification is or is not needed"
+        str, ..., "简要说明为什么需要或不需要身份验证"
     ]
     requires_verification: Annotated[
         bool,
         ...,
-        "True for account/order-specific requests; false for general product or policy questions.",
+        "账户、订单、工单、质保等客户专属问题为 True；通用产品或政策问题为 False。",
     ]
 
 
 class EmailExtraction(TypedDict):
-    """Schema for extracting an email address from a user message."""
+    """从用户消息中抽取邮箱地址。"""
 
     email: Annotated[
         str,
         ...,
-        "The email address extracted from the message, or empty string if none was found",
+        "从消息中抽取到的邮箱地址；如果没有找到则返回空字符串",
     ]
 
 
@@ -59,8 +59,10 @@ def classify_query_intent(query: str, model: str = DEFAULT_MODEL) -> QueryClassi
     llm = init_chat_model(model, configurable_fields=["model"])
     structured_llm = llm.with_structured_output(QueryClassification)
     classification_prompt = (
-        "Analyze whether the user's query requires knowing their customer "
-        "identity in order to answer."
+        "请判断用户的问题是否必须知道客户身份才能回答。"
+        "如果问题涉及具体账户、订单、购买记录、售后工单、质保案例、退款或维修进度，requires_verification 返回 true；"
+        "如果只是询问通用产品说明、故障排查方法或售后政策，返回 false。"
+        "请用中文填写 reasoning。"
     )
 
     return structured_llm.invoke(
@@ -130,7 +132,7 @@ def verify_customer(
                     "customer_id": customer.customer_id,
                     "messages": [
                         AIMessage(
-                            content=f"Verified. Welcome back, {customer.customer_name}."
+                            content=f"身份验证通过。欢迎回来，{customer.customer_name}。"
                         )
                     ],
                 },
@@ -142,8 +144,8 @@ def verify_customer(
                 "messages": [
                     AIMessage(
                         content=(
-                            f"I couldn't find '{extraction['email']}' in our "
-                            "system. Please check and try again."
+                            f"系统中没有找到邮箱“{extraction['email']}”对应的客户记录。"
+                            "请检查邮箱后再试一次。"
                         )
                     )
                 ]
@@ -156,8 +158,7 @@ def verify_customer(
             "messages": [
                 AIMessage(
                     content=(
-                        "To access information about your account or orders, "
-                        "please provide your email address."
+                        "为了查询你的账户或订单信息，请先提供注册邮箱。"
                     )
                 )
             ]
@@ -168,7 +169,7 @@ def verify_customer(
 
 def collect_email(state: IntermediateState) -> Command[Literal["verify_customer"]]:
     """Pause the graph until the customer provides an email address."""
-    user_input = interrupt(value="Please provide your email:")
+    user_input = interrupt(value="请提供你的注册邮箱：")
     return Command(
         update={"messages": [HumanMessage(content=user_input)]}, goto="verify_customer"
     )

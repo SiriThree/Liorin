@@ -1,106 +1,103 @@
 """
-Build the Liorin InMemoryVectorStore from TraceMind-derived knowledge files.
+Build the Liorin Milvus vector database from knowledge markdown files.
 
-This script:
-1. Loads product manuals and support policies from data/knowledge
-2. Splits them into chunks with source metadata
-3. Creates embeddings using the configured provider
-4. Saves a compact vectorstore pickle for runtime retrieval
+Milvus stores relatively stable unstructured knowledge: manuals, policies, and
+FAQ documents. Frequently changing business records such as tickets and orders
+are retrieved from SQLite/local corpus at runtime.
 """
 
-import pickle
-from pathlib import Path
+from langchain_milvus import Milvus
 
-from langchain_community.document_loaders import TextLoader
-from langchain_core.vectorstores import InMemoryVectorStore
-from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_openai import OpenAIEmbeddings
-from langchain_text_splitters import RecursiveCharacterTextSplitter
-
-from config import BASE_PATH, DEFAULT_EMBEDDING_PROVIDER, DEFAULT_VECTORSTORE_PATH
-
-
-def get_embeddings(provider: str = "huggingface"):
-    """Return embeddings for the configured provider."""
-    if provider == "openai":
-        return OpenAIEmbeddings(model="text-embedding-3-small")
-    return HuggingFaceEmbeddings(model_name="sentence-transformers/all-mpnet-base-v2")
-
-
-def _load_markdown_documents(directory: Path, doc_type: str) -> list:
-    docs = []
-    for md_file in sorted(directory.glob("*.md")):
-        loaded = TextLoader(str(md_file), encoding="utf-8").load()
-        for doc in loaded:
-            doc.metadata["doc_type"] = doc_type
-            doc.metadata["source_file"] = md_file.name
-
-            if doc_type == "manual":
-                stem = md_file.stem
-                product_id, _, manual_name = stem.partition("_")
-                doc.metadata["product_id"] = product_id
-                doc.metadata["manual_name"] = manual_name or stem
-            else:
-                doc.metadata["policy_name"] = md_file.stem
-
-        docs.extend(loaded)
-    return docs
+from config import (
+    DEFAULT_EMBEDDING_PROVIDER,
+    DEFAULT_INDEX_REGISTRY_PATH,
+    DEFAULT_MILVUS_COLLECTION,
+    DEFAULT_MILVUS_URI,
+    get_milvus_connection_args,
+)
+from retrieval.document_corpus import CORPUS_SCHEMA_VERSION, corpus_version, load_chunked_documents
+from retrieval.embeddings import get_embedding_spec, get_embeddings
+from retrieval.index_lifecycle import IndexLifecycleManager, IndexManifest, content_checksum
 
 
 def build_vectorstore():
-    """Build and save the Liorin vectorstore."""
-    project_root = BASE_PATH
-    manuals_dir = project_root / "data" / "knowledge" / "manuals"
-    policies_dir = project_root / "data" / "knowledge" / "policies"
-
-    print("Building Liorin vectorstore")
+    """Build and save the Liorin stable knowledge collection in Milvus."""
+    print("Building Liorin Milvus vectorstore")
     print("=" * 60)
-    print(f"Project root: {project_root}")
     print(f"Embedding provider: {DEFAULT_EMBEDDING_PROVIDER}")
+    print(f"Milvus URI: {DEFAULT_MILVUS_URI}")
+    print(f"Milvus collection: {DEFAULT_MILVUS_COLLECTION}")
 
+    spec = get_embedding_spec(DEFAULT_EMBEDDING_PROVIDER)
     embeddings = get_embeddings(DEFAULT_EMBEDDING_PROVIDER)
+    docs = [
+        doc
+        for doc in load_chunked_documents()
+        if doc.metadata.get("doc_type") in {"manual", "policy", "faq"}
+    ]
 
-    manual_docs = _load_markdown_documents(manuals_dir, "manual")
-    policy_docs = _load_markdown_documents(policies_dir, "policy")
-    all_docs = manual_docs + policy_docs
+    if not docs:
+        raise RuntimeError("No manual, policy, or FAQ documents found under data/knowledge")
 
-    if not all_docs:
-        raise RuntimeError("No knowledge documents found under data/knowledge")
+    for doc in docs:
+        doc.metadata.pop("full_text", None)
 
-    text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=1000,
-        chunk_overlap=200,
-        add_start_index=True,
+    counts = {}
+    for doc in docs:
+        doc_type = doc.metadata.get("doc_type", "unknown")
+        counts[doc_type] = counts.get(doc_type, 0) + 1
+
+    print(f"Created chunks: {len(docs)}")
+    for doc_type, count in sorted(counts.items()):
+        print(f"{doc_type} chunks: {count}")
+
+    checksum = content_checksum(
+        [
+            "|".join(
+                [
+                    str(doc.metadata.get("chunk_id") or ""),
+                    str(doc.metadata.get("document_id") or ""),
+                    str(doc.metadata.get("doc_type") or ""),
+                    str(doc.metadata.get("version") or ""),
+                    doc.page_content,
+                ]
+            )
+            for doc in sorted(docs, key=lambda item: str(item.metadata.get("chunk_id") or ""))
+        ]
     )
-    splits = text_splitter.split_documents(all_docs)
-
-    manual_chunks = [doc for doc in splits if doc.metadata["doc_type"] == "manual"]
-    policy_chunks = [doc for doc in splits if doc.metadata["doc_type"] == "policy"]
-
-    print(f"Loaded manuals: {len(manual_docs)}")
-    print(f"Loaded policies: {len(policy_docs)}")
-    print(f"Created chunks: {len(splits)}")
-    print(f"Manual chunks: {len(manual_chunks)}")
-    print(f"Policy chunks: {len(policy_chunks)}")
-
-    vectorstore = InMemoryVectorStore.from_documents(
-        documents=splits,
-        embedding=embeddings,
+    manager = IndexLifecycleManager(DEFAULT_INDEX_REGISTRY_PATH)
+    manifest = IndexManifest(
+        corpus_version=corpus_version(),
+        embedding_model_version=spec.model_version,
+        embedding_dimension=spec.dimension,
+        tokenizer_version="retrieval.sparse_retriever.tokenize",
+        chunking_version="retrieval.document_corpus.CHUNK_SIZE=1000;CHUNK_OVERLAP=200",
+        metadata_schema_version=CORPUS_SCHEMA_VERSION,
+        collection_name=DEFAULT_MILVUS_COLLECTION,
+        document_count=len({str(doc.metadata.get("document_id") or "") for doc in docs}),
+        chunk_count=len(docs),
+        checksum=checksum,
     )
+    manager.register_build(manifest)
+    try:
+        Milvus.from_documents(
+            documents=docs,
+            embedding=embeddings,
+            collection_name=DEFAULT_MILVUS_COLLECTION,
+            connection_args=get_milvus_connection_args(),
+            enable_dynamic_field=True,
+            drop_old=True,
+        )
+    except Exception:
+        manager.mark_failed(manifest.index_build_id)
+        raise
+    manager.mark_ready(manifest.index_build_id, checksum=checksum)
+    manager.activate(manifest.index_build_id)
 
-    output_path = DEFAULT_VECTORSTORE_PATH
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-
-    vectorstore_data = {
-        "store": vectorstore.store,
-        "provider": DEFAULT_EMBEDDING_PROVIDER,
-    }
-
-    with open(output_path, "wb") as f:
-        pickle.dump(vectorstore_data, f)
-
-    print(f"Saved vectorstore: {output_path}")
-    return output_path
+    print(f"Saved Milvus collection: {DEFAULT_MILVUS_COLLECTION}")
+    print(f"Registered index manifest: {manifest.index_build_id}")
+    print(f"Manifest registry: {DEFAULT_INDEX_REGISTRY_PATH}")
+    return DEFAULT_MILVUS_COLLECTION
 
 
 if __name__ == "__main__":

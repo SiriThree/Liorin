@@ -1,0 +1,792 @@
+{
+  "dataset": "/mnt/data/liorin_agentic_rag_benchmark_v7_3/data/validation_v7_3.json",
+  "sample_count": 55,
+  "prediction_count": 55,
+  "missing_prediction_ids": [],
+  "macro_objective_score": 0.8664771373607097,
+  "by_layer": {
+    "retrieval": {
+      "map@10": 0.8273737373737373,
+      "mrr": 0.8551515151515151,
+      "ndcg@10": 0.8478279820136985,
+      "objective_score": 0.8664771373607097,
+      "recall@1": 0.696969696969697,
+      "recall@10": 0.9727272727272728,
+      "recall@3": 0.9030303030303031,
+      "recall@5": 0.9303030303030303
+    }
+  },
+  "details": [
+    {
+      "id": "RET7-0049",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ndcg@10": 0.9173194127129571,
+        "map@10": 1.0,
+        "objective_score": 0.9627937357208307
+      }
+    },
+    {
+      "id": "RET7-0050",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 0.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.3333333333333333,
+        "ndcg@10": 0.5150979874023532,
+        "map@10": 0.3333333333333333,
+        "objective_score": 0.581794094331059
+      }
+    },
+    {
+      "id": "RET7-0051",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 0.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.3333333333333333,
+        "ndcg@10": 0.45865970635647857,
+        "map@10": 0.3333333333333333,
+        "objective_score": 0.5563968678604154
+      }
+    },
+    {
+      "id": "RET7-0052",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ndcg@10": 0.9173194127129571,
+        "map@10": 1.0,
+        "objective_score": 0.9627937357208307
+      }
+    },
+    {
+      "id": "RET7-0053",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ndcg@10": 0.9828422279067397,
+        "map@10": 1.0,
+        "objective_score": 0.9922790025580329
+      }
+    },
+    {
+      "id": "RET7-0054",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ndcg@10": 0.9610012895088121,
+        "map@10": 1.0,
+        "objective_score": 0.9824505802789656
+      }
+    },
+    {
+      "id": "RET7-0055",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ndcg@10": 0.9828422279067397,
+        "map@10": 1.0,
+        "objective_score": 0.9922790025580329
+      }
+    },
+    {
+      "id": "RET7-0056",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 0.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.3333333333333333,
+        "ndcg@10": 0.45865970635647857,
+        "map@10": 0.3333333333333333,
+        "objective_score": 0.5563968678604154
+      }
+    },
+    {
+      "id": "RET7-0057",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ndcg@10": 0.9639988080961093,
+        "map@10": 1.0,
+        "objective_score": 0.9837994636432492
+      }
+    },
+    {
+      "id": "RET7-0058",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 0.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.3333333333333333,
+        "ndcg@10": 0.5150979874023532,
+        "map@10": 0.3333333333333333,
+        "objective_score": 0.581794094331059
+      }
+    },
+    {
+      "id": "RET7-0059",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ndcg@10": 0.9173194127129571,
+        "map@10": 1.0,
+        "objective_score": 0.9627937357208307
+      }
+    },
+    {
+      "id": "RET7-0060",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ndcg@10": 0.9173194127129571,
+        "map@10": 1.0,
+        "objective_score": 0.9627937357208307
+      }
+    },
+    {
+      "id": "RET7-0061",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ndcg@10": 0.9173194127129571,
+        "map@10": 1.0,
+        "objective_score": 0.9627937357208307
+      }
+    },
+    {
+      "id": "RET7-0062",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ndcg@10": 1.0,
+        "map@10": 1.0,
+        "objective_score": 1.0
+      }
+    },
+    {
+      "id": "RET7-0063",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ndcg@10": 0.9173194127129571,
+        "map@10": 1.0,
+        "objective_score": 0.9627937357208307
+      }
+    },
+    {
+      "id": "RET7-0064",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 0.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.3333333333333333,
+        "ndcg@10": 0.45865970635647857,
+        "map@10": 0.3333333333333333,
+        "objective_score": 0.5563968678604154
+      }
+    },
+    {
+      "id": "RET7-0093",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 0.0,
+        "recall@3": 0.0,
+        "recall@5": 0.0,
+        "recall@10": 0.5,
+        "mrr": 0.16666666666666666,
+        "ndcg@10": 0.21840743681816416,
+        "map@10": 0.08333333333333333,
+        "objective_score": 0.13578334656817387
+      }
+    },
+    {
+      "id": "RET7-0094",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 0.0,
+        "recall@3": 0.5,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.5,
+        "ndcg@10": 0.6509209298071325,
+        "map@10": 0.5,
+        "objective_score": 0.6929144184132094
+      }
+    },
+    {
+      "id": "RET7-0095",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 0.0,
+        "recall@3": 0.0,
+        "recall@5": 0.5,
+        "recall@10": 1.0,
+        "mrr": 0.2,
+        "ndcg@10": 0.4556051495874604,
+        "map@10": 0.26666666666666666,
+        "objective_score": 0.40002231731435717
+      }
+    },
+    {
+      "id": "RET7-0096",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 0.5,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ndcg@10": 0.9197207891481876,
+        "map@10": 0.8333333333333333,
+        "objective_score": 0.9388743551166844
+      }
+    },
+    {
+      "id": "RET7-0101",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ndcg@10": 1.0,
+        "map@10": 1.0,
+        "objective_score": 1.0
+      }
+    },
+    {
+      "id": "RET7-0104",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ndcg@10": 1.0,
+        "map@10": 1.0,
+        "objective_score": 1.0
+      }
+    },
+    {
+      "id": "RET7-0107",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ndcg@10": 1.0,
+        "map@10": 1.0,
+        "objective_score": 1.0
+      }
+    },
+    {
+      "id": "RET7-0111",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 0.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.5,
+        "ndcg@10": 0.6934264036172708,
+        "map@10": 0.5833333333333333,
+        "objective_score": 0.7245418816277719
+      }
+    },
+    {
+      "id": "RET7-0125",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ndcg@10": 1.0,
+        "map@10": 1.0,
+        "objective_score": 1.0
+      }
+    },
+    {
+      "id": "RET7-0126",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ndcg@10": 1.0,
+        "map@10": 1.0,
+        "objective_score": 1.0
+      }
+    },
+    {
+      "id": "RET7-0127",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ndcg@10": 1.0,
+        "map@10": 1.0,
+        "objective_score": 1.0
+      }
+    },
+    {
+      "id": "RET7-0128",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ndcg@10": 1.0,
+        "map@10": 1.0,
+        "objective_score": 1.0
+      }
+    },
+    {
+      "id": "RET7-0135",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ndcg@10": 1.0,
+        "map@10": 1.0,
+        "objective_score": 1.0
+      }
+    },
+    {
+      "id": "RET7-0136",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ndcg@10": 1.0,
+        "map@10": 1.0,
+        "objective_score": 1.0
+      }
+    },
+    {
+      "id": "RET7-0162",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 0.5,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ndcg@10": 0.8339912323981488,
+        "map@10": 1.0,
+        "objective_score": 0.925296054579167
+      }
+    },
+    {
+      "id": "RET7-0163",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 0.5,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ndcg@10": 0.8339912323981488,
+        "map@10": 1.0,
+        "objective_score": 0.925296054579167
+      }
+    },
+    {
+      "id": "RET7-0164",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 0.3333333333333333,
+        "recall@3": 0.6666666666666666,
+        "recall@5": 0.6666666666666666,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ndcg@10": 0.6735438441750023,
+        "map@10": 0.7777777777777778,
+        "objective_score": 0.7364280632120844
+      }
+    },
+    {
+      "id": "RET7-0165",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ndcg@10": 1.0,
+        "map@10": 1.0,
+        "objective_score": 1.0
+      }
+    },
+    {
+      "id": "RET7-0166",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ndcg@10": 1.0,
+        "map@10": 1.0,
+        "objective_score": 1.0
+      }
+    },
+    {
+      "id": "RET7-0167",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ndcg@10": 1.0,
+        "map@10": 1.0,
+        "objective_score": 1.0
+      }
+    },
+    {
+      "id": "RET7-0181",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ndcg@10": 1.0,
+        "map@10": 1.0,
+        "objective_score": 1.0
+      }
+    },
+    {
+      "id": "RET7-0182",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ndcg@10": 1.0,
+        "map@10": 1.0,
+        "objective_score": 1.0
+      }
+    },
+    {
+      "id": "RET7-0183",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ndcg@10": 1.0,
+        "map@10": 1.0,
+        "objective_score": 1.0
+      }
+    },
+    {
+      "id": "RET7-0184",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ndcg@10": 1.0,
+        "map@10": 1.0,
+        "objective_score": 1.0
+      }
+    },
+    {
+      "id": "RET7-0185",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ndcg@10": 1.0,
+        "map@10": 1.0,
+        "objective_score": 1.0
+      }
+    },
+    {
+      "id": "RET7-0186",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 0.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.5,
+        "ndcg@10": 0.606422698504514,
+        "map@10": 0.5833333333333333,
+        "objective_score": 0.6853902143270313
+      }
+    },
+    {
+      "id": "RET7-0187",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 0.0,
+        "recall@3": 0.5,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.5,
+        "ndcg@10": 0.5518544320968081,
+        "map@10": 0.5,
+        "objective_score": 0.6483344944435636
+      }
+    },
+    {
+      "id": "RET7-0188",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 0.0,
+        "recall@3": 0.5,
+        "recall@5": 0.5,
+        "recall@10": 1.0,
+        "mrr": 0.5,
+        "ndcg@10": 0.5941558490872657,
+        "map@10": 0.35,
+        "objective_score": 0.5198701320892696
+      }
+    },
+    {
+      "id": "RET7-0189",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ndcg@10": 1.0,
+        "map@10": 1.0,
+        "objective_score": 1.0
+      }
+    },
+    {
+      "id": "RET7-0190",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ndcg@10": 1.0,
+        "map@10": 1.0,
+        "objective_score": 1.0
+      }
+    },
+    {
+      "id": "RET7-0191",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ndcg@10": 1.0,
+        "map@10": 1.0,
+        "objective_score": 1.0
+      }
+    },
+    {
+      "id": "RET7-0192",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ndcg@10": 1.0,
+        "map@10": 1.0,
+        "objective_score": 1.0
+      }
+    },
+    {
+      "id": "RET7-0193",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ndcg@10": 1.0,
+        "map@10": 1.0,
+        "objective_score": 1.0
+      }
+    },
+    {
+      "id": "RET7-0209",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ndcg@10": 1.0,
+        "map@10": 1.0,
+        "objective_score": 1.0
+      }
+    },
+    {
+      "id": "RET7-0210",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ndcg@10": 1.0,
+        "map@10": 1.0,
+        "objective_score": 1.0
+      }
+    },
+    {
+      "id": "RET7-0225",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 0.5,
+        "recall@3": 0.5,
+        "recall@5": 0.5,
+        "recall@10": 0.5,
+        "mrr": 1.0,
+        "ndcg@10": 0.6131471927654584,
+        "map@10": 0.5,
+        "objective_score": 0.6259162367444562
+      }
+    },
+    {
+      "id": "RET7-0226",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 0.0,
+        "recall@3": 0.5,
+        "recall@5": 0.5,
+        "recall@10": 0.5,
+        "mrr": 0.5,
+        "ndcg@10": 0.38685280723454163,
+        "map@10": 0.25,
+        "objective_score": 0.41158376325554374
+      }
+    },
+    {
+      "id": "RET7-0227",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 0.5,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ndcg@10": 1.0,
+        "map@10": 1.0,
+        "objective_score": 1.0
+      }
+    },
+    {
+      "id": "RET7-0228",
+      "layer": "retrieval",
+      "scores": {
+        "recall@1": 0.5,
+        "recall@3": 0.5,
+        "recall@5": 0.5,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "ndcg@10": 0.7977228895450266,
+        "map@10": 0.6111111111111112,
+        "objective_score": 0.7256419669619286
+      }
+    }
+  ],
+  "warning": "fact_coverage_proxy is deterministic lexical coverage, not a substitute for locked-judge or human factuality review."
+}

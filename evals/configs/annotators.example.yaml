@@ -1,0 +1,52 @@
+dataset_path: benchmark/data/dev_v7_3.json
+corpus_path: benchmark/corpus/corpus_v7_3.json
+candidate_pool_paths: []
+output_dir: annotation_runs/real_run_v7_4
+
+top_k_source_context: 16
+retrieval_candidate_pool_size: 30
+max_source_packet_chars: 30000
+max_concurrency: 4
+random_review_rate: 0.10
+random_seed: 20260805
+allow_correlated_agents: false
+include_blind_samples: false
+
+annotator_a:
+  agent_id: annotator_a
+  role: annotator
+  backend: openai_compatible
+  provider: provider-a
+  model: model-a
+  base_url: https://api.provider-a.example/v1
+  api_key_env: ANNOTATOR_A_API_KEY
+  prompt_profile: evidence_first
+  temperature: 0.0
+  max_tokens: 5000
+  timeout_seconds: 120
+
+annotator_b:
+  agent_id: annotator_b
+  role: annotator
+  backend: openai_compatible
+  provider: provider-b
+  model: model-b
+  base_url: https://api.provider-b.example/v1
+  api_key_env: ANNOTATOR_B_API_KEY
+  prompt_profile: counterexample_first
+  temperature: 0.0
+  max_tokens: 5000
+  timeout_seconds: 120
+
+adjudicator_c:
+  agent_id: adjudicator_c
+  role: adjudicator
+  backend: openai_compatible
+  provider: provider-c
+  model: model-c
+  base_url: https://api.provider-c.example/v1
+  api_key_env: ADJUDICATOR_C_API_KEY
+  prompt_profile: risk_first
+  temperature: 0.0
+  max_tokens: 6000
+  timeout_seconds: 120
