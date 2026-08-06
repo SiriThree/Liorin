@@ -1,0 +1,18 @@
+{
+  "case_count": 100,
+  "session_a_persisted_fact_count": 300,
+  "session_b_expected_fact_count": 100,
+  "before_memory_precision": 0.0,
+  "before_memory_recall": 0.0,
+  "before_wrong_injection_rate": 0.0,
+  "after_memory_precision": 1.0,
+  "after_memory_recall": 1.0,
+  "after_wrong_injection_rate": 0.0,
+  "cross_identity_injection_count": 0,
+  "cumulative_context_token_increase": 200,
+  "average_context_token_increase": 2.0,
+  "lifecycle_created_updated_count": 900,
+  "lifecycle_retrieved_count": 200,
+  "expired_injection_count": 0,
+  "methodology": "Deterministic 100-user Session A/Session B evaluation. Session A promotes three structured, explicitly confirmed facts per user through Candidate -> MemoryUpdate -> Policy -> Store. Session B uses a different conversation, thread and session for the same tenant/user and asks only for product_model. Precision/recall compare exact fact key/value; wrong injection includes irrelevant or cross-owner facts. Token increase is the bounded Context Runtime delta and is not a live-LLM answer-quality score."
+}

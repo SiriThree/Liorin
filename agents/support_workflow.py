@@ -1,6 +1,6 @@
 """Customer verification and support workflow graph for Liorin."""
 
-from typing import Literal, NamedTuple
+from typing import Any, Literal, NamedTuple
 
 from langchain.chat_models import init_chat_model
 from langchain_community.utilities import SQLDatabase
@@ -9,19 +9,117 @@ from langgraph.checkpoint.memory import MemorySaver
 from langgraph.graph import START, MessagesState, StateGraph
 from langgraph.runtime import Runtime
 from langgraph.types import Command, interrupt
-from typing_extensions import Annotated, TypedDict
+from typing_extensions import Annotated, NotRequired, TypedDict
 
 from agents.conversation_supervisor import create_supervisor_agent
 from agents.knowledge_agent import create_knowledge_agent
 from agents.order_agent import create_order_agent
 from config import DEFAULT_MODEL, Context
+from identity import IdentityResolver
 from tools.database import get_database
+from memory.facts import get_default_long_term_memory_runtime
+from memory.working import WorkingMemoryUpdater
 
 
 class IntermediateState(MessagesState):
-    """MessagesState extended with a verified customer id."""
+    """Checkpoint-safe support state consumed by the Context Runtime.
 
-    customer_id: str
+    ``messages`` remains the immutable audit/recovery history owned by
+    LangGraph.  The small workflow fields below expose current task state and
+    unresolved slots without introducing conversation or long-term memory.
+    """
+
+    customer_id: NotRequired[str]
+    workflow_state: NotRequired[dict[str, Any]]
+    unresolved_slots: NotRequired[list[str]]
+    session_id: NotRequired[str]
+    identity_context: NotRequired[dict[str, str]]
+    working_memory: NotRequired[dict[str, Any]]
+    working_memory_lifecycle_records: NotRequired[list[dict[str, Any]]]
+    long_term_memory_lifecycle_records: NotRequired[list[dict[str, Any]]]
+    memory_fact_candidates: NotRequired[list[dict[str, Any]]]
+    user_confirmed_facts: NotRequired[dict[str, Any]]
+    business_system_facts: NotRequired[dict[str, Any]]
+    product_model: NotRequired[str]
+    product_name: NotRequired[str]
+    region: NotRequired[str]
+
+
+_IDENTITY_RESOLVER = IdentityResolver()
+_WORKING_MEMORY_UPDATER = WorkingMemoryUpdater()
+_LONG_TERM_MEMORY_RUNTIME = get_default_long_term_memory_runtime()
+_MAX_CHECKPOINT_LIFECYCLE_RECORDS = 120
+_MAX_LONG_TERM_MEMORY_LIFECYCLE_RECORDS = 120
+
+
+def _with_working_memory(
+    state: IntermediateState,
+    updates: dict[str, Any],
+    *,
+    actor: str,
+    reason: str,
+    task_goal: str | None = None,
+    current_intent: str | None = None,
+    memory_state: dict[str, Any] | None = None,
+    runtime: Runtime[Context] | None = None,
+) -> dict[str, Any]:
+    """Apply workflow updates and persist compact Working Memory in state."""
+
+    candidate_state = dict(state)
+    candidate_state.update(updates)
+    if task_goal is not None:
+        candidate_state["task_goal"] = task_goal
+    if current_intent is not None:
+        candidate_state["current_intent"] = current_intent
+    if memory_state:
+        candidate_state.update(memory_state)
+
+    identity_context = _IDENTITY_RESOLVER.resolve(candidate_state, runtime=runtime)
+    candidate_state["identity_context"] = identity_context.to_state()
+    candidate_state["session_id"] = identity_context.session_id
+
+    existing_records = list(state.get("working_memory_lifecycle_records", []) or [])
+    result = _WORKING_MEMORY_UPDATER.update(
+        candidate_state,
+        actor=actor,
+        reason=reason,
+        previous=state.get("working_memory"),
+        existing_records=existing_records,
+        session_id=identity_context.session_id,
+        identity_context=identity_context,
+    )
+    new_records = result.records_to_state()
+    checkpoint_updates = dict(updates)
+    checkpoint_updates["identity_context"] = identity_context.to_state()
+    checkpoint_updates["session_id"] = identity_context.session_id
+    if new_records:
+        combined_records = (existing_records + new_records)[
+            -_MAX_CHECKPOINT_LIFECYCLE_RECORDS:
+        ]
+        checkpoint_updates["working_memory_lifecycle_records"] = combined_records
+    if result.persisted:
+        checkpoint_updates["working_memory"] = result.memory.to_state()
+
+    # Promotion is structured and policy-gated. It never scans the full chat
+    # history and never writes Working Memory directly into the long-term store.
+    promotion_state = dict(candidate_state)
+    promotion_state["working_memory"] = result.memory.to_state()
+    promotion = _LONG_TERM_MEMORY_RUNTIME.promote_from_state(
+        promotion_state,
+        identity_context=identity_context,
+        actor=actor,
+        reason=reason,
+        working_memory=result.memory,
+    )
+    promotion_records = promotion.records_to_state()
+    if promotion_records:
+        existing_long_term_records = list(
+            state.get("long_term_memory_lifecycle_records", []) or []
+        )
+        checkpoint_updates["long_term_memory_lifecycle_records"] = (
+            existing_long_term_records + promotion_records
+        )[-_MAX_LONG_TERM_MEMORY_LIFECYCLE_RECORDS:]
+    return checkpoint_updates
 
 
 class QueryClassification(TypedDict):
@@ -100,17 +198,71 @@ def query_router(
     state: IntermediateState,
     runtime: Runtime[Context],
 ) -> Command[Literal["verify_customer", "supervisor_agent"]]:
-    """Route the request based on whether customer verification is needed."""
-    if state.get("customer_id"):
-        return Command(goto="supervisor_agent")
-
+    """Route the request and synchronise checkpoint-safe Working Memory."""
     last_message = state["messages"][-1]
+    task_goal = str(
+        last_message.get("content", "")
+        if isinstance(last_message, dict)
+        else getattr(last_message, "content", "")
+    )
+
+    if state.get("customer_id"):
+        updates = _with_working_memory(
+            state,
+            {
+                "workflow_state": {
+                    "stage": "ready_for_supervisor",
+                    "requires_verification": False,
+                },
+                "unresolved_slots": [],
+            },
+            actor="support_workflow.query_router",
+            reason="Route verified customer request to supervisor",
+            task_goal=task_goal,
+            current_intent="verified_customer_support",
+            runtime=runtime,
+        )
+        return Command(update=updates, goto="supervisor_agent")
+
     model = runtime.context.model if runtime.context is not None else DEFAULT_MODEL
-    query_classification = classify_query_intent(last_message.content, model=model)
+    query_classification = classify_query_intent(task_goal, model=model)
 
     if query_classification.get("requires_verification"):
-        return Command(goto="verify_customer")
-    return Command(goto="supervisor_agent")
+        updates = _with_working_memory(
+            state,
+            {
+                "workflow_state": {
+                    "stage": "identity_verification",
+                    "requires_verification": True,
+                    "routing_reason": query_classification.get("reasoning", ""),
+                },
+                "unresolved_slots": ["customer_email"],
+            },
+            actor="support_workflow.query_router",
+            reason="Identity verification required before account-specific work",
+            task_goal=task_goal,
+            current_intent="account_specific_support",
+            runtime=runtime,
+        )
+        return Command(update=updates, goto="verify_customer")
+
+    updates = _with_working_memory(
+        state,
+        {
+            "workflow_state": {
+                "stage": "ready_for_supervisor",
+                "requires_verification": False,
+                "routing_reason": query_classification.get("reasoning", ""),
+            },
+            "unresolved_slots": [],
+        },
+        actor="support_workflow.query_router",
+        reason="General support request ready for supervisor",
+        task_goal=task_goal,
+        current_intent="general_support",
+        runtime=runtime,
+    )
+    return Command(update=updates, goto="supervisor_agent")
 
 
 def verify_customer(
@@ -127,52 +279,86 @@ def verify_customer(
         customer = validate_customer_email(extraction["email"], get_database())
 
         if customer:
-            return Command(
-                update={
+            updates = _with_working_memory(
+                state,
+                {
                     "customer_id": customer.customer_id,
-                    "messages": [
-                        AIMessage(
-                            content=f"身份验证通过。欢迎回来，{customer.customer_name}。"
-                        )
-                    ],
+                    "messages": [AIMessage(content=f"身份验证通过。欢迎回来，{customer.customer_name}。")],
+                    "workflow_state": {
+                        "stage": "ready_for_supervisor",
+                        "requires_verification": False,
+                        "identity_status": "verified",
+                    },
+                    "unresolved_slots": [],
                 },
-                goto="supervisor_agent",
+                actor="support_workflow.verify_customer",
+                reason="Customer identity verified",
+                current_intent="account_specific_support",
+                runtime=runtime,
             )
+            return Command(update=updates, goto="supervisor_agent")
 
-        return Command(
-            update={
-                "messages": [
-                    AIMessage(
-                        content=(
-                            f"系统中没有找到邮箱“{extraction['email']}”对应的客户记录。"
-                            "请检查邮箱后再试一次。"
-                        )
-                    )
-                ]
+        updates = _with_working_memory(
+            state,
+            {
+                "messages": [AIMessage(content=(
+                    f"系统中没有找到邮箱“{extraction['email']}”对应的客户记录。"
+                    "请检查邮箱后再试一次。"
+                ))],
+                "workflow_state": {
+                    "stage": "identity_verification",
+                    "requires_verification": True,
+                    "identity_status": "not_found",
+                },
+                "unresolved_slots": ["customer_email"],
             },
-            goto="collect_email",
+            actor="support_workflow.verify_customer",
+            reason="Customer email was not found",
+            current_intent="identity_verification",
+            memory_state={"failed_attempts": ["customer_email_not_found"]},
+            runtime=runtime,
         )
+        return Command(update=updates, goto="collect_email")
 
-    return Command(
-        update={
-            "messages": [
-                AIMessage(
-                    content=(
-                        "为了查询你的账户或订单信息，请先提供注册邮箱。"
-                    )
-                )
-            ]
+    updates = _with_working_memory(
+        state,
+        {
+            "messages": [AIMessage(content="为了查询你的账户或订单信息，请先提供注册邮箱。")],
+            "workflow_state": {
+                "stage": "identity_verification",
+                "requires_verification": True,
+                "identity_status": "missing",
+            },
+            "unresolved_slots": ["customer_email"],
         },
-        goto="collect_email",
+        actor="support_workflow.verify_customer",
+        reason="Customer email is still missing",
+        current_intent="identity_verification",
+        runtime=runtime,
     )
+    return Command(update=updates, goto="collect_email")
 
 
 def collect_email(state: IntermediateState) -> Command[Literal["verify_customer"]]:
     """Pause the graph until the customer provides an email address."""
     user_input = interrupt(value="请提供你的注册邮箱：")
-    return Command(
-        update={"messages": [HumanMessage(content=user_input)]}, goto="verify_customer"
+    updates = _with_working_memory(
+        state,
+        {
+            "messages": [HumanMessage(content=user_input)],
+            "workflow_state": {
+                "stage": "identity_verification",
+                "requires_verification": True,
+                "identity_status": "provided_for_validation",
+            },
+            "unresolved_slots": [],
+        },
+        actor="support_workflow.collect_email",
+        reason="Customer provided identity slot for validation",
+        current_intent="identity_verification",
+        memory_state={"next_actions": ["校验客户邮箱"]},
     )
+    return Command(update=updates, goto="verify_customer")
 
 
 def create_support_agent(

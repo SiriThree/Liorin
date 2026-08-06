@@ -1,0 +1,87 @@
+=== Phase 7 Production tests ===
+...............                                                          [100%]
+15 passed in 0.66s
+exit_code=0
+
+=== Repository tests/ ===
+........................................................................ [ 33%]
+........................................................................ [ 67%]
+....................................................................     [100%]
+212 passed in 3.02s
+exit_code=0
+
+=== Annotation integration ===
+.........                                                                [100%]
+9 passed in 3.16s
+exit_code=0
+
+=== Compileall ===
+exit_code=0
+
+=== Deployment YAML parse ===
+services=agent-api,otel-collector,postgres,prometheus,redis
+deployment_yaml=passed
+exit_code=0
+
+=== Production benchmark ===
+{
+  "benchmark": "Liorin Production Agent Platform Phase 7",
+  "generated_at": "2026-08-06T07:21:39.670080+00:00",
+  "scope": {
+    "requests": 1000,
+    "users": 100,
+    "tenants": 10,
+    "memory_backend": "in-memory reference backend with injected failures",
+    "artifact_backend": "in-memory reference backend",
+    "external_llm": false,
+    "external_postgres": false,
+    "external_redis": false
+  },
+  "results": {
+    "request_success_rate": 1.0,
+    "latency_ms_mean": 0.31100237599093816,
+    "latency_ms_p50": 0.2615970006445423,
+    "latency_ms_p95": 0.39934100095706526,
+    "latency_ms_p99": 0.6480089996330207,
+    "memory_hit_rate": 0.99,
+    "artifact_retrieval_success_rate": 1.0,
+    "injected_backend_failures": 10,
+    "failure_recovery_rate": 1.0,
+    "context_tokens_before": 1520001,
+    "context_tokens_after": 72972,
+    "token_reduction_rate": 0.9519921368472783,
+    "artifact_saved_tokens": 1427009.0,
+    "backend_failure_count": 10.0,
+    "backend_failure_rate": 0.00909090909090909
+  },
+  "limitations": [
+    "No external LLM was called, so completion latency and answer quality are not measured.",
+    "PostgreSQL/Redis network throughput is not measured; their adapters are covered by contract tests.",
+    "Token counts use the existing provider-neutral estimator."
+  ]
+}
+exit_code=0
+
+=== Full pytest (environment-sensitive collection) ===
+
+==================================== ERRORS ====================================
+__________ ERROR collecting evals/tests/test_benchmark_integration.py __________
+ImportError while importing test module '/mnt/data/liorin_phase7_work/Liorin-main/evals/tests/test_benchmark_integration.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+evals/tests/test_benchmark_integration.py:7: in <module>
+    from langchain_core.documents import Document
+E   ModuleNotFoundError: No module named 'langchain_core'
+=========================== short test summary info ============================
+ERROR evals/tests/test_benchmark_integration.py
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 0.36s
+exit_code=2
+
+=== Final ZIP revalidation ===
+Production tests: 15 passed
+Repository tests/: 212 passed
+compileall: passed

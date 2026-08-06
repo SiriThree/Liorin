@@ -35,7 +35,7 @@ dev = [
 ]
 
 [tool.hatch.build.targets.wheel]
-packages = ["tools", "agents", "retrieval", "governance", "deployments", "evaluators", "evals"]
+packages = ["artifact", "tools", "agents", "context_engine", "identity", "memory", "storage", "metrics", "retrieval", "governance", "deployments", "evaluators", "evals", "observability", "reliability", "production", "eval_platform"]
 
 [tool.hatch.build.targets.wheel.force-include]
 "retrieval/verification_policy.json" = "retrieval/verification_policy.json"
