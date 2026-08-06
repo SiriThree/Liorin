@@ -1,1 +1,1 @@
-"""Production governance helpers for feedback and release gates."""
+"""Production governance controls for Memory, feedback and release gates."""

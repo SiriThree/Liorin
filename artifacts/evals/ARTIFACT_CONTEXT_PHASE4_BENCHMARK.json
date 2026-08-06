@@ -1,0 +1,16 @@
+{
+  "benchmark": "phase4_artifact_context",
+  "tool_result_count": 100,
+  "before_context_tokens": 2070400,
+  "after_reference_tokens": 7000,
+  "token_reduction_ratio": 0.996619,
+  "token_reduction_percent": 99.6619,
+  "artifact_retrieval_success_count": 100,
+  "artifact_retrieval_success_rate": 1.0,
+  "reference_correct_count": 100,
+  "reference_correct_rate": 1.0,
+  "artifact_count": 100,
+  "original_history_preserved": true,
+  "artifact_payload_in_context": false,
+  "measurement_scope": "Deterministic ContextItem token estimate and exact payload recovery; not an LLM answer-quality evaluation."
+}

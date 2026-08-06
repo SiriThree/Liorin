@@ -1,0 +1,43 @@
+Phase 5 — Long-term Memory + Memory Fact System
+Final validation output
+
+$ python -m pytest -q tests/memory/facts
+..........                                                               [100%]
+10 passed in 0.08s
+
+$ python -m pytest -q tests/memory tests/context_engine tests/identity tests/artifact
+.............................................................            [100%]
+61 passed in 0.34s
+
+$ python -m pytest -q tests
+........................................................................ [ 38%]
+........................................................................ [ 77%]
+.........................................                                [100%]
+185 passed in 2.06s
+
+$ python -m pytest -q evals/tests/test_annotation_pipeline_integration.py
+.........                                                                [100%]
+9 passed in 2.82s
+
+$ python -m compileall -q artifact context_engine identity memory agents evals tests
+compileall: passed
+
+$ python -m evals.long_term_memory_benchmark
+exit code: 0
+case_count: 100
+session_a_persisted_fact_count: 300
+session_b_expected_fact_count: 100
+after_memory_precision: 1.0
+after_memory_recall: 1.0
+after_wrong_injection_rate: 0.0
+cross_identity_injection_count: 0
+expired_injection_count: 0
+average_context_token_increase: 2.0
+
+$ python -m pytest -q
+ERROR collecting evals/tests/test_benchmark_integration.py
+ModuleNotFoundError: No module named 'langchain_core'
+Interrupted: 1 error during collection
+exit code: 2
+
+The full pytest run is not marked as passed. The failure occurs during benchmark integration collection because the current execution environment does not have the repository's LangChain/LangGraph runtime dependencies installed.
