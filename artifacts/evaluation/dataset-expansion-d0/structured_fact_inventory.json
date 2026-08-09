@@ -1,0 +1,588 @@
+[
+  {
+    "benchmark_usable": false,
+    "distinct_value_count": 18,
+    "example_value_redacted": null,
+    "exposed_by_templates": [
+      "customer_summary"
+    ],
+    "fact_type": "customer.company_name",
+    "field_path": "company_name",
+    "non_null_count": 117,
+    "privacy_class": "SENSITIVE",
+    "record_count": 300,
+    "record_type": "customer"
+  },
+  {
+    "benchmark_usable": true,
+    "distinct_value_count": 300,
+    "example_value_redacted": null,
+    "exposed_by_templates": [
+      "customer_summary"
+    ],
+    "fact_type": "customer.customer_id",
+    "field_path": "customer_id",
+    "non_null_count": 300,
+    "privacy_class": "BUSINESS_PRIVATE",
+    "record_count": 300,
+    "record_type": "customer"
+  },
+  {
+    "benchmark_usable": false,
+    "distinct_value_count": 223,
+    "example_value_redacted": null,
+    "exposed_by_templates": [
+      "customer_summary"
+    ],
+    "fact_type": "customer.name",
+    "field_path": "name",
+    "non_null_count": 300,
+    "privacy_class": "SENSITIVE",
+    "record_count": 300,
+    "record_type": "customer"
+  },
+  {
+    "benchmark_usable": true,
+    "distinct_value_count": 2,
+    "example_value_redacted": null,
+    "exposed_by_templates": [
+      "customer_summary"
+    ],
+    "fact_type": "customer.segment",
+    "field_path": "segment",
+    "non_null_count": 300,
+    "privacy_class": "BUSINESS_PRIVATE",
+    "record_count": 300,
+    "record_type": "customer"
+  },
+  {
+    "benchmark_usable": false,
+    "distinct_value_count": 8,
+    "example_value_redacted": null,
+    "exposed_by_templates": [
+      "customer_summary"
+    ],
+    "fact_type": "customer.source_system",
+    "field_path": "source_system",
+    "non_null_count": 300,
+    "privacy_class": "BUSINESS_PRIVATE",
+    "record_count": 300,
+    "record_type": "customer"
+  },
+  {
+    "benchmark_usable": true,
+    "distinct_value_count": 6,
+    "example_value_redacted": "phone",
+    "exposed_by_templates": [
+      "customer_orders",
+      "order_detail"
+    ],
+    "fact_type": "order.channel",
+    "field_path": "channel",
+    "non_null_count": 1500,
+    "privacy_class": "BUSINESS_PRIVATE",
+    "record_count": 1500,
+    "record_type": "order"
+  },
+  {
+    "benchmark_usable": true,
+    "distinct_value_count": 695,
+    "example_value_redacted": null,
+    "exposed_by_templates": [
+      "customer_orders",
+      "order_detail"
+    ],
+    "fact_type": "order.order_date",
+    "field_path": "order_date",
+    "non_null_count": 1500,
+    "privacy_class": "BUSINESS_PRIVATE",
+    "record_count": 1500,
+    "record_type": "order"
+  },
+  {
+    "benchmark_usable": true,
+    "distinct_value_count": 1500,
+    "example_value_redacted": null,
+    "exposed_by_templates": [
+      "customer_orders",
+      "order_detail"
+    ],
+    "fact_type": "order.order_id",
+    "field_path": "order_id",
+    "non_null_count": 1500,
+    "privacy_class": "BUSINESS_PRIVATE",
+    "record_count": 1500,
+    "record_type": "order"
+  },
+  {
+    "benchmark_usable": true,
+    "distinct_value_count": 3297,
+    "example_value_redacted": null,
+    "exposed_by_templates": [
+      "order_detail"
+    ],
+    "fact_type": "order.price_per_unit",
+    "field_path": "price_per_unit",
+    "non_null_count": 3355,
+    "privacy_class": "BUSINESS_PRIVATE",
+    "record_count": 3355,
+    "record_type": "order"
+  },
+  {
+    "benchmark_usable": true,
+    "distinct_value_count": 20,
+    "example_value_redacted": "LIO-PROD-001",
+    "exposed_by_templates": [
+      "order_detail"
+    ],
+    "fact_type": "order.product_id",
+    "field_path": "product_id",
+    "non_null_count": 3355,
+    "privacy_class": "BUSINESS_PRIVATE",
+    "record_count": 3355,
+    "record_type": "order"
+  },
+  {
+    "benchmark_usable": true,
+    "distinct_value_count": 20,
+    "example_value_redacted": "VR头显",
+    "exposed_by_templates": [
+      "order_detail"
+    ],
+    "fact_type": "order.product_name",
+    "field_path": "product_name",
+    "non_null_count": 3355,
+    "privacy_class": "BUSINESS_PRIVATE",
+    "record_count": 3355,
+    "record_type": "order"
+  },
+  {
+    "benchmark_usable": true,
+    "distinct_value_count": 6,
+    "example_value_redacted": null,
+    "exposed_by_templates": [
+      "order_detail"
+    ],
+    "fact_type": "order.quantity",
+    "field_path": "quantity",
+    "non_null_count": 3355,
+    "privacy_class": "BUSINESS_PRIVATE",
+    "record_count": 3355,
+    "record_type": "order"
+  },
+  {
+    "benchmark_usable": true,
+    "distinct_value_count": 4,
+    "example_value_redacted": "Delivered",
+    "exposed_by_templates": [
+      "customer_orders",
+      "order_detail"
+    ],
+    "fact_type": "order.status",
+    "field_path": "status",
+    "non_null_count": 1500,
+    "privacy_class": "BUSINESS_PRIVATE",
+    "record_count": 1500,
+    "record_type": "order"
+  },
+  {
+    "benchmark_usable": true,
+    "distinct_value_count": 1497,
+    "example_value_redacted": null,
+    "exposed_by_templates": [
+      "customer_orders",
+      "order_detail"
+    ],
+    "fact_type": "order.total_amount",
+    "field_path": "total_amount",
+    "non_null_count": 1500,
+    "privacy_class": "BUSINESS_PRIVATE",
+    "record_count": 1500,
+    "record_type": "order"
+  },
+  {
+    "benchmark_usable": false,
+    "distinct_value_count": 5,
+    "example_value_redacted": null,
+    "exposed_by_templates": [
+      "order_events"
+    ],
+    "fact_type": "order_event.actor",
+    "field_path": "actor",
+    "non_null_count": 7296,
+    "privacy_class": "BUSINESS_PRIVATE",
+    "record_count": 7296,
+    "record_type": "order_event"
+  },
+  {
+    "benchmark_usable": false,
+    "distinct_value_count": 928,
+    "example_value_redacted": null,
+    "exposed_by_templates": [
+      "order_events"
+    ],
+    "fact_type": "order_event.happened_at",
+    "field_path": "happened_at",
+    "non_null_count": 7296,
+    "privacy_class": "BUSINESS_PRIVATE",
+    "record_count": 7296,
+    "record_type": "order_event"
+  },
+  {
+    "benchmark_usable": false,
+    "distinct_value_count": 3,
+    "example_value_redacted": null,
+    "exposed_by_templates": [
+      "order_events"
+    ],
+    "fact_type": "order_event.note",
+    "field_path": "note",
+    "non_null_count": 4441,
+    "privacy_class": "BUSINESS_PRIVATE",
+    "record_count": 7296,
+    "record_type": "order_event"
+  },
+  {
+    "benchmark_usable": false,
+    "distinct_value_count": 1500,
+    "example_value_redacted": null,
+    "exposed_by_templates": [
+      "order_events"
+    ],
+    "fact_type": "order_event.order_id",
+    "field_path": "order_id",
+    "non_null_count": 7296,
+    "privacy_class": "BUSINESS_PRIVATE",
+    "record_count": 7296,
+    "record_type": "order_event"
+  },
+  {
+    "benchmark_usable": false,
+    "distinct_value_count": 6,
+    "example_value_redacted": "created",
+    "exposed_by_templates": [
+      "order_events"
+    ],
+    "fact_type": "order_event.status",
+    "field_path": "status",
+    "non_null_count": 7296,
+    "privacy_class": "BUSINESS_PRIVATE",
+    "record_count": 7296,
+    "record_type": "order_event"
+  },
+  {
+    "benchmark_usable": true,
+    "distinct_value_count": 5,
+    "example_value_redacted": null,
+    "exposed_by_templates": [
+      "ticket_detail"
+    ],
+    "fact_type": "ticket.assigned_team",
+    "field_path": "assigned_team",
+    "non_null_count": 420,
+    "privacy_class": "BUSINESS_PRIVATE",
+    "record_count": 420,
+    "record_type": "ticket"
+  },
+  {
+    "benchmark_usable": true,
+    "distinct_value_count": 263,
+    "example_value_redacted": null,
+    "exposed_by_templates": [
+      "customer_tickets",
+      "ticket_detail"
+    ],
+    "fact_type": "ticket.created_at",
+    "field_path": "created_at",
+    "non_null_count": 420,
+    "privacy_class": "BUSINESS_PRIVATE",
+    "record_count": 420,
+    "record_type": "ticket"
+  },
+  {
+    "benchmark_usable": true,
+    "distinct_value_count": 48,
+    "example_value_redacted": "startup_failure",
+    "exposed_by_templates": [
+      "customer_tickets",
+      "ticket_detail"
+    ],
+    "fact_type": "ticket.issue_type",
+    "field_path": "issue_type",
+    "non_null_count": 420,
+    "privacy_class": "BUSINESS_PRIVATE",
+    "record_count": 420,
+    "record_type": "ticket"
+  },
+  {
+    "benchmark_usable": true,
+    "distinct_value_count": 317,
+    "example_value_redacted": null,
+    "exposed_by_templates": [
+      "customer_tickets",
+      "ticket_detail"
+    ],
+    "fact_type": "ticket.order_id",
+    "field_path": "order_id",
+    "non_null_count": 403,
+    "privacy_class": "BUSINESS_PRIVATE",
+    "record_count": 420,
+    "record_type": "ticket"
+  },
+  {
+    "benchmark_usable": true,
+    "distinct_value_count": 4,
+    "example_value_redacted": "medium",
+    "exposed_by_templates": [
+      "customer_tickets",
+      "ticket_detail"
+    ],
+    "fact_type": "ticket.priority",
+    "field_path": "priority",
+    "non_null_count": 420,
+    "privacy_class": "BUSINESS_PRIVATE",
+    "record_count": 420,
+    "record_type": "ticket"
+  },
+  {
+    "benchmark_usable": true,
+    "distinct_value_count": 20,
+    "example_value_redacted": "LIO-PROD-012",
+    "exposed_by_templates": [
+      "customer_tickets",
+      "ticket_detail"
+    ],
+    "fact_type": "ticket.product_id",
+    "field_path": "product_id",
+    "non_null_count": 420,
+    "privacy_class": "BUSINESS_PRIVATE",
+    "record_count": 420,
+    "record_type": "ticket"
+  },
+  {
+    "benchmark_usable": true,
+    "distinct_value_count": 4,
+    "example_value_redacted": "resolved",
+    "exposed_by_templates": [
+      "customer_tickets",
+      "ticket_detail"
+    ],
+    "fact_type": "ticket.status",
+    "field_path": "status",
+    "non_null_count": 420,
+    "privacy_class": "BUSINESS_PRIVATE",
+    "record_count": 420,
+    "record_type": "ticket"
+  },
+  {
+    "benchmark_usable": true,
+    "distinct_value_count": 320,
+    "example_value_redacted": null,
+    "exposed_by_templates": [
+      "ticket_detail"
+    ],
+    "fact_type": "ticket.summary",
+    "field_path": "summary",
+    "non_null_count": 412,
+    "privacy_class": "BUSINESS_PRIVATE",
+    "record_count": 420,
+    "record_type": "ticket"
+  },
+  {
+    "benchmark_usable": true,
+    "distinct_value_count": 420,
+    "example_value_redacted": null,
+    "exposed_by_templates": [
+      "customer_tickets",
+      "ticket_detail"
+    ],
+    "fact_type": "ticket.ticket_id",
+    "field_path": "ticket_id",
+    "non_null_count": 420,
+    "privacy_class": "BUSINESS_PRIVATE",
+    "record_count": 420,
+    "record_type": "ticket"
+  },
+  {
+    "benchmark_usable": false,
+    "distinct_value_count": 3,
+    "example_value_redacted": null,
+    "exposed_by_templates": [
+      "ticket_events"
+    ],
+    "fact_type": "ticket_event.actor",
+    "field_path": "actor",
+    "non_null_count": 1576,
+    "privacy_class": "BUSINESS_PRIVATE",
+    "record_count": 1576,
+    "record_type": "ticket_event"
+  },
+  {
+    "benchmark_usable": false,
+    "distinct_value_count": 6,
+    "example_value_redacted": null,
+    "exposed_by_templates": [
+      "ticket_events"
+    ],
+    "fact_type": "ticket_event.event_type",
+    "field_path": "event_type",
+    "non_null_count": 1576,
+    "privacy_class": "BUSINESS_PRIVATE",
+    "record_count": 1576,
+    "record_type": "ticket_event"
+  },
+  {
+    "benchmark_usable": false,
+    "distinct_value_count": 470,
+    "example_value_redacted": null,
+    "exposed_by_templates": [
+      "ticket_events"
+    ],
+    "fact_type": "ticket_event.happened_at",
+    "field_path": "happened_at",
+    "non_null_count": 1576,
+    "privacy_class": "BUSINESS_PRIVATE",
+    "record_count": 1576,
+    "record_type": "ticket_event"
+  },
+  {
+    "benchmark_usable": false,
+    "distinct_value_count": 3,
+    "example_value_redacted": null,
+    "exposed_by_templates": [
+      "ticket_events"
+    ],
+    "fact_type": "ticket_event.note",
+    "field_path": "note",
+    "non_null_count": 952,
+    "privacy_class": "BUSINESS_PRIVATE",
+    "record_count": 1576,
+    "record_type": "ticket_event"
+  },
+  {
+    "benchmark_usable": false,
+    "distinct_value_count": 420,
+    "example_value_redacted": null,
+    "exposed_by_templates": [
+      "ticket_events"
+    ],
+    "fact_type": "ticket_event.ticket_id",
+    "field_path": "ticket_id",
+    "non_null_count": 1576,
+    "privacy_class": "BUSINESS_PRIVATE",
+    "record_count": 1576,
+    "record_type": "ticket_event"
+  },
+  {
+    "benchmark_usable": true,
+    "distinct_value_count": 140,
+    "example_value_redacted": null,
+    "exposed_by_templates": [
+      "warranty_cases"
+    ],
+    "fact_type": "warranty.case_id",
+    "field_path": "case_id",
+    "non_null_count": 140,
+    "privacy_class": "BUSINESS_PRIVATE",
+    "record_count": 140,
+    "record_type": "warranty"
+  },
+  {
+    "benchmark_usable": true,
+    "distinct_value_count": 2,
+    "example_value_redacted": "in_warranty",
+    "exposed_by_templates": [
+      "warranty_cases"
+    ],
+    "fact_type": "warranty.coverage_status",
+    "field_path": "coverage_status",
+    "non_null_count": 140,
+    "privacy_class": "BUSINESS_PRIVATE",
+    "record_count": 140,
+    "record_type": "warranty"
+  },
+  {
+    "benchmark_usable": true,
+    "distinct_value_count": 2,
+    "example_value_redacted": "manufacturer_warranty",
+    "exposed_by_templates": [
+      "warranty_cases"
+    ],
+    "fact_type": "warranty.coverage_type",
+    "field_path": "coverage_type",
+    "non_null_count": 140,
+    "privacy_class": "BUSINESS_PRIVATE",
+    "record_count": 140,
+    "record_type": "warranty"
+  },
+  {
+    "benchmark_usable": true,
+    "distinct_value_count": 131,
+    "example_value_redacted": null,
+    "exposed_by_templates": [
+      "warranty_cases"
+    ],
+    "fact_type": "warranty.expires_at",
+    "field_path": "expires_at",
+    "non_null_count": 140,
+    "privacy_class": "BUSINESS_PRIVATE",
+    "record_count": 140,
+    "record_type": "warranty"
+  },
+  {
+    "benchmark_usable": true,
+    "distinct_value_count": 133,
+    "example_value_redacted": null,
+    "exposed_by_templates": [
+      "warranty_cases"
+    ],
+    "fact_type": "warranty.order_id",
+    "field_path": "order_id",
+    "non_null_count": 140,
+    "privacy_class": "BUSINESS_PRIVATE",
+    "record_count": 140,
+    "record_type": "warranty"
+  },
+  {
+    "benchmark_usable": true,
+    "distinct_value_count": 20,
+    "example_value_redacted": "LIO-PROD-003",
+    "exposed_by_templates": [
+      "warranty_cases"
+    ],
+    "fact_type": "warranty.product_id",
+    "field_path": "product_id",
+    "non_null_count": 140,
+    "privacy_class": "BUSINESS_PRIVATE",
+    "record_count": 140,
+    "record_type": "warranty"
+  },
+  {
+    "benchmark_usable": true,
+    "distinct_value_count": 4,
+    "example_value_redacted": "active",
+    "exposed_by_templates": [
+      "warranty_cases"
+    ],
+    "fact_type": "warranty.status",
+    "field_path": "status",
+    "non_null_count": 140,
+    "privacy_class": "BUSINESS_PRIVATE",
+    "record_count": 140,
+    "record_type": "warranty"
+  },
+  {
+    "benchmark_usable": true,
+    "distinct_value_count": 140,
+    "example_value_redacted": null,
+    "exposed_by_templates": [
+      "warranty_cases"
+    ],
+    "fact_type": "warranty.ticket_id",
+    "field_path": "ticket_id",
+    "non_null_count": 140,
+    "privacy_class": "BUSINESS_PRIVATE",
+    "record_count": 140,
+    "record_type": "warranty"
+  }
+]

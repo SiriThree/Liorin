@@ -1,0 +1,85 @@
+[
+  {
+    "agent": "knowledge_agent",
+    "capability_id": "knowledge_document_qa",
+    "formal_benchmark_usable": true,
+    "identity_requirements": [],
+    "input_requirements": [
+      "query"
+    ],
+    "output_type": "grounded answer",
+    "production_path": "supervisor -> knowledge_agent -> hybrid_retrieve",
+    "tool": null,
+    "trace_availability": "AVAILABLE"
+  },
+  {
+    "agent": "knowledge_agent",
+    "capability_id": "troubleshooting",
+    "formal_benchmark_usable": true,
+    "identity_requirements": [],
+    "input_requirements": [
+      "symptom/query",
+      "product context when ambiguity requires"
+    ],
+    "output_type": "answer/clarification/handoff",
+    "production_path": "supervisor -> knowledge_agent -> retrieve/verify/recover",
+    "tool": null,
+    "trace_availability": "AVAILABLE"
+  },
+  {
+    "agent": "order_agent",
+    "capability_id": "private_structured_read",
+    "formal_benchmark_usable": true,
+    "identity_requirements": [
+      "tenant_id",
+      "customer_id",
+      "structured:read:self"
+    ],
+    "input_requirements": [
+      "verified customer",
+      "allow-listed template"
+    ],
+    "output_type": "structured read-only result",
+    "production_path": "support_workflow identity -> supervisor -> order_agent -> execute_sql_template",
+    "templates": [
+      "customer_orders",
+      "customer_summary",
+      "customer_tickets",
+      "order_detail",
+      "order_events",
+      "ticket_detail",
+      "ticket_events",
+      "warranty_cases"
+    ],
+    "tool": "execute_sql_template",
+    "trace_availability": "AVAILABLE contract / agent smoke blocked by dependency"
+  },
+  {
+    "agent": "supervisor",
+    "capability_id": "mixed_structured_knowledge",
+    "formal_benchmark_usable": true,
+    "identity_requirements": [
+      "verified identity when private data required"
+    ],
+    "input_requirements": [
+      "private structured fact",
+      "document/policy fact"
+    ],
+    "output_type": "synthesized grounded answer",
+    "production_path": "supervisor -> order_agent + knowledge_agent",
+    "tool": "specialist agents",
+    "trace_availability": "PARTIAL until real Production smoke"
+  },
+  {
+    "agent": null,
+    "capability_id": "write_business_operation",
+    "formal_benchmark_usable": false,
+    "identity_requirements": [],
+    "input_requirements": [],
+    "output_type": null,
+    "production_path": "NOT PRESENT",
+    "reason": "Current structured business tool is read-only; no refund/cancel/ticket-create side effect is exposed.",
+    "tool": null,
+    "trace_availability": "NOT_APPLICABLE"
+  }
+]

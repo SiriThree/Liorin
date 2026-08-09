@@ -1,0 +1,344 @@
+{
+  "baseline_configuration": {
+    "context_budget": {
+      "context_max_tokens": 4096
+    },
+    "embedding_model": "sentence-transformers/all-mpnet-base-v2",
+    "embedding_provider": "huggingface",
+    "evaluation_version": "phase3-evidence-recovery-v1",
+    "git_commit": "f13ed72d1b0264b1f54d600a2a39ae0045937d65",
+    "milvus_collection": "liorin_documents_huggingface",
+    "milvus_uri": "http://localhost:19530",
+    "model_name": "openai:qwen-plus",
+    "model_provider": "openai",
+    "production_hash": {
+      "file_count": 65,
+      "sha256": "95e0f7a250457cb7f5cdbcd898661c1fbc70d27bef28d48d6f327d1d3350e1b8"
+    },
+    "reranker_config": {
+      "enabled": true
+    },
+    "retrieval_config": {
+      "bm25": true,
+      "dense": true,
+      "fusion": "RRF",
+      "parent_expansion": true,
+      "reranker": true,
+      "structured_db": true
+    },
+    "retry_policy": {
+      "tool_retry_attempts": 2
+    },
+    "run_id": "evalrun:7347f7e80e9a4acebb52b516b7a203c8",
+    "seed": null,
+    "status": "FROZEN_FOR_SMOKE_ONLY_FORMAL_BLOCKED",
+    "temperature": 0.0,
+    "timeout": {
+      "retrieval_max_latency_ms": 25000,
+      "tool_timeout_seconds": 30
+    },
+    "verifier_config": {
+      "enabled": true
+    }
+  },
+  "engineering_tests": {
+    "command": ".venv/Scripts/python.exe -m pytest tests/evaluation/test_production_evaluation_adapter.py tests/evaluation/test_single_execution_evaluation.py",
+    "failed": 0,
+    "passed": 2,
+    "status": "PASSED"
+  },
+  "environment": {
+    "items": [
+      {
+        "details": {
+          "legacy_optional_still_locked_as_main": [
+            "agentevals",
+            "openevals"
+          ],
+          "missing_main_in_lock": []
+        },
+        "name": "dependency_lock",
+        "reason": "uv.lock does not match current pyproject dependency roles",
+        "status": "BLOCKED"
+      },
+      {
+        "details": {
+          "langchain": true,
+          "langchain_core": true,
+          "langgraph": true,
+          "pymilvus": true
+        },
+        "name": "python_dependencies",
+        "reason": "required Python runtime dependencies are importable",
+        "status": "READY"
+      },
+      {
+        "details": {},
+        "name": "production_runtime",
+        "reason": "deployment graph imports and constructs successfully",
+        "status": "READY"
+      },
+      {
+        "details": {
+          "credential_present": true,
+          "live_check": true,
+          "model": "openai:qwen-plus"
+        },
+        "name": "model_provider",
+        "reason": "provider invocation returned a response",
+        "status": "READY"
+      },
+      {
+        "details": {
+          "credential_present": false,
+          "judge_model": null,
+          "live_check": true
+        },
+        "name": "judge_provider",
+        "reason": "LIORIN_JUDGE_MODEL and its provider credential are required",
+        "status": "BLOCKED"
+      },
+      {
+        "details": {
+          "live_check": true,
+          "milvus_uri_configured": true
+        },
+        "name": "retrieval_backend",
+        "reason": "MilvusException: <MilvusException: (code=2, message=Fail connecting to server on localhost:19530, illegal connection params or server unavailable)>",
+        "status": "BLOCKED"
+      },
+      {
+        "details": {
+          "local_db": "D:\\找实习\\Liorin\\data\\structured\\liorin.db",
+          "tables": [
+            "customers",
+            "order_items",
+            "order_status_events",
+            "orders",
+            "products",
+            "ticket_events",
+            "tickets",
+            "warranty_cases"
+          ]
+        },
+        "name": "structured_data_backend",
+        "reason": "structured SQLite connectivity and required tables verified",
+        "status": "READY"
+      },
+      {
+        "details": {},
+        "name": "memory_backend",
+        "reason": "production bootstrap supports in-memory Memory backend fallback",
+        "status": "READY"
+      },
+      {
+        "details": {},
+        "name": "artifact_backend",
+        "reason": "production bootstrap supports in-memory Artifact backend fallback",
+        "status": "READY"
+      },
+      {
+        "details": {
+          "path": "D:\\找实习\\Liorin\\artifacts\\evaluation"
+        },
+        "name": "artifact_output",
+        "reason": "evaluation artifact directory is writable",
+        "status": "READY"
+      },
+      {
+        "details": {
+          "case_count": 39
+        },
+        "name": "canonical_dataset",
+        "reason": "39 fully canonical legacy cases available",
+        "status": "READY"
+      },
+      {
+        "details": {
+          "case_count": 5
+        },
+        "name": "validation_split",
+        "reason": "5 canonical validation cases available",
+        "status": "READY"
+      },
+      {
+        "details": {},
+        "name": "trusted_test_split",
+        "reason": "NO TRUSTED TEST SPLIT",
+        "status": "NOT_READY"
+      },
+      {
+        "details": {},
+        "name": "recovery_subset",
+        "reason": "COVERAGE_INSUFFICIENT_NEEDS_REVIEW",
+        "status": "NOT_READY"
+      },
+      {
+        "details": {
+          "eligible_sessions": 0
+        },
+        "name": "multi_turn_subset",
+        "reason": "formal eligible multi-turn sessions=0",
+        "status": "NOT_READY"
+      },
+      {
+        "details": {
+          "eligible_cases": 3
+        },
+        "name": "safety_subset",
+        "reason": "formal safety candidates=3",
+        "status": "READY"
+      },
+      {
+        "details": {
+          "config_count": 11
+        },
+        "name": "ablation_configs",
+        "reason": "ablation configs=11",
+        "status": "READY"
+      },
+      {
+        "details": {
+          "baseline_count": 0,
+          "path": "D:\\找实习\\Liorin\\artifacts\\evaluation\\baseline_registry.json"
+        },
+        "name": "baseline_registry",
+        "reason": "BASELINE_NOT_ESTABLISHED",
+        "status": "NOT_READY"
+      }
+    ],
+    "system_status": "PRODUCTION_BLOCKED"
+  },
+  "formal_benchmark": {
+    "attempted_n": 0,
+    "failures": null,
+    "formal_dataset_hash": "3f9cfc0ab4a5e8bf85bf4f3cd2e49e6bb7eaf49a237da7b17b8e697f8742fa88",
+    "formal_dataset_snapshot": "artifacts\\evaluation\\real-execution-r0\\formal39_dataset_snapshot.json",
+    "planned_n": 39,
+    "reason": "Milvus live search failed, judge not configured, dependency lock readiness blocked. R0 rules prohibit formal batch when smoke gate fails.",
+    "status": "NOT_RUN_SMOKE_GATE_FAILED",
+    "success_rate": null,
+    "successes": null,
+    "wilson_95_ci": {
+      "high": null,
+      "low": null
+    }
+  },
+  "gold_changes": 0,
+  "judge": {
+    "status": "BLOCKED"
+  },
+  "next_recommendation": "?? Real Environment: start/connect Milvus collection, configure LIORIN_JUDGE_MODEL if semantic judge is required, and reconcile uv.lock readiness before rerunning R0 formal39.",
+  "production_changes": 0,
+  "production_smoke": {
+    "db": {
+      "db": "data/structured/liorin.db",
+      "error": null,
+      "identity": {
+        "customer_id": "CUST-001",
+        "permission": "structured:read:self",
+        "tenant_id": "TENANT-CONSUMER"
+      },
+      "latency_ms": 1.62,
+      "result_count": 1,
+      "result_preview": [
+        {
+          "company_name": null,
+          "customer_id": "CUST-001",
+          "name": "Lin Chen",
+          "segment": "Consumer",
+          "source_system": "shopify"
+        }
+      ],
+      "success": true,
+      "tool": "customer_summary",
+      "trace": "direct_template_smoke_no_trace_context"
+    },
+    "embedding": {
+      "dimension": 768,
+      "error": null,
+      "latency_ms": 428.32,
+      "model": "sentence-transformers/all-mpnet-base-v2",
+      "provider": "huggingface",
+      "success": true
+    },
+    "milvus": {
+      "collection": "liorin_documents_huggingface",
+      "collection_exists": false,
+      "connect": false,
+      "error": "MilvusException: <MilvusException: (code=2, message=Fail connecting to server on localhost:19530, illegal connection params or server unavailable)>",
+      "latency_ms": null,
+      "load": false,
+      "results": null,
+      "search_success": false,
+      "uri": "http://localhost:19530"
+    },
+    "model": {
+      "content_preview": "OK",
+      "error": null,
+      "input_tokens": 13,
+      "latency_ms": 2571.06,
+      "model": "openai:qwen-plus",
+      "output_tokens": 1,
+      "provider": "openai",
+      "request_success": true
+    },
+    "smoke_gate": {
+      "blocked_components": [
+        "dependency_lock",
+        "judge_provider",
+        "retrieval_backend/Milvus"
+      ],
+      "pass": false,
+      "reason": "live readiness failed; formal39 and retrieval ablation not executed"
+    },
+    "support_graph": {
+      "case_ids": [
+        "E2E7-0001",
+        "E2E7-0002",
+        "E2E7-0060",
+        "E2E7-0074",
+        "E2E7-0013"
+      ],
+      "cases": 5,
+      "failure": 2,
+      "success": 3,
+      "task_success": {
+        "denominator": 5,
+        "numerator": 0,
+        "rate": 0.0
+      }
+    }
+  },
+  "reproducibility": {
+    "commit": "f13ed72d1b0264b1f54d600a2a39ae0045937d65",
+    "corpus_fingerprint": {
+      "file_count": 45,
+      "sha256": "5cd79b3739fd0287c0079c9953e75514cb78cccd8d31ab22fa6e46124dd2b4f7"
+    },
+    "db_fingerprint": {
+      "path": "data/structured/liorin.db",
+      "sha256": "0166d9b2252286ed36978e63a3969eb041077fe6fc33ba8e9c7258d37af8ed78",
+      "tables": {
+        "customers": 300,
+        "order_items": 3355,
+        "order_status_events": 7296,
+        "orders": 1500,
+        "products": 20,
+        "ticket_events": 1576,
+        "tickets": 420,
+        "warranty_cases": 140
+      }
+    },
+    "formal_dataset_hash": "3f9cfc0ab4a5e8bf85bf4f3cd2e49e6bb7eaf49a237da7b17b8e697f8742fa88",
+    "production_hash": {
+      "file_count": 65,
+      "sha256": "95e0f7a250457cb7f5cdbcd898661c1fbc70d27bef28d48d6f327d1d3350e1b8"
+    },
+    "run_id": "evalrun:7347f7e80e9a4acebb52b516b7a203c8"
+  },
+  "retrieval_ablation": {
+    "status": "NOT_RUN_SMOKE_GATE_FAILED"
+  },
+  "status": "BLOCKED"
+}

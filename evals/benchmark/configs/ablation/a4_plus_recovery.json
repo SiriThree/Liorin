@@ -1,0 +1,51 @@
+{
+  "ablation_id": "a4_plus_recovery",
+  "base_config": {
+    "budget": {},
+    "context_strategy": "LIORIN_CONTEXT_MEMORY_ARTIFACT",
+    "embedding": null,
+    "features": {
+      "agentic_recovery_enabled": false,
+      "clarification_recovery_enabled": false,
+      "evidence_verifier_enabled": true,
+      "parent_expansion_enabled": true,
+      "query_rewrite_enabled": false,
+      "reranker_enabled": true,
+      "supplement_enabled": false
+    },
+    "governance": {},
+    "model": null,
+    "retrieval": {},
+    "tool_configuration": {}
+  },
+  "config_hash": "21884cda2e6443f397438e5ee9620fd362efc32f2561c47aff1de7fdeccb0d1d",
+  "dataset_hash": null,
+  "description": "Controlled staged addition on the same Production graph",
+  "disabled_features": [],
+  "enabled_features": [
+    "agentic_recovery_enabled",
+    "query_rewrite_enabled",
+    "supplement_enabled",
+    "clarification_recovery_enabled"
+  ],
+  "schema_version": "1.0",
+  "study_type": "ADDITION",
+  "target_config": {
+    "budget": {},
+    "context_strategy": "LIORIN_CONTEXT_MEMORY_ARTIFACT",
+    "embedding": null,
+    "features": {
+      "agentic_recovery_enabled": true,
+      "clarification_recovery_enabled": true,
+      "evidence_verifier_enabled": true,
+      "parent_expansion_enabled": true,
+      "query_rewrite_enabled": true,
+      "reranker_enabled": true,
+      "supplement_enabled": true
+    },
+    "governance": {},
+    "model": null,
+    "retrieval": {},
+    "tool_configuration": {}
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "exact_query_duplicates": 0,
+  "family_state_repetitions": 54,
+  "normalized_query_duplicates": 59,
+  "normalized_surface_collisions_retained_due_distinct_source_entity": 59,
+  "rejected_duplicates": 0,
+  "semantic_entity_field_duplicates": 0
+}

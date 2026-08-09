@@ -1,0 +1,11 @@
+{
+  "benchmark_usable": 28,
+  "source_units": 137,
+  "with_conditional_branch": 43,
+  "with_error_code": 0,
+  "with_error_code_context": 1,
+  "with_escalation": 31,
+  "with_multi_step": 23,
+  "with_required_context": 133,
+  "with_safety_condition": 25
+}

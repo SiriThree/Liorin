@@ -1,0 +1,266 @@
+[
+  {
+    "expected_security_action": "DENY",
+    "identity_or_ownership_relation": "CROSS_TENANT",
+    "permission_relation": "N/A",
+    "surface_id": "SURF-ARTIFACT-ISOLATION"
+  },
+  {
+    "expected_security_action": "ALLOW",
+    "identity_or_ownership_relation": "EXACT_IDENTITY",
+    "permission_relation": "N/A",
+    "surface_id": "SURF-ARTIFACT-ISOLATION"
+  },
+  {
+    "expected_security_action": "DENY",
+    "identity_or_ownership_relation": "SAME_TENANT_OTHER_USER",
+    "permission_relation": "N/A",
+    "surface_id": "SURF-ARTIFACT-ISOLATION"
+  },
+  {
+    "expected_security_action": "DENY",
+    "identity_or_ownership_relation": "SAME_USER_DIFFERENT_CONVERSATION",
+    "permission_relation": "N/A",
+    "surface_id": "SURF-ARTIFACT-ISOLATION"
+  },
+  {
+    "expected_security_action": "DENY",
+    "identity_or_ownership_relation": "SAME_USER_DIFFERENT_SESSION",
+    "permission_relation": "N/A",
+    "surface_id": "SURF-ARTIFACT-ISOLATION"
+  },
+  {
+    "expected_security_action": "DENY",
+    "identity_or_ownership_relation": "PERMISSION_MISSING",
+    "permission_relation": "classification:confidential:read missing",
+    "surface_id": "SURF-CLASSIFICATION"
+  },
+  {
+    "expected_security_action": "ALLOW",
+    "identity_or_ownership_relation": "PERMISSION_PRESENT",
+    "permission_relation": "classification:confidential:read present",
+    "surface_id": "SURF-CLASSIFICATION"
+  },
+  {
+    "expected_security_action": "ALLOW",
+    "identity_or_ownership_relation": "BENIGN_DOCUMENT",
+    "permission_relation": "N/A",
+    "surface_id": "SURF-DOCUMENT-INJECTION"
+  },
+  {
+    "expected_security_action": "SAFE_RESPONSE",
+    "identity_or_ownership_relation": "ESCAPED_EVIDENCE",
+    "permission_relation": "N/A",
+    "surface_id": "SURF-DOCUMENT-INJECTION"
+  },
+  {
+    "expected_security_action": "DENY",
+    "identity_or_ownership_relation": "MALICIOUS_DOCUMENT",
+    "permission_relation": "N/A",
+    "surface_id": "SURF-DOCUMENT-INJECTION"
+  },
+  {
+    "expected_security_action": "DENY",
+    "identity_or_ownership_relation": "POLICY_EXCEPTION",
+    "permission_relation": "N/A",
+    "surface_id": "SURF-MEMORY-CONTENT"
+  },
+  {
+    "expected_security_action": "DENY",
+    "identity_or_ownership_relation": "SAME_OWNER",
+    "permission_relation": "N/A",
+    "surface_id": "SURF-MEMORY-CONTENT"
+  },
+  {
+    "expected_security_action": "ALLOW",
+    "identity_or_ownership_relation": "SAME_OWNER",
+    "permission_relation": "N/A",
+    "surface_id": "SURF-MEMORY-CONTENT"
+  },
+  {
+    "expected_security_action": "DENY",
+    "identity_or_ownership_relation": "ANONYMOUS",
+    "permission_relation": "N/A",
+    "surface_id": "SURF-MEMORY-ISOLATION"
+  },
+  {
+    "expected_security_action": "DENY",
+    "identity_or_ownership_relation": "CROSS_TENANT",
+    "permission_relation": "N/A",
+    "surface_id": "SURF-MEMORY-ISOLATION"
+  },
+  {
+    "expected_security_action": "ALLOW",
+    "identity_or_ownership_relation": "SAME_OWNER_DIFFERENT_SESSION",
+    "permission_relation": "N/A",
+    "surface_id": "SURF-MEMORY-ISOLATION"
+  },
+  {
+    "expected_security_action": "DENY",
+    "identity_or_ownership_relation": "SAME_TENANT_OTHER_USER",
+    "permission_relation": "N/A",
+    "surface_id": "SURF-MEMORY-ISOLATION"
+  },
+  {
+    "expected_security_action": "ALLOW",
+    "identity_or_ownership_relation": "SAME_TENANT_SAME_USER",
+    "permission_relation": "N/A",
+    "surface_id": "SURF-MEMORY-ISOLATION"
+  },
+  {
+    "expected_security_action": "ALLOW",
+    "identity_or_ownership_relation": "AUTHORIZED_SELF",
+    "permission_relation": "N/A",
+    "surface_id": "SURF-PII-MINIMIZATION"
+  },
+  {
+    "expected_security_action": "SAFE_RESPONSE",
+    "identity_or_ownership_relation": "TRACE_WITH_PII",
+    "permission_relation": "N/A",
+    "surface_id": "SURF-PII-MINIMIZATION"
+  },
+  {
+    "expected_security_action": "DENY",
+    "identity_or_ownership_relation": "REQUIRED_SECURITY_GATE_MISSING",
+    "permission_relation": "N/A",
+    "surface_id": "SURF-RELEASE-GATE"
+  },
+  {
+    "expected_security_action": "DENY",
+    "identity_or_ownership_relation": "BODY_IDENTITY_CONFLICT",
+    "permission_relation": "N/A",
+    "surface_id": "SURF-REQUEST-IDENTITY"
+  },
+  {
+    "expected_security_action": "DENY",
+    "identity_or_ownership_relation": "ESTABLISHED_TENANT_CONFLICT",
+    "permission_relation": "N/A",
+    "surface_id": "SURF-REQUEST-IDENTITY"
+  },
+  {
+    "expected_security_action": "DENY",
+    "identity_or_ownership_relation": "THREAD_CONFLICT",
+    "permission_relation": "N/A",
+    "surface_id": "SURF-REQUEST-IDENTITY"
+  },
+  {
+    "expected_security_action": "ALLOW",
+    "identity_or_ownership_relation": "TRUSTED_IDENTITY_MATCH",
+    "permission_relation": "N/A",
+    "surface_id": "SURF-REQUEST-IDENTITY"
+  },
+  {
+    "expected_security_action": "DENY",
+    "identity_or_ownership_relation": "SAME_TENANT_OTHER_USER",
+    "permission_relation": "N/A",
+    "surface_id": "SURF-RETRIEVAL-OWNER"
+  },
+  {
+    "expected_security_action": "DENY",
+    "identity_or_ownership_relation": "ADMIN_NO_CROSS_PERMISSION",
+    "permission_relation": "tenant:cross_read missing",
+    "surface_id": "SURF-RETRIEVAL-TENANT"
+  },
+  {
+    "expected_security_action": "ALLOW",
+    "identity_or_ownership_relation": "ADMIN_WITH_CROSS_PERMISSION",
+    "permission_relation": "tenant:cross_read present",
+    "surface_id": "SURF-RETRIEVAL-TENANT"
+  },
+  {
+    "expected_security_action": "DENY",
+    "identity_or_ownership_relation": "ANONYMOUS_NONPUBLIC",
+    "permission_relation": "N/A",
+    "surface_id": "SURF-RETRIEVAL-TENANT"
+  },
+  {
+    "expected_security_action": "ALLOW",
+    "identity_or_ownership_relation": "ANONYMOUS_PUBLIC",
+    "permission_relation": "N/A",
+    "surface_id": "SURF-RETRIEVAL-TENANT"
+  },
+  {
+    "expected_security_action": "DENY",
+    "identity_or_ownership_relation": "CROSS_TENANT",
+    "permission_relation": "N/A",
+    "surface_id": "SURF-RETRIEVAL-TENANT"
+  },
+  {
+    "expected_security_action": "DENY",
+    "identity_or_ownership_relation": "FILTER_TENANT_CONFLICT",
+    "permission_relation": "N/A",
+    "surface_id": "SURF-RETRIEVAL-TENANT"
+  },
+  {
+    "expected_security_action": "ALLOW",
+    "identity_or_ownership_relation": "SAME_TENANT",
+    "permission_relation": "N/A",
+    "surface_id": "SURF-RETRIEVAL-TENANT"
+  },
+  {
+    "expected_security_action": "ALLOW",
+    "identity_or_ownership_relation": "AUTHORIZED_TOOL",
+    "permission_relation": "N/A",
+    "surface_id": "SURF-SECURITY-TRACE"
+  },
+  {
+    "expected_security_action": "DENY",
+    "identity_or_ownership_relation": "DENIED_TOOL",
+    "permission_relation": "N/A",
+    "surface_id": "SURF-SECURITY-TRACE"
+  },
+  {
+    "expected_security_action": "DENY",
+    "identity_or_ownership_relation": "CROSS_TENANT",
+    "permission_relation": "permission present but tenant mismatch",
+    "surface_id": "SURF-STRUCTURED-SELF-READ"
+  },
+  {
+    "expected_security_action": "DENY",
+    "identity_or_ownership_relation": "IDENTITY_MISSING",
+    "permission_relation": "N/A",
+    "surface_id": "SURF-STRUCTURED-SELF-READ"
+  },
+  {
+    "expected_security_action": "DENY",
+    "identity_or_ownership_relation": "SAME_OWNER_PERMISSION_MISSING",
+    "permission_relation": "structured:read:self missing",
+    "surface_id": "SURF-STRUCTURED-SELF-READ"
+  },
+  {
+    "expected_security_action": "ALLOW",
+    "identity_or_ownership_relation": "SAME_OWNER_PERMISSION_PRESENT",
+    "permission_relation": "structured:read:self present",
+    "surface_id": "SURF-STRUCTURED-SELF-READ"
+  },
+  {
+    "expected_security_action": "DENY",
+    "identity_or_ownership_relation": "SAME_TENANT_OTHER_USER",
+    "permission_relation": "permission present but ownership mismatch",
+    "surface_id": "SURF-STRUCTURED-SELF-READ"
+  },
+  {
+    "expected_security_action": "ALLOW",
+    "identity_or_ownership_relation": "SAME_TENANT_SAME_USER",
+    "permission_relation": "structured:read:self present",
+    "surface_id": "SURF-STRUCTURED-SELF-READ"
+  },
+  {
+    "expected_security_action": "DENY",
+    "identity_or_ownership_relation": "TENANT_STATE_CONFLICT",
+    "permission_relation": "N/A",
+    "surface_id": "SURF-STRUCTURED-SELF-READ"
+  },
+  {
+    "expected_security_action": "DENY",
+    "identity_or_ownership_relation": "AUTHORIZED_USER",
+    "permission_relation": "N/A",
+    "surface_id": "SURF-TOOL-ALLOWLIST"
+  },
+  {
+    "expected_security_action": "ALLOW",
+    "identity_or_ownership_relation": "AUTHORIZED_USER",
+    "permission_relation": "N/A",
+    "surface_id": "SURF-TOOL-ALLOWLIST"
+  }
+]

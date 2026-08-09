@@ -1,0 +1,10 @@
+{
+  "cross_product_duplicate_plans": 0,
+  "duplicate_groups": [],
+  "effective_task_plan_semantics": 180,
+  "semantic_duplicate_excess": 0,
+  "task_plans": 180,
+  "unique_evidence_sets": 169,
+  "unique_fact_sets": 180,
+  "unique_plan_signatures": 180
+}

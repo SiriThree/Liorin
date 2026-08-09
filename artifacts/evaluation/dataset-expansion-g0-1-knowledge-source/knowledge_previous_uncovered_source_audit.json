@@ -1,0 +1,58 @@
+[
+  {
+    "effective_units": 30,
+    "knowledge_source_units": 30,
+    "name": "Air Purifier",
+    "previous_formal_coverage": false,
+    "product_id": "LIO-PROD-017",
+    "recommended_for_g0_2": true,
+    "source_still_exists": true,
+    "usable_atomic_facts": 98,
+    "why_previous_uncovered": "current Formal alias map contains no evidence section for this product source"
+  },
+  {
+    "effective_units": 72,
+    "knowledge_source_units": 77,
+    "name": "Air Conditioner",
+    "previous_formal_coverage": false,
+    "product_id": "LIO-PROD-018",
+    "recommended_for_g0_2": true,
+    "source_still_exists": true,
+    "usable_atomic_facts": 152,
+    "why_previous_uncovered": "current Formal alias map contains no evidence section for this product source"
+  },
+  {
+    "effective_units": 27,
+    "knowledge_source_units": 27,
+    "name": "Steam Cleaner",
+    "previous_formal_coverage": false,
+    "product_id": "LIO-PROD-019",
+    "recommended_for_g0_2": true,
+    "source_still_exists": true,
+    "usable_atomic_facts": 75,
+    "why_previous_uncovered": "current Formal alias map contains no evidence section for this product source"
+  },
+  {
+    "effective_units": 22,
+    "knowledge_source_units": 22,
+    "name": "Bluetooth Laser Mouse",
+    "previous_formal_coverage": false,
+    "product_id": "LIO-PROD-020",
+    "recommended_for_g0_2": true,
+    "source_still_exists": true,
+    "usable_atomic_facts": 28,
+    "why_previous_uncovered": "current Formal alias map contains no evidence section for this product source"
+  },
+  {
+    "effective_units": 8,
+    "knowledge_source_units": 8,
+    "name": "Support FAQ",
+    "note": "FAQ is grouped at Q/A SourceUnit level; sentence facts are not inflated into separate QA tasks.",
+    "previous_formal_coverage": false,
+    "product_id": null,
+    "recommended_for_g0_2": true,
+    "source_still_exists": true,
+    "usable_atomic_facts": 0,
+    "why_previous_uncovered": "current Formal alias map contains no FAQ evidence section"
+  }
+]

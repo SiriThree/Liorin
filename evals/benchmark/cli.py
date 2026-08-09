@@ -14,6 +14,7 @@ def parse_layers(value: str) -> set[str]:
 
 
 def main() -> None:
+    print("DEPRECATED LEGACY DIAGNOSTIC CLI: use `python -m eval_platform.cli` for formal evaluation.")
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
 
@@ -57,7 +58,12 @@ def main() -> None:
             smoke_per_layer=args.command == "smoke",
         )
         report = BenchmarkRunner(config).run()
-    print(json.dumps({"macro_objective_score": report["macro_objective_score"], "sample_count": report["sample_count"], "report": str(args.report)}, ensure_ascii=False, indent=2))
+    print(json.dumps({
+        "legacy_macro_objective_score": report.get("macro_objective_score"),
+        "scoring_status": report.get("scoring_status", "LEGACY_DIAGNOSTIC_SCORED"),
+        "sample_count": report["sample_count"],
+        "report": str(args.report),
+    }, ensure_ascii=False, indent=2))
 
 
 if __name__ == "__main__":

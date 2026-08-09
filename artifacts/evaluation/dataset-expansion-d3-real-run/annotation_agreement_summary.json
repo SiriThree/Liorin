@@ -1,0 +1,15 @@
+{
+  "exact_case_agreement": {
+    "denominator": 0,
+    "numerator": 0,
+    "rate": null
+  },
+  "overall_decision_agreement": {
+    "denominator": 0,
+    "numerator": 0,
+    "rate": null
+  },
+  "reason": "REAL_ANNOTATOR_RUNTIME_NOT_READY",
+  "status": "NOT RUN",
+  "valid_pairs": 0
+}

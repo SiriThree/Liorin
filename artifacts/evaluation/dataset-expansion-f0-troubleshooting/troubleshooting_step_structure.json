@@ -1,0 +1,10 @@
+{
+  "conditional": 22,
+  "multi_step": 4,
+  "ordered_source_units": 13,
+  "partially_ordered_source_units": 10,
+  "safety_critical_candidates": 2,
+  "single_step": 42,
+  "terminal_or_handoff_candidates": 8,
+  "unordered_source_units": 43
+}

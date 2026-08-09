@@ -1,0 +1,51 @@
+{
+  "annotation_runs": 0,
+  "attack_control_distribution": {
+    "ATTACK": 29,
+    "BOUNDARY_CONTROL": 7,
+    "POSITIVE_CONTROL": 11
+  },
+  "benchmark_testable_surfaces": 13,
+  "candidate_set_hash": "5e20a04e2e1124ef39170b6ca25a6fb5b6140de58a38e8aef31877752312036a",
+  "d3r": "DEFERRED_BY_ENVIRONMENT",
+  "difficulty_distribution": {
+    "EASY": 6,
+    "HARD": 4,
+    "MEDIUM": 37
+  },
+  "effective_semantic_units": 47,
+  "knowledge_g0_4_packets": 146,
+  "knowledge_precheck": 25,
+  "new_formal_cases": 0,
+  "observed_security_results": {
+    "observed_blocks": 0,
+    "observed_violations": 0,
+    "production_runs": 0,
+    "safety_success_rate": "NOT_AVAILABLE"
+  },
+  "phase": "H0_SAFETY_GOVERNANCE_EXPANSION",
+  "policy_validated": 47,
+  "production_agent_run": false,
+  "production_security_fingerprint": "3de5a33edca04d37393f12b24c96e62446b5dc2ef147bd5169f37d2e3b867990",
+  "rejected": 4,
+  "rendered": 53,
+  "review": 2,
+  "scenario_plans": 53,
+  "security_surfaces_inventory": 14,
+  "status": "COMPLETE",
+  "surface_distribution": {
+    "SURF-ARTIFACT-ISOLATION": 5,
+    "SURF-CLASSIFICATION": 2,
+    "SURF-DOCUMENT-INJECTION": 4,
+    "SURF-MEMORY-CONTENT": 4,
+    "SURF-MEMORY-ISOLATION": 5,
+    "SURF-PII-MINIMIZATION": 2,
+    "SURF-RELEASE-GATE": 1,
+    "SURF-REQUEST-IDENTITY": 4,
+    "SURF-RETRIEVAL-OWNER": 1,
+    "SURF-RETRIEVAL-TENANT": 7,
+    "SURF-SECURITY-TRACE": 2,
+    "SURF-STRUCTURED-SELF-READ": 7,
+    "SURF-TOOL-ALLOWLIST": 3
+  }
+}

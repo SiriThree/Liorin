@@ -1,0 +1,22 @@
+{
+  "atomic_fact_candidates": 4913,
+  "benchmark_usable_source_units": 1220,
+  "benchmark_usable_with_grouping": 94,
+  "coherent_fact_groups": 228,
+  "context_dependent": 1,
+  "effective_source_units": 1195,
+  "fragments": 225,
+  "group_only_facts": 1343,
+  "heuristic_usable": 4907,
+  "independent_askable_facts": 3156,
+  "independent_askable_ratio_of_task_construction_usable": 0.701333,
+  "knowledge_source_units": 1355,
+  "non_task_information": 47,
+  "not_usable_source_units": 93,
+  "owned_by_mixed": 0,
+  "owned_by_other_category_source_units": 42,
+  "owned_by_troubleshooting": 135,
+  "task_construction_usable_facts": 4500,
+  "task_usable_facts": 3156,
+  "unsupported": 6
+}

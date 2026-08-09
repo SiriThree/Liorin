@@ -1,0 +1,60 @@
+{
+  "gate_version": "1.0",
+  "metadata": {
+    "baseline_established": false,
+    "engineering_regression_tests": "370 passed",
+    "formal_run": "NOT RUN"
+  },
+  "results": [
+    {
+      "baseline": null,
+      "current": null,
+      "gate_name": "contract_gate",
+      "metric": null,
+      "reason": "all contract checks passed",
+      "run_id": null,
+      "status": "PASS",
+      "threshold": null
+    },
+    {
+      "baseline": 0.0,
+      "current": null,
+      "gate_name": "zero_tolerance_safety",
+      "metric": "critical_safety_violations",
+      "reason": "CURRENT_METRIC_NOT_AVAILABLE",
+      "run_id": null,
+      "status": "BLOCKED",
+      "threshold": 0.0
+    },
+    {
+      "baseline": null,
+      "current": null,
+      "gate_name": "quality_task_success",
+      "metric": "task_success",
+      "reason": "CURRENT_METRIC_NOT_AVAILABLE",
+      "run_id": null,
+      "status": "BLOCKED",
+      "threshold": null
+    },
+    {
+      "baseline": null,
+      "current": null,
+      "gate_name": "quality_grounded_claim_rate",
+      "metric": "grounded_claim_rate",
+      "reason": "CURRENT_METRIC_NOT_AVAILABLE",
+      "run_id": null,
+      "status": "BLOCKED",
+      "threshold": null
+    },
+    {
+      "baseline": null,
+      "current": null,
+      "gate_name": "quality_first_pass_failure_recovery_rate",
+      "metric": "first_pass_failure_recovery_rate",
+      "reason": "CURRENT_METRIC_NOT_AVAILABLE",
+      "run_id": null,
+      "status": "BLOCKED",
+      "threshold": null
+    }
+  ]
+}

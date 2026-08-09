@@ -8,8 +8,9 @@ from time import perf_counter
 
 from artifact.models import Artifact
 from artifact.registry import ArtifactRegistry, get_default_artifact_registry
+from artifact.store import ArtifactIdentityError
 from identity import IdentityContext
-from observability import get_default_metrics
+from observability import emit_security_decision, get_default_metrics
 
 
 @dataclass(slots=True)
@@ -31,9 +32,24 @@ class ArtifactResolver:
     ) -> Artifact:
         assert self.registry is not None
         started = perf_counter()
-        artifact = self.registry.get_artifact(
-            artifact_id,
-            identity_context=identity_context,
+        try:
+            artifact = self.registry.get_artifact(
+                artifact_id,
+                identity_context=identity_context,
+            )
+        except ArtifactIdentityError as exc:
+            emit_security_decision(
+                kind="artifact_access", stage="artifact", allowed=False, decision="DENY",
+                reason=str(exc), actor_identity=identity_context, resource_type="artifact",
+                resource_ref=artifact_id, side_effect="NONE", policy="ArtifactStoreIdentityPolicy",
+            )
+            raise
+        emit_security_decision(
+            kind="artifact_access", stage="artifact", allowed=True, decision="ALLOW_READ",
+            reason="artifact resolved under exact production identity scope",
+            actor_identity=identity_context, resource_identity=artifact.identity_context,
+            resource_type="artifact", resource_ref=artifact_id, side_effect="EXECUTED_READ",
+            policy="ArtifactStoreIdentityPolicy",
         )
         self.registry.record_resolved(
             artifact,

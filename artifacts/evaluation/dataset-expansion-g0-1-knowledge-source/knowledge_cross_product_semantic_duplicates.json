@@ -1,0 +1,206 @@
+{
+  "fact_groups": [
+    {
+      "example": "立即擦拭溢出的燃油。",
+      "fact_count": 3,
+      "fact_ids": [
+        "af:dd36fb2030873d34",
+        "af:c52d8c79c2e0c4d5",
+        "af:62a6e087b23f0866"
+      ],
+      "fact_types": [
+        "FEATURE_OR_INSTRUCTION",
+        "SAFETY_INSTRUCTION"
+      ],
+      "normalized_semantics": "立即擦拭溢出的燃油",
+      "products": [
+        "LIO-PROD-008",
+        "LIO-PROD-012"
+      ]
+    },
+    {
+      "example": "不补充机油则无法再次启动。",
+      "fact_count": 2,
+      "fact_ids": [
+        "af:adf91771a9c9b1b8",
+        "af:7ea51bcd56db9e7d"
+      ],
+      "fact_types": [
+        "TROUBLESHOOTING_STEP"
+      ],
+      "normalized_semantics": "不补充机油则无法再次启动",
+      "products": [
+        "LIO-PROD-008",
+        "LIO-PROD-012"
+      ]
+    },
+    {
+      "example": "：与排放控制系统相关。",
+      "fact_count": 2,
+      "fact_ids": [
+        "af:9551450052754036",
+        "af:5ca34f7165fa7245"
+      ],
+      "fact_types": [
+        "FEATURE_OR_INSTRUCTION",
+        "SAFETY_INSTRUCTION"
+      ],
+      "normalized_semantics": "与排放控制系统相关",
+      "products": [
+        "LIO-PROD-008",
+        "LIO-PROD-012"
+      ]
+    },
+    {
+      "example": "加油时务必关闭发动机。",
+      "fact_count": 2,
+      "fact_ids": [
+        "af:3a23eb803c2219e0",
+        "af:f74709cb8a0a3f49"
+      ],
+      "fact_types": [
+        "FEATURE_OR_INSTRUCTION"
+      ],
+      "normalized_semantics": "加油时务必关闭发动机",
+      "products": [
+        "LIO-PROD-008",
+        "LIO-PROD-012"
+      ]
+    },
+    {
+      "example": "加油时注意不要将燃油洒在发动机或消音器上。",
+      "fact_count": 2,
+      "fact_ids": [
+        "af:279da6b5b8476c8c",
+        "af:07a28d00c4c9d1a1"
+      ],
+      "fact_types": [
+        "FEATURE_OR_INSTRUCTION"
+      ],
+      "normalized_semantics": "加油时注意不要将燃油洒在发动机或消音器上",
+      "products": [
+        "LIO-PROD-008",
+        "LIO-PROD-012"
+      ]
+    },
+    {
+      "example": "发动机开关控制点火系统。",
+      "fact_count": 2,
+      "fact_ids": [
+        "af:edc0e70d0c6b61f1",
+        "af:60b1240f313f766b"
+      ],
+      "fact_types": [
+        "FEATURE_OR_INSTRUCTION"
+      ],
+      "normalized_semantics": "发动机开关控制点火系统",
+      "products": [
+        "LIO-PROD-008",
+        "LIO-PROD-012"
+      ]
+    },
+    {
+      "example": "将滤芯装入空气滤清器。",
+      "fact_count": 2,
+      "fact_ids": [
+        "af:1fd5187ba694b0c9",
+        "af:e75bf7c9f0d69696"
+      ],
+      "fact_types": [
+        "FEATURE_OR_INSTRUCTION"
+      ],
+      "normalized_semantics": "将滤芯装入空气滤清器",
+      "products": [
+        "LIO-PROD-008",
+        "LIO-PROD-012"
+      ]
+    },
+    {
+      "example": "检查是否变色并清除积碳。",
+      "fact_count": 2,
+      "fact_ids": [
+        "af:912a417fc6265c15",
+        "af:b33589660871e304"
+      ],
+      "fact_types": [
+        "FEATURE_OR_INSTRUCTION"
+      ],
+      "normalized_semantics": "检查是否变色并清除积碳",
+      "products": [
+        "LIO-PROD-008",
+        "LIO-PROD-012"
+      ]
+    },
+    {
+      "example": "用溶剂清洗滤芯并晾干。",
+      "fact_count": 2,
+      "fact_ids": [
+        "af:20f0649767e32d43",
+        "af:5327496fc7ea153e"
+      ],
+      "fact_types": [
+        "FEATURE_OR_INSTRUCTION"
+      ],
+      "normalized_semantics": "用溶剂清洗滤芯并晾干",
+      "products": [
+        "LIO-PROD-008",
+        "LIO-PROD-012"
+      ]
+    },
+    {
+      "example": "确保无异物进入曲轴箱。",
+      "fact_count": 2,
+      "fact_ids": [
+        "af:65e8783f66d2d986",
+        "af:d5e31d9a99f350e8"
+      ],
+      "fact_types": [
+        "FEATURE_OR_INSTRUCTION"
+      ],
+      "normalized_semantics": "确保无异物进入曲轴箱",
+      "products": [
+        "LIO-PROD-008",
+        "LIO-PROD-012"
+      ]
+    },
+    {
+      "example": "确认油箱内燃油充足。",
+      "fact_count": 2,
+      "fact_ids": [
+        "af:84c2a6375c83249b",
+        "af:97b1f72106e61168"
+      ],
+      "fact_types": [
+        "FEATURE_OR_INSTRUCTION"
+      ],
+      "normalized_semantics": "确认油箱内燃油充足",
+      "products": [
+        "LIO-PROD-008",
+        "LIO-PROD-012"
+      ]
+    },
+    {
+      "example": "请勿拧绞滤芯，以免撕裂。",
+      "fact_count": 2,
+      "fact_ids": [
+        "af:92dc92e55d637cf8",
+        "af:fee39dd9105ea7d7"
+      ],
+      "fact_types": [
+        "FEATURE_OR_INSTRUCTION"
+      ],
+      "normalized_semantics": "请勿拧绞滤芯以免撕裂",
+      "products": [
+        "LIO-PROD-008",
+        "LIO-PROD-012"
+      ]
+    }
+  ],
+  "fact_level_duplicate_facts": 25,
+  "fact_level_duplicate_groups": 12,
+  "fact_level_semantic_duplicate_excess": 13,
+  "groups": [],
+  "unit_level_duplicate_groups": 0,
+  "unit_level_duplicate_units": 0,
+  "unit_level_semantic_duplicate_excess": 0
+}

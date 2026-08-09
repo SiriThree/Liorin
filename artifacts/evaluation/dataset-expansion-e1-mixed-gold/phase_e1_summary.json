@@ -1,0 +1,40 @@
+{
+  "agreement": "NOT_RUN",
+  "annotation_batch_hash": "1fecb833d0b96ce695343df4543c27b6a50e98657c41ecc95a8068c3088d2861",
+  "annotation_batch_id": "MIX-E1-1FECB833D0B9",
+  "annotation_packets": 16,
+  "annotation_runs": 0,
+  "d3r_status": "DEFERRED_BY_ENVIRONMENT",
+  "derived_fact_count": 58,
+  "document_evidence_count": 58,
+  "drafted": 58,
+  "dual_source_evidence_complete": 58,
+  "e0_effective": 48,
+  "e0_rejected_isolated": 10,
+  "e0_rejected_overlap": 0,
+  "e0_source_validated": 58,
+  "existing_formal_canonical_cases": 39,
+  "existing_formal_mixed": 10,
+  "fact_role_distribution": {
+    "ANSWER_REQUIRED": 74,
+    "SUPPORTING_ONLY": 8,
+    "TASK_REQUIRED_INTERMEDIATE": 100
+  },
+  "gold_minimality_issue_count": 42,
+  "human_review_runs": 0,
+  "needs_manual_precheck": 42,
+  "new_formal_cases": 0,
+  "phase": "E1_MIXED_GOLD_PREPARATION",
+  "policy_rule_distribution": {
+    "DETERMINISTIC": 2,
+    "QUALIFIED_BUT_USABLE": 2
+  },
+  "policy_rules": 4,
+  "production_agent_execution": "NOT RUN",
+  "ready_for_dual_annotation": 16,
+  "rejected_before_annotation": 0,
+  "runtime_materializable": 58,
+  "runtime_query_leakage_count": 0,
+  "status": "COMPLETE",
+  "structured_evidence_count": 58
+}

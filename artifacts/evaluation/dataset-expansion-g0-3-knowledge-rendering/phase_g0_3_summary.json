@@ -1,0 +1,32 @@
+{
+  "annotation_runs": 0,
+  "candidate_set_hash": "c21d9412fc16be1f1b2d56a8e349641c3c1c9f3866e9eee358565890096dd1e5",
+  "d3r": "DEFERRED_BY_ENVIRONMENT",
+  "document_coverage": 22,
+  "effective_ratio": 1.0,
+  "effective_semantic_units": 171,
+  "formal_canonical": 39,
+  "gold": "NOT PREPARED",
+  "input_task_plans": 180,
+  "needs_query_review": 8,
+  "new_formal_cases": 0,
+  "phase": "G0.3",
+  "product_coverage": 20,
+  "production_agent": "NOT RUN",
+  "rejected": 1,
+  "rejection_reasons": {
+    "CATEGORY_DRIFT_TROUBLESHOOTING": 1
+  },
+  "rendered": 180,
+  "rendering_attempts": 180,
+  "review_reasons": {
+    "HEADING_ONLY_FACT_QUERY_REVIEW": 1,
+    "LOW_VALUE_META_KNOWLEDGE_QUERY": 2,
+    "PLANNING_COMPATIBILITY_SEMANTICS_UNCERTAIN": 3,
+    "POLICY_SOURCE_CONTEXT_MISMATCH": 1,
+    "VAGUE_COMPATIBILITY_SCOPE_REVIEW": 1
+  },
+  "semantic_duplicate_excess": 0,
+  "source_validated": 171,
+  "status": "COMPLETE"
+}

@@ -1,0 +1,18 @@
+{
+  "by_family": {
+    "MIXED_ORDER_PRODUCT_MANUAL": 18,
+    "MIXED_ORDER_STATUS_POLICY": 8,
+    "MIXED_TICKET_TROUBLESHOOTING": 8,
+    "MIXED_WARRANTY_PRODUCT_MANUAL": 16,
+    "MIXED_WARRANTY_STATUS_POLICY": 8
+  },
+  "documents": 21,
+  "manual_ready": 42,
+  "policy_ready": 16,
+  "precheck": 0,
+  "products": 20,
+  "ready_families": 5,
+  "rejected": 0,
+  "sections": 22,
+  "total_ready": 58
+}

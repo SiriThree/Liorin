@@ -1,0 +1,853 @@
+{
+  "database": "data/structured/liorin.db",
+  "sql_templates": [
+    {
+      "description": "已验证租户内客户的订单列表。",
+      "output_fields": [
+        "order_id",
+        "status",
+        "order_date",
+        "total_amount",
+        "channel"
+      ],
+      "parameter_order": [
+        "tenant_id",
+        "customer_id",
+        "limit"
+      ],
+      "sql": "SELECT o.order_id, o.status, o.order_date, o.total_amount, o.channel FROM orders o JOIN customers c ON c.customer_id=o.customer_id WHERE c.tenant_id=? AND o.customer_id=? ORDER BY o.order_date DESC LIMIT ?",
+      "template_id": "customer_orders"
+    },
+    {
+      "description": "已验证租户内客户的基础资料，不返回邮箱、电话或地址。",
+      "output_fields": [
+        "customer_id",
+        "name",
+        "segment",
+        "company_name",
+        "source_system"
+      ],
+      "parameter_order": [
+        "tenant_id",
+        "customer_id",
+        "limit"
+      ],
+      "sql": "SELECT customer_id, name, segment, company_name, source_system FROM customers WHERE tenant_id=? AND customer_id=? LIMIT ?",
+      "template_id": "customer_summary"
+    },
+    {
+      "description": "已验证租户内客户的工单列表。",
+      "output_fields": [
+        "ticket_id",
+        "order_id",
+        "product_id",
+        "status",
+        "priority",
+        "issue_type",
+        "created_at"
+      ],
+      "parameter_order": [
+        "tenant_id",
+        "customer_id",
+        "limit"
+      ],
+      "sql": "SELECT t.ticket_id, t.order_id, t.product_id, t.status, t.priority, t.issue_type, t.created_at FROM tickets t JOIN customers c ON c.customer_id=t.customer_id WHERE c.tenant_id=? AND t.customer_id=? ORDER BY t.created_at DESC LIMIT ?",
+      "template_id": "customer_tickets"
+    },
+    {
+      "description": "已验证租户内客户名下某一订单及商品明细。",
+      "output_fields": [
+        "order_id",
+        "status",
+        "order_date",
+        "total_amount",
+        "channel",
+        "product_id",
+        "product_name",
+        "quantity",
+        "price_per_unit"
+      ],
+      "parameter_order": [
+        "tenant_id",
+        "customer_id",
+        "entity_id",
+        "limit"
+      ],
+      "sql": "SELECT o.order_id, o.status, o.order_date, o.total_amount, o.channel, i.product_id, p.name AS product_name, i.quantity, i.price_per_unit FROM orders o JOIN customers c ON c.customer_id=o.customer_id JOIN order_items i ON i.order_id=o.order_id JOIN products p ON p.product_id=i.product_id WHERE c.tenant_id=? AND o.customer_id=? AND o.order_id=? ORDER BY i.product_id LIMIT ?",
+      "template_id": "order_detail"
+    },
+    {
+      "description": "已验证租户内客户名下订单生命周期。",
+      "output_fields": [
+        "order_id",
+        "status",
+        "happened_at",
+        "actor",
+        "note"
+      ],
+      "parameter_order": [
+        "tenant_id",
+        "customer_id",
+        "entity_id",
+        "limit"
+      ],
+      "sql": "SELECT e.order_id, e.status, e.happened_at, e.actor, e.note FROM order_status_events e JOIN orders o ON o.order_id=e.order_id JOIN customers c ON c.customer_id=o.customer_id WHERE c.tenant_id=? AND o.customer_id=? AND e.order_id=? ORDER BY e.happened_at LIMIT ?",
+      "template_id": "order_events"
+    },
+    {
+      "description": "已验证租户内客户名下单个工单。",
+      "output_fields": [
+        "ticket_id",
+        "order_id",
+        "product_id",
+        "status",
+        "priority",
+        "issue_type",
+        "summary",
+        "created_at",
+        "assigned_team"
+      ],
+      "parameter_order": [
+        "tenant_id",
+        "customer_id",
+        "entity_id",
+        "limit"
+      ],
+      "sql": "SELECT t.ticket_id, t.order_id, t.product_id, t.status, t.priority, t.issue_type, t.summary, t.created_at, t.assigned_team FROM tickets t JOIN customers c ON c.customer_id=t.customer_id WHERE c.tenant_id=? AND t.customer_id=? AND t.ticket_id=? LIMIT ?",
+      "template_id": "ticket_detail"
+    },
+    {
+      "description": "已验证租户内客户名下工单生命周期。",
+      "output_fields": [
+        "ticket_id",
+        "event_type",
+        "happened_at",
+        "actor",
+        "note"
+      ],
+      "parameter_order": [
+        "tenant_id",
+        "customer_id",
+        "entity_id",
+        "limit"
+      ],
+      "sql": "SELECT e.ticket_id, e.event_type, e.happened_at, e.actor, e.note FROM ticket_events e JOIN tickets t ON t.ticket_id=e.ticket_id JOIN customers c ON c.customer_id=t.customer_id WHERE c.tenant_id=? AND t.customer_id=? AND e.ticket_id=? ORDER BY e.happened_at LIMIT ?",
+      "template_id": "ticket_events"
+    },
+    {
+      "description": "已验证租户内客户的质保案例。",
+      "output_fields": [
+        "case_id",
+        "ticket_id",
+        "order_id",
+        "product_id",
+        "coverage_type",
+        "coverage_status",
+        "status",
+        "expires_at"
+      ],
+      "parameter_order": [
+        "tenant_id",
+        "customer_id",
+        "limit"
+      ],
+      "sql": "SELECT w.case_id, w.ticket_id, w.order_id, w.product_id, w.coverage_type, w.coverage_status, w.status, w.expires_at FROM warranty_cases w JOIN customers c ON c.customer_id=w.customer_id WHERE c.tenant_id=? AND w.customer_id=? ORDER BY w.expires_at DESC LIMIT ?",
+      "template_id": "warranty_cases"
+    }
+  ],
+  "tables": [
+    {
+      "columns": [
+        {
+          "cid": 0,
+          "default": null,
+          "name": "customer_id",
+          "notnull": false,
+          "pk": true,
+          "type": "TEXT"
+        },
+        {
+          "cid": 1,
+          "default": null,
+          "name": "email",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 2,
+          "default": null,
+          "name": "name",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 3,
+          "default": null,
+          "name": "tenant_id",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 4,
+          "default": null,
+          "name": "segment",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 5,
+          "default": null,
+          "name": "activity_score",
+          "notnull": true,
+          "pk": false,
+          "type": "REAL"
+        },
+        {
+          "cid": 6,
+          "default": null,
+          "name": "phone",
+          "notnull": false,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 7,
+          "default": null,
+          "name": "company_name",
+          "notnull": false,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 8,
+          "default": null,
+          "name": "source_system",
+          "notnull": false,
+          "pk": false,
+          "type": "TEXT"
+        }
+      ],
+      "fields_exposed_through_production_tool": [
+        "company_name",
+        "customer_id",
+        "name",
+        "segment",
+        "source_system"
+      ],
+      "fields_not_exposed_through_production_tool": [
+        "activity_score",
+        "email",
+        "phone",
+        "tenant_id"
+      ],
+      "record_count": 300,
+      "record_type": "customer",
+      "table": "customers"
+    },
+    {
+      "columns": [
+        {
+          "cid": 0,
+          "default": null,
+          "name": "order_item_id",
+          "notnull": false,
+          "pk": true,
+          "type": "INTEGER"
+        },
+        {
+          "cid": 1,
+          "default": null,
+          "name": "order_id",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 2,
+          "default": null,
+          "name": "product_id",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 3,
+          "default": null,
+          "name": "quantity",
+          "notnull": true,
+          "pk": false,
+          "type": "INTEGER"
+        },
+        {
+          "cid": 4,
+          "default": null,
+          "name": "price_per_unit",
+          "notnull": true,
+          "pk": false,
+          "type": "REAL"
+        }
+      ],
+      "fields_exposed_through_production_tool": [],
+      "fields_not_exposed_through_production_tool": [
+        "order_id",
+        "order_item_id",
+        "price_per_unit",
+        "product_id",
+        "quantity"
+      ],
+      "record_count": 3355,
+      "record_type": "order_item",
+      "table": "order_items"
+    },
+    {
+      "columns": [
+        {
+          "cid": 0,
+          "default": null,
+          "name": "event_id",
+          "notnull": false,
+          "pk": true,
+          "type": "TEXT"
+        },
+        {
+          "cid": 1,
+          "default": null,
+          "name": "order_id",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 2,
+          "default": null,
+          "name": "status",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 3,
+          "default": null,
+          "name": "happened_at",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 4,
+          "default": null,
+          "name": "actor",
+          "notnull": false,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 5,
+          "default": null,
+          "name": "note",
+          "notnull": false,
+          "pk": false,
+          "type": "TEXT"
+        }
+      ],
+      "fields_exposed_through_production_tool": [
+        "actor",
+        "happened_at",
+        "note",
+        "order_id",
+        "status"
+      ],
+      "fields_not_exposed_through_production_tool": [
+        "event_id"
+      ],
+      "record_count": 7296,
+      "record_type": "order_event",
+      "table": "order_status_events"
+    },
+    {
+      "columns": [
+        {
+          "cid": 0,
+          "default": null,
+          "name": "order_id",
+          "notnull": false,
+          "pk": true,
+          "type": "TEXT"
+        },
+        {
+          "cid": 1,
+          "default": null,
+          "name": "customer_id",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 2,
+          "default": null,
+          "name": "order_date",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 3,
+          "default": null,
+          "name": "status",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 4,
+          "default": null,
+          "name": "total_amount",
+          "notnull": true,
+          "pk": false,
+          "type": "REAL"
+        },
+        {
+          "cid": 5,
+          "default": null,
+          "name": "tracking_number",
+          "notnull": false,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 6,
+          "default": null,
+          "name": "cancel_reason",
+          "notnull": false,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 7,
+          "default": null,
+          "name": "channel",
+          "notnull": false,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 8,
+          "default": null,
+          "name": "sales_rep",
+          "notnull": false,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 9,
+          "default": null,
+          "name": "discount_code",
+          "notnull": false,
+          "pk": false,
+          "type": "TEXT"
+        }
+      ],
+      "fields_exposed_through_production_tool": [
+        "channel",
+        "order_date",
+        "order_id",
+        "price_per_unit",
+        "product_id",
+        "product_name",
+        "quantity",
+        "status",
+        "total_amount"
+      ],
+      "fields_not_exposed_through_production_tool": [
+        "cancel_reason",
+        "customer_id",
+        "discount_code",
+        "sales_rep",
+        "tracking_number"
+      ],
+      "record_count": 1500,
+      "record_type": "order",
+      "table": "orders"
+    },
+    {
+      "columns": [
+        {
+          "cid": 0,
+          "default": null,
+          "name": "product_id",
+          "notnull": false,
+          "pk": true,
+          "type": "TEXT"
+        },
+        {
+          "cid": 1,
+          "default": null,
+          "name": "name",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 2,
+          "default": null,
+          "name": "manual_file",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 3,
+          "default": null,
+          "name": "source_file",
+          "notnull": false,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 4,
+          "default": null,
+          "name": "category",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 5,
+          "default": null,
+          "name": "warranty_months",
+          "notnull": true,
+          "pk": false,
+          "type": "INTEGER"
+        },
+        {
+          "cid": 6,
+          "default": null,
+          "name": "price",
+          "notnull": true,
+          "pk": false,
+          "type": "REAL"
+        },
+        {
+          "cid": 7,
+          "default": null,
+          "name": "currently_in_stock",
+          "notnull": true,
+          "pk": false,
+          "type": "INTEGER"
+        }
+      ],
+      "fields_exposed_through_production_tool": [],
+      "fields_not_exposed_through_production_tool": [
+        "category",
+        "currently_in_stock",
+        "manual_file",
+        "name",
+        "price",
+        "product_id",
+        "source_file",
+        "warranty_months"
+      ],
+      "record_count": 20,
+      "record_type": "product",
+      "table": "products"
+    },
+    {
+      "columns": [
+        {
+          "cid": 0,
+          "default": null,
+          "name": "event_id",
+          "notnull": false,
+          "pk": true,
+          "type": "TEXT"
+        },
+        {
+          "cid": 1,
+          "default": null,
+          "name": "ticket_id",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 2,
+          "default": null,
+          "name": "event_type",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 3,
+          "default": null,
+          "name": "happened_at",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 4,
+          "default": null,
+          "name": "actor",
+          "notnull": false,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 5,
+          "default": null,
+          "name": "note",
+          "notnull": false,
+          "pk": false,
+          "type": "TEXT"
+        }
+      ],
+      "fields_exposed_through_production_tool": [
+        "actor",
+        "event_type",
+        "happened_at",
+        "note",
+        "ticket_id"
+      ],
+      "fields_not_exposed_through_production_tool": [
+        "event_id"
+      ],
+      "record_count": 1576,
+      "record_type": "ticket_event",
+      "table": "ticket_events"
+    },
+    {
+      "columns": [
+        {
+          "cid": 0,
+          "default": null,
+          "name": "ticket_id",
+          "notnull": false,
+          "pk": true,
+          "type": "TEXT"
+        },
+        {
+          "cid": 1,
+          "default": null,
+          "name": "parent_ticket_id",
+          "notnull": false,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 2,
+          "default": null,
+          "name": "customer_id",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 3,
+          "default": null,
+          "name": "product_id",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 4,
+          "default": null,
+          "name": "order_id",
+          "notnull": false,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 5,
+          "default": null,
+          "name": "issue_type",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 6,
+          "default": null,
+          "name": "priority",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 7,
+          "default": null,
+          "name": "status",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 8,
+          "default": null,
+          "name": "created_at",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 9,
+          "default": null,
+          "name": "summary",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 10,
+          "default": null,
+          "name": "channel",
+          "notnull": false,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 11,
+          "default": null,
+          "name": "assigned_team",
+          "notnull": false,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 12,
+          "default": "0",
+          "name": "attachments_count",
+          "notnull": true,
+          "pk": false,
+          "type": "INTEGER"
+        },
+        {
+          "cid": 13,
+          "default": null,
+          "name": "customer_sentiment",
+          "notnull": false,
+          "pk": false,
+          "type": "TEXT"
+        }
+      ],
+      "fields_exposed_through_production_tool": [
+        "assigned_team",
+        "created_at",
+        "issue_type",
+        "order_id",
+        "priority",
+        "product_id",
+        "status",
+        "summary",
+        "ticket_id"
+      ],
+      "fields_not_exposed_through_production_tool": [
+        "attachments_count",
+        "channel",
+        "customer_id",
+        "customer_sentiment",
+        "parent_ticket_id"
+      ],
+      "record_count": 420,
+      "record_type": "ticket",
+      "table": "tickets"
+    },
+    {
+      "columns": [
+        {
+          "cid": 0,
+          "default": null,
+          "name": "case_id",
+          "notnull": false,
+          "pk": true,
+          "type": "TEXT"
+        },
+        {
+          "cid": 1,
+          "default": null,
+          "name": "ticket_id",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 2,
+          "default": null,
+          "name": "customer_id",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 3,
+          "default": null,
+          "name": "product_id",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 4,
+          "default": null,
+          "name": "order_id",
+          "notnull": false,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 5,
+          "default": null,
+          "name": "status",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 6,
+          "default": null,
+          "name": "coverage_type",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 7,
+          "default": null,
+          "name": "coverage_status",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        },
+        {
+          "cid": 8,
+          "default": null,
+          "name": "expires_at",
+          "notnull": true,
+          "pk": false,
+          "type": "TEXT"
+        }
+      ],
+      "fields_exposed_through_production_tool": [
+        "case_id",
+        "coverage_status",
+        "coverage_type",
+        "expires_at",
+        "order_id",
+        "product_id",
+        "status",
+        "ticket_id"
+      ],
+      "fields_not_exposed_through_production_tool": [
+        "customer_id"
+      ],
+      "record_count": 140,
+      "record_type": "warranty",
+      "table": "warranty_cases"
+    }
+  ]
+}

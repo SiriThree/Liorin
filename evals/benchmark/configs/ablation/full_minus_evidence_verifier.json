@@ -1,0 +1,48 @@
+{
+  "ablation_id": "full_minus_evidence_verifier",
+  "base_config": {
+    "budget": {},
+    "context_strategy": "LIORIN_CONTEXT_MEMORY_ARTIFACT",
+    "embedding": null,
+    "features": {
+      "agentic_recovery_enabled": true,
+      "clarification_recovery_enabled": true,
+      "evidence_verifier_enabled": true,
+      "parent_expansion_enabled": true,
+      "query_rewrite_enabled": true,
+      "reranker_enabled": true,
+      "supplement_enabled": true
+    },
+    "governance": {},
+    "model": null,
+    "retrieval": {},
+    "tool_configuration": {}
+  },
+  "config_hash": "8d8c93e68ed63a4ec5a3a4ba37c0b508fbf1357793255c4820fd953b812db1f9",
+  "dataset_hash": null,
+  "description": "Full Liorin with only evidence_verifier_enabled disabled",
+  "disabled_features": [
+    "evidence_verifier_enabled"
+  ],
+  "enabled_features": [],
+  "schema_version": "1.0",
+  "study_type": "REMOVAL",
+  "target_config": {
+    "budget": {},
+    "context_strategy": "LIORIN_CONTEXT_MEMORY_ARTIFACT",
+    "embedding": null,
+    "features": {
+      "agentic_recovery_enabled": true,
+      "clarification_recovery_enabled": true,
+      "evidence_verifier_enabled": false,
+      "parent_expansion_enabled": true,
+      "query_rewrite_enabled": true,
+      "reranker_enabled": true,
+      "supplement_enabled": true
+    },
+    "governance": {},
+    "model": null,
+    "retrieval": {},
+    "tool_configuration": {}
+  }
+}

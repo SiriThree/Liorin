@@ -1,0 +1,59 @@
+[
+  {
+    "source_dataset": "dev_v7_3.json",
+    "total_cases": 368,
+    "fully_migrated": 34,
+    "partial": 334,
+    "needs_review": 0,
+    "retired": 0,
+    "by_category": {
+      "KNOWLEDGE_QA": 20,
+      "MIXED_KNOWLEDGE_STRUCTURED": 23,
+      "SAFETY_GOVERNANCE": 6,
+      "TROUBLESHOOTING": 2,
+      "UNMAPPED_LEGACY_DIAGNOSTIC": 317
+    },
+    "missing": {
+      "case-dependent E2E expected_behavior": 317,
+      "case-dependent TaskSuccessContract": 317,
+      "gold_evidence": 126,
+      "gold_facts": 126,
+      "production-compatible verified customer runtime input": 17
+    }
+  },
+  {
+    "source_dataset": "validation_v7_3.json",
+    "total_cases": 119,
+    "fully_migrated": 5,
+    "partial": 114,
+    "needs_review": 0,
+    "retired": 0,
+    "by_category": {
+      "KNOWLEDGE_QA": 4,
+      "MIXED_KNOWLEDGE_STRUCTURED": 13,
+      "SAFETY_GOVERNANCE": 2,
+      "UNMAPPED_LEGACY_DIAGNOSTIC": 100
+    },
+    "missing": {
+      "case-dependent E2E expected_behavior": 100,
+      "case-dependent TaskSuccessContract": 100,
+      "gold_evidence": 41,
+      "gold_facts": 41,
+      "production-compatible verified customer runtime input": 14
+    }
+  },
+  {
+    "source_dataset": "blind_test_inputs_v7_3.json",
+    "total_cases": 125,
+    "fully_migrated": 0,
+    "partial": 0,
+    "needs_review": 125,
+    "retired": 0,
+    "by_category": {
+      "UNMAPPED_LEGACY_DIAGNOSTIC": 125
+    },
+    "missing": {
+      "gold": 125
+    }
+  }
+]

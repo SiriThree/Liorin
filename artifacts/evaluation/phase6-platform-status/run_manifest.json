@@ -1,0 +1,32 @@
+{
+  "dataset": {
+    "dev": {
+      "count": 34,
+      "hash": "f385879cebe6583f8d4f52224155ed6259e9a83471a522cdb2f9fe8c6aa6b7d4"
+    },
+    "trusted_test": false,
+    "validation": {
+      "count": 5,
+      "hash": "bcbfc46557af73fd3c4956101f1fb25b5ce1fe39659966c8971ad499c6f3c022"
+    }
+  },
+  "embedding": "huggingface",
+  "engineering_validation": {
+    "compileall": "PASS",
+    "tests_all": "370 passed",
+    "tests_evaluation": "158 passed"
+  },
+  "evaluation_platform_engineering": "COMPLETE",
+  "formal_metrics_status": "NOT RUN",
+  "formal_quality_evaluation": "BLOCKED",
+  "full_system_config_hash": "bd7889bdad8cb1dcd4336237c85c96f87dc7d3b7140dc4d4852c7c7ff78ce433",
+  "git_commit": null,
+  "judge_model": null,
+  "model": "openai:deepseek-chat",
+  "readiness_status": "PRODUCTION_BLOCKED",
+  "run_id": null,
+  "run_validity": "DEPENDENCY_BLOCKED",
+  "schema_version": "1.0",
+  "source_archive": "Liorin-phase-5-safety-failure-attribution.zip",
+  "source_archive_hash": "93cd4cd452598bbcfe64aefbb95c22773d4c882cfc9a98b1f8ae025cf53e577c"
+}

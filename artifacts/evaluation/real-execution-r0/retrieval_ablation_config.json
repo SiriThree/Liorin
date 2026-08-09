@@ -1,0 +1,18 @@
+{
+  "blocked_reason": "Milvus connection/search failed during live readiness; no real index snapshot available",
+  "same_corpus": true,
+  "same_embedding_model": "sentence-transformers/all-mpnet-base-v2",
+  "same_gold": true,
+  "same_index_snapshot": false,
+  "same_queries": true,
+  "status": "NOT_RUN_SMOKE_GATE_FAILED",
+  "variants_executed": [],
+  "variants_requested": [
+    "BM25",
+    "Dense",
+    "Dense+BM25",
+    "Dense+BM25+Fusion",
+    "Hybrid+Reranker",
+    "Hybrid+Reranker+Parent Expansion"
+  ]
+}

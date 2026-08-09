@@ -1,0 +1,93 @@
+{
+  "annotation_diversity": "NOT_ESTABLISHED",
+  "annotator_a": {
+    "annotator_id": "private_gold_annotator_a",
+    "api_key_env": "ANNOTATOR_A_API_KEY",
+    "backend": "openai_compatible",
+    "backend_error": null,
+    "base_url": "https://api.provider-a.example/v1",
+    "checks": {
+      "backend_allowed": true,
+      "backend_instantiable": true,
+      "base_url_valid": false,
+      "credential_configured": false,
+      "model_configured": false,
+      "provider_configured": false
+    },
+    "credential_configured": false,
+    "max_retries": 4,
+    "max_tokens": 5000,
+    "model": "model-a",
+    "placeholder_issues": [
+      "PLACEHOLDER_PROVIDER",
+      "PLACEHOLDER_MODEL",
+      "PLACEHOLDER_BASE_URL"
+    ],
+    "provider": "provider-a",
+    "ready": false,
+    "reason": "provider_configured,model_configured,base_url_valid,credential_configured",
+    "status": "BLOCKED",
+    "temperature": 0.0,
+    "timeout_seconds": 120.0
+  },
+  "annotator_b": {
+    "annotator_id": "private_gold_annotator_b",
+    "api_key_env": "ANNOTATOR_B_API_KEY",
+    "backend": "openai_compatible",
+    "backend_error": null,
+    "base_url": "https://api.provider-b.example/v1",
+    "checks": {
+      "backend_allowed": true,
+      "backend_instantiable": true,
+      "base_url_valid": false,
+      "credential_configured": false,
+      "model_configured": false,
+      "provider_configured": false
+    },
+    "credential_configured": false,
+    "max_retries": 4,
+    "max_tokens": 5000,
+    "model": "model-b",
+    "placeholder_issues": [
+      "PLACEHOLDER_PROVIDER",
+      "PLACEHOLDER_MODEL",
+      "PLACEHOLDER_BASE_URL"
+    ],
+    "provider": "provider-b",
+    "ready": false,
+    "reason": "provider_configured,model_configured,base_url_valid,credential_configured",
+    "status": "BLOCKED",
+    "temperature": 0.0,
+    "timeout_seconds": 120.0
+  },
+  "batch_hash": "c3b3aa7c65497813a9947e2ee0a8f05bae84958c0f5f09ba1f7bc1f3bc22e01c",
+  "batch_id": "PBQ-D2-C3B3AA7C6549",
+  "blocker": "REAL_ANNOTATOR_RUNTIME_NOT_READY",
+  "candidate_set_hash": "7885191d82cb97e51e38e000d7a70a77dbea865b2cd61b74256c98ad950855f6",
+  "config_path": "evals/benchmark/configs/private_business_dual_annotation.example.yaml",
+  "created_at": "2026-08-08T12:00:00.223201+00:00",
+  "credential_values_persisted": false,
+  "excluded_precheck": 8,
+  "formal_run": {
+    "status": "NOT_RUN"
+  },
+  "historical_d3_preserved": true,
+  "historical_d3_status": "PARTIAL",
+  "manifest_version": "private-business-annotation-runtime-v1",
+  "packet_count": 76,
+  "phase": "D3-R",
+  "pilot": {
+    "packet_count": 0,
+    "status": "NOT_RUN"
+  },
+  "prompt_hash": "319996558482ca2b5d0b2c3b1cfb4d9c713800bb2a7afbde7173d5fbb7535064",
+  "prompt_version": "private_gold_review_v1",
+  "provider_call_count_a": 0,
+  "provider_call_count_b": 0,
+  "provider_smoke": {
+    "annotator_a": "NOT_RUN",
+    "annotator_b": "NOT_RUN"
+  },
+  "schema_version": "private-business-dual-annotation-output-v1",
+  "status": "BLOCKED"
+}

@@ -1,0 +1,42 @@
+{
+  "context_budget": {
+    "context_max_tokens": 4096
+  },
+  "embedding_model": "sentence-transformers/all-mpnet-base-v2",
+  "embedding_provider": "huggingface",
+  "evaluation_version": "phase3-evidence-recovery-v1",
+  "git_commit": "f13ed72d1b0264b1f54d600a2a39ae0045937d65",
+  "milvus_collection": "liorin_documents_huggingface",
+  "milvus_uri": "http://localhost:19530",
+  "model_name": "openai:qwen-plus",
+  "model_provider": "openai",
+  "production_hash": {
+    "file_count": 65,
+    "sha256": "95e0f7a250457cb7f5cdbcd898661c1fbc70d27bef28d48d6f327d1d3350e1b8"
+  },
+  "reranker_config": {
+    "enabled": true
+  },
+  "retrieval_config": {
+    "bm25": true,
+    "dense": true,
+    "fusion": "RRF",
+    "parent_expansion": true,
+    "reranker": true,
+    "structured_db": true
+  },
+  "retry_policy": {
+    "tool_retry_attempts": 2
+  },
+  "run_id": "evalrun:7347f7e80e9a4acebb52b516b7a203c8",
+  "seed": null,
+  "status": "FROZEN_FOR_SMOKE_ONLY_FORMAL_BLOCKED",
+  "temperature": 0.0,
+  "timeout": {
+    "retrieval_max_latency_ms": 25000,
+    "tool_timeout_seconds": 30
+  },
+  "verifier_config": {
+    "enabled": true
+  }
+}

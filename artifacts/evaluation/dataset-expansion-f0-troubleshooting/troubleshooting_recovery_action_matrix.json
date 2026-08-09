@@ -1,0 +1,68 @@
+{
+  "actions": [
+    "CLARIFY",
+    "REWRITE",
+    "SUPPLEMENT",
+    "DECOMPOSE",
+    "RELAX_FILTERS",
+    "HANDOFF"
+  ],
+  "observed_first_pass_failure": 0,
+  "real_recovery_runs": 0,
+  "recovered_cases": 0,
+  "schema_version": "f0-recovery-matrix-1",
+  "source_code_refs": [
+    "retrieval/protocols.py:VerificationAction",
+    "retrieval/evidence_verifier.py:verify_evidence"
+  ],
+  "triggers": {
+    "AMBIGUOUS_QUERY": {
+      "CLARIFY": "CONDITIONAL",
+      "DECOMPOSE": "CONDITIONAL",
+      "HANDOFF": "CONDITIONAL",
+      "RELAX_FILTERS": "NOT_SUPPORTED",
+      "REWRITE": "ALLOWED",
+      "SUPPLEMENT": "FORBIDDEN"
+    },
+    "CONFLICTING_EVIDENCE": {
+      "CLARIFY": "FORBIDDEN",
+      "DECOMPOSE": "NOT_SUPPORTED",
+      "HANDOFF": "ALLOWED",
+      "RELAX_FILTERS": "NOT_SUPPORTED",
+      "REWRITE": "FORBIDDEN",
+      "SUPPLEMENT": "FORBIDDEN"
+    },
+    "INSUFFICIENT_EVIDENCE": {
+      "CLARIFY": "CONDITIONAL",
+      "DECOMPOSE": "CONDITIONAL",
+      "HANDOFF": "CONDITIONAL",
+      "RELAX_FILTERS": "CONDITIONAL",
+      "REWRITE": "CONDITIONAL",
+      "SUPPLEMENT": "ALLOWED"
+    },
+    "MISSING_REQUIRED_CONTEXT": {
+      "CLARIFY": "ALLOWED",
+      "DECOMPOSE": "NOT_SUPPORTED",
+      "HANDOFF": "CONDITIONAL",
+      "RELAX_FILTERS": "NOT_SUPPORTED",
+      "REWRITE": "FORBIDDEN",
+      "SUPPLEMENT": "FORBIDDEN"
+    },
+    "PARTIAL_PROCEDURE": {
+      "CLARIFY": "FORBIDDEN",
+      "DECOMPOSE": "CONDITIONAL",
+      "HANDOFF": "CONDITIONAL",
+      "RELAX_FILTERS": "NOT_SUPPORTED",
+      "REWRITE": "CONDITIONAL",
+      "SUPPLEMENT": "ALLOWED"
+    },
+    "WRONG_SCOPE_RETRIEVAL": {
+      "CLARIFY": "FORBIDDEN",
+      "DECOMPOSE": "CONDITIONAL",
+      "HANDOFF": "CONDITIONAL",
+      "RELAX_FILTERS": "CONDITIONAL",
+      "REWRITE": "ALLOWED",
+      "SUPPLEMENT": "CONDITIONAL"
+    }
+  }
+}

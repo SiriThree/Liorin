@@ -1,0 +1,28 @@
+{
+  "document_counts": {
+    "source:manual:LIO-PROD-001_VR头显手册": 3,
+    "source:manual:LIO-PROD-002_人体工学椅手册": 3,
+    "source:manual:LIO-PROD-003_健身单车手册": 2,
+    "source:manual:LIO-PROD-004_健身追踪器手册": 2,
+    "source:manual:LIO-PROD-005_儿童电动摩托车手册": 2,
+    "source:manual:LIO-PROD-006_冰箱手册": 2,
+    "source:manual:LIO-PROD-007_功能键盘手册": 2,
+    "source:manual:LIO-PROD-008_发电机手册": 2,
+    "source:manual:LIO-PROD-009_可编程温控器手册": 2,
+    "source:manual:LIO-PROD-010_吹风机手册": 2,
+    "source:manual:LIO-PROD-011_摩托艇手册": 2,
+    "source:manual:LIO-PROD-012_水泵手册": 2,
+    "source:manual:LIO-PROD-013_洗碗机手册": 1,
+    "source:manual:LIO-PROD-014_烤箱手册": 1,
+    "source:manual:LIO-PROD-015_电钻手册": 1,
+    "source:manual:LIO-PROD-016_相机手册": 1,
+    "source:manual:LIO-PROD-017_空气净化器手册": 3,
+    "source:manual:LIO-PROD-018_空调手册": 3,
+    "source:manual:LIO-PROD-019_蒸汽清洁机手册": 3,
+    "source:manual:LIO-PROD-020_蓝牙激光鼠标手册": 3,
+    "source:policy:after_sales_policy": 16
+  },
+  "documents_covered": 21,
+  "manual_documents_covered": 20,
+  "policy_documents_covered": 1
+}

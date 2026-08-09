@@ -6,16 +6,30 @@ import json
 import re
 import sqlite3
 from contextlib import closing
-from typing import Any
+from typing import Any, Literal, Mapping
 
 from langchain.tools import ToolRuntime, tool
 from langchain_community.utilities import SQLDatabase
 
 from config import DEFAULT_DB_PATH
-from retrieval.security import redact_text
+from retrieval.security import hash_identifier, redact_text
+from retrieval.trace import trace_event
+from observability import emit_security_decision, hashed_ref
 
 MAX_RESULT_ROWS = 100
 MAX_SQL_VM_STEPS = 1_000_000
+STRUCTURED_READ_PERMISSION = "structured:read:self"
+
+StructuredTemplateId = Literal[
+    "customer_summary",
+    "customer_orders",
+    "order_detail",
+    "order_events",
+    "customer_tickets",
+    "ticket_detail",
+    "ticket_events",
+    "warranty_cases",
+]
 _ID = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_-]{1,63}$")
 _EMAIL = re.compile(r"(?i)^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$")
 
@@ -154,6 +168,112 @@ def lookup_customer_by_email(email: str) -> tuple[str, str, str] | None:
     return (str(row["customer_id"]), str(row["name"]), str(row["tenant_id"])) if row else None
 
 
+
+
+_ENTITY_OWNER_SQL: dict[str, str] = {
+    "order_detail": (
+        "SELECT c.tenant_id, o.customer_id FROM orders o "
+        "JOIN customers c ON c.customer_id=o.customer_id WHERE o.order_id=? LIMIT 1"
+    ),
+    "order_events": (
+        "SELECT c.tenant_id, o.customer_id FROM orders o "
+        "JOIN customers c ON c.customer_id=o.customer_id WHERE o.order_id=? LIMIT 1"
+    ),
+    "ticket_detail": (
+        "SELECT c.tenant_id, t.customer_id FROM tickets t "
+        "JOIN customers c ON c.customer_id=t.customer_id WHERE t.ticket_id=? LIMIT 1"
+    ),
+    "ticket_events": (
+        "SELECT c.tenant_id, t.customer_id FROM tickets t "
+        "JOIN customers c ON c.customer_id=t.customer_id WHERE t.ticket_id=? LIMIT 1"
+    ),
+}
+
+
+def _identity_field(identity: Any, name: str) -> str:
+    if isinstance(identity, Mapping):
+        value = identity.get(name)
+    else:
+        value = getattr(identity, name, None)
+    return str(value or "").strip()
+
+
+def _entity_scope_allowed(
+    template_id: str,
+    *,
+    tenant_id: str,
+    customer_id: str,
+    entity_id: str | None,
+) -> tuple[bool, str]:
+    """Authorize entity-scoped templates against the same read-only database.
+
+    This is a production authorization check, not evaluation. It intentionally
+    returns a generic denial reason to callers so another customer's record
+    existence is not disclosed.
+    """
+    sql = _ENTITY_OWNER_SQL.get(str(template_id))
+    if sql is None:
+        return True, "template has no entity-scoped ownership check"
+    if not entity_id:
+        return False, "required entity identifier missing"
+    entity = _validate_identifier(entity_id, "entity_id")
+    with closing(_open_readonly_connection()) as connection:
+        row = connection.execute(sql, (entity,)).fetchone()
+    if row is None:
+        return False, "entity not found or not accessible"
+    allowed = str(row["tenant_id"]) == str(tenant_id) and str(row["customer_id"]) == str(customer_id)
+    return allowed, ("entity owner matches verified principal" if allowed else "entity owner does not match verified principal")
+
+
+def _structured_record_identity(template_id: str, row: dict[str, Any]) -> tuple[str | None, str | None]:
+    if template_id.startswith("order_") or template_id == "customer_orders":
+        return "order", str(row.get("order_id") or "") or None
+    if template_id.startswith("ticket_") or template_id == "customer_tickets":
+        return "ticket", str(row.get("ticket_id") or "") or None
+    if template_id.startswith("warranty_"):
+        return "warranty", str(row.get("case_id") or "") or None
+    if template_id.startswith("customer_"):
+        return "customer", str(row.get("customer_id") or "") or None
+    return None, None
+
+
+def _emit_structured_evidence_trace(template_id: str, rows: list[dict[str, Any]]) -> None:
+    """Project an already-returned safe tool result into read-only evidence trace.
+
+    This instrumentation never performs an additional query.  Each field gets a
+    stable ``record:<type>:<id>#<field>`` identity so Phase-3 evaluators can
+    distinguish an observability gap from a retrieval miss.
+    """
+    for row in rows:
+        if row.get("_truncated"):
+            continue
+        record_type, record_id = _structured_record_identity(template_id, row)
+        if not record_type or not record_id:
+            continue
+        record_id_ref = f"hash:{hash_identifier(record_id, namespace=f'structured:{record_type}')}"
+        base = f"record:{record_type}:{record_id_ref}"
+        for field_path, value in row.items():
+            if str(field_path).startswith("_"):
+                continue
+            trace_event(
+                "evidence",
+                "structured_tool_result",
+                status="accepted",
+                source="database",
+                trace_level="evidence",
+                evidence_id=base,
+                stable_ref=f"{base}#{field_path}",
+                record_type=record_type,
+                record_id=record_id_ref,
+                field_path=str(field_path),
+                observed_value=value,
+                tool_name="execute_sql_template",
+                result_ref=f"sql-template:{template_id}:{record_id_ref}",
+                template_id=template_id,
+                selected_for_answer=True,
+            )
+
+
 def execute_template(
     template_id: str,
     *,
@@ -187,32 +307,95 @@ def execute_template(
 
 @tool
 def execute_sql_template(
-    template_id: str,
+    template_id: StructuredTemplateId,
     runtime: ToolRuntime,
     entity_id: str | None = None,
 ) -> str:
-    """执行固定只读 SQL 模板；租户与客户身份由运行时状态注入。"""
+    """执行固定只读 SQL 模板；租户、客户身份与权限由运行时可信状态注入。"""
     state = getattr(runtime, "state", {})
-    customer_id = state.get("customer_id") if isinstance(state, dict) else None
-    tenant_id = state.get("tenant_id") if isinstance(state, dict) else None
-    if not customer_id or not tenant_id:
-        return "结构化查询被拒绝：当前工具运行时没有已验证的租户与客户身份。"
+    state = state if isinstance(state, Mapping) else {}
+    customer_id = str(state.get("customer_id") or "").strip()
+    identity_context = state.get("identity_context")
+    identity_tenant = _identity_field(identity_context, "tenant_id")
+    identity_user = _identity_field(identity_context, "user_id")
+    state_tenant = str(state.get("tenant_id") or "").strip()
+    tenant_id = identity_tenant or state_tenant
+    permissions = {str(item) for item in (state.get("structured_permissions") or ())}
+
+    def deny(reason: str, *, resource_ref: str | None = None) -> str:
+        emit_security_decision(
+            kind="tool_authorization", stage="structured_tool", allowed=False,
+            decision="DENY", reason=reason,
+            actor_identity=identity_context, actor_tenant_id=tenant_id, actor_user_id=identity_user or None,
+            resource_type="structured_database", resource_ref=resource_ref or f"sql-template:{template_id}",
+            tool_name="execute_sql_template", side_effect="NONE", policy="principal_bound_sql_template",
+        )
+        return "结构化查询被拒绝：身份、权限或目标记录不满足当前只读访问策略。"
+
+    if str(template_id) not in SQL_TEMPLATES:
+        return deny("unknown SQL template")
+    if identity_context is None or not identity_tenant or not customer_id:
+        return deny("verified identity context and customer ownership are required")
+    if state_tenant and state_tenant != identity_tenant:
+        return deny("runtime tenant conflicts with verified identity tenant")
+    if STRUCTURED_READ_PERMISSION not in permissions:
+        return deny("structured self-read permission missing")
+
     try:
+        tenant_id = _validate_identifier(tenant_id, "tenant_id")
+        customer_id = _validate_identifier(customer_id, "customer_id")
+        if entity_id is not None:
+            entity_id = _validate_identifier(entity_id, "entity_id")
+        allowed, reason = _entity_scope_allowed(
+            str(template_id), tenant_id=tenant_id, customer_id=customer_id, entity_id=entity_id
+        )
+        if not allowed:
+            return deny(reason)
         rows = execute_template(
-            template_id,
-            tenant_id=str(tenant_id),
-            customer_id=str(customer_id),
+            str(template_id),
+            tenant_id=tenant_id,
+            customer_id=customer_id,
             entity_id=entity_id,
         )
     except (ValueError, sqlite3.DatabaseError) as exc:
+        emit_security_decision(
+            kind="tool_authorization", stage="structured_tool", allowed=None,
+            decision="ERROR", reason=f"safe SQL template execution failed: {type(exc).__name__}",
+            actor_identity=identity_context, actor_tenant_id=tenant_id, actor_user_id=identity_user or None,
+            resource_type="structured_database", resource_ref=f"sql-template:{template_id}",
+            tool_name="execute_sql_template", side_effect="NONE", policy="principal_bound_sql_template",
+        )
         return f"结构化查询失败：{type(exc).__name__}"
-    # Selected fields contain no email/phone/address. Redaction remains defense in depth.
+    emit_security_decision(
+        kind="tool_authorization", stage="structured_tool", allowed=True,
+        decision="ALLOW_READ", reason="principal-bound allow-listed SQL template executed",
+        actor_identity=identity_context, actor_tenant_id=tenant_id, actor_user_id=identity_user or None,
+        resource_tenant_id=tenant_id,
+        resource_type="structured_database", resource_ref=f"sql-template:{template_id}",
+        tool_name="execute_sql_template", side_effect="EXECUTED_READ", policy="principal_bound_sql_template",
+        metadata={
+            "row_count": len(rows),
+            "entity_ref_present": bool(entity_id),
+            "permission": STRUCTURED_READ_PERMISSION,
+            "customer_owner_ref": hashed_ref(customer_id, namespace="customer"),
+        },
+    )
+    try:
+        _emit_structured_evidence_trace(str(template_id), rows)
+    except Exception:
+        pass
     return redact_text(json.dumps(rows, ensure_ascii=False), keep_business_ids=True, limit=12_000)
 
 
 @tool
 def execute_sql(query: str) -> str:
     """Legacy arbitrary SQL entrypoint retained only to fail closed."""
+    emit_security_decision(
+        kind="tool_authorization", stage="structured_tool", allowed=False,
+        decision="ATTEMPT_BLOCKED", reason="arbitrary SQL entrypoint is fail-closed",
+        resource_type="structured_database", resource_ref="legacy-arbitrary-sql",
+        tool_name="execute_sql", side_effect="NONE", policy="arbitrary_sql_disabled",
+    )
     return (
         "任意 SQL 工具已因企业安全策略停用。"
         "请使用 execute_sql_template 的固定模板，不得提交自由 SQL。"

@@ -1,0 +1,9 @@
+{
+  "input_tokens": null,
+  "llm_calls_per_task": null,
+  "output_tokens": null,
+  "smoke_input_tokens_estimated": 877,
+  "smoke_model_calls_per_task": 0.8,
+  "status": "NOT_RUN_SMOKE_GATE_FAILED",
+  "total_tokens": null
+}

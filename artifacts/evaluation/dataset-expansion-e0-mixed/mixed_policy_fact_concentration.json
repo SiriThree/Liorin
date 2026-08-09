@@ -1,0 +1,18 @@
+{
+  "concentration_warning": false,
+  "fact_counts": {
+    "af:00af6ef7d06bb22e": 4,
+    "af:3b863e4cd322b730": 8,
+    "af:c2eff588ff1556b2": 2,
+    "af:d21fd74f3b685619": 8,
+    "af:f3f8e2ffbf52a215": 2
+  },
+  "max_cases_per_policy_fact": 8,
+  "max_cases_per_policy_section": 8,
+  "max_policy_fact_ratio_over_all_validated": 0.13793103448275862,
+  "policy_candidate_count": 16,
+  "section_counts": {
+    "after_sales_policy:sec:43254c94f934": 8,
+    "after_sales_policy:sec:faeb37ce8443": 8
+  }
+}

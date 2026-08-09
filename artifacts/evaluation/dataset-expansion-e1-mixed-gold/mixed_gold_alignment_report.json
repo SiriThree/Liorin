@@ -1,0 +1,730 @@
+{
+  "candidate_count": 58,
+  "dual_source_evidence_complete": 58,
+  "fully_aligned": 16,
+  "rows": [
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-2887742F9EFF2CFB",
+      "derived_dual_source_provenance_count": 1,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [],
+      "status": "aligned",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-306368761A7EC11C",
+      "derived_dual_source_provenance_count": 1,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [],
+      "status": "aligned",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-760DA13959417A41",
+      "derived_dual_source_provenance_count": 1,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [],
+      "status": "aligned",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-0923DF7CFEE05AA4",
+      "derived_dual_source_provenance_count": 1,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [],
+      "status": "aligned",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-901005D494C28080",
+      "derived_dual_source_provenance_count": 1,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [],
+      "status": "aligned",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-356E84C36E209E02",
+      "derived_dual_source_provenance_count": 1,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [],
+      "status": "aligned",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-BDCED0FDDA6DCCED",
+      "derived_dual_source_provenance_count": 1,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [],
+      "status": "aligned",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-C5906F7B4B9061ED",
+      "derived_dual_source_provenance_count": 1,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [],
+      "status": "aligned",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-9D5FA0040582A83D",
+      "derived_dual_source_provenance_count": 0,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [
+        "DOCUMENT_SCOPE_NOT_DETERMINISTICALLY_COMPLETE"
+      ],
+      "status": "issues",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-913BE14C467787C4",
+      "derived_dual_source_provenance_count": 0,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [
+        "DOCUMENT_SCOPE_NOT_DETERMINISTICALLY_COMPLETE"
+      ],
+      "status": "issues",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-47A3E6D211A54F68",
+      "derived_dual_source_provenance_count": 0,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [
+        "DOCUMENT_SCOPE_NOT_DETERMINISTICALLY_COMPLETE"
+      ],
+      "status": "issues",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-7D174C67F16012E7",
+      "derived_dual_source_provenance_count": 0,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [
+        "DOCUMENT_SCOPE_NOT_DETERMINISTICALLY_COMPLETE"
+      ],
+      "status": "issues",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-962718A668CE12DD",
+      "derived_dual_source_provenance_count": 0,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [
+        "DOCUMENT_SCOPE_NOT_DETERMINISTICALLY_COMPLETE"
+      ],
+      "status": "issues",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-C3F80B2A72F8A5B6",
+      "derived_dual_source_provenance_count": 0,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [
+        "DOCUMENT_SCOPE_NOT_DETERMINISTICALLY_COMPLETE"
+      ],
+      "status": "issues",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-25A82E94EB4C063F",
+      "derived_dual_source_provenance_count": 0,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [
+        "DOCUMENT_SCOPE_NOT_DETERMINISTICALLY_COMPLETE"
+      ],
+      "status": "issues",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-61CDCE97A8E3A406",
+      "derived_dual_source_provenance_count": 0,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [
+        "DOCUMENT_SCOPE_NOT_DETERMINISTICALLY_COMPLETE"
+      ],
+      "status": "issues",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-3ADDD4A321947949",
+      "derived_dual_source_provenance_count": 0,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [
+        "DOCUMENT_SCOPE_NOT_DETERMINISTICALLY_COMPLETE"
+      ],
+      "status": "issues",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-65E4AF165752E851",
+      "derived_dual_source_provenance_count": 0,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [
+        "DOCUMENT_SCOPE_NOT_DETERMINISTICALLY_COMPLETE"
+      ],
+      "status": "issues",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-3939BACE36C8FED8",
+      "derived_dual_source_provenance_count": 0,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [
+        "DOCUMENT_SCOPE_NOT_DETERMINISTICALLY_COMPLETE"
+      ],
+      "status": "issues",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-41FF67F57E3853DF",
+      "derived_dual_source_provenance_count": 0,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [
+        "DOCUMENT_SCOPE_NOT_DETERMINISTICALLY_COMPLETE"
+      ],
+      "status": "issues",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-F16BC4E07FFBF2ED",
+      "derived_dual_source_provenance_count": 0,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [
+        "DOCUMENT_SCOPE_NOT_DETERMINISTICALLY_COMPLETE"
+      ],
+      "status": "issues",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-9FE9DA8828F110E2",
+      "derived_dual_source_provenance_count": 0,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [
+        "DOCUMENT_SCOPE_NOT_DETERMINISTICALLY_COMPLETE"
+      ],
+      "status": "issues",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-ECF864B3C06DA931",
+      "derived_dual_source_provenance_count": 0,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [
+        "DOCUMENT_SCOPE_NOT_DETERMINISTICALLY_COMPLETE"
+      ],
+      "status": "issues",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-579680AECAFADBC5",
+      "derived_dual_source_provenance_count": 0,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [
+        "DOCUMENT_SCOPE_NOT_DETERMINISTICALLY_COMPLETE"
+      ],
+      "status": "issues",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-825C7AF9BA0C954C",
+      "derived_dual_source_provenance_count": 0,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [
+        "DOCUMENT_SCOPE_NOT_DETERMINISTICALLY_COMPLETE"
+      ],
+      "status": "issues",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-1F05A4CC80409FDA",
+      "derived_dual_source_provenance_count": 0,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [
+        "DOCUMENT_SCOPE_NOT_DETERMINISTICALLY_COMPLETE"
+      ],
+      "status": "issues",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-CB6E4EFC08336D67",
+      "derived_dual_source_provenance_count": 0,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [
+        "DOCUMENT_SCOPE_NOT_DETERMINISTICALLY_COMPLETE"
+      ],
+      "status": "issues",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-4B68165E6BEA2A65",
+      "derived_dual_source_provenance_count": 0,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [
+        "DOCUMENT_SCOPE_NOT_DETERMINISTICALLY_COMPLETE"
+      ],
+      "status": "issues",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-F50D9FB3BBD86FDF",
+      "derived_dual_source_provenance_count": 0,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [
+        "DOCUMENT_SCOPE_NOT_DETERMINISTICALLY_COMPLETE"
+      ],
+      "status": "issues",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-DCEDFA677E01F9CA",
+      "derived_dual_source_provenance_count": 0,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [
+        "DOCUMENT_SCOPE_NOT_DETERMINISTICALLY_COMPLETE"
+      ],
+      "status": "issues",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-E842631923DF73B2",
+      "derived_dual_source_provenance_count": 0,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [
+        "DOCUMENT_SCOPE_NOT_DETERMINISTICALLY_COMPLETE"
+      ],
+      "status": "issues",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-E6B6C9C63A695CA2",
+      "derived_dual_source_provenance_count": 0,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [
+        "DOCUMENT_SCOPE_NOT_DETERMINISTICALLY_COMPLETE"
+      ],
+      "status": "issues",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-40C0522AF54C417D",
+      "derived_dual_source_provenance_count": 0,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [
+        "DOCUMENT_SCOPE_NOT_DETERMINISTICALLY_COMPLETE"
+      ],
+      "status": "issues",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-99EE88407E7E30FF",
+      "derived_dual_source_provenance_count": 0,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [
+        "DOCUMENT_SCOPE_NOT_DETERMINISTICALLY_COMPLETE"
+      ],
+      "status": "issues",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 3,
+      "candidate_id": "MIX-8D1A7DE60DEF26D3",
+      "derived_dual_source_provenance_count": 1,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 0,
+      "issues": [],
+      "status": "aligned",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 3,
+      "candidate_id": "MIX-64ED87D7191A11F1",
+      "derived_dual_source_provenance_count": 1,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 0,
+      "issues": [],
+      "status": "aligned",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 3,
+      "candidate_id": "MIX-8D38376FCD5A26B5",
+      "derived_dual_source_provenance_count": 1,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 0,
+      "issues": [],
+      "status": "aligned",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 3,
+      "candidate_id": "MIX-211FFF820D1DEE48",
+      "derived_dual_source_provenance_count": 1,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 0,
+      "issues": [],
+      "status": "aligned",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 3,
+      "candidate_id": "MIX-728656AA6CA5C29D",
+      "derived_dual_source_provenance_count": 1,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 0,
+      "issues": [],
+      "status": "aligned",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 3,
+      "candidate_id": "MIX-4C7CB22FD6D5F286",
+      "derived_dual_source_provenance_count": 1,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 0,
+      "issues": [],
+      "status": "aligned",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 3,
+      "candidate_id": "MIX-A865F9FBA535D89A",
+      "derived_dual_source_provenance_count": 1,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 0,
+      "issues": [],
+      "status": "aligned",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 3,
+      "candidate_id": "MIX-71719BCF1F08305D",
+      "derived_dual_source_provenance_count": 1,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 0,
+      "issues": [],
+      "status": "aligned",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-C0DD04F86A7FC24E",
+      "derived_dual_source_provenance_count": 0,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [
+        "DOCUMENT_SCOPE_NOT_DETERMINISTICALLY_COMPLETE"
+      ],
+      "status": "issues",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-06544016CA95E17D",
+      "derived_dual_source_provenance_count": 0,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [
+        "DOCUMENT_SCOPE_NOT_DETERMINISTICALLY_COMPLETE"
+      ],
+      "status": "issues",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-00A31623354FB89D",
+      "derived_dual_source_provenance_count": 0,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [
+        "DOCUMENT_SCOPE_NOT_DETERMINISTICALLY_COMPLETE"
+      ],
+      "status": "issues",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-852D27E886F92775",
+      "derived_dual_source_provenance_count": 0,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [
+        "DOCUMENT_SCOPE_NOT_DETERMINISTICALLY_COMPLETE"
+      ],
+      "status": "issues",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-600762139B737022",
+      "derived_dual_source_provenance_count": 0,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [
+        "DOCUMENT_SCOPE_NOT_DETERMINISTICALLY_COMPLETE"
+      ],
+      "status": "issues",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-D687612CD73060E4",
+      "derived_dual_source_provenance_count": 0,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [
+        "DOCUMENT_SCOPE_NOT_DETERMINISTICALLY_COMPLETE"
+      ],
+      "status": "issues",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-AF191F6DA2752699",
+      "derived_dual_source_provenance_count": 0,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [
+        "DOCUMENT_SCOPE_NOT_DETERMINISTICALLY_COMPLETE"
+      ],
+      "status": "issues",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-573D95995738886E",
+      "derived_dual_source_provenance_count": 0,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [
+        "DOCUMENT_SCOPE_NOT_DETERMINISTICALLY_COMPLETE"
+      ],
+      "status": "issues",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-C292D942DF39BE81",
+      "derived_dual_source_provenance_count": 0,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [
+        "DOCUMENT_SCOPE_NOT_DETERMINISTICALLY_COMPLETE"
+      ],
+      "status": "issues",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-A7E56396AEAE5AF8",
+      "derived_dual_source_provenance_count": 0,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [
+        "DOCUMENT_SCOPE_NOT_DETERMINISTICALLY_COMPLETE"
+      ],
+      "status": "issues",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-A4E991490F19B08D",
+      "derived_dual_source_provenance_count": 0,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [
+        "DOCUMENT_SCOPE_NOT_DETERMINISTICALLY_COMPLETE"
+      ],
+      "status": "issues",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-55F2240CD020ACAC",
+      "derived_dual_source_provenance_count": 0,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [
+        "DOCUMENT_SCOPE_NOT_DETERMINISTICALLY_COMPLETE"
+      ],
+      "status": "issues",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-C20A85E10DE595AF",
+      "derived_dual_source_provenance_count": 0,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [
+        "DOCUMENT_SCOPE_NOT_DETERMINISTICALLY_COMPLETE"
+      ],
+      "status": "issues",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-A519BFA61748CC5B",
+      "derived_dual_source_provenance_count": 0,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [
+        "DOCUMENT_SCOPE_NOT_DETERMINISTICALLY_COMPLETE"
+      ],
+      "status": "issues",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-021A6B00F5BD0CE6",
+      "derived_dual_source_provenance_count": 0,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [
+        "DOCUMENT_SCOPE_NOT_DETERMINISTICALLY_COMPLETE"
+      ],
+      "status": "issues",
+      "structured_evidence_count": 1
+    },
+    {
+      "answer_required_fact_count": 1,
+      "candidate_id": "MIX-DBF5FA58A01F5C63",
+      "derived_dual_source_provenance_count": 0,
+      "document_evidence_count": 1,
+      "dual_source_evidence_complete": true,
+      "intermediate_required_fact_count": 2,
+      "issues": [
+        "DOCUMENT_SCOPE_NOT_DETERMINISTICALLY_COMPLETE"
+      ],
+      "status": "issues",
+      "structured_evidence_count": 1
+    }
+  ],
+  "with_issues": 42
+}

@@ -1,0 +1,59 @@
+{
+  "average_recovery_rounds": 2.0,
+  "failure_reasons": {
+    "GROUNDING_FAILURE": 5
+  },
+  "first_pass_failure_rate": {
+    "denominator": 3,
+    "numerator": 3,
+    "rate": 1.0
+  },
+  "first_pass_failure_recovery_rate": {
+    "denominator": 1,
+    "numerator": 0,
+    "rate": 0.0
+  },
+  "raw_first_pass_failure_outcome": {
+    "denominator": 3,
+    "numerator": 0,
+    "rate": 0.0
+  },
+  "recovery_action_distribution": {
+    "handoff": 4
+  },
+  "recovery_rounds_max": 2,
+  "recovery_rounds_p50": 2.0,
+  "recovery_rounds_p95": 2.0,
+  "recovery_success_by_action": {
+    "handoff": {
+      "denominator": 4,
+      "numerator": 0,
+      "rate": 0.0
+    }
+  },
+  "success_within_1_round": {
+    "denominator": 1,
+    "numerator": 0,
+    "rate": 0.0
+  },
+  "success_within_2_rounds": {
+    "denominator": 1,
+    "numerator": 0,
+    "rate": 0.0
+  },
+  "unnecessary_recovery_rate": {
+    "denominator": 0,
+    "numerator": 0,
+    "rate": null
+  },
+  "verifier": {
+    "false_accept": 0,
+    "false_accept_rate": 0.0,
+    "false_reject": 0,
+    "false_reject_rate": null,
+    "sufficiency_precision": null,
+    "sufficiency_recall": null,
+    "true_accept": 0,
+    "true_reject": 1
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "formal_exact_gold_fact_set": [],
+  "mixed_source_fact_overlap": [
+    {
+      "candidate_id": "KQC-6b1e42ffde7854e5",
+      "source_fact_ids": [
+        "af:8cf38b2c301664ce"
+      ]
+    }
+  ],
+  "note": "Source-fact overlap is reported separately from task-semantic duplicate; only exact Gold semantics imply a duplicate rejection.",
+  "troubleshooting_source_fact_overlap": []
+}

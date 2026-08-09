@@ -1,0 +1,12 @@
+{
+  "fully_aligned": 146,
+  "input": 171,
+  "issue_counts": {
+    "BROAD_GROUP_SCOPE_COMPLETENESS_UNCERTAIN": 24,
+    "MULTI_FACT_ANSWER_SET_TOO_SMALL_AFTER_ROLE_CORRECTION": 3
+  },
+  "issues_found": 25,
+  "resolved_through_role_correction": {
+    "NON_INFORMATIONAL_REQUIRED_FACT_DEMOTED": 6
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "customer_count": 300,
+  "customer_tenant_count": 19,
+  "customers": 300,
+  "order_items": 3355,
+  "order_status_distribution": {
+    "Cancelled": 55,
+    "Delivered": 1419,
+    "Processing": 13,
+    "Shipped": 13
+  },
+  "order_status_events": 7296,
+  "orders": 1500,
+  "orders_with_multiple_products": 1025,
+  "product_count": 20,
+  "products": 20,
+  "ticket_events": 1576,
+  "ticket_status_distribution": {
+    "in_progress": 66,
+    "open": 20,
+    "pending_customer": 83,
+    "resolved": 251
+  },
+  "tickets": 420,
+  "tickets_without_order": 17,
+  "warranty_cases": 140,
+  "warranty_coverage_distribution": {
+    "expired": 23,
+    "in_warranty": 117
+  }
+}

@@ -1,0 +1,992 @@
+{
+  "count": 58,
+  "materializable": 58,
+  "rows": [
+    {
+      "candidate_id": "MIX-2887742F9EFF2CFB",
+      "deterministic": true,
+      "fixture_identifier_sha256": "d768e1d54045c658ff7342b6eb25e013a97fbdeb9655a2ae226ef8be07c5bfb2",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 现在还能直接取消吗？请结合当前订单状态和售后政策说明下一步。",
+      "runtime_query_sha256": "a51cc816d134880c5507348f75608369ef9bd419ab297efd18dcb170285fe336",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-306368761A7EC11C",
+      "deterministic": true,
+      "fixture_identifier_sha256": "b9f14f0239149a6e669f59dea8dabdc50ff8434220b1966a3a38fba64810ab65",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 现在还能直接取消吗？请结合当前订单状态和售后政策说明下一步。",
+      "runtime_query_sha256": "76e1bc3c5a6a0b9faffed22f96c8e5e73df164d649aafba86ba737777aa1777c",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-760DA13959417A41",
+      "deterministic": true,
+      "fixture_identifier_sha256": "625f739c21e047e06d0cf2e1d8d31d79e5672d1a273fd379276d560589f2c07b",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 现在还能直接取消吗？请结合当前订单状态和售后政策说明下一步。",
+      "runtime_query_sha256": "a794d4f6fafaf962843c3150fb9197acf1467e9d5604de8c822776423fe44cdf",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-0923DF7CFEE05AA4",
+      "deterministic": true,
+      "fixture_identifier_sha256": "76df197c6430aef625a55d2911a814cb90e04911f536405751653a389f460dce",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 现在还能直接取消吗？请结合当前订单状态和售后政策说明下一步。",
+      "runtime_query_sha256": "d6903f4176bb08f0c05a480763e9e1ffe43458d4ba857881dabac01ec9c3d4c1",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-901005D494C28080",
+      "deterministic": true,
+      "fixture_identifier_sha256": "8839dd783fdea8a9a7a4f45a4127207a43c19609574ede4bfb480a535bde375b",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 现在还能直接取消吗？请结合当前订单状态和售后政策说明下一步。",
+      "runtime_query_sha256": "5ddd5133ec694f787c9f06d40db1aa50dc8ecc43249206d17c5af70701d2af7a",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-356E84C36E209E02",
+      "deterministic": true,
+      "fixture_identifier_sha256": "ee4254219721b9d18f1e33a0ae103c9f9702baab6921684d8a71bac858a59ed6",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 现在还能直接取消吗？请结合当前订单状态和售后政策说明下一步。",
+      "runtime_query_sha256": "e9a5357341cb152c16f133d5c52b4036c5b759014b109f4a36de26f1416849f0",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-BDCED0FDDA6DCCED",
+      "deterministic": true,
+      "fixture_identifier_sha256": "4ef0edd0e2a2b6276c8e521efcc1e12e6475577baaf8a646d9f4327c178183b1",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 现在还能直接取消吗？请结合当前订单状态和售后政策说明下一步。",
+      "runtime_query_sha256": "c5ceb14aec382d43337db9b3b468d0e937ac8273ed177dad421e73be25d7b98c",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-C5906F7B4B9061ED",
+      "deterministic": true,
+      "fixture_identifier_sha256": "3eea3b27cd13b6acdba5a157a9cba65d2325a81514630ff0f8fcebd41c5bdfd0",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 现在还能直接取消吗？请结合当前订单状态和售后政策说明下一步。",
+      "runtime_query_sha256": "1340ee1e3549672800509e1ef9efd2a575cef99960e6aa68b2e8097b2585a77d",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-9D5FA0040582A83D",
+      "deterministic": true,
+      "fixture_identifier_sha256": "61ff2aa8af3d337fae35c5ab733e41e3d8a7bd030dd5d6b265bc93c24b60b9ef",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 里的设备具体型号我不记得了。请先从订单确认产品，再根据对应手册说明“电源供应”相关的使用或处理要点。",
+      "runtime_query_sha256": "4317b1cf9b405469cddb751caa934682d91a832cf40712d5504660ef7d02b4a4",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-913BE14C467787C4",
+      "deterministic": true,
+      "fixture_identifier_sha256": "01c6d0e8239efdf5ba4a4ce0833d771c1eaedda6c94f122f07013eaa6645f878",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 里的设备具体型号我不记得了。请先从订单确认产品，再根据对应手册说明“维护保养”相关的使用或处理要点。",
+      "runtime_query_sha256": "f13e0650fff208a5fb74e4c53dda0ed1672aff91fa1d02c1d1dbaf389e068230",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-47A3E6D211A54F68",
+      "deterministic": true,
+      "fixture_identifier_sha256": "2821ded5262471706304f05e50a5c459a29581d842287ca5f12412487d4f53c5",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 里的设备具体型号我不记得了。请先从订单确认产品，再根据对应手册说明“重要安全注意事项”相关的使用或处理要点。",
+      "runtime_query_sha256": "f018ca59b03b36d3e98b3ff8216f6f73c241b19453c2f0e296320bc335429f11",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-7D174C67F16012E7",
+      "deterministic": true,
+      "fixture_identifier_sha256": "b770283da1e19b53f6e7429162a6f74480cb2ced5c66baf4a3355fbcf6d215d2",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 里的设备具体型号我不记得了。请先从订单确认产品，再根据对应手册说明“故障排除”相关的使用或处理要点。",
+      "runtime_query_sha256": "c34dfd3e0f4778ba488e64a31aede617a752cd6b1e56794e64de55ff56a5e730",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-962718A668CE12DD",
+      "deterministic": true,
+      "fixture_identifier_sha256": "0fc31f1d29ad680c0e33b1831095c87b8ed5234c55e4f192734fd6b607d026d9",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 里的设备具体型号我不记得了。请先从订单确认产品，再根据对应手册说明“严禁拆卸或改装本产品及配件”相关的使用或处理要点。",
+      "runtime_query_sha256": "8feca86c0df9f7a49826175b1cc8ca91ef04c6c0ba29b876ac78998b372f9fc9",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-C3F80B2A72F8A5B6",
+      "deterministic": true,
+      "fixture_identifier_sha256": "70cbcb668e4222ad3f0229f03c71fa559a16e83ce7b0475b3eea4f7440c126ae",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 里的设备具体型号我不记得了。请先从订单确认产品，再根据对应手册说明“安装说明”相关的使用或处理要点。",
+      "runtime_query_sha256": "75d9f2f2611c56b0a0f935858e9bec9f8585b18c3d331defc29f905e27a2c98c",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-25A82E94EB4C063F",
+      "deterministic": true,
+      "fixture_identifier_sha256": "ec9335c6b4c92025f17083d30af5fab2408d6ae654715dde4e90ab51233dc202",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 里的设备具体型号我不记得了。请先从订单确认产品，再根据对应手册说明“座椅调节”相关的使用或处理要点。",
+      "runtime_query_sha256": "ed0729448ff02ef9020fc396be09cfad4ac016f3fb46a1f082a380ff267a5d3a",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-61CDCE97A8E3A406",
+      "deterministic": true,
+      "fixture_identifier_sha256": "716ecfe709f863f8185cd54db882c3e11ed8aad3d164877443342702888ee6d2",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 里的设备具体型号我不记得了。请先从订单确认产品，再根据对应手册说明“查看电量”相关的使用或处理要点。",
+      "runtime_query_sha256": "77fbb8b67fd0b689326f13629e2e95b0e888ad8d509c366e62f8d5e99cb3e475",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-3ADDD4A321947949",
+      "deterministic": true,
+      "fixture_identifier_sha256": "32275d060098591f9f13d882b9e2798195e75e3a1eeb910db4d48d3dbb422733",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 里的设备具体型号我不记得了。请先从订单确认产品，再根据对应手册说明“电池处理”相关的使用或处理要点。",
+      "runtime_query_sha256": "0dc36b530adce9fb1c0a82ab0c2ee248b038d17a8fbea54e4bad444ca1f02699",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-65E4AF165752E851",
+      "deterministic": true,
+      "fixture_identifier_sha256": "2b36b2b8cee7667fc17cec2815630b12fcf505ab95658eb3d17faefad634adf8",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 里的设备具体型号我不记得了。请先从订单确认产品，再根据对应手册说明“门体无法正常关闭”相关的使用或处理要点。",
+      "runtime_query_sha256": "24813afe3a6292259e1796fee981e4a30c06f14487374573966a70dacb06686a",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-3939BACE36C8FED8",
+      "deterministic": true,
+      "fixture_identifier_sha256": "f81819414f8549ddc8e377ec79773daf9914601843381349ee1bf46a0e89b96a",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 里的设备具体型号我不记得了。请先从订单确认产品，再根据对应手册说明“北美、欧洲及澳新地区以外：”相关的使用或处理要点。",
+      "runtime_query_sha256": "d8cb83b273258857d9072829870e916feb2e1acf12ecb29ba03c66c94354996c",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-41FF67F57E3853DF",
+      "deterministic": true,
+      "fixture_identifier_sha256": "3e273fecb527b333f80db4cc7b3d3208d1ddc93f0b4c31bddb6de9e73ca2fad0",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 里的设备具体型号我不记得了。请先从订单确认产品，再根据对应手册说明“AE00091 接线说明”相关的使用或处理要点。",
+      "runtime_query_sha256": "3b3ca97c35267c94bbf315ecdcb4a23cb95bdfc36e92f14d29dac4ca0d0a0325",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-F16BC4E07FFBF2ED",
+      "deterministic": true,
+      "fixture_identifier_sha256": "90319b81a3d3b140e2b7b50536224bf22053ab49929cf7e76497b9fc50a95c81",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 里的设备具体型号我不记得了。请先从订单确认产品，再根据对应手册说明“供暖或制冷系统无响应”相关的使用或处理要点。",
+      "runtime_query_sha256": "c5d116aad8b7007acec68de30aa7beba840f6ac9b97a4526e4ffb6424d6189db",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-9FE9DA8828F110E2",
+      "deterministic": true,
+      "fixture_identifier_sha256": "5db957583f41e186e80af218bfeade8b05053614af3d9a75c4c3ec7862d3835c",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 里的设备具体型号我不记得了。请先从订单确认产品，再根据对应手册说明“低速油针 L”相关的使用或处理要点。",
+      "runtime_query_sha256": "d31e4b2b05eab94ca7e219502e594d3ffbb0bcec6974ab347082c60ed668f9a0",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-ECF864B3C06DA931",
+      "deterministic": true,
+      "fixture_identifier_sha256": "a100df1e68900111d7929215e56796d8b657c547186880e1648f21163e0c5f7d",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 里的设备具体型号我不记得了。请先从订单确认产品，再根据对应手册说明“提示：”相关的使用或处理要点。",
+      "runtime_query_sha256": "43302cc5f55f6f32e4380267d17f10cc84a8c55746a48f10c6f9dd7ba1c963f3",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-579680AECAFADBC5",
+      "deterministic": true,
+      "fixture_identifier_sha256": "e10d23c0f5068597a654995260bcce72b4fc7965ff7ed6b2178eed78f4545bdc",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 里的设备具体型号我不记得了。请先从订单确认产品，再根据对应手册说明“机油警告系统”相关的使用或处理要点。",
+      "runtime_query_sha256": "dc54f7c95d2a439663aad8f406eb54f5ab785c2bb556c428e5f492c8aa45ab1e",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-825C7AF9BA0C954C",
+      "deterministic": true,
+      "fixture_identifier_sha256": "3268f271a1abed3c5add6ecb76a6be6aa0d9c86495de89b6e296426ddd415b0f",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 里的设备具体型号我不记得了。请先从订单确认产品，再根据对应手册说明“旧产品处理”相关的使用或处理要点。",
+      "runtime_query_sha256": "8711e24ba4a861b06e8768d1989d6eab9ff234cdfdaf1391402252cbe077099a",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-1F05A4CC80409FDA",
+      "deterministic": true,
+      "fixture_identifier_sha256": "d97f0b1b9062f028ce6d63d837022c9fd96874c0ebdabaa9a33b888f99430ace",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 里的设备具体型号我不记得了。请先从订单确认产品，再根据对应手册说明“售后服务”相关的使用或处理要点。",
+      "runtime_query_sha256": "2dc7790ea38c0fdb5368dc4f68d740675cfb9956f9c99be55156506a182dac66",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-CB6E4EFC08336D67",
+      "deterministic": true,
+      "fixture_identifier_sha256": "6cec72cd071ce00d6e57bfc141ad5973f9416108cda517c07d3004d6abc09862",
+      "fixture_identifier_type": "ticket_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "工单 [TICKET_FIXTURE_ID] 里没有写产品型号。请先确认对应产品，再根据该产品手册说明“充电指示灯”相关的排查或处理方法。",
+      "runtime_query_sha256": "aae78841a3d36a4431ee99436408992eb3ca41c612e0eb29f75462f9f8fd5d02",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-4B68165E6BEA2A65",
+      "deterministic": true,
+      "fixture_identifier_sha256": "5cba8f06e6c224493bc514a0e39373b52c77ce722c35fbde93d54915f1d9c88e",
+      "fixture_identifier_type": "ticket_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "工单 [TICKET_FIXTURE_ID] 里没有写产品型号。请先确认对应产品，再根据该产品手册说明“电池充电”相关的排查或处理方法。",
+      "runtime_query_sha256": "5da368b81d71cadd4c2e4e38d4ef6545f79751bcb14ee035d4d11147cc3d8d36",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-F50D9FB3BBD86FDF",
+      "deterministic": true,
+      "fixture_identifier_sha256": "50cbaf031296046e189af2bdad224bd6fad45597f28d416944ba3fa3bac53257",
+      "fixture_identifier_type": "ticket_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "工单 [TICKET_FIXTURE_ID] 里没有写产品型号。请先确认对应产品，再根据该产品手册说明“电源供应”相关的排查或处理方法。",
+      "runtime_query_sha256": "620808da9af61ff413053cc753e2455f8e90d48c611d07ebd601d4069c38da19",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-DCEDFA677E01F9CA",
+      "deterministic": true,
+      "fixture_identifier_sha256": "30428747cf539bcfaf2e6290fea24a605e14b76f0a28b29be9801d2081717cb8",
+      "fixture_identifier_type": "ticket_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "工单 [TICKET_FIXTURE_ID] 里没有写产品型号。请先确认对应产品，再根据该产品手册说明“维护保养”相关的排查或处理方法。",
+      "runtime_query_sha256": "315c6090950cf782ad5284830420472e672d396d477531584408f20a5c292c76",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-E842631923DF73B2",
+      "deterministic": true,
+      "fixture_identifier_sha256": "847b22a736f01f66ae7a76c23e59fe7eb204bbe03b46e6918216e1f4e1b308ad",
+      "fixture_identifier_type": "ticket_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "工单 [TICKET_FIXTURE_ID] 里没有写产品型号。请先确认对应产品，再根据该产品手册说明“重要安全注意事项”相关的排查或处理方法。",
+      "runtime_query_sha256": "203f048862356186a43eaa4906bca6597fe76226a2a155f70e54be1a502529c4",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-E6B6C9C63A695CA2",
+      "deterministic": true,
+      "fixture_identifier_sha256": "ceee4d7a9123655a86558cd7f7d90f99404985f109e07bd8951a2076ed519a87",
+      "fixture_identifier_type": "ticket_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "工单 [TICKET_FIXTURE_ID] 里没有写产品型号。请先确认对应产品，再根据该产品手册说明“故障排除”相关的排查或处理方法。",
+      "runtime_query_sha256": "d2c3aaa9d37d414aaf19673561cc9952408d4da0398d6b4fbba0dc02f9cfe008",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-40C0522AF54C417D",
+      "deterministic": true,
+      "fixture_identifier_sha256": "e9a79b42d453ac8c7003cc9b5594f5b58c97421adc2214b63315df34f2636138",
+      "fixture_identifier_type": "ticket_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "工单 [TICKET_FIXTURE_ID] 里没有写产品型号。请先确认对应产品，再根据该产品手册说明“严禁拆卸或改装本产品及配件”相关的排查或处理方法。",
+      "runtime_query_sha256": "410fcc1fccb34dbfc93d0f6d488073fe39519204aa31984acf896e0eb8146f58",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-99EE88407E7E30FF",
+      "deterministic": true,
+      "fixture_identifier_sha256": "f9738d26faf423b4cedeb0f3a5832b1b3de22229ef7e19b491fa23d446e476c2",
+      "fixture_identifier_type": "ticket_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "工单 [TICKET_FIXTURE_ID] 里没有写产品型号。请先确认对应产品，再根据该产品手册说明“安装说明”相关的排查或处理方法。",
+      "runtime_query_sha256": "ae62e7bdc11cc39a55cfe3f2b37658e75ec922e60d8dbcccc8bb20cbf7336a6c",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-8D1A7DE60DEF26D3",
+      "deterministic": true,
+      "fixture_identifier_sha256": "5545d51305a67df7a06d7b4e58f694c610e8fac84d85968605701cbbc93f1032",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "保修案例 [WARRANTY_FIXTURE_ID] 当前是否还在保修范围？同时按售后政策说明标准保修通常覆盖哪些问题、哪些情况通常不覆盖。",
+      "runtime_query_sha256": "8ac36a546c4c7b9dca243bb4ee3f333311cece4c327bc73dc192d90dfc621f72",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-64ED87D7191A11F1",
+      "deterministic": true,
+      "fixture_identifier_sha256": "50f455dcabe23584a97c8fdaec7435d3b4b4cfb177592ceec147b5dc8624c1aa",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "保修案例 [WARRANTY_FIXTURE_ID] 当前是否还在保修范围？同时按售后政策说明标准保修通常覆盖哪些问题、哪些情况通常不覆盖。",
+      "runtime_query_sha256": "0730c017edb1d0c517b573b94a1c71559274849c88db385db3a9ea6e2f0bd022",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-8D38376FCD5A26B5",
+      "deterministic": true,
+      "fixture_identifier_sha256": "4b431faaf0745048b90be803845e2a9e485c94cb90c88d8edbbdef9820c3fff2",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "保修案例 [WARRANTY_FIXTURE_ID] 当前是否还在保修范围？同时按售后政策说明标准保修通常覆盖哪些问题、哪些情况通常不覆盖。",
+      "runtime_query_sha256": "b4d3ae41f512a60239f1db05167e6891dc173e0de8472d8e97a2bf75e98eae18",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-211FFF820D1DEE48",
+      "deterministic": true,
+      "fixture_identifier_sha256": "0c20d0389e0edd960154fd11b7353173d4eca51cea0de71217ce88c3bf0f0a85",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "保修案例 [WARRANTY_FIXTURE_ID] 当前是否还在保修范围？同时按售后政策说明标准保修通常覆盖哪些问题、哪些情况通常不覆盖。",
+      "runtime_query_sha256": "e5b7a7e27435a8ff7181af0cce8a7919e4a718714e001035a4a4f4f6a5cf9571",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-728656AA6CA5C29D",
+      "deterministic": true,
+      "fixture_identifier_sha256": "69c03c418125f0855427e93a0de2a9e7c946ee01593233d74048f6f04d2898aa",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "保修案例 [WARRANTY_FIXTURE_ID] 当前是否还在保修范围？同时按售后政策说明标准保修通常覆盖哪些问题、哪些情况通常不覆盖。",
+      "runtime_query_sha256": "b8e1cfbb9a84bb4a446be42284cd97f79f5d2a9aca34eda24a4923ce060d4370",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-4C7CB22FD6D5F286",
+      "deterministic": true,
+      "fixture_identifier_sha256": "645127ca7eea4e9529a680de9cddef64a623bc2f1e27971588df50fbde188a21",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "保修案例 [WARRANTY_FIXTURE_ID] 当前是否还在保修范围？同时按售后政策说明标准保修通常覆盖哪些问题、哪些情况通常不覆盖。",
+      "runtime_query_sha256": "10eeade665ec96adfd9dc302ac48ed0afaa545e9b38c9872e5367bde61ed15e0",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-A865F9FBA535D89A",
+      "deterministic": true,
+      "fixture_identifier_sha256": "0c35a24bee2f141b16d9cc92321833f2f1e7a5b167633037afaba4c070995423",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "保修案例 [WARRANTY_FIXTURE_ID] 当前是否还在保修范围？同时按售后政策说明标准保修通常覆盖哪些问题、哪些情况通常不覆盖。",
+      "runtime_query_sha256": "d748954120f593ce55c7aa0600c028d15f99fc9f4af5595e48a2b30f2a684bf8",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-71719BCF1F08305D",
+      "deterministic": true,
+      "fixture_identifier_sha256": "a367e30d3510c71139e08efd530834a39a1aa97f9f34d268efd439df28943f7e",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "保修案例 [WARRANTY_FIXTURE_ID] 当前是否还在保修范围？同时按售后政策说明标准保修通常覆盖哪些问题、哪些情况通常不覆盖。",
+      "runtime_query_sha256": "549d20f56a6d911a5acac2362ad09ade17b88f6a802b6d72dd4bfd1fac2ba214",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-C0DD04F86A7FC24E",
+      "deterministic": true,
+      "fixture_identifier_sha256": "cd8473aa0c1bd766cd728c7a58d4c307c05e767d5bbf9244925e6f43d865423b",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "保修案例 [WARRANTY_FIXTURE_ID] 对应的是哪类产品不用单独告诉我；请根据它实际对应的产品手册，说明“电源供应”相关的使用或处理要点。",
+      "runtime_query_sha256": "3d4279debbfadff1c1bf5ef64daf4808f666935aea114c787667ca452e1b4dee",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-06544016CA95E17D",
+      "deterministic": true,
+      "fixture_identifier_sha256": "c21f15bfc17b1c2eb2320b3e982bbfa02668426832215997d9d67dfaa2462ae8",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "保修案例 [WARRANTY_FIXTURE_ID] 对应的是哪类产品不用单独告诉我；请根据它实际对应的产品手册，说明“维护保养”相关的使用或处理要点。",
+      "runtime_query_sha256": "2a075ff4f3bad130aa143d1cfb3e98e80558293d4bc66bded592ccc03893b9ef",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-00A31623354FB89D",
+      "deterministic": true,
+      "fixture_identifier_sha256": "fc6dfe8c060079dee674b14ab6c089a09812919e7fef06ad6223487beca519ad",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "保修案例 [WARRANTY_FIXTURE_ID] 对应的是哪类产品不用单独告诉我；请根据它实际对应的产品手册，说明“重要安全注意事项”相关的使用或处理要点。",
+      "runtime_query_sha256": "86e740712865e9c5b852bae6318f3a1c2ff65b5e00d0218cf2d271c54213d4b8",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-852D27E886F92775",
+      "deterministic": true,
+      "fixture_identifier_sha256": "12a236e39a276280662e9be8940fd3cfd4af02873a7136c06cf1fd6bb2ce1fa2",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "保修案例 [WARRANTY_FIXTURE_ID] 对应的是哪类产品不用单独告诉我；请根据它实际对应的产品手册，说明“故障排除”相关的使用或处理要点。",
+      "runtime_query_sha256": "b27fac69c2a69929881eab9454117d549e27990315e1095ecacfbc511d308e8e",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-600762139B737022",
+      "deterministic": true,
+      "fixture_identifier_sha256": "ed83a36ae228b20a0a6170661713bc4c9629c365fddb686ca2f6901942f504b4",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "保修案例 [WARRANTY_FIXTURE_ID] 对应的是哪类产品不用单独告诉我；请根据它实际对应的产品手册，说明“严禁拆卸或改装本产品及配件”相关的使用或处理要点。",
+      "runtime_query_sha256": "0769fd43f24f9887c7ddf2886f11e5c01585a57a6e60477a53c9e082b93bea23",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-D687612CD73060E4",
+      "deterministic": true,
+      "fixture_identifier_sha256": "9d1c5778133c8730d270270aea909fe1818c98fade7ad92e1277f3bbae50ac5e",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "保修案例 [WARRANTY_FIXTURE_ID] 对应的是哪类产品不用单独告诉我；请根据它实际对应的产品手册，说明“安装说明”相关的使用或处理要点。",
+      "runtime_query_sha256": "430eb9766220b0f5dca7a63be64ea21fb950965a67aebb17cfc5ba6a9d1d6cd0",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-AF191F6DA2752699",
+      "deterministic": true,
+      "fixture_identifier_sha256": "36b7d0653bd3cbd9071b658cd127a6e3b1820b05ab0a6cf974bf43586a20a0bc",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "保修案例 [WARRANTY_FIXTURE_ID] 对应的是哪类产品不用单独告诉我；请根据它实际对应的产品手册，说明“座椅调节”相关的使用或处理要点。",
+      "runtime_query_sha256": "8e2bdd7e13bb6852023fd67ea8c09dac9336a0cfafafb4a34f571a0527b008bf",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-573D95995738886E",
+      "deterministic": true,
+      "fixture_identifier_sha256": "f76a7053b04d1a23c0d87dbff2fc57d91c4cfc80fe1c7414dbde0dea5a62336f",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "保修案例 [WARRANTY_FIXTURE_ID] 对应的是哪类产品不用单独告诉我；请根据它实际对应的产品手册，说明“查看电量”相关的使用或处理要点。",
+      "runtime_query_sha256": "2ffab375da375c3a57fd4b294e14ffabe7e1215080d5f95fbc4404428beac9ab",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-C292D942DF39BE81",
+      "deterministic": true,
+      "fixture_identifier_sha256": "50dfcdf0f46480567301b72377e8a59729677e6d2d7792e5acb7084c9163ecd9",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "保修案例 [WARRANTY_FIXTURE_ID] 对应的是哪类产品不用单独告诉我；请根据它实际对应的产品手册，说明“电池处理”相关的使用或处理要点。",
+      "runtime_query_sha256": "a035b8443a6dcfd8ebe61241becfe354fff2b7d777510bba12e54bb742d6b55e",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-A7E56396AEAE5AF8",
+      "deterministic": true,
+      "fixture_identifier_sha256": "0ac94105fd89ddb8182eaebf637ba57bb048fa817014d70881b61349aab0e99c",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "保修案例 [WARRANTY_FIXTURE_ID] 对应的是哪类产品不用单独告诉我；请根据它实际对应的产品手册，说明“门体无法正常关闭”相关的使用或处理要点。",
+      "runtime_query_sha256": "de9b24faa4c9b36edbb6674506f5407b6e6293a90b636f8e921e87c3339a6d65",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-A4E991490F19B08D",
+      "deterministic": true,
+      "fixture_identifier_sha256": "2c4bdb8a09789ea05cff009ddd380e81614de2c330b146af43ac2231f21ec4a7",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "保修案例 [WARRANTY_FIXTURE_ID] 对应的是哪类产品不用单独告诉我；请根据它实际对应的产品手册，说明“北美、欧洲及澳新地区以外：”相关的使用或处理要点。",
+      "runtime_query_sha256": "20a61acafce113b7986c6842d4ef61052c40e002e14813abb876b76f6dcb651a",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-55F2240CD020ACAC",
+      "deterministic": true,
+      "fixture_identifier_sha256": "a8206c04e720589adfd798fff98098bab4d891834c740803b205ea516148d865",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "保修案例 [WARRANTY_FIXTURE_ID] 对应的是哪类产品不用单独告诉我；请根据它实际对应的产品手册，说明“AE00091 接线说明”相关的使用或处理要点。",
+      "runtime_query_sha256": "086396905fb6ce18842aa7fbfa633a20d576fd37f8cdf47b043361563a433169",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-C20A85E10DE595AF",
+      "deterministic": true,
+      "fixture_identifier_sha256": "361fa0baab5a755f2c7420c606f18cf614dac7e70c03c241b02bd9ecf0e6d1cf",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "保修案例 [WARRANTY_FIXTURE_ID] 对应的是哪类产品不用单独告诉我；请根据它实际对应的产品手册，说明“供暖或制冷系统无响应”相关的使用或处理要点。",
+      "runtime_query_sha256": "5c8556bd48b43563593906b3948ea24aa13f8e136401a559e88b406acb38cdea",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-A519BFA61748CC5B",
+      "deterministic": true,
+      "fixture_identifier_sha256": "5d65d58b4d899cafa97a4d7907386ae61847cb4649ab3210a22e512b589c40ee",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "保修案例 [WARRANTY_FIXTURE_ID] 对应的是哪类产品不用单独告诉我；请根据它实际对应的产品手册，说明“低速油针 L”相关的使用或处理要点。",
+      "runtime_query_sha256": "0b0d19ebeb6204a7d2cd7131ea52aec74454c68ef777f6ca4b19d701a568555c",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-021A6B00F5BD0CE6",
+      "deterministic": true,
+      "fixture_identifier_sha256": "183ca4f031ece8809e6ca741e9dbc69a36808e578a09993d3b906c98585377e2",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "保修案例 [WARRANTY_FIXTURE_ID] 对应的是哪类产品不用单独告诉我；请根据它实际对应的产品手册，说明“提示：”相关的使用或处理要点。",
+      "runtime_query_sha256": "3e854376c1bcfc126b4f4067e1e852116aaeb14bf83202b8cd1169c5c8b9a091",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "MIX-DBF5FA58A01F5C63",
+      "deterministic": true,
+      "fixture_identifier_sha256": "342b6e3f235bfdba6f0a9c932bfa7ce7a9905cd660b0624de114281c4afd812b",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "保修案例 [WARRANTY_FIXTURE_ID] 对应的是哪类产品不用单独告诉我；请根据它实际对应的产品手册，说明“机油警告系统”相关的使用或处理要点。",
+      "runtime_query_sha256": "98b142da4704dd1a5d6b95263043ff5635b141126a95c174a279aa624fdfa815",
+      "status": "MATERIALIZABLE"
+    }
+  ]
+}

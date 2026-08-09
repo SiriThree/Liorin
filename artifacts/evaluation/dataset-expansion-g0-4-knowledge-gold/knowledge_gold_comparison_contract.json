@@ -1,0 +1,15 @@
+{
+  "construction_modes": {
+    "CONDITIONAL": 40,
+    "EXACT_VALUE": 4,
+    "NUMERIC": 1,
+    "ORDERED_SEQUENCE": 45,
+    "SEMANTIC": 102,
+    "UNORDERED_SET": 60
+  },
+  "evaluator_modes": {
+    "NORMALIZED_EXACT": 4,
+    "NUMERIC": 1,
+    "SEMANTIC": 247
+  }
+}

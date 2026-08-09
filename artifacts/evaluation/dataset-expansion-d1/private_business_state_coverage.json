@@ -1,0 +1,24 @@
+{
+  "order_status": {
+    "Cancelled": 8,
+    "Delivered": 15,
+    "Processing": 7,
+    "Shipped": 6
+  },
+  "ticket_status": {
+    "in_progress": 6,
+    "open": 6,
+    "pending_customer": 6,
+    "resolved": 8
+  },
+  "warranty_coverage_status": {
+    "expired": 10,
+    "in_warranty": 12
+  },
+  "warranty_status": {
+    "active": 7,
+    "denied": 2,
+    "expired": 8,
+    "under_review": 5
+  }
+}

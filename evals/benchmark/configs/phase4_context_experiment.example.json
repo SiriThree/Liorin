@@ -1,0 +1,33 @@
+{
+  "dataset_name": "phase4_multi_turn_candidates",
+  "dataset_version": "1",
+  "model": null,
+  "embedding": null,
+  "production": {
+    "agentic_recovery_enabled": true
+  },
+  "judge": {
+    "enabled": false,
+    "judge_name": "context-relevance",
+    "provider": "openai",
+    "model": "",
+    "temperature": 0.0,
+    "max_tokens": 800,
+    "timeout": 30.0,
+    "max_retries": 2,
+    "prompt_version": "context_relevance_v1",
+    "schema_version": "1.0"
+  },
+  "context_experiment": {
+    "strategies": [
+      "FULL_HISTORY",
+      "SLIDING_WINDOW",
+      "SUMMARY_ONLY",
+      "LIORIN_CONTEXT",
+      "LIORIN_CONTEXT_MEMORY_ARTIFACT"
+    ],
+    "sliding_window_turns": 3,
+    "context_max_tokens": 4096,
+    "agentic_recovery_enabled": true
+  }
+}

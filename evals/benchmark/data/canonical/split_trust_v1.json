@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "splits": [
+    {
+      "dataset": "dev_v7_3.json",
+      "declared_split": "dev",
+      "intended_usage": "DEVELOPMENT",
+      "reason": "Legacy development set; tuning exposure is expected.",
+      "trust_level": "DEVELOPMENT"
+    },
+    {
+      "dataset": "validation_v7_3.json",
+      "declared_split": "validation",
+      "intended_usage": "VALIDATION",
+      "reason": "Legacy validation set; no claim of blind/test independence.",
+      "trust_level": "VALIDATION"
+    },
+    {
+      "dataset": "blind_test_inputs_v7_3.json",
+      "declared_split": "blind_test",
+      "intended_usage": "PREDICTION_INPUTS_ONLY",
+      "reason": "No local Gold and no auditable evidence proving no historical tuning exposure or independent Gold custody.",
+      "trust_level": "HISTORICAL_UNVERIFIED"
+    }
+  ],
+  "trusted_test_split": null,
+  "trusted_test_status": "NO_TRUSTED_TEST_SPLIT_YET"
+}

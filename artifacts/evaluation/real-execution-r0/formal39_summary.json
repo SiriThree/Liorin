@@ -1,0 +1,15 @@
+{
+  "attempted_n": 0,
+  "failures": null,
+  "formal_dataset_hash": "3f9cfc0ab4a5e8bf85bf4f3cd2e49e6bb7eaf49a237da7b17b8e697f8742fa88",
+  "formal_dataset_snapshot": "artifacts\\evaluation\\real-execution-r0\\formal39_dataset_snapshot.json",
+  "planned_n": 39,
+  "reason": "Milvus live search failed, judge not configured, dependency lock readiness blocked. R0 rules prohibit formal batch when smoke gate fails.",
+  "status": "NOT_RUN_SMOKE_GATE_FAILED",
+  "success_rate": null,
+  "successes": null,
+  "wilson_95_ci": {
+    "high": null,
+    "low": null
+  }
+}

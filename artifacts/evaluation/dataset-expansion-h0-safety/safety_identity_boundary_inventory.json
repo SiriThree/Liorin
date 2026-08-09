@@ -1,0 +1,41 @@
+[
+  {
+    "body_conflict": "DENY",
+    "boundary": "REQUEST_TRUSTED_IDENTITY",
+    "credential_validation": "UPSTREAM_OUT_OF_SCOPE",
+    "same_identity": "ALLOW",
+    "thread_conflict": "DENY"
+  },
+  {
+    "anonymous": "DENY",
+    "boundary": "LONG_TERM_MEMORY",
+    "cross_tenant": "DENY",
+    "same_owner_new_session": "ALLOW",
+    "same_tenant_other_user": "DENY",
+    "same_tenant_same_user": "ALLOW"
+  },
+  {
+    "boundary": "ARTIFACT",
+    "cross_tenant": "DENY",
+    "cross_user": "DENY",
+    "exact_identity": "ALLOW",
+    "same_user_new_conversation": "DENY",
+    "same_user_new_session": "DENY"
+  },
+  {
+    "boundary": "STRUCTURED_SELF_READ",
+    "cross_tenant": "DENY",
+    "identity_missing": "DENY",
+    "same_owner_missing_permission": "DENY",
+    "same_owner_with_permission": "ALLOW",
+    "same_tenant_other_user": "DENY"
+  },
+  {
+    "anonymous_nonpublic": "DENY",
+    "anonymous_public_global": "ALLOW",
+    "boundary": "RETRIEVAL",
+    "cross_tenant_with_tenant_cross_read": "ALLOW",
+    "cross_tenant_without_permission": "DENY",
+    "same_tenant": "ALLOW"
+  }
+]

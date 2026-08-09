@@ -1,0 +1,13 @@
+{
+  "private_dual_annotation": {
+    "actual_a_decisions": 0,
+    "actual_b_decisions": 0,
+    "agreement": "NOT_RUN",
+    "d2_batch_hash": "c3b3aa7c65497813a9947e2ee0a8f05bae84958c0f5f09ba1f7bc1f3bc22e01c",
+    "d3_status": "PARTIAL",
+    "d3r_status": "PARTIAL",
+    "frozen_packet_count": 76,
+    "resumable": true,
+    "status": "DEFERRED_BY_ENVIRONMENT"
+  }
+}

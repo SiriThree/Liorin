@@ -1,0 +1,64 @@
+{
+  "drafted": 171,
+  "effective_gold_units": 146,
+  "input": 171,
+  "needs_manual_precheck": 25,
+  "ready_for_dual_annotation": 146,
+  "rejected_before_annotation": 0,
+  "task_types": {
+    "COMPATIBILITY": {
+      "input": 17,
+      "precheck": 0,
+      "ready": 17,
+      "rejected": 0
+    },
+    "DIRECT_FACT": {
+      "input": 17,
+      "precheck": 0,
+      "ready": 17,
+      "rejected": 0
+    },
+    "FAQ_PROCESS": {
+      "input": 5,
+      "precheck": 0,
+      "ready": 5,
+      "rejected": 0
+    },
+    "FEATURE_OR_INSTRUCTION": {
+      "input": 42,
+      "precheck": 0,
+      "ready": 42,
+      "rejected": 0
+    },
+    "LIMITATION": {
+      "input": 12,
+      "precheck": 0,
+      "ready": 12,
+      "rejected": 0
+    },
+    "MULTI_FACT_SYNTHESIS": {
+      "input": 42,
+      "precheck": 25,
+      "ready": 17,
+      "rejected": 0
+    },
+    "MULTI_SECTION_SYNTHESIS": {
+      "input": 13,
+      "precheck": 0,
+      "ready": 13,
+      "rejected": 0
+    },
+    "POLICY_OR_WARRANTY": {
+      "input": 11,
+      "precheck": 0,
+      "ready": 11,
+      "rejected": 0
+    },
+    "PRODUCT_SPEC": {
+      "input": 12,
+      "precheck": 0,
+      "ready": 12,
+      "rejected": 0
+    }
+  }
+}

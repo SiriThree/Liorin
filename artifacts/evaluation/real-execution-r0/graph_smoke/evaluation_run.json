@@ -1,0 +1,82 @@
+{
+  "eligibilities": [
+    {
+      "case_id": "E2E7-0001",
+      "reasons": [],
+      "status": "ELIGIBLE",
+      "unsupported_criteria": []
+    },
+    {
+      "case_id": "E2E7-0002",
+      "reasons": [],
+      "status": "ELIGIBLE",
+      "unsupported_criteria": []
+    },
+    {
+      "case_id": "E2E7-0060",
+      "reasons": [],
+      "status": "ELIGIBLE",
+      "unsupported_criteria": []
+    },
+    {
+      "case_id": "E2E7-0074",
+      "reasons": [],
+      "status": "ELIGIBLE",
+      "unsupported_criteria": []
+    },
+    {
+      "case_id": "E2E7-0013",
+      "reasons": [],
+      "status": "ELIGIBLE",
+      "unsupported_criteria": []
+    }
+  ],
+  "judgment_count": 5,
+  "metadata": {
+    "dataset_hash": "e6bb24d142633582d4b507a306811f1498f28fd12ffd6b5d3b61bf4a324fd93d",
+    "dataset_name": "liorin-canonical-formal39-r0-dev34-validation5",
+    "dataset_version": "1.0",
+    "embedding": "huggingface",
+    "environment": {
+      "judge_configured": false,
+      "pythonpath": null
+    },
+    "evaluation_schema_version": "2.0",
+    "evaluator_version": "phase3-evidence-recovery-v1",
+    "git_commit": "f13ed72d1b0264b1f54d600a2a39ae0045937d65",
+    "judge_model": null,
+    "judge_prompt_versions": [],
+    "judge_provider": null,
+    "judge_run_metadata": null,
+    "model": "openai:qwen-plus",
+    "phase3": {
+      "evidence_diagnostics": 5,
+      "grounding_diagnostics": 5,
+      "recovery_diagnostics": 5,
+      "single_execution_only": true
+    },
+    "phase5": {
+      "fail_anywhere": true,
+      "failure_attributions": 5,
+      "safety_diagnostics": 5,
+      "single_execution_only": true
+    },
+    "phase5_policy_versions": {
+      "artifact_policy_version": null,
+      "attribution_policy_version": "earliest_causal_fail_anywhere_v1",
+      "fail_anywhere_policy": "fail_anywhere_v1",
+      "failure_taxonomy_version": "1.0",
+      "governance_policy_version": null,
+      "identity_policy_version": null,
+      "memory_governance_version": null,
+      "safety_evaluator_version": "5.0",
+      "tool_policy_version": null
+    },
+    "production_config_hash": "c0063a9317bef1d07ad7b91769db57310cfbdaa191bf35543b5840b231ab1851",
+    "run_id": "evalrun:7347f7e80e9a4acebb52b516b7a203c8",
+    "task_success_denominator_policy": "PASS / (PASS + evaluated FAIL + production EXECUTION_ERROR); evaluation infrastructure INCOMPLETE excluded and separately reported; ineligible cases excluded and explicitly counted",
+    "timestamp": "2026-08-09T05:39:22.252995+00:00"
+  },
+  "prediction_count": 5,
+  "run_id": "evalrun:7347f7e80e9a4acebb52b516b7a203c8"
+}

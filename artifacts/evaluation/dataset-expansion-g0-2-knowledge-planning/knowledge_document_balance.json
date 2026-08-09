@@ -1,0 +1,29 @@
+{
+  "covered": 22,
+  "max_count": 12,
+  "max_ratio": 0.066667,
+  "plans_per_document": {
+    "LIO-PROD-001_VR头显手册": 8,
+    "LIO-PROD-002_人体工学椅手册": 4,
+    "LIO-PROD-003_健身单车手册": 8,
+    "LIO-PROD-004_健身追踪器手册": 12,
+    "LIO-PROD-005_儿童电动摩托车手册": 9,
+    "LIO-PROD-006_冰箱手册": 11,
+    "LIO-PROD-007_功能键盘手册": 8,
+    "LIO-PROD-008_发电机手册": 9,
+    "LIO-PROD-009_可编程温控器手册": 8,
+    "LIO-PROD-010_吹风机手册": 9,
+    "LIO-PROD-011_摩托艇手册": 7,
+    "LIO-PROD-012_水泵手册": 8,
+    "LIO-PROD-013_洗碗机手册": 10,
+    "LIO-PROD-014_烤箱手册": 8,
+    "LIO-PROD-015_电钻手册": 9,
+    "LIO-PROD-016_相机手册": 9,
+    "LIO-PROD-017_空气净化器手册": 7,
+    "LIO-PROD-018_空调手册": 9,
+    "LIO-PROD-019_蒸汽清洁机手册": 8,
+    "LIO-PROD-020_蓝牙激光鼠标手册": 8,
+    "after_sales_policy": 3,
+    "liorin_support_faq": 8
+  }
+}

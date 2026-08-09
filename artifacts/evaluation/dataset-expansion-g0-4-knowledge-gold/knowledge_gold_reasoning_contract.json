@@ -1,0 +1,14 @@
+{
+  "derived_fact_count": 0,
+  "reasoning_types": {
+    "ATTRIBUTE_LOOKUP": 12,
+    "COMPATIBILITY_REASONING": 17,
+    "CONDITION_APPLICATION": 10,
+    "DIRECT_LOOKUP": 49,
+    "LIMITATION_REASONING": 12,
+    "MULTI_FACT_SYNTHESIS": 42,
+    "MULTI_SECTION_SYNTHESIS": 13,
+    "POLICY_INTERPRETATION": 11,
+    "SET_RETRIEVAL": 5
+  }
+}

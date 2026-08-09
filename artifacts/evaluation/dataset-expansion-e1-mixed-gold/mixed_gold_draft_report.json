@@ -1,0 +1,36 @@
+{
+  "by_family": {
+    "MIXED_ORDER_PRODUCT_MANUAL": {
+      "NEEDS_MANUAL_PRECHECK": 18
+    },
+    "MIXED_ORDER_STATUS_POLICY": {
+      "READY_FOR_DUAL_ANNOTATION": 8
+    },
+    "MIXED_TICKET_TROUBLESHOOTING": {
+      "NEEDS_MANUAL_PRECHECK": 8
+    },
+    "MIXED_WARRANTY_PRODUCT_MANUAL": {
+      "NEEDS_MANUAL_PRECHECK": 16
+    },
+    "MIXED_WARRANTY_STATUS_POLICY": {
+      "READY_FOR_DUAL_ANNOTATION": 8
+    }
+  },
+  "document_evidence_count": 58,
+  "drafted": 58,
+  "fact_role_distribution": {
+    "ANSWER_REQUIRED": 74,
+    "SUPPORTING_ONLY": 8,
+    "TASK_REQUIRED_INTERMEDIATE": 100
+  },
+  "input_count": 58,
+  "policy_rule_distribution": {
+    "DETERMINISTIC": 2,
+    "QUALIFIED_BUT_USABLE": 2
+  },
+  "status_distribution": {
+    "NEEDS_MANUAL_PRECHECK": 42,
+    "READY_FOR_DUAL_ANNOTATION": 16
+  },
+  "structured_evidence_count": 58
+}

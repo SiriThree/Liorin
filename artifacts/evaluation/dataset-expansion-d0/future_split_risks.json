@@ -1,0 +1,38 @@
+{
+  "action": "Do not execute split in Phase D0; use these grouping keys when candidate pool exists.",
+  "recommended_group_split_keys": [
+    "document_family",
+    "stable section/evidence group",
+    "semantic_family_id",
+    "product/model family",
+    "customer/entity group",
+    "policy family"
+  ],
+  "risks": [
+    {
+      "reason": "paraphrases of one fact can leak exact evidence semantics",
+      "risk": "same source section across splits",
+      "severity": "HIGH"
+    },
+    {
+      "reason": "surface variation is not independent task diversity",
+      "risk": "same semantic family + same GoldFact/evidence group across splits",
+      "severity": "HIGH"
+    },
+    {
+      "reason": "structured entity memorization/leakage",
+      "risk": "same customer/order/ticket/warranty family across splits",
+      "severity": "HIGH"
+    },
+    {
+      "reason": "overstates product-domain generalization",
+      "risk": "random split by case while same product/manual dominates",
+      "severity": "MEDIUM"
+    },
+    {
+      "reason": "policy applicability variants can share identical Gold",
+      "risk": "same policy section across validation/trusted test",
+      "severity": "HIGH"
+    }
+  ]
+}

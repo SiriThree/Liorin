@@ -1,0 +1,158 @@
+[
+  {
+    "candidate_id": "KQC-25f6fde8f9161224",
+    "derived_conclusions": [],
+    "issues": [],
+    "required_sections": [
+      "LIO-PROD-004_健身追踪器手册:sec:3e8367903666",
+      "LIO-PROD-004_健身追踪器手册:sec:5cb561d2cf25"
+    ],
+    "status": "READY_FOR_DUAL_ANNOTATION",
+    "task_plan_id": "KTP-93d892442d8486ac",
+    "two_section_necessity": true
+  },
+  {
+    "candidate_id": "KQC-2fb69a44680d0a29",
+    "derived_conclusions": [],
+    "issues": [],
+    "required_sections": [
+      "LIO-PROD-006_冰箱手册:sec:51058de998a4",
+      "LIO-PROD-006_冰箱手册:sec:6981ff80e1cc"
+    ],
+    "status": "READY_FOR_DUAL_ANNOTATION",
+    "task_plan_id": "KTP-6a9740333273325a",
+    "two_section_necessity": true
+  },
+  {
+    "candidate_id": "KQC-36b6aef61e70931b",
+    "derived_conclusions": [],
+    "issues": [],
+    "required_sections": [
+      "LIO-PROD-001_VR头显手册:sec:b939e880d369",
+      "LIO-PROD-001_VR头显手册:sec:ef67f1b04ea9"
+    ],
+    "status": "READY_FOR_DUAL_ANNOTATION",
+    "task_plan_id": "KTP-e1e454a71ab21012",
+    "two_section_necessity": true
+  },
+  {
+    "candidate_id": "KQC-38f2d5b0e43e3645",
+    "derived_conclusions": [],
+    "issues": [],
+    "required_sections": [
+      "LIO-PROD-018_空调手册:sec:2488ba9bad6b",
+      "LIO-PROD-018_空调手册:sec:c4ec7e68423e"
+    ],
+    "status": "READY_FOR_DUAL_ANNOTATION",
+    "task_plan_id": "KTP-971bfdaa2d8e01ef",
+    "two_section_necessity": true
+  },
+  {
+    "candidate_id": "KQC-53c7d34f3d3bca9b",
+    "derived_conclusions": [],
+    "issues": [],
+    "required_sections": [
+      "LIO-PROD-013_洗碗机手册:sec:090d5736d3a4",
+      "LIO-PROD-013_洗碗机手册:sec:65ce4752c6ed"
+    ],
+    "status": "READY_FOR_DUAL_ANNOTATION",
+    "task_plan_id": "KTP-f984c10c6e3fb56e",
+    "two_section_necessity": true
+  },
+  {
+    "candidate_id": "KQC-60f2e83940058eb5",
+    "derived_conclusions": [],
+    "issues": [],
+    "required_sections": [
+      "LIO-PROD-004_健身追踪器手册:sec:3047617170ed",
+      "LIO-PROD-004_健身追踪器手册:sec:8505270de0ae"
+    ],
+    "status": "READY_FOR_DUAL_ANNOTATION",
+    "task_plan_id": "KTP-ecd226ca31568a47",
+    "two_section_necessity": true
+  },
+  {
+    "candidate_id": "KQC-6638a267703423ca",
+    "derived_conclusions": [],
+    "issues": [],
+    "required_sections": [
+      "LIO-PROD-004_健身追踪器手册:sec:5cb561d2cf25",
+      "LIO-PROD-004_健身追踪器手册:sec:c97eb6b7c198"
+    ],
+    "status": "READY_FOR_DUAL_ANNOTATION",
+    "task_plan_id": "KTP-d2609e3059e297f8",
+    "two_section_necessity": true
+  },
+  {
+    "candidate_id": "KQC-858a6b14d07e9db0",
+    "derived_conclusions": [],
+    "issues": [],
+    "required_sections": [
+      "LIO-PROD-006_冰箱手册:sec:c14d292be016",
+      "LIO-PROD-006_冰箱手册:sec:f48ed12574cf"
+    ],
+    "status": "READY_FOR_DUAL_ANNOTATION",
+    "task_plan_id": "KTP-1d382f7413c101fd",
+    "two_section_necessity": true
+  },
+  {
+    "candidate_id": "KQC-8deffd71b64c4a37",
+    "derived_conclusions": [],
+    "issues": [],
+    "required_sections": [
+      "LIO-PROD-003_健身单车手册:sec:ccc1c57d3ee0",
+      "LIO-PROD-003_健身单车手册:sec:e9742f7864d2"
+    ],
+    "status": "READY_FOR_DUAL_ANNOTATION",
+    "task_plan_id": "KTP-788497a2e9ae733e",
+    "two_section_necessity": true
+  },
+  {
+    "candidate_id": "KQC-8eb99f9e3d1ffebd",
+    "derived_conclusions": [],
+    "issues": [],
+    "required_sections": [
+      "LIO-PROD-004_健身追踪器手册:sec:3047617170ed",
+      "LIO-PROD-004_健身追踪器手册:sec:9f986352ba9e"
+    ],
+    "status": "READY_FOR_DUAL_ANNOTATION",
+    "task_plan_id": "KTP-d51021ad35f9f7f7",
+    "two_section_necessity": true
+  },
+  {
+    "candidate_id": "KQC-a0fc30e966def6b2",
+    "derived_conclusions": [],
+    "issues": [],
+    "required_sections": [
+      "LIO-PROD-013_洗碗机手册:sec:7037773459e3",
+      "LIO-PROD-013_洗碗机手册:sec:d9df0d43182c"
+    ],
+    "status": "READY_FOR_DUAL_ANNOTATION",
+    "task_plan_id": "KTP-e497e52642254832",
+    "two_section_necessity": true
+  },
+  {
+    "candidate_id": "KQC-e1090e8bfa929883",
+    "derived_conclusions": [],
+    "issues": [],
+    "required_sections": [
+      "LIO-PROD-013_洗碗机手册:sec:65ce4752c6ed",
+      "LIO-PROD-013_洗碗机手册:sec:7037773459e3"
+    ],
+    "status": "READY_FOR_DUAL_ANNOTATION",
+    "task_plan_id": "KTP-6f9d3807120ee617",
+    "two_section_necessity": true
+  },
+  {
+    "candidate_id": "KQC-ebc801050155fce7",
+    "derived_conclusions": [],
+    "issues": [],
+    "required_sections": [
+      "LIO-PROD-006_冰箱手册:sec:51058de998a4",
+      "LIO-PROD-006_冰箱手册:sec:6981ff80e1cc"
+    ],
+    "status": "READY_FOR_DUAL_ANNOTATION",
+    "task_plan_id": "KTP-0e04dcad431e2dad",
+    "two_section_necessity": true
+  }
+]

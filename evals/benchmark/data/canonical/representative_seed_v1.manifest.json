@@ -1,0 +1,56 @@
+{
+  "annotation_status_distribution": {
+    "NEEDS_REVIEW": 15
+  },
+  "case_count": 15,
+  "category_distribution": {
+    "KNOWLEDGE_QA": 4,
+    "MIXED_KNOWLEDGE_STRUCTURED": 2,
+    "PRIVATE_BUSINESS_QUERY": 3,
+    "SAFETY_GOVERNANCE": 4,
+    "TROUBLESHOOTING": 2
+  },
+  "contamination_status": "DEVELOPMENT_SCHEMA_COVERAGE_ONLY",
+  "created_at": "2026-08-08T08:06:08Z",
+  "dataset_hash": "c1df7cb32c383ed11c95ae772fcabcd408a4f41fd450c7f4b740704da99da5de",
+  "dataset_name": "liorin_phase1_representative_seed",
+  "dataset_version": "1.0",
+  "difficulty_distribution": {
+    "HARD": 8,
+    "MEDIUM": 7
+  },
+  "gold_status": "SOURCE_GROUNDED_SCHEMA_SEED_NEEDS_REVIEW",
+  "intended_usage": "SCHEMA_VALIDATION_ONLY",
+  "review_status": "NOT_HUMAN_REVIEWED",
+  "schema_version": "1.0",
+  "source_datasets": [
+    "evals/benchmark/corpus/corpus_v7_3.json",
+    "evals/benchmark/data/dev_v7_3.json",
+    "evals/benchmark/data/validation_v7_3.json",
+    "data/structured/customers.json",
+    "data/structured/orders.json",
+    "data/structured/tickets.json",
+    "data/structured/warranty_cases.json"
+  ],
+  "split_distribution": {
+    "DEVELOPMENT": 15
+  },
+  "subcategory_distribution": {
+    "AMBIGUOUS_SYMPTOM": 1,
+    "DIRECT": 1,
+    "EXACT_SPEC": 1,
+    "FAQ": 1,
+    "MULTI_DOCUMENT": 1,
+    "ORDER": 1,
+    "ORDER_POLICY": 1,
+    "PRODUCT_WARRANTY": 1,
+    "PROMPT_INJECTION": 1,
+    "REGION_POLICY": 1,
+    "TENANT_ISOLATION": 1,
+    "TICKET": 1,
+    "UNAUTHORIZED_TOOL": 1,
+    "USER_ISOLATION": 1,
+    "WARRANTY": 1
+  },
+  "trust_level": "DEVELOPMENT"
+}

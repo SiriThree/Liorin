@@ -45,7 +45,9 @@ def test_support_workflow_node_persists_working_memory(monkeypatch):
     supervisor_mod = types.ModuleType("agents.conversation_supervisor"); supervisor_mod.create_supervisor_agent = lambda **kwargs: object()
     knowledge_mod = types.ModuleType("agents.knowledge_agent"); knowledge_mod.create_knowledge_agent = lambda **kwargs: object()
     order_mod = types.ModuleType("agents.order_agent"); order_mod.create_order_agent = lambda **kwargs: object()
-    database_mod = types.ModuleType("tools.database"); database_mod.get_database = lambda: object()
+    database_mod = types.ModuleType("tools.database")
+    database_mod.STRUCTURED_READ_PERMISSION = "structured:read:self"
+    database_mod.lookup_customer_by_email = lambda email: None
 
     for name, module in {
         "langchain": langchain, "langchain.chat_models": chat_models,

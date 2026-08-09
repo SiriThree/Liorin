@@ -13,7 +13,7 @@ from config import DEFAULT_MODEL
 
 from .adapters import behavior, end_to_end, retrieval, routing, understanding
 from .corpus_registry import BenchmarkCorpusRegistry
-from .data_paths import DATASETS
+from .data_paths import DATASETS, DATASET_TRUST_STATUS
 from .scoring import score_predictions
 
 
@@ -88,12 +88,21 @@ class BenchmarkRunner:
         self.config.output_path.write_text(json.dumps(rows, ensure_ascii=False, indent=2), encoding="utf-8")
         return rows
 
+    def _selected_samples_have_gold(self) -> bool:
+        samples = self.load_samples()
+        return bool(samples) and all(bool(sample.get("gold")) for sample in samples)
+
     def score(self) -> dict[str, Any]:
+        if not self._selected_samples_have_gold():
+            raise ValueError(
+                "selected dataset has no local Gold; generate predictions only and score in the Gold-custodian environment"
+            )
         metadata = {
             "created_at": datetime.now(timezone.utc).isoformat(),
             "git_commit": git_commit(),
             "model": self.config.model or DEFAULT_MODEL,
             "dataset": self.config.dataset,
+            "dataset_trust_status": DATASET_TRUST_STATUS.get(self.config.dataset, "CUSTOM_UNVERIFIED"),
             "layers": sorted(self.config.layers) if self.config.layers else "all",
         }
         report = score_predictions(
@@ -108,5 +117,21 @@ class BenchmarkRunner:
         return report
 
     def run(self) -> dict[str, Any]:
-        self.run_predictions()
+        rows = self.run_predictions()
+        if not self._selected_samples_have_gold():
+            report = {
+                "dataset": str(self.dataset_path),
+                "dataset_trust_status": DATASET_TRUST_STATUS.get(self.config.dataset, "CUSTOM_UNVERIFIED"),
+                "sample_count": len(self.load_samples()),
+                "prediction_count": len(rows),
+                "macro_objective_score": None,
+                "scoring_status": "PREDICTIONS_ONLY_GOLD_NOT_AVAILABLE",
+                "warning": (
+                    "No local Gold was available. No benchmark score was computed. "
+                    "The historical 'blind' name is not a Phase-0 trust claim."
+                ),
+            }
+            self.config.report_path.parent.mkdir(parents=True, exist_ok=True)
+            self.config.report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
+            return report
         return self.score()

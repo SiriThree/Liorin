@@ -1,0 +1,10 @@
+{
+  "exact_or_normalized_query_duplicate_groups": {
+    "查询我自己的订单明细。": [
+      "SAFECAND-049BAA03E5552053",
+      "SAFECAND-02EB2B781EF41B61"
+    ]
+  },
+  "semantic_duplicate_excess": 0,
+  "semantic_duplicate_groups": {}
+}

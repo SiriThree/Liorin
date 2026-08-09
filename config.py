@@ -20,6 +20,14 @@ DEFAULT_MODEL = os.getenv("LIORIN_MODEL", "openai:deepseek-chat")
 # This excludes the fixed system prompt/tool schemas and is enforced again at
 # the model-call boundary for the active turn.
 DEFAULT_CONTEXT_MAX_TOKENS = int(os.getenv("LIORIN_CONTEXT_MAX_TOKENS", "4096"))
+# Phase-4 controlled context strategy. The default preserves the existing full
+# Liorin Context + Working/Long-term Memory + Artifact behavior.
+DEFAULT_CONTEXT_STRATEGY = os.getenv(
+    "LIORIN_CONTEXT_STRATEGY", "LIORIN_CONTEXT_MEMORY_ARTIFACT"
+)
+DEFAULT_CONTEXT_SLIDING_WINDOW_TURNS = int(
+    os.getenv("LIORIN_CONTEXT_SLIDING_WINDOW_TURNS", "3")
+)
 
 
 def _env_bool(name: str, default: bool) -> bool:
@@ -98,6 +106,8 @@ class Context:
 
     model: str = DEFAULT_MODEL
     context_max_tokens: int = DEFAULT_CONTEXT_MAX_TOKENS
+    context_strategy: str = DEFAULT_CONTEXT_STRATEGY
+    context_sliding_window_turns: int = DEFAULT_CONTEXT_SLIDING_WINDOW_TURNS
     context_compaction_enabled: bool = DEFAULT_CONTEXT_COMPACTION_ENABLED
     context_compaction_item_threshold: int = DEFAULT_CONTEXT_COMPACTION_ITEM_THRESHOLD
     context_compaction_recent_messages: int = DEFAULT_CONTEXT_COMPACTION_RECENT_MESSAGES
@@ -108,6 +118,19 @@ class Context:
     def __post_init__(self) -> None:
         if self.context_max_tokens <= 0:
             raise ValueError("context_max_tokens must be greater than zero")
+        strategy = str(self.context_strategy).upper()
+        allowed_strategies = {
+            "FULL_HISTORY",
+            "SLIDING_WINDOW",
+            "SUMMARY_ONLY",
+            "LIORIN_CONTEXT",
+            "LIORIN_CONTEXT_MEMORY_ARTIFACT",
+        }
+        if strategy not in allowed_strategies:
+            raise ValueError(f"unsupported context_strategy: {self.context_strategy!r}")
+        self.context_strategy = strategy
+        if self.context_sliding_window_turns <= 0:
+            raise ValueError("context_sliding_window_turns must be greater than zero")
         if self.context_compaction_item_threshold <= 0:
             raise ValueError("context_compaction_item_threshold must be greater than zero")
         if self.context_compaction_recent_messages < 0:

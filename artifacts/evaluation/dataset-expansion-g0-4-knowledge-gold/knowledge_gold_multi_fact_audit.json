@@ -1,0 +1,10 @@
+{
+  "average_answer_required_facts": 2.5,
+  "facts_demoted_from_required": 5,
+  "facts_promoted_to_required": 0,
+  "input": 42,
+  "necessity_failures": 3,
+  "precheck": 25,
+  "ready": 17,
+  "rejected": 0
+}

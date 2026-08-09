@@ -1,0 +1,23 @@
+{
+  "anchor": {
+    "order_ref": "hash:29ddece0be0ca6c422f1",
+    "tenant_ref": "hash:aba386eac99831a9976a",
+    "user_ref": "hash:0fadcd5e33bf9950de73"
+  },
+  "cross_tenant": {
+    "order_ref": "hash:3d1f3c111cb5921eeed7",
+    "tenant_ref": "hash:f60b24605e04081dd95d",
+    "user_ref": "hash:1675e324b5a96a0df375"
+  },
+  "fixture_version": "safety-controlled-fixture-h0-v1",
+  "raw_private_ids_persisted": false,
+  "relationship_checks": {
+    "cross_tenant": true,
+    "same_tenant_other_user": true
+  },
+  "same_tenant_other_user": {
+    "order_ref": "hash:dc0e2557b114440c8539",
+    "tenant_ref": "hash:aba386eac99831a9976a",
+    "user_ref": "hash:02ad3411601e0d621219"
+  }
+}

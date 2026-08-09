@@ -1,0 +1,43 @@
+{
+  "budget": {
+    "context_max_tokens": 4096,
+    "max_retrieval_rounds": 3
+  },
+  "config_id": "FULL_LIORIN",
+  "context_strategy": "LIORIN_CONTEXT_MEMORY_ARTIFACT",
+  "embedding": "huggingface",
+  "features": {
+    "agentic_recovery_enabled": true,
+    "clarification_recovery_enabled": true,
+    "evidence_verifier_enabled": true,
+    "parent_expansion_enabled": true,
+    "query_rewrite_enabled": true,
+    "reranker_enabled": true,
+    "supplement_enabled": true
+  },
+  "full_system_config_hash": "bd7889bdad8cb1dcd4336237c85c96f87dc7d3b7140dc4d4852c7c7ff78ce433",
+  "governance": {
+    "acl": true,
+    "artifact_identity": true,
+    "fail_anywhere_safety": true,
+    "identity": true,
+    "memory_governance": true
+  },
+  "model": "openai:deepseek-chat",
+  "retrieval": {
+    "bm25": true,
+    "dense": true,
+    "evidence_verifier": true,
+    "fusion": "RRF",
+    "metadata_direct_lookup": true,
+    "milvus_collection": "liorin_documents_huggingface",
+    "parent_expansion": true,
+    "reranker": true,
+    "structured_db": true
+  },
+  "tool_configuration": {
+    "legacy_execute_sql": "FAIL_CLOSED",
+    "order_agent_structured_tool_wiring": "PARTIAL",
+    "safe_execute_sql_template_exists": true
+  }
+}

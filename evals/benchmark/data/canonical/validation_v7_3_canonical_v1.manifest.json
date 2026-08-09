@@ -1,0 +1,33 @@
+{
+  "annotation_status_distribution": {
+    "MIGRATED_LEGACY": 5
+  },
+  "case_count": 5,
+  "category_distribution": {
+    "KNOWLEDGE_QA": 4,
+    "SAFETY_GOVERNANCE": 1
+  },
+  "contamination_status": "VALIDATION_ONLY_NO_TEST_CLAIM",
+  "created_at": "2026-08-08T08:06:08Z",
+  "dataset_hash": "bcbfc46557af73fd3c4956101f1fb25b5ce1fe39659966c8971ad499c6f3c022",
+  "dataset_name": "liorin_validation_v7_3_canonical",
+  "dataset_version": "1.0",
+  "difficulty_distribution": {
+    "MEDIUM": 5
+  },
+  "gold_status": "LEGACY_GOLD_MIGRATED_CONSERVATIVELY",
+  "intended_usage": "VALIDATION",
+  "review_status": "MIGRATED_LEGACY_NOT_HUMAN_REVIEWED",
+  "schema_version": "1.0",
+  "source_datasets": [
+    "validation_v7_3.json"
+  ],
+  "split_distribution": {
+    "VALIDATION": 5
+  },
+  "subcategory_distribution": {
+    "EXACT_SPEC": 4,
+    "SENSITIVE_DATA": 1
+  },
+  "trust_level": "VALIDATION"
+}

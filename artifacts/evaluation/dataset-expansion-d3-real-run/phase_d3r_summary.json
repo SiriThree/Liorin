@@ -1,0 +1,19 @@
+{
+  "actual_dual_annotation": "BLOCKED",
+  "adjudication_runs": 0,
+  "agreement": "NOT RUN",
+  "annotation_runtime": "BLOCKED",
+  "annotator_a_real_calls": 0,
+  "annotator_b_real_calls": 0,
+  "blocker": "REAL_ANNOTATOR_RUNTIME_NOT_READY",
+  "excluded_precheck": 8,
+  "frozen_packets": 76,
+  "human_review_runs": 0,
+  "incomplete_pairs": 76,
+  "new_formal_cases": 0,
+  "phase": "D3R_REAL_DUAL_ANNOTATION",
+  "production_agent_execution": "NOT RUN",
+  "status": "PARTIAL",
+  "valid_pairs": 0,
+  "version": "private-business-d3r-v1"
+}

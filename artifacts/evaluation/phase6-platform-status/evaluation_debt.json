@@ -1,0 +1,50 @@
+{
+  "items": [
+    {
+      "detail": "Current environment lacks langchain; Support Graph import fails.",
+      "id": "production_dependency",
+      "status": "BLOCKED"
+    },
+    {
+      "detail": "Real Judge cannot import/run; LIORIN_JUDGE_MODEL and provider credentials are required for formal run.",
+      "id": "judge_dependency",
+      "status": "BLOCKED"
+    },
+    {
+      "detail": "No trusted TEST split with independent Gold custody and no-tuning provenance.",
+      "id": "trusted_test",
+      "status": "NOT_READY"
+    },
+    {
+      "detail": "12 candidate sessions / 29 turns; 0 formal eligible; 9 NEEDS_REVIEW and 3 MISSING_CONTEXT_GOLD.",
+      "id": "multi_turn_review",
+      "status": "NOT_READY"
+    },
+    {
+      "detail": "Recovery Challenge Dataset coverage remains COVERAGE_INSUFFICIENT_NEEDS_REVIEW.",
+      "id": "recovery_subset",
+      "status": "NOT_READY"
+    },
+    {
+      "detail": "Only 3 Gold-eligible single-turn safety candidates; formal run not executed.",
+      "id": "safety_scale",
+      "status": "PARTIAL"
+    },
+    {
+      "detail": "Safe execute_sql_template exists, while Order Agent remains wired to fail-closed legacy execute_sql.",
+      "id": "structured_tool_wiring",
+      "status": "PARTIAL"
+    },
+    {
+      "detail": "agentevals/openevals moved to optional legacy-evaluation extra, but offline uv resolution cannot refresh lock because httpx is absent from cache.",
+      "id": "uv_lock_refresh",
+      "status": "BLOCKED_OFFLINE"
+    },
+    {
+      "detail": "No VALID real formal run has been explicitly promoted; baseline registry remains empty.",
+      "id": "baseline",
+      "status": "NOT_READY"
+    }
+  ],
+  "schema_version": "1.0"
+}

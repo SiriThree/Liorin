@@ -3,7 +3,6 @@
 from typing import Any, Literal, NamedTuple
 
 from langchain.chat_models import init_chat_model
-from langchain_community.utilities import SQLDatabase
 from langchain_core.messages import AIMessage, HumanMessage
 from langgraph.checkpoint.memory import MemorySaver
 from langgraph.graph import START, MessagesState, StateGraph
@@ -16,9 +15,10 @@ from agents.knowledge_agent import create_knowledge_agent
 from agents.order_agent import create_order_agent
 from config import DEFAULT_MODEL, Context
 from identity import IdentityResolver
-from tools.database import get_database
+from tools.database import STRUCTURED_READ_PERMISSION, lookup_customer_by_email
 from memory.facts import get_default_long_term_memory_runtime
 from memory.working import WorkingMemoryUpdater
+from observability import RuntimeEventType, emit_identity_resolved, get_default_trace_recorder
 
 
 class IntermediateState(MessagesState):
@@ -30,6 +30,7 @@ class IntermediateState(MessagesState):
     """
 
     customer_id: NotRequired[str]
+    structured_permissions: NotRequired[list[str]]
     workflow_state: NotRequired[dict[str, Any]]
     unresolved_slots: NotRequired[list[str]]
     session_id: NotRequired[str]
@@ -50,6 +51,16 @@ _WORKING_MEMORY_UPDATER = WorkingMemoryUpdater()
 _LONG_TERM_MEMORY_RUNTIME = get_default_long_term_memory_runtime()
 _MAX_CHECKPOINT_LIFECYCLE_RECORDS = 120
 _MAX_LONG_TERM_MEMORY_LIFECYCLE_RECORDS = 120
+
+
+def _emit_workflow_event(event_type: RuntimeEventType, **attributes: Any) -> None:
+    """Emit read-only evaluation/operations diagnostics without affecting routing."""
+
+    try:
+        get_default_trace_recorder().emit(event_type, attributes=attributes)
+    except Exception:
+        # Trace export must never change the production workflow decision.
+        pass
 
 
 def _with_working_memory(
@@ -77,6 +88,7 @@ def _with_working_memory(
     identity_context = _IDENTITY_RESOLVER.resolve(candidate_state, runtime=runtime)
     candidate_state["identity_context"] = identity_context.to_state()
     candidate_state["session_id"] = identity_context.session_id
+    emit_identity_resolved(identity_context, source="IdentityResolver", stage="support_workflow")
 
     existing_records = list(state.get("working_memory_lifecycle_records", []) or [])
     result = _WORKING_MEMORY_UPDATER.update(
@@ -146,10 +158,11 @@ class EmailExtraction(TypedDict):
 
 
 class CustomerInfo(NamedTuple):
-    """Customer information returned from validation."""
+    """Customer information returned from tenant-bound validation."""
 
     customer_id: str
     customer_name: str
+    tenant_id: str
 
 
 def classify_query_intent(query: str, model: str = DEFAULT_MODEL) -> QueryClassification:
@@ -177,21 +190,24 @@ def create_email_extractor(model: str = DEFAULT_MODEL):
     return llm.with_structured_output(EmailExtraction)
 
 
-def validate_customer_email(email: str, db: SQLDatabase) -> CustomerInfo | None:
-    """Validate email format and look up the customer in the database."""
-    if not email or "@" not in email:
-        return None
+def validate_customer_email(email: str, *, tenant_id: str) -> CustomerInfo | None:
+    """Parameterised, tenant-bound customer lookup used before structured access.
 
-    result = db._execute(
-        f"SELECT customer_id, name FROM customers WHERE email = '{email}'"
+    Email is only the existing workflow's verification factor; this function
+    makes that legacy flow fail closed across tenants and removes the previous
+    string-formatted SQL lookup.
+    """
+    row = lookup_customer_by_email(email)
+    if row is None:
+        return None
+    customer_id, customer_name, customer_tenant_id = row
+    if str(customer_tenant_id) != str(tenant_id):
+        return None
+    return CustomerInfo(
+        customer_id=customer_id,
+        customer_name=customer_name,
+        tenant_id=customer_tenant_id,
     )
-    rows = [tuple(row.values()) for row in result]
-
-    if not rows:
-        return None
-
-    customer_id, customer_name = rows[0]
-    return CustomerInfo(customer_id=customer_id, customer_name=customer_name)
 
 
 def query_router(
@@ -206,7 +222,7 @@ def query_router(
         else getattr(last_message, "content", "")
     )
 
-    if state.get("customer_id"):
+    if state.get("customer_id") and STRUCTURED_READ_PERMISSION in set(state.get("structured_permissions", []) or []):
         updates = _with_working_memory(
             state,
             {
@@ -221,6 +237,13 @@ def query_router(
             task_goal=task_goal,
             current_intent="verified_customer_support",
             runtime=runtime,
+        )
+        _emit_workflow_event(
+            RuntimeEventType.WORKFLOW_DECISION,
+            stage="query_router",
+            action="supervisor_agent",
+            requires_verification=False,
+            reason="already_verified_customer",
         )
         return Command(update=updates, goto="supervisor_agent")
 
@@ -244,6 +267,13 @@ def query_router(
             current_intent="account_specific_support",
             runtime=runtime,
         )
+        _emit_workflow_event(
+            RuntimeEventType.WORKFLOW_DECISION,
+            stage="query_router",
+            action="verify_customer",
+            requires_verification=True,
+            reason=str(query_classification.get("reasoning", ""))[:300],
+        )
         return Command(update=updates, goto="verify_customer")
 
     updates = _with_working_memory(
@@ -262,6 +292,13 @@ def query_router(
         current_intent="general_support",
         runtime=runtime,
     )
+    _emit_workflow_event(
+        RuntimeEventType.WORKFLOW_DECISION,
+        stage="query_router",
+        action="supervisor_agent",
+        requires_verification=False,
+        reason=str(query_classification.get("reasoning", ""))[:300],
+    )
     return Command(update=updates, goto="supervisor_agent")
 
 
@@ -276,13 +313,18 @@ def verify_customer(
     extraction = email_extractor.invoke([last_message])
 
     if extraction["email"]:
-        customer = validate_customer_email(extraction["email"], get_database())
+        active_identity = _IDENTITY_RESOLVER.resolve(state, runtime=runtime)
+        customer = validate_customer_email(
+            extraction["email"],
+            tenant_id=active_identity.tenant_id,
+        )
 
         if customer:
             updates = _with_working_memory(
                 state,
                 {
                     "customer_id": customer.customer_id,
+                    "structured_permissions": [STRUCTURED_READ_PERMISSION],
                     "messages": [AIMessage(content=f"身份验证通过。欢迎回来，{customer.customer_name}。")],
                     "workflow_state": {
                         "stage": "ready_for_supervisor",
@@ -295,6 +337,12 @@ def verify_customer(
                 reason="Customer identity verified",
                 current_intent="account_specific_support",
                 runtime=runtime,
+            )
+            _emit_workflow_event(
+                RuntimeEventType.AUTHORIZATION_DECISION,
+                stage="verify_customer",
+                decision="verified",
+                allowed=True,
             )
             return Command(update=updates, goto="supervisor_agent")
 
@@ -318,6 +366,12 @@ def verify_customer(
             memory_state={"failed_attempts": ["customer_email_not_found"]},
             runtime=runtime,
         )
+        _emit_workflow_event(
+            RuntimeEventType.AUTHORIZATION_DECISION,
+            stage="verify_customer",
+            decision="not_found",
+            allowed=False,
+        )
         return Command(update=updates, goto="collect_email")
 
     updates = _with_working_memory(
@@ -335,6 +389,12 @@ def verify_customer(
         reason="Customer email is still missing",
         current_intent="identity_verification",
         runtime=runtime,
+    )
+    _emit_workflow_event(
+        RuntimeEventType.AUTHORIZATION_DECISION,
+        stage="verify_customer",
+        decision="missing_identity",
+        allowed=False,
     )
     return Command(update=updates, goto="collect_email")
 
@@ -357,6 +417,12 @@ def collect_email(state: IntermediateState) -> Command[Literal["verify_customer"
         reason="Customer provided identity slot for validation",
         current_intent="identity_verification",
         memory_state={"next_actions": ["校验客户邮箱"]},
+    )
+    _emit_workflow_event(
+        RuntimeEventType.WORKFLOW_DECISION,
+        stage="collect_email",
+        action="verify_customer",
+        clarification=True,
     )
     return Command(update=updates, goto="verify_customer")
 

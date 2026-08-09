@@ -1,0 +1,76 @@
+{
+  "annotation_runs": 0,
+  "d3r_status": "DEFERRED_BY_ENVIRONMENT",
+  "e0_rejected_touched": 0,
+  "effective_after": 48,
+  "effective_before": 48,
+  "existing_formal_canonical_cases": 39,
+  "existing_formal_gold_collision_count": 0,
+  "fact_granularity": {
+    "ATOMIC_ACTION": 3,
+    "CONDITIONAL_ACTION": 14,
+    "FRAGMENT_ONLY": 5,
+    "LIMITATION": 5,
+    "MULTI_FACT_DEPENDENT": 2,
+    "PROCEDURE_STEP": 3,
+    "SAFETY_INSTRUCTION": 4,
+    "TROUBLESHOOTING_STEP": 6
+  },
+  "family_results": {
+    "MIXED_ORDER_PRODUCT_MANUAL": {
+      "REPAIRED_READY": 18
+    },
+    "MIXED_TICKET_TROUBLESHOOTING": {
+      "REPAIRED_READY": 8
+    },
+    "MIXED_WARRANTY_PRODUCT_MANUAL": {
+      "REPAIRED_READY": 16
+    }
+  },
+  "final_manual_ready": 42,
+  "final_policy_ready": 16,
+  "final_precheck": 0,
+  "final_ready_documents": 21,
+  "final_ready_families": 5,
+  "final_ready_products": 20,
+  "final_ready_sections": 22,
+  "final_reject": 0,
+  "final_total_ready": 58,
+  "gold_completeness_after_issues": 0,
+  "gold_completeness_before_issues": 42,
+  "gold_minimality_after_issues": 0,
+  "gold_minimality_before_issues": 42,
+  "llm_used": false,
+  "manual_precheck_input": 42,
+  "minimal_fact_group_cases": 12,
+  "mixed_necessity_invalidated": 0,
+  "new_annotation_batch_hash": "6987053d0f8f238fa6494f4ae828d9e552168239a1fc87618823d0b2164356d8",
+  "new_annotation_batch_id": "MIX-E1R-6987053D0F8F",
+  "new_formal_cases": 0,
+  "new_packet_count": 58,
+  "old_e1_batch_hash": "1fecb833d0b96ce695343df4543c27b6a50e98657c41ecc95a8068c3088d2861",
+  "old_e1_batch_id": "MIX-E1-1FECB833D0B9",
+  "old_e1_batch_unchanged": true,
+  "phase": "E1R_MANUAL_SCOPE_REPAIR",
+  "policy_ready_frozen": 16,
+  "production_agent_execution": "NOT RUN",
+  "query_leakage_count": 0,
+  "rejected_after_scope_repair": 0,
+  "repair_types": {
+    "CONDITION_ACTION_TARGETING": 9,
+    "MINIMAL_FACT_GROUP": 12,
+    "SINGLE_FACT_TARGETING": 5,
+    "SPECIFIC_OPERATION_TARGETING": 10,
+    "SYMPTOM_STEP_TARGETING": 6
+  },
+  "repaired_ready": 42,
+  "source_changes": {
+    "entity": 0,
+    "manual": 0,
+    "product_relation": 0,
+    "section": 0,
+    "selected_source_fact": 0
+  },
+  "status": "COMPLETE",
+  "still_needs_manual_precheck": 0
+}

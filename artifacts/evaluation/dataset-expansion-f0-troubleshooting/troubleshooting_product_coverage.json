@@ -1,0 +1,31 @@
+{
+  "candidate_counts": {
+    "LIO-PROD-001": 7,
+    "LIO-PROD-006": 6,
+    "LIO-PROD-008": 4,
+    "LIO-PROD-009": 5,
+    "LIO-PROD-010": 4,
+    "LIO-PROD-012": 8,
+    "LIO-PROD-013": 10,
+    "LIO-PROD-014": 5,
+    "LIO-PROD-015": 6,
+    "LIO-PROD-016": 7,
+    "LIO-PROD-018": 1,
+    "LIO-PROD-020": 3
+  },
+  "products": [
+    "LIO-PROD-001",
+    "LIO-PROD-006",
+    "LIO-PROD-008",
+    "LIO-PROD-009",
+    "LIO-PROD-010",
+    "LIO-PROD-012",
+    "LIO-PROD-013",
+    "LIO-PROD-014",
+    "LIO-PROD-015",
+    "LIO-PROD-016",
+    "LIO-PROD-018",
+    "LIO-PROD-020"
+  ],
+  "unique_products": 12
+}

@@ -84,4 +84,17 @@ def trace_event(
         "data": safe_data,
     }
     TRACE_SINK.emit(payload)
+    # Phase 0 read-only bridge: when retrieval runs inside a production execution
+    # trace, mirror the already-sanitized event so evaluators can consume the same
+    # execution rather than re-running Knowledge Agent/Retrieval for diagnostics.
+    try:
+        from observability import RuntimeEventType, get_default_trace_recorder
+
+        get_default_trace_recorder().emit(
+            RuntimeEventType.RETRIEVAL_EVENT,
+            attributes=payload,
+        )
+    except Exception:
+        # Observability must never alter retrieval behavior or availability.
+        pass
     return payload

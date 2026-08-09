@@ -1,0 +1,31 @@
+{
+  "candidate_counts": {
+    "LIO-PROD-001_VR头显手册": 7,
+    "LIO-PROD-006_冰箱手册": 6,
+    "LIO-PROD-008_发电机手册": 4,
+    "LIO-PROD-009_可编程温控器手册": 5,
+    "LIO-PROD-010_吹风机手册": 4,
+    "LIO-PROD-012_水泵手册": 8,
+    "LIO-PROD-013_洗碗机手册": 10,
+    "LIO-PROD-014_烤箱手册": 5,
+    "LIO-PROD-015_电钻手册": 6,
+    "LIO-PROD-016_相机手册": 7,
+    "LIO-PROD-018_空调手册": 1,
+    "LIO-PROD-020_蓝牙激光鼠标手册": 3
+  },
+  "documents": [
+    "LIO-PROD-001_VR头显手册",
+    "LIO-PROD-006_冰箱手册",
+    "LIO-PROD-008_发电机手册",
+    "LIO-PROD-009_可编程温控器手册",
+    "LIO-PROD-010_吹风机手册",
+    "LIO-PROD-012_水泵手册",
+    "LIO-PROD-013_洗碗机手册",
+    "LIO-PROD-014_烤箱手册",
+    "LIO-PROD-015_电钻手册",
+    "LIO-PROD-016_相机手册",
+    "LIO-PROD-018_空调手册",
+    "LIO-PROD-020_蓝牙激光鼠标手册"
+  ],
+  "unique_documents": 12
+}

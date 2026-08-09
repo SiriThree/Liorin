@@ -1,0 +1,9 @@
+{
+  "absolute_conversion": 0,
+  "ambiguity": 0,
+  "effective_time_hallucination": 0,
+  "exception_preserved": 11,
+  "input": 11,
+  "qualification_preserved": 11,
+  "region_hallucination": 0
+}

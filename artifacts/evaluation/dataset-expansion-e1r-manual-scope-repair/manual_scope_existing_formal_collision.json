@@ -1,0 +1,216 @@
+{
+  "exact_gold_collision_count": 0,
+  "existing_formal_mixed_count": 10,
+  "rows": [
+    {
+      "candidate_id": "MIX-9D5FA0040582A83D",
+      "colliding_case_ids": [],
+      "exact_existing_formal_gold_collision": false
+    },
+    {
+      "candidate_id": "MIX-913BE14C467787C4",
+      "colliding_case_ids": [],
+      "exact_existing_formal_gold_collision": false
+    },
+    {
+      "candidate_id": "MIX-47A3E6D211A54F68",
+      "colliding_case_ids": [],
+      "exact_existing_formal_gold_collision": false
+    },
+    {
+      "candidate_id": "MIX-7D174C67F16012E7",
+      "colliding_case_ids": [],
+      "exact_existing_formal_gold_collision": false
+    },
+    {
+      "candidate_id": "MIX-962718A668CE12DD",
+      "colliding_case_ids": [],
+      "exact_existing_formal_gold_collision": false
+    },
+    {
+      "candidate_id": "MIX-C3F80B2A72F8A5B6",
+      "colliding_case_ids": [],
+      "exact_existing_formal_gold_collision": false
+    },
+    {
+      "candidate_id": "MIX-25A82E94EB4C063F",
+      "colliding_case_ids": [],
+      "exact_existing_formal_gold_collision": false
+    },
+    {
+      "candidate_id": "MIX-61CDCE97A8E3A406",
+      "colliding_case_ids": [],
+      "exact_existing_formal_gold_collision": false
+    },
+    {
+      "candidate_id": "MIX-3ADDD4A321947949",
+      "colliding_case_ids": [],
+      "exact_existing_formal_gold_collision": false
+    },
+    {
+      "candidate_id": "MIX-65E4AF165752E851",
+      "colliding_case_ids": [],
+      "exact_existing_formal_gold_collision": false
+    },
+    {
+      "candidate_id": "MIX-3939BACE36C8FED8",
+      "colliding_case_ids": [],
+      "exact_existing_formal_gold_collision": false
+    },
+    {
+      "candidate_id": "MIX-41FF67F57E3853DF",
+      "colliding_case_ids": [],
+      "exact_existing_formal_gold_collision": false
+    },
+    {
+      "candidate_id": "MIX-F16BC4E07FFBF2ED",
+      "colliding_case_ids": [],
+      "exact_existing_formal_gold_collision": false
+    },
+    {
+      "candidate_id": "MIX-9FE9DA8828F110E2",
+      "colliding_case_ids": [],
+      "exact_existing_formal_gold_collision": false
+    },
+    {
+      "candidate_id": "MIX-ECF864B3C06DA931",
+      "colliding_case_ids": [],
+      "exact_existing_formal_gold_collision": false
+    },
+    {
+      "candidate_id": "MIX-579680AECAFADBC5",
+      "colliding_case_ids": [],
+      "exact_existing_formal_gold_collision": false
+    },
+    {
+      "candidate_id": "MIX-825C7AF9BA0C954C",
+      "colliding_case_ids": [],
+      "exact_existing_formal_gold_collision": false
+    },
+    {
+      "candidate_id": "MIX-1F05A4CC80409FDA",
+      "colliding_case_ids": [],
+      "exact_existing_formal_gold_collision": false
+    },
+    {
+      "candidate_id": "MIX-CB6E4EFC08336D67",
+      "colliding_case_ids": [],
+      "exact_existing_formal_gold_collision": false
+    },
+    {
+      "candidate_id": "MIX-4B68165E6BEA2A65",
+      "colliding_case_ids": [],
+      "exact_existing_formal_gold_collision": false
+    },
+    {
+      "candidate_id": "MIX-F50D9FB3BBD86FDF",
+      "colliding_case_ids": [],
+      "exact_existing_formal_gold_collision": false
+    },
+    {
+      "candidate_id": "MIX-DCEDFA677E01F9CA",
+      "colliding_case_ids": [],
+      "exact_existing_formal_gold_collision": false
+    },
+    {
+      "candidate_id": "MIX-E842631923DF73B2",
+      "colliding_case_ids": [],
+      "exact_existing_formal_gold_collision": false
+    },
+    {
+      "candidate_id": "MIX-E6B6C9C63A695CA2",
+      "colliding_case_ids": [],
+      "exact_existing_formal_gold_collision": false
+    },
+    {
+      "candidate_id": "MIX-40C0522AF54C417D",
+      "colliding_case_ids": [],
+      "exact_existing_formal_gold_collision": false
+    },
+    {
+      "candidate_id": "MIX-99EE88407E7E30FF",
+      "colliding_case_ids": [],
+      "exact_existing_formal_gold_collision": false
+    },
+    {
+      "candidate_id": "MIX-C0DD04F86A7FC24E",
+      "colliding_case_ids": [],
+      "exact_existing_formal_gold_collision": false
+    },
+    {
+      "candidate_id": "MIX-06544016CA95E17D",
+      "colliding_case_ids": [],
+      "exact_existing_formal_gold_collision": false
+    },
+    {
+      "candidate_id": "MIX-00A31623354FB89D",
+      "colliding_case_ids": [],
+      "exact_existing_formal_gold_collision": false
+    },
+    {
+      "candidate_id": "MIX-852D27E886F92775",
+      "colliding_case_ids": [],
+      "exact_existing_formal_gold_collision": false
+    },
+    {
+      "candidate_id": "MIX-600762139B737022",
+      "colliding_case_ids": [],
+      "exact_existing_formal_gold_collision": false
+    },
+    {
+      "candidate_id": "MIX-D687612CD73060E4",
+      "colliding_case_ids": [],
+      "exact_existing_formal_gold_collision": false
+    },
+    {
+      "candidate_id": "MIX-AF191F6DA2752699",
+      "colliding_case_ids": [],
+      "exact_existing_formal_gold_collision": false
+    },
+    {
+      "candidate_id": "MIX-573D95995738886E",
+      "colliding_case_ids": [],
+      "exact_existing_formal_gold_collision": false
+    },
+    {
+      "candidate_id": "MIX-C292D942DF39BE81",
+      "colliding_case_ids": [],
+      "exact_existing_formal_gold_collision": false
+    },
+    {
+      "candidate_id": "MIX-A7E56396AEAE5AF8",
+      "colliding_case_ids": [],
+      "exact_existing_formal_gold_collision": false
+    },
+    {
+      "candidate_id": "MIX-A4E991490F19B08D",
+      "colliding_case_ids": [],
+      "exact_existing_formal_gold_collision": false
+    },
+    {
+      "candidate_id": "MIX-55F2240CD020ACAC",
+      "colliding_case_ids": [],
+      "exact_existing_formal_gold_collision": false
+    },
+    {
+      "candidate_id": "MIX-C20A85E10DE595AF",
+      "colliding_case_ids": [],
+      "exact_existing_formal_gold_collision": false
+    },
+    {
+      "candidate_id": "MIX-A519BFA61748CC5B",
+      "colliding_case_ids": [],
+      "exact_existing_formal_gold_collision": false
+    },
+    {
+      "candidate_id": "MIX-021A6B00F5BD0CE6",
+      "colliding_case_ids": [],
+      "exact_existing_formal_gold_collision": false
+    },
+    {
+      "candidate_id": "MIX-DBF5FA58A01F5C63",
+      "colliding_case_ids": [],
+      "exact_existing_formal_gold_collision": false
+    }
+  ]
+}

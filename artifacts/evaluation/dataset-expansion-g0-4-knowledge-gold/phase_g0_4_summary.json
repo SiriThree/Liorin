@@ -1,0 +1,28 @@
+{
+  "annotation_batch_hash": "1f5135fe16523c9f6a6f4535312cfb624652a917027a08fe2d06a17aa4bf154c",
+  "annotation_batch_id": "KNOW-G0.4-1F5135FE1652",
+  "annotation_packet_count": 146,
+  "annotation_runs": 0,
+  "candidate_set_hash": "c21d9412fc16be1f1b2d56a8e349641c3c1c9f3866e9eee358565890096dd1e5",
+  "d3r": "DEFERRED_BY_ENVIRONMENT",
+  "document_coverage_ready": 22,
+  "drafted": 171,
+  "effective_gold_units": 146,
+  "g0_3_rejected_excluded": 1,
+  "gold_set_hash": "9f8904172275995a7d181a6319a7bed960602abf773d6e7c0ec7efaef75c0624",
+  "input_source_validated": 171,
+  "needs_manual_precheck": 25,
+  "new_formal_cases": 0,
+  "phase": "G0.4",
+  "product_coverage_ready": 20,
+  "production_agent": "NOT RUN",
+  "query_review_excluded": 8,
+  "ready_for_dual_annotation": 146,
+  "rejected_before_annotation": 0,
+  "rejected_reasons": {},
+  "review_reasons": {
+    "BROAD_GROUP_SCOPE_COMPLETENESS_UNCERTAIN": 24,
+    "MULTI_FACT_ANSWER_SET_TOO_SMALL_AFTER_ROLE_CORRECTION": 3
+  },
+  "status": "COMPLETE"
+}

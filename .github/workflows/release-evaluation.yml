@@ -1,0 +1,47 @@
+name: Manual Release Evaluation
+
+permissions:
+  contents: read
+
+on:
+  workflow_dispatch:
+    inputs:
+      baseline_name:
+        description: Explicit promoted baseline name
+        default: formal_validation
+        required: true
+
+jobs:
+  release-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      LIORIN_MODEL: ${{ vars.LIORIN_FORMAL_MODEL }}
+      LIORIN_JUDGE_MODEL: ${{ vars.LIORIN_JUDGE_MODEL }}
+      MILVUS_URI: ${{ secrets.MILVUS_URI }}
+      DATABASE_URL: ${{ secrets.LIORIN_DATABASE_URL }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v4
+      - run: uv sync --dev
+      - run: uv run python -m eval_platform.cli doctor --root . --output readiness.json
+      - name: Refuse silent release-eval skip
+        run: |
+          python - <<'PY'
+          import json
+          d=json.load(open('readiness.json'))
+          bad=[x for x in d['items'] if x['name'] in {'production_runtime','judge_provider','validation_split'} and x['status'] != 'READY']
+          if bad:
+              raise SystemExit('RELEASE EVALUATION BLOCKED: '+repr(bad))
+          PY
+      - name: Formal validation
+        run: uv run python -m eval_platform.cli run --dataset evals/benchmark/data/canonical/validation_v7_3_canonical_v1.json --split VALIDATION --config evals/benchmark/configs/phase6_formal_evaluation.example.json --output artifacts/evaluation/release-current
+      - name: Generate final report
+        run: uv run python -m eval_platform.cli final-report --root . --output artifacts/evaluation/release-current
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: release-evaluation
+          path: artifacts/evaluation/release-current/**

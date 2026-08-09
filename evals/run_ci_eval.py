@@ -1,11 +1,10 @@
 """CI regression gate for Liorin evaluations.
 
-Default CI mode is offline and runs:
-- production-adapter benchmark smoke
-- legacy local Agentic RAG smoke fixture
+Deprecated compatibility wrapper for the Phase-6 Evaluation Contract Gate.
 
-The previous LangSmith dataset sync/evaluate flow is intentionally not the
-default because ordinary PR CI should not recreate remote datasets.
+Ordinary PR CI now uses the unified ``eval_platform`` contracts and
+``tests/evaluation``.  The old LangSmith threshold flow remains available only
+behind ``--legacy-langsmith`` and is not a formal Task Success gate.
 """
 
 from __future__ import annotations
@@ -25,8 +24,9 @@ def run(command: list[str]) -> None:
 
 
 def run_offline_ci() -> None:
-    run([sys.executable, "-m", "evals.benchmark.cli", "smoke"])
-    run([sys.executable, "evals/agentic_rag_eval.py"])
+    print("DEPRECATED: evals/run_ci_eval.py delegates to the unified Phase-6 contract gate.")
+    run([sys.executable, "-m", "eval_platform.cli", "validate", "--dataset", "evals/benchmark/data/canonical/validation_v7_3_canonical_v1.json"])
+    run([sys.executable, "-m", "pytest", "-q", "tests/evaluation"])
 
 
 def run_legacy_langsmith(threshold: float) -> None:

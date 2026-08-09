@@ -1,0 +1,17 @@
+{
+  "count": 5,
+  "families": [
+    "MIXED_ORDER_PRODUCT_MANUAL",
+    "MIXED_ORDER_STATUS_POLICY",
+    "MIXED_TICKET_TROUBLESHOOTING",
+    "MIXED_WARRANTY_PRODUCT_MANUAL",
+    "MIXED_WARRANTY_STATUS_POLICY"
+  ],
+  "required_relation_paths": {
+    "order -> after_sales_policy": 8,
+    "order -> order_items -> product -> manual": 18,
+    "ticket -> product -> manual": 8,
+    "warranty -> after_sales_policy": 8,
+    "warranty -> product -> manual": 16
+  }
+}

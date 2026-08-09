@@ -1,0 +1,26 @@
+{
+  "d3r_status": "DEFERRED_BY_ENVIRONMENT",
+  "formal": {
+    "dev_sha256": "7a4f939739a73e6f2b8faae8bdea33c5b6f375fb77d333fb625e231cc7935a5d",
+    "development": 34,
+    "total": 39,
+    "validation": 5,
+    "validation_sha256": "df7e66e95fdd88931a1f6368d9365a3b5cef835f40211e54b801e17d6465a60c"
+  },
+  "knowledge": {
+    "packet_count": 146,
+    "packet_sha256": "78f81f3c8f876dd4f3020233d1d8cd56555ed5fd8e9f80cf98e21a4b346816b9",
+    "precheck_count": 25,
+    "precheck_sha256": "cd749359dccda868ab4a2010e293f2d7e93b1ab3c5840aaf95327c81f24160d9"
+  },
+  "mixed": {
+    "artifact_dir": "artifacts/evaluation/dataset-expansion-e1r-manual-scope-repair"
+  },
+  "private": {
+    "artifact_dir": null
+  },
+  "troubleshooting": {
+    "sha256": "9affdd32d2049eccd6fd0fe0728bade21195cf9ad0ea46488e2ce51e41741166",
+    "source_validated_count": 66
+  }
+}

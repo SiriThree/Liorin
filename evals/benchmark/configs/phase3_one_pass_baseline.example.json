@@ -1,0 +1,11 @@
+{
+  "dataset_name": "liorin_canonical_validation",
+  "dataset_version": "1",
+  "production": {
+    "agentic_recovery_enabled": false,
+    "baseline_protocol": "ONE_PASS_BASELINE"
+  },
+  "judge": {
+    "enabled": false
+  }
+}

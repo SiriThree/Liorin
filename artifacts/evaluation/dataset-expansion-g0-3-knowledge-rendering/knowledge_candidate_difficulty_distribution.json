@@ -1,0 +1,14 @@
+{
+  "EASY": {
+    "count": 66,
+    "ratio": 0.385965
+  },
+  "HARD": {
+    "count": 41,
+    "ratio": 0.239766
+  },
+  "MEDIUM": {
+    "count": 64,
+    "ratio": 0.374269
+  }
+}

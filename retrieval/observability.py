@@ -70,6 +70,15 @@ class EvidenceTrace:
     requirement_coverage: list[str] = field(default_factory=list)
     conflict_status: str | None = None
     final_citation_usage: bool = False
+    content_preview: str | None = None
+    tenant_ref: str | None = None
+    owner_ref: str | None = None
+    allowed_user_refs: list[str] = field(default_factory=list)
+    required_permissions: list[str] = field(default_factory=list)
+    classification: str | None = None
+    visibility: str | None = None
+    security_status: str | None = None
+    prompt_injection_risk: int | None = None
 
     def to_state(self) -> dict[str, Any]:
         return sanitize_for_log(self.__dict__)
@@ -253,12 +262,14 @@ def build_evidence_trace(
         contributions = evidence.get("contributions") or []
         evidence_id = evidence.get("citation_id") or metadata.get("chunk_id") or metadata.get("section_id") or "unknown"
         rerank_score = evidence.get("rerank_score")
+        content_preview = str(getattr(document, "page_content", "") or (document.get("page_content", "") if isinstance(document, dict) else ""))[:1200]
     else:
         document = getattr(evidence, "document", None)
         metadata = getattr(document, "metadata", {}) or {}
         contributions = [item.to_state() if hasattr(item, "to_state") else item for item in getattr(evidence, "contributions", [])]
         evidence_id = getattr(evidence, "citation_id", None) or metadata.get("chunk_id") or metadata.get("section_id") or "unknown"
         rerank_score = getattr(evidence, "rerank_score", None)
+        content_preview = str(getattr(document, "page_content", "") or "")[:1200]
     normalized = [item.to_state() if hasattr(item, "to_state") else dict(item) for item in contributions]
     return EvidenceTrace(
         request_id=request_id,
@@ -273,6 +284,15 @@ def build_evidence_trace(
         requirement_coverage=list(requirement_coverage),
         conflict_status=conflict_status,
         final_citation_usage=final_citation_usage,
+        content_preview=content_preview or None,
+        tenant_ref=(f"hash:{hash_identifier(metadata.get('tenant_id'), namespace='tenant')}" if metadata.get("tenant_id") else None),
+        owner_ref=(f"hash:{hash_identifier(metadata.get('owner'), namespace='user')}" if metadata.get("owner") else None),
+        allowed_user_refs=[f"hash:{hash_identifier(value, namespace='user')}" for value in (metadata.get("allowed_user_ids") or []) if str(value).strip()],
+        required_permissions=[str(x) for x in (metadata.get("required_permissions") or [])],
+        classification=str(metadata.get("classification")) if metadata.get("classification") is not None else None,
+        visibility=str(metadata.get("visibility")) if metadata.get("visibility") is not None else None,
+        security_status=str(metadata.get("security_status")) if metadata.get("security_status") is not None else None,
+        prompt_injection_risk=int(metadata.get("prompt_injection_risk", 0) or 0) if metadata.get("prompt_injection_risk") is not None else None,
     )
 
 

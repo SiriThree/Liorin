@@ -25,6 +25,7 @@ from retrieval.protocols import (
 )
 
 from config import DEFAULT_MODEL, Context
+from agents.feature_flags import AgentFeatureConfig
 from retrieval import hybrid_retrieve
 from retrieval.budget import RetrievalBudget
 from retrieval.fusion import RetrievedEvidence
@@ -520,6 +521,8 @@ def _run_retrieval_item(
     previous_summary: str = "",
     *,
     use_cross_encoder: bool = True,
+    reranker_enabled: bool = True,
+    parent_expansion_enabled: bool = True,
 ) -> tuple[list[Evidence], list[dict], list[RetrievalError], list[str], RetrievalStatus]:
     subquery = item if isinstance(item, RetrievalSubquery) else RetrievalSubquery.from_legacy(item)
     query = subquery.query or understanding.normalized_query
@@ -533,6 +536,8 @@ def _run_retrieval_item(
         budget=budget,
         final_k=5,
         use_cross_encoder=use_cross_encoder,
+        reranker_enabled=reranker_enabled,
+        parent_expansion_enabled=parent_expansion_enabled,
     )
     converted = [_evidence_to_state(result) for result in pipeline.evidences]
     trace_events = list(pipeline.response.trace)
@@ -801,11 +806,12 @@ def plan_retrieval(state: KnowledgeState, *, model: str | None = None) -> dict:
     }
 
 
-def execute_retrieval(state: KnowledgeState) -> dict:
+def execute_retrieval(state: KnowledgeState, *, feature_config: AgentFeatureConfig | None = None) -> dict:
     """Execute the production retrieval plan through the Stage-2 retrieval pipeline."""
     started = perf_counter()
     budget = _budget_from_state(state)
     budget_before = budget.to_state()
+    feature_config = feature_config or AgentFeatureConfig()
     use_cross_encoder = state.get("use_cross_encoder", True)
     understanding = QueryUnderstandingState.from_legacy(state)
     principal = _principal_from_state(state)
@@ -854,6 +860,8 @@ def execute_retrieval(state: KnowledgeState) -> dict:
                 principal,
                 "",
                 use_cross_encoder=use_cross_encoder,
+                reranker_enabled=feature_config.reranker_enabled,
+                parent_expansion_enabled=feature_config.parent_expansion_enabled,
             ): item
             for item in parallel_batch
         }
@@ -939,6 +947,8 @@ def execute_retrieval(state: KnowledgeState) -> dict:
                 principal,
                 previous_summary,
                 use_cross_encoder=use_cross_encoder,
+                reranker_enabled=feature_config.reranker_enabled,
+                parent_expansion_enabled=feature_config.parent_expansion_enabled,
             )
         )
         evidences.extend(converted)
@@ -996,6 +1006,7 @@ def execute_retrieval(state: KnowledgeState) -> dict:
         request_id=request_id,
         session_id=session_id,
         status=str(response_status),
+        round_id=int(state.get("retry_count", 0)) + 1,
         final_evidences=len(deduped),
         latency_ms=round(latency_ms, 2),
         subquery_statuses=[str(status) for status in subquery_statuses],
@@ -1150,6 +1161,7 @@ def grade_evidence(state: KnowledgeState, *, model: str | None = None) -> dict:
     for conflict in audit.conflicts:
         for evidence_id in conflict.evidence_ids:
             conflicts_by_evidence[evidence_id] = "unresolved" if conflict.unresolved else "resolved"
+    round_id = int(state.get("retry_count", 0)) + 1
     evidence_trace_events = []
     for rank, item in enumerate(result.representative_evidences, start=1):
         item_id = verification_evidence_id(item, rank - 1)
@@ -1172,9 +1184,9 @@ def grade_evidence(state: KnowledgeState, *, model: str | None = None) -> dict:
             session_id=state.get("session_id"),
             trace_level="evidence",
             status="accepted" if item_id in accepted else "excluded",
+            round_id=round_id,
             **evidence_payload,
         ))
-    round_id = int(state.get("retry_count", 0)) + 1
     previous_trigger = str(state.get("verification_action") or plan.strategy or "verification_retry")
     round_record = VerificationRound(
         round_id=round_id,
@@ -1661,9 +1673,19 @@ def route_after_understanding(state: KnowledgeState) -> str:
     return "clarification" if state.get("needs_clarification") else "plan_retrieval"
 
 
-def route_after_grade(state: KnowledgeState) -> str:
-    """Route solely from the persisted Evidence Verifier decision."""
+def route_after_grade(state: KnowledgeState, *, recovery_enabled: bool = True, feature_config: AgentFeatureConfig | None = None) -> str:
+    """Route from the persisted verifier decision.
+
+    ``recovery_enabled=False`` is the Phase-3 one-pass baseline switch.  It
+    preserves the same first-pass retrieval and verifier, but disables all
+    second acquisition/clarification recovery actions.  Non-ACCEPT decisions
+    fail closed to the existing handoff path rather than changing prompts,
+    ranking, or verifier policy.
+    """
     action = VerificationDecision.from_legacy(state).action
+    feature_config = feature_config or AgentFeatureConfig(agentic_recovery_enabled=recovery_enabled)
+    if not recovery_enabled or not feature_config.agentic_recovery_enabled:
+        return "generate_answer" if action is VerificationAction.ACCEPT else "handoff"
     mapping = {
         VerificationAction.ACCEPT: "generate_answer",
         VerificationAction.SUPPLEMENT: "targeted_retrieve",
@@ -1673,7 +1695,14 @@ def route_after_grade(state: KnowledgeState) -> str:
         VerificationAction.CLARIFY: "clarification",
         VerificationAction.HANDOFF: "handoff",
     }
-    return mapping.get(action, "handoff")
+    route = mapping.get(action, "handoff")
+    if route == "rewrite_query" and not feature_config.query_rewrite_enabled:
+        return "handoff"
+    if route in {"targeted_retrieve", "replan"} and not feature_config.supplement_enabled:
+        return "handoff"
+    if route == "clarification" and not feature_config.clarification_recovery_enabled:
+        return "handoff"
+    return route
 
 
 def route_after_verify(state: KnowledgeState) -> str:
@@ -1696,16 +1725,19 @@ def create_knowledge_agent(
     use_checkpointer=True,
     model=None,
     system_prompt=None,
+    recovery_enabled: bool = True,
+    feature_config: AgentFeatureConfig | None = None,
 ):
     """创建产品知识与售后政策 Agentic RAG 子图。"""
     selected_model = model or DEFAULT_MODEL
     selected_prompt = system_prompt or KNOWLEDGE_AGENT_SYSTEM_PROMPT
+    feature_config = feature_config or AgentFeatureConfig(agentic_recovery_enabled=recovery_enabled)
     graph = StateGraph(state_schema or KnowledgeState, context_schema=Context)
 
     graph.add_node("understand_query", lambda state: understand_query(state, model=selected_model))
     graph.add_node("clarification", clarify)
     graph.add_node("plan_retrieval", lambda state: plan_retrieval(state, model=selected_model))
-    graph.add_node("execute_retrieval", execute_retrieval)
+    graph.add_node("execute_retrieval", lambda state: execute_retrieval(state, feature_config=feature_config))
     graph.add_node("verify_evidence", lambda state: grade_evidence(state, model=selected_model))
     graph.add_node("rewrite_query", lambda state: rewrite_query(state, model=selected_model))
     graph.add_node("targeted_retrieve", plan_supplemental_retrieval)
@@ -1730,10 +1762,13 @@ def create_knowledge_agent(
     )
     graph.add_edge("clarification", END)
     graph.add_edge("plan_retrieval", "execute_retrieval")
-    graph.add_edge("execute_retrieval", "verify_evidence")
+    if feature_config.evidence_verifier_enabled:
+        graph.add_edge("execute_retrieval", "verify_evidence")
+    else:
+        graph.add_edge("execute_retrieval", "generate_answer")
     graph.add_conditional_edges(
         "verify_evidence",
-        route_after_grade,
+        lambda state: route_after_grade(state, recovery_enabled=recovery_enabled, feature_config=feature_config),
         {
             "generate_answer": "generate_answer",
             "targeted_retrieve": "targeted_retrieve",

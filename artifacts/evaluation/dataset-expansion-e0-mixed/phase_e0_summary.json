@@ -1,0 +1,21 @@
+{
+  "agreement": "NOT_RUN",
+  "annotation_runs": 0,
+  "d3r_deferred_status": "DEFERRED_BY_ENVIRONMENT",
+  "effective_candidates": 48,
+  "existing_formal_families": 1,
+  "existing_formal_mixed": 10,
+  "manifest_sha256": "50ee04f968ad4466c81a8b9495d08100ac223588f03902c013494e7025465e33",
+  "new_formal_cases": 0,
+  "phase": "E0",
+  "production_agent_run": false,
+  "raw_candidates": 68,
+  "rejected": 10,
+  "rejection_reasons": {
+    "TIME_DRIFT_WITHOUT_FROZEN_REFERENCE_DATE": 10,
+    "UNSUPPORTED_TEMPORAL_BASIS_DELIVERY_DATE_REQUIRED": 10
+  },
+  "source_validated": 58,
+  "status": "COMPLETE",
+  "validated_families": 5
+}

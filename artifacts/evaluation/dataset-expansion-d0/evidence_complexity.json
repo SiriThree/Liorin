@@ -1,0 +1,12 @@
+{
+  "cases_with_alternative_evidence_group": 0,
+  "required_evidence_count_distribution": {
+    "1": 29,
+    "2": 9,
+    "3+": 1
+  },
+  "source_mix_distribution": {
+    "document_only": 29,
+    "document_plus_structured": 10
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "average_query_length": 27.46,
+  "max_pattern_count": 18,
+  "max_pattern_ratio": 0.1,
+  "max_prefix_ratio": 0.022222,
+  "max_query_length": 46,
+  "min_query_length": 13,
+  "pattern_count": 48,
+  "query_prefix_top10": [
+    [
+      "关于蓝牙激光",
+      4
+    ],
+    [
+      "关于发电机的",
+      4
+    ],
+    [
+      "关于儿童电动",
+      4
+    ],
+    [
+      "蓝牙激光鼠标",
+      3
+    ],
+    [
+      "可编程温控器",
+      3
+    ],
+    [
+      "想确认一下，",
+      3
+    ],
+    [
+      "在涉及VR头",
+      3
+    ],
+    [
+      "使用空气净化",
+      2
+    ],
+    [
+      "在涉及空气净",
+      2
+    ],
+    [
+      "蒸汽清洁机的",
+      2
+    ]
+  ],
+  "renderer_patterns": {
+    "COMPATIBILITY_AGE_RANGE": 1,
+    "COMPATIBILITY_CHARGER_BATTERY": 1,
+    "COMPATIBILITY_MODE": 1,
+    "COMPATIBILITY_MODEL_VARIANCE": 3,
+    "COMPATIBILITY_OS_REQUIREMENTS": 1,
+    "COMPATIBILITY_PHONE_CHECK": 1,
+    "COMPATIBILITY_PROTOCOL_REQUIREMENTS": 1,
+    "COMPATIBILITY_RELATION": 3,
+    "COMPATIBILITY_REQUIRED_SPEC": 1,
+    "COMPATIBILITY_SUPPORTED_SCOPE": 6,
+    "COMPATIBILITY_TERMINAL": 1,
+    "COMPATIBILITY_UNSUPPORTED_SCOPE": 1,
+    "DIRECT_EXPLANATION": 2,
+    "DIRECT_IDENTIFIER_LOOKUP": 1,
+    "DIRECT_META_SECTION": 2,
+    "DIRECT_TARGETED": 16,
+    "FAQ_NATURALIZED_PROCESS": 5,
+    "INSTRUCTION_CONDITION_ACTION": 18,
+    "INSTRUCTION_REQUIREMENT": 15,
+    "INSTRUCTION_SPECIFIC_OPERATION": 9,
+    "LIMITATION_TARGETED": 12,
+    "MULTIFACT_BOUNDED_REQUIREMENTS": 18,
+    "MULTIFACT_FAQ_BOUNDED": 1,
+    "MULTIFACT_FAQ_ERROR_CODE_CONTEXT": 1,
+    "MULTIFACT_FAQ_PROCESS": 1,
+    "MULTIFACT_OPERATION_BOUNDED": 12,
+    "MULTIFACT_SAFETY_BOUNDED": 9,
+    "MULTISECTION_CAPABILITY_FEATURE": 1,
+    "MULTISECTION_CAPABILITY_WARRANTY": 1,
+    "MULTISECTION_COMPATIBILITY_LIMITATION": 1,
+    "MULTISECTION_FEATURE_COMPATIBILITY": 2,
+    "MULTISECTION_FEATURE_CONDITION": 2,
+    "MULTISECTION_FEATURE_LIMITATION": 1,
+    "MULTISECTION_INSTALLATION_USAGE": 1,
+    "MULTISECTION_USAGE_COMPATIBILITY": 2,
+    "MULTISECTION_USAGE_CONDITION": 2,
+    "POLICY_APPROVAL_SCOPE": 1,
+    "POLICY_COVERAGE_EXCLUSION": 3,
+    "POLICY_DURATION": 1,
+    "POLICY_DURATION_WITH_CONDITIONS": 1,
+    "POLICY_PRECEDENCE": 1,
+    "POLICY_PURCHASE_PROOF": 1,
+    "POLICY_RULE": 3,
+    "POLICY_TICKET_FIELDS": 1,
+    "SPEC_ATTRIBUTE": 9,
+    "SPEC_MEASUREMENT_CONDITION": 1,
+    "SPEC_STANDARD": 1,
+    "SPEC_SYMBOL_MEANING": 1
+  }
+}

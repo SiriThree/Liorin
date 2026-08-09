@@ -1,0 +1,99 @@
+{
+  "datasets": {
+    "legacy_dev": {
+      "annotation_status": {
+        "MIGRATED_LEGACY": 34
+      },
+      "cases": 34,
+      "cases_requiring_llm_judge_for_full_required_contract": 34,
+      "category": {
+        "KNOWLEDGE_QA": 20,
+        "MIXED_KNOWLEDGE_STRUCTURED": 10,
+        "SAFETY_GOVERNANCE": 2,
+        "TROUBLESHOOTING": 2
+      },
+      "eligibility": {
+        "ELIGIBLE": 34
+      },
+      "gold_fact_comparison_modes": {
+        "SEMANTIC": 98
+      },
+      "path": "evals/benchmark/data/canonical/dev_v7_3_canonical_v1.json",
+      "required_criteria": {
+        "AUTHORIZATION_CORRECT": 12,
+        "CLARIFICATION_CORRECT": 2,
+        "CRITICAL_FACTS_CORRECT": 34,
+        "CRITICAL_FACTS_GROUNDED": 34,
+        "NO_CRITICAL_HALLUCINATION": 34,
+        "NO_SENSITIVE_DATA_LEAK": 2,
+        "NO_UNAUTHORIZED_ACCESS": 12,
+        "RESPONSE_TYPE_CORRECT": 34
+      }
+    },
+    "legacy_validation": {
+      "annotation_status": {
+        "MIGRATED_LEGACY": 5
+      },
+      "cases": 5,
+      "cases_requiring_llm_judge_for_full_required_contract": 5,
+      "category": {
+        "KNOWLEDGE_QA": 4,
+        "SAFETY_GOVERNANCE": 1
+      },
+      "eligibility": {
+        "ELIGIBLE": 5
+      },
+      "gold_fact_comparison_modes": {
+        "SEMANTIC": 11
+      },
+      "path": "evals/benchmark/data/canonical/validation_v7_3_canonical_v1.json",
+      "required_criteria": {
+        "AUTHORIZATION_CORRECT": 1,
+        "CLARIFICATION_CORRECT": 1,
+        "CRITICAL_FACTS_CORRECT": 5,
+        "CRITICAL_FACTS_GROUNDED": 5,
+        "NO_CRITICAL_HALLUCINATION": 5,
+        "NO_SENSITIVE_DATA_LEAK": 1,
+        "NO_UNAUTHORIZED_ACCESS": 1,
+        "RESPONSE_TYPE_CORRECT": 5
+      }
+    },
+    "representative_seed": {
+      "annotation_status": {
+        "NEEDS_REVIEW": 15
+      },
+      "cases": 15,
+      "cases_requiring_llm_judge_for_full_required_contract": 15,
+      "category": {
+        "KNOWLEDGE_QA": 4,
+        "MIXED_KNOWLEDGE_STRUCTURED": 2,
+        "PRIVATE_BUSINESS_QUERY": 3,
+        "SAFETY_GOVERNANCE": 4,
+        "TROUBLESHOOTING": 2
+      },
+      "eligibility": {
+        "NEEDS_REVIEW": 15
+      },
+      "gold_fact_comparison_modes": {
+        "NORMALIZED_EXACT": 7,
+        "NUMERIC": 1,
+        "SEMANTIC": 8
+      },
+      "path": "evals/benchmark/data/canonical/representative_seed_v1.json",
+      "required_criteria": {
+        "AUTHORIZATION_CORRECT": 9,
+        "CLARIFICATION_CORRECT": 1,
+        "CRITICAL_FACTS_CORRECT": 10,
+        "CRITICAL_FACTS_GROUNDED": 10,
+        "FORBIDDEN_TOOLS_NOT_CALLED": 1,
+        "NO_CRITICAL_HALLUCINATION": 15,
+        "NO_SENSITIVE_DATA_LEAK": 4,
+        "NO_UNAUTHORIZED_ACCESS": 9,
+        "RESPONSE_TYPE_CORRECT": 15
+      }
+    }
+  },
+  "formal_metric_generated": false,
+  "semantics": "Phase-2 contract inventory only; no Production execution and no Task Success metric",
+  "trusted_test_split": false
+}

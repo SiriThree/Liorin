@@ -89,7 +89,9 @@ def agent_evaluator(
     expected_fallback = bool(expected.get("fallback", False))
     actual_fallback = bool(output.get("fallback", False))
     return {
-        "task_success": 1.0 if task_success == expected_success else 0.0,
+        # Historical runtime signal only. Formal E2E Task Success will be derived
+        # from a case-dependent Gold contract in Phase 1+.
+        "self_reported_task_success_match": 1.0 if task_success == expected_success else 0.0,
         "tool_correctness": tool_correctness,
         "fallback_quality": 1.0 if actual_fallback == expected_fallback else 0.0,
     }

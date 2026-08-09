@@ -1,0 +1,47 @@
+[
+  {
+    "capacity_recommended": 150,
+    "capacity_upper": 220,
+    "category": "KNOWLEDGE_QA",
+    "effective": 22,
+    "existing": 24,
+    "gap_to_recommended": 128,
+    "semantic_families": 2
+  },
+  {
+    "capacity_recommended": 70,
+    "capacity_upper": 100,
+    "category": "TROUBLESHOOTING",
+    "effective": 2,
+    "existing": 2,
+    "gap_to_recommended": 68,
+    "semantic_families": 1
+  },
+  {
+    "capacity_recommended": 60,
+    "capacity_upper": 90,
+    "category": "PRIVATE_BUSINESS_QUERY",
+    "effective": 0,
+    "existing": 0,
+    "gap_to_recommended": 60,
+    "semantic_families": 0
+  },
+  {
+    "capacity_recommended": 54,
+    "capacity_upper": 78,
+    "category": "MIXED_KNOWLEDGE_STRUCTURED",
+    "effective": 10,
+    "existing": 10,
+    "gap_to_recommended": 44,
+    "semantic_families": 1
+  },
+  {
+    "capacity_recommended": 36,
+    "capacity_upper": 48,
+    "category": "SAFETY_GOVERNANCE",
+    "effective": 1,
+    "existing": 3,
+    "gap_to_recommended": 35,
+    "semantic_families": 1
+  }
+]

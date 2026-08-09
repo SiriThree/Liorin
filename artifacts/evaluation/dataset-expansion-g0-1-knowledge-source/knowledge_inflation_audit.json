@@ -1,0 +1,16 @@
+{
+  "faq_fact_count": 17,
+  "faq_inflation_prevented": 9,
+  "faq_source_units": 8,
+  "high_fact_count_section_facts": 1848,
+  "high_fact_count_section_source_units": 198,
+  "high_fact_count_sections_ge_10": 105,
+  "policy_fact_count": 23,
+  "policy_inflation_prevented": 16,
+  "policy_source_units": 7,
+  "principle": "section/fact counts are not independent task counts",
+  "procedure_effective_source_units": 90,
+  "procedure_fact_or_step_count_if_mechanically_inflated": 792,
+  "procedure_inflation_prevented": 699,
+  "procedure_source_units": 93
+}

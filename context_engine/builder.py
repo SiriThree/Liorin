@@ -41,6 +41,7 @@ from context_engine.models import (
     SummaryMetadata,
 )
 from context_engine.selector import ContextSelector
+from context_engine.strategy import ContextEvaluationStrategy, ContextStrategyConfig
 from identity import IdentityContext, IdentityResolver
 from memory.facts import (
     LongTermMemoryRuntime,
@@ -56,6 +57,42 @@ from memory.working import (
 )
 
 
+
+
+def _working_memory_fact_refs(memory: WorkingMemory) -> list[str]:
+    refs: list[str] = []
+    buckets = {
+        "confirmed_fact": memory.confirmed_facts,
+        "open_question": memory.open_questions,
+        "constraint": memory.constraints,
+        "decision": memory.decisions,
+        "failed_attempt": memory.failed_attempts,
+        "next_action": memory.next_actions,
+    }
+    for kind, values in buckets.items():
+        for value in values or ():
+            raw = str(value).strip()
+            if raw:
+                refs.append(f"wmfact:{kind}:{sha256(raw.encode('utf-8')).hexdigest()[:16]}")
+    for kind, value in (("task_goal", memory.task_goal), ("current_intent", memory.current_intent)):
+        raw = str(value or "").strip()
+        if raw:
+            refs.append(f"wmfact:{kind}:{sha256(raw.encode('utf-8')).hexdigest()[:16]}")
+    return refs
+
+
+def _identity_state(value: object) -> dict[str, object] | None:
+    if value is None:
+        return None
+    if isinstance(value, IdentityContext):
+        return value.to_state()
+    if isinstance(value, Mapping):
+        return dict(value)
+    to_state = getattr(value, "to_state", None)
+    if callable(to_state):
+        result = to_state()
+        return dict(result) if isinstance(result, Mapping) else None
+    return None
 
 
 def _stable_id(prefix: str, *parts: Any) -> str:
@@ -134,6 +171,8 @@ class ContextBuilder:
     identity_resolver: IdentityResolver | None = None
     artifact_registry: ArtifactRegistry | None = None
     long_term_memory_runtime: LongTermMemoryRuntime | None = None
+    working_memory_enabled: bool = True
+    artifact_enabled: bool = True
     long_term_memory_enabled: bool = True
     long_term_memory_limit: int = 6
     context_cache: ContextAssemblyCache | None = None
@@ -177,7 +216,8 @@ class ContextBuilder:
                 identity_context=identity_context,
             )
         )
-        items.extend(self._working_memory_items(combined_state, identity_context=identity_context))
+        if self.working_memory_enabled:
+            items.extend(self._working_memory_items(combined_state, identity_context=identity_context))
         items.extend(self._long_term_memory_items(combined_state, identity_context=identity_context))
         items.extend(self._workflow_items(combined_state))
         items.extend(
@@ -238,18 +278,22 @@ class ContextBuilder:
                 item_type = ContextItemType.ARTIFACT_REFERENCE
                 priority = 88 if is_current else 20
                 required = is_current
-                artifact = self._register_tool_artifact(
-                    message=message,
-                    content=content,
-                    message_id=message_id,
-                    role=role,
-                    identity_context=identity_context,
-                    timestamp=timestamp,
+                artifact = (
+                    self._register_tool_artifact(
+                        message=message,
+                        content=content,
+                        message_id=message_id,
+                        role=role,
+                        identity_context=identity_context,
+                        timestamp=timestamp,
+                    )
+                    if self.artifact_enabled
+                    else None
                 )
                 if artifact is not None:
                     content = self._artifact_reference_content(artifact)
                     message_metadata.update(self._artifact_reference_metadata(artifact))
-                elif not is_current and len(content) > self.historical_tool_preview_chars:
+                elif self.artifact_enabled and not is_current and len(content) > self.historical_tool_preview_chars:
                     content = (
                         content[: self.historical_tool_preview_chars].rstrip()
                         + "\n…[historical tool result represented as unbound placeholder]"
@@ -317,6 +361,7 @@ class ContextBuilder:
                 "required": True,
                 "memory_kind": "working",
                 "session_id": memory.session_id,
+                "working_memory_fact_refs": _working_memory_fact_refs(memory),
                 "lifecycle_event": retrieval_record.to_state(),
                 "lifecycle_state": retrieval_record.memory.lifecycle_state.value,
                 "dedupe_key": f"working_memory:{memory.session_id}",
@@ -561,11 +606,15 @@ class ContextBuilder:
                 "sequence": sequence,
             }
             evidence_content = descriptor["content"]
-            artifact = self._register_evidence_artifact(
-                evidence=evidence,
-                evidence_id=evidence_id,
-                descriptor=descriptor,
-                identity_context=identity_context,
+            artifact = (
+                self._register_evidence_artifact(
+                    evidence=evidence,
+                    evidence_id=evidence_id,
+                    descriptor=descriptor,
+                    identity_context=identity_context,
+                )
+                if self.artifact_enabled
+                else None
             )
             if artifact is not None:
                 evidence_metadata.update(self._artifact_reference_metadata(artifact))
@@ -598,6 +647,8 @@ class ContextBuilder:
             ("evidence_refs", ContextItemType.EVIDENCE_REFERENCE, 80),
             ("artifact_refs", ContextItemType.ARTIFACT_REFERENCE, 70),
         ):
+            if field_name == "artifact_refs" and not self.artifact_enabled:
+                continue
             for sequence, reference in enumerate(state.get(field_name, []) or []):
                 if isinstance(reference, Mapping):
                     reference_id = str(reference.get("id") or reference.get("artifact_id") or reference.get("evidence_id") or _stable_id(field_name, reference))
@@ -798,6 +849,7 @@ class ContextBuilder:
             "artifact_location": artifact.location,
             "artifact_size": artifact.size,
             "artifact_status": artifact.status.value,
+            "origin_identity_context": artifact.identity_context.to_state(),
         }
 
     @staticmethod
@@ -957,13 +1009,43 @@ class ContextRuntime:
     artifact_registry: ArtifactRegistry | None = None
     artifact_resolver: ArtifactResolver | None = None
     long_term_memory_runtime: LongTermMemoryRuntime | None = None
+    working_memory_enabled: bool = True
+    artifact_enabled: bool = True
     long_term_memory_enabled: bool = True
     long_term_memory_limit: int = 6
+    selector_enabled: bool = True
+    strategy: ContextEvaluationStrategy = ContextEvaluationStrategy.LIORIN_CONTEXT_MEMORY_ARTIFACT
+    sliding_window_turns: int = 3
     context_cache: ContextAssemblyCache | None = None
 
     def __post_init__(self) -> None:
         if self.max_tokens <= 0:
             raise ValueError("max_tokens must be greater than zero")
+        if not isinstance(self.strategy, ContextEvaluationStrategy):
+            self.strategy = ContextEvaluationStrategy(str(self.strategy).upper())
+        if self.sliding_window_turns <= 0:
+            raise ValueError("sliding_window_turns must be greater than zero")
+        # Non-default Phase-4 strategies are controlled experiment policies.
+        # The default strategy intentionally preserves explicit production
+        # compaction/memory settings for backwards compatibility.
+        if self.strategy is not ContextEvaluationStrategy.LIORIN_CONTEXT_MEMORY_ARTIFACT:
+            strategy_cfg = ContextStrategyConfig.for_strategy(
+                self.strategy,
+                window_turns=self.sliding_window_turns,
+                max_tokens=self.max_tokens,
+            )
+            self.compaction_enabled = bool(strategy_cfg.compaction_enabled)
+            if strategy_cfg.compaction_recent_messages is not None:
+                self.compaction_recent_messages = strategy_cfg.compaction_recent_messages
+            if self.strategy is ContextEvaluationStrategy.SUMMARY_ONLY:
+                # SUMMARY_ONLY is a controlled use of the existing production
+                # compactor, not a benchmark-only summarizer. Force the normal
+                # trigger once there is enough compactable history.
+                self.compaction_item_threshold = 1
+            self.selector_enabled = bool(strategy_cfg.selector_enabled)
+            self.working_memory_enabled = bool(strategy_cfg.working_memory_enabled)
+            self.long_term_memory_enabled = bool(strategy_cfg.long_term_memory_enabled)
+            self.artifact_enabled = bool(strategy_cfg.artifact_enabled)
         if self.context_cache is None:
             self.context_cache = get_default_context_cache()
         if self.artifact_registry is None:
@@ -974,6 +1056,8 @@ class ContextRuntime:
             self.builder = ContextBuilder(
                 artifact_registry=self.artifact_registry,
                 long_term_memory_runtime=self.long_term_memory_runtime,
+                working_memory_enabled=self.working_memory_enabled,
+                artifact_enabled=self.artifact_enabled,
                 long_term_memory_enabled=self.long_term_memory_enabled,
                 long_term_memory_limit=self.long_term_memory_limit,
             )
@@ -985,6 +1069,8 @@ class ContextRuntime:
             self.builder.long_term_memory_runtime = self.long_term_memory_runtime
         else:
             self.long_term_memory_runtime = self.builder.long_term_memory_runtime
+        self.builder.working_memory_enabled = self.working_memory_enabled
+        self.builder.artifact_enabled = self.artifact_enabled
         self.builder.long_term_memory_enabled = self.long_term_memory_enabled
         self.builder.long_term_memory_limit = self.long_term_memory_limit
         if self.artifact_resolver is None:
@@ -1024,8 +1110,13 @@ class ContextRuntime:
             "item_threshold": self.compaction_item_threshold,
             "recent_messages": self.compaction_recent_messages,
             "summary_tokens": self.compaction_summary_max_tokens,
+            "working_memory_enabled": self.working_memory_enabled,
+            "artifact_enabled": self.artifact_enabled,
             "memory_enabled": self.long_term_memory_enabled,
             "memory_limit": self.long_term_memory_limit,
+            "selector_enabled": self.selector_enabled,
+            "strategy": self.strategy.value,
+            "sliding_window_turns": self.sliding_window_turns,
         }
         if self.context_cache is not None:
             cache_key = self.context_cache.key(state, max_tokens=self.max_tokens, options=cache_options)
@@ -1049,8 +1140,12 @@ class ContextRuntime:
                     RuntimeEventType.CONTEXT_ASSEMBLED,
                     attributes={
                         "cache_hit": True,
+                        "context_build_id": cached.runtime_metadata.get("context_build_id") or _stable_id("context-build-cache", self.strategy.value, cached.selected_tokens),
+                        "strategy": dict(cached.runtime_metadata.get("strategy") or {}),
                         "context_items": [item.to_state() for item in cached.items],
+                        "context_item_refs": self._trace_context_items(list(cached.items), cached),
                         "token_count": cached.selected_tokens,
+                        "token_count_source": "HEURISTIC_ESTIMATE",
                         "compaction_result": dict(cached.runtime_metadata.get("compaction") or {}),
                         "artifact_reference_count": artifact_count,
                         "memory_hits": memory_hits,
@@ -1062,6 +1157,7 @@ class ContextRuntime:
             get_default_metrics().increment("context_cache_miss")
 
         built = self.builder.build(messages_state=state)
+        built = self._apply_history_policy(built)
         decision = self.compaction_trigger.evaluate(built)
         candidate_items = built
         compaction_manifest: dict[str, Any] = {
@@ -1092,7 +1188,7 @@ class ContextRuntime:
                     **result.to_manifest(),
                 }
 
-        selected = self.selector.select(candidate_items)
+        selected = self.selector.select(candidate_items) if self.selector_enabled else list(candidate_items)
         selection = ContextBudgetManager(self.max_tokens).apply(selected)
         artifact_references = [
             {
@@ -1125,9 +1221,24 @@ class ContextRuntime:
             if item.metadata.get("artifact_id")
         )
         artifact_saved_tokens = max(0, original_artifact_tokens - reference_tokens)
+        context_build_id = _stable_id(
+            "context-build", self.strategy.value, self.max_tokens,
+            *[item.id for item in selection.items],
+        )
         final_selection = replace(
             selection,
             runtime_metadata={
+                "context_build_id": context_build_id,
+                "strategy": {
+                    "strategy_id": self.strategy.value,
+                    "sliding_window_turns": self.sliding_window_turns,
+                    "selector_enabled": self.selector_enabled,
+                    "compaction_enabled": self.compaction_enabled,
+                    "working_memory_enabled": self.working_memory_enabled,
+                    "long_term_memory_enabled": self.long_term_memory_enabled,
+                    "artifact_enabled": self.artifact_enabled,
+                    "max_tokens": self.max_tokens,
+                },
                 "compaction": compaction_manifest,
                 "artifacts": {
                     "reference_count": len(artifact_references),
@@ -1161,9 +1272,15 @@ class ContextRuntime:
             RuntimeEventType.CONTEXT_ASSEMBLED,
             attributes={
                 "cache_hit": False,
+                "context_build_id": _stable_id("context-build", self.strategy.value, state.get("request_id"), len(built), final_selection.selected_tokens),
+                "strategy": dict(final_selection.runtime_metadata.get("strategy") or {}),
                 "context_items": [item.to_state() for item in final_selection.items],
+                "context_item_refs": self._trace_context_items(list(candidate_items), final_selection),
                 "token_count": final_selection.selected_tokens,
+                "token_count_source": "HEURISTIC_ESTIMATE",
                 "input_tokens": final_selection.input_tokens,
+                "dropped_item_ids": list(final_selection.dropped_item_ids),
+                "truncated_item_ids": list(final_selection.truncated_item_ids),
                 "compaction_result": compaction_manifest,
                 "artifact_reference_count": len(artifact_references),
                 "memory_hits": len(memory_facts),
@@ -1171,6 +1288,80 @@ class ContextRuntime:
             },
         )
         return final_selection
+
+    def _apply_history_policy(self, items: list[ContextItem]) -> list[ContextItem]:
+        """Apply only the history-policy difference for the configured strategy."""
+
+        if self.strategy is not ContextEvaluationStrategy.SLIDING_WINDOW:
+            return list(items)
+        message_items = [
+            item for item in items
+            if item.source == "messages_state" and item.type in {
+                ContextItemType.USER_MESSAGE, ContextItemType.ASSISTANT_MESSAGE, ContextItemType.ARTIFACT_REFERENCE
+            }
+        ]
+        user_sequences = sorted(
+            int(item.metadata.get("sequence", 0))
+            for item in message_items
+            if item.type is ContextItemType.USER_MESSAGE
+        )
+        if not user_sequences:
+            return list(items)
+        retained_user_sequences = user_sequences[-self.sliding_window_turns :]
+        lower_bound = min(retained_user_sequences)
+        return [
+            item for item in items
+            if not (
+                item.source == "messages_state"
+                and item.type in {ContextItemType.USER_MESSAGE, ContextItemType.ASSISTANT_MESSAGE, ContextItemType.ARTIFACT_REFERENCE}
+                and int(item.metadata.get("sequence", 0)) < lower_bound
+                and not item.required
+            )
+        ]
+
+    @staticmethod
+    def _trace_context_items(built: list[ContextItem], selection: ContextSelection) -> list[dict[str, Any]]:
+        selected = {item.id for item in selection.items}
+        truncated = set(selection.truncated_item_ids)
+        dropped = set(selection.dropped_item_ids)
+        refs: list[dict[str, Any]] = []
+        for item in built:
+            metadata = item.metadata
+            source_ref = (
+                metadata.get("fact_id")
+                or metadata.get("artifact_id")
+                or metadata.get("evidence_id")
+                or metadata.get("id")
+                or item.id
+            )
+            status = "SELECTED" if item.id in selected else "DROPPED"
+            reason = None
+            if item.id in truncated:
+                status = "TRUNCATED"
+                reason = "TOKEN_BUDGET_TRUNCATION"
+            elif item.id in dropped:
+                reason = "TOKEN_BUDGET_DROP"
+            elif item.id not in selected:
+                reason = "SELECTION_OR_STRATEGY_FILTER"
+            refs.append({
+                "context_item_id": item.id,
+                "type": item.type.value,
+                "source": item.source,
+                "source_ref": str(source_ref),
+                "selected": item.id in selected,
+                "selection_status": status,
+                "drop_reason": reason,
+                "token_count": int(item.token_cost or 0),
+                "memory_kind": metadata.get("memory_kind"),
+                "fact_id": metadata.get("fact_id"),
+                "artifact_id": metadata.get("artifact_id"),
+                "summary_metadata": metadata.get("summary_metadata"),
+                "working_memory_fact_refs": list(metadata.get("working_memory_fact_refs") or ()),
+                "identity_context": _identity_state(metadata.get("origin_identity_context") or metadata.get("identity_context")),
+                "sequence": metadata.get("sequence"),
+                "is_current": metadata.get("is_current"),
+            })
+        return refs
 
     def build_prompt(self, base_prompt: str, state: Mapping[str, Any]) -> str:
         assert self.builder is not None

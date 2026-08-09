@@ -1,0 +1,2059 @@
+[
+  {
+    "annotation_metadata": {
+      "annotated_by": [
+        "phase4_seed_builder"
+      ],
+      "annotation_status": "MODEL_GENERATED_UNREVIEWED",
+      "annotation_version": "phase4-seed-v1",
+      "review_notes": "Candidate only; must be human-reviewed before formal Quality-Cost metrics.",
+      "reviewed_by": []
+    },
+    "category": "TROUBLESHOOTING",
+    "difficulty": "MEDIUM",
+    "initial_context": {},
+    "initial_identity": {
+      "conversation_id": "conversation:p4_entity_carry",
+      "permissions": [],
+      "region": "CN",
+      "roles": [],
+      "session_id": "session:p4_entity_carry",
+      "tenant_id": "tenant:phase4",
+      "thread_id": "thread:p4_entity_carry",
+      "user_id": "user:phase4"
+    },
+    "schema_version": "1.0",
+    "session_id": "p4_entity_carry",
+    "session_success_contract": {
+      "require_no_memory_contamination": false,
+      "require_no_safety_violation": true,
+      "required_terminal_turn_pass": true,
+      "required_turn_ids": [
+        "t2",
+        "t3"
+      ]
+    },
+    "source_metadata": {},
+    "split": "DEVELOPMENT",
+    "subcategory": "MULTI_STEP",
+    "tags": [
+      "ENTITY_CARRY_OVER",
+      "SLOT_CARRY_OVER",
+      "FOLLOW_UP_QUERY"
+    ],
+    "turns": [
+      {
+        "annotation_status": "MODEL_GENERATED_UNREVIEWED",
+        "artifact_expectations": {
+          "identity_scoped": true,
+          "required_artifact_ids": [],
+          "required_source_refs": []
+        },
+        "expected_behavior": {
+          "allowed_agents": [],
+          "allowed_recovery_actions": [],
+          "allowed_tools": [],
+          "authorization_required": null,
+          "clarification_required": null,
+          "forbidden_agents": [],
+          "forbidden_recovery_actions": [],
+          "forbidden_tools": [],
+          "handoff_reason": null,
+          "handoff_required": null,
+          "required_agents": [],
+          "required_clarification_slots": [],
+          "required_tools": [],
+          "response_type": "ANSWER"
+        },
+        "gold_evidence": [],
+        "gold_facts": [],
+        "memory_expectations": {
+          "active_entity_refs": [],
+          "allowed_fact_ids": [],
+          "disallow_cross_session_working_memory": true,
+          "forbidden_fact_ids": [],
+          "memory_dependent": false,
+          "required_fact_ids": [],
+          "stale_fact_ids": [],
+          "superseded_fact_ids": []
+        },
+        "required_context_units": [],
+        "runtime_input_delta": {},
+        "safety_constraints": [],
+        "state_updates": {},
+        "task_success_contract": {
+          "conditional_criteria": [],
+          "required_criteria": [
+            "RESPONSE_TYPE_CORRECT"
+          ]
+        },
+        "turn_id": "t1",
+        "turn_index": 0,
+        "user_input": "我的冰箱 FR-200 出现 E12。"
+      },
+      {
+        "annotation_status": "MODEL_GENERATED_UNREVIEWED",
+        "artifact_expectations": {
+          "identity_scoped": true,
+          "required_artifact_ids": [],
+          "required_source_refs": []
+        },
+        "expected_behavior": {
+          "allowed_agents": [],
+          "allowed_recovery_actions": [],
+          "allowed_tools": [],
+          "authorization_required": null,
+          "clarification_required": null,
+          "forbidden_agents": [],
+          "forbidden_recovery_actions": [],
+          "forbidden_tools": [],
+          "handoff_reason": null,
+          "handoff_required": null,
+          "required_agents": [],
+          "required_clarification_slots": [],
+          "required_tools": [],
+          "response_type": "ANSWER"
+        },
+        "gold_evidence": [],
+        "gold_facts": [],
+        "memory_expectations": {
+          "active_entity_refs": [],
+          "allowed_fact_ids": [],
+          "disallow_cross_session_working_memory": true,
+          "forbidden_fact_ids": [],
+          "memory_dependent": false,
+          "required_fact_ids": [],
+          "stale_fact_ids": [],
+          "superseded_fact_ids": []
+        },
+        "required_context_units": [
+          {
+            "critical": true,
+            "description": "active product model FR-200",
+            "normalized_value": null,
+            "source_ref": "turn:t1:product_model",
+            "supersedes_unit_ids": [],
+            "unit_id": "product_model",
+            "unit_type": "ENTITY"
+          },
+          {
+            "critical": true,
+            "description": "error code E12",
+            "normalized_value": null,
+            "source_ref": "turn:t1:error_code",
+            "supersedes_unit_ids": [],
+            "unit_id": "error_code",
+            "unit_type": "SLOT"
+          }
+        ],
+        "runtime_input_delta": {},
+        "safety_constraints": [],
+        "state_updates": {},
+        "task_success_contract": {
+          "conditional_criteria": [],
+          "required_criteria": [
+            "RESPONSE_TYPE_CORRECT"
+          ]
+        },
+        "turn_id": "t2",
+        "turn_index": 1,
+        "user_input": "这个问题严重吗？"
+      },
+      {
+        "annotation_status": "MODEL_GENERATED_UNREVIEWED",
+        "artifact_expectations": {
+          "identity_scoped": true,
+          "required_artifact_ids": [],
+          "required_source_refs": []
+        },
+        "expected_behavior": {
+          "allowed_agents": [],
+          "allowed_recovery_actions": [],
+          "allowed_tools": [],
+          "authorization_required": null,
+          "clarification_required": null,
+          "forbidden_agents": [],
+          "forbidden_recovery_actions": [],
+          "forbidden_tools": [],
+          "handoff_reason": null,
+          "handoff_required": null,
+          "required_agents": [],
+          "required_clarification_slots": [],
+          "required_tools": [],
+          "response_type": "ANSWER"
+        },
+        "gold_evidence": [],
+        "gold_facts": [],
+        "memory_expectations": {
+          "active_entity_refs": [],
+          "allowed_fact_ids": [],
+          "disallow_cross_session_working_memory": true,
+          "forbidden_fact_ids": [],
+          "memory_dependent": false,
+          "required_fact_ids": [],
+          "stale_fact_ids": [],
+          "superseded_fact_ids": []
+        },
+        "required_context_units": [
+          {
+            "critical": true,
+            "description": "active product model FR-200",
+            "normalized_value": null,
+            "source_ref": "turn:t1:product_model",
+            "supersedes_unit_ids": [],
+            "unit_id": "product_model",
+            "unit_type": "ENTITY"
+          },
+          {
+            "critical": true,
+            "description": "error code E12",
+            "normalized_value": null,
+            "source_ref": "turn:t1:error_code",
+            "supersedes_unit_ids": [],
+            "unit_id": "error_code",
+            "unit_type": "SLOT"
+          }
+        ],
+        "runtime_input_delta": {},
+        "safety_constraints": [],
+        "state_updates": {},
+        "task_success_contract": {
+          "conditional_criteria": [],
+          "required_criteria": [
+            "RESPONSE_TYPE_CORRECT"
+          ]
+        },
+        "turn_id": "t3",
+        "turn_index": 2,
+        "user_input": "这种情况保修吗？"
+      }
+    ]
+  },
+  {
+    "annotation_metadata": {
+      "annotated_by": [
+        "phase4_seed_builder"
+      ],
+      "annotation_status": "MODEL_GENERATED_UNREVIEWED",
+      "annotation_version": "phase4-seed-v1",
+      "review_notes": "Candidate only; must be human-reviewed before formal Quality-Cost metrics.",
+      "reviewed_by": []
+    },
+    "category": "KNOWLEDGE_QA",
+    "difficulty": "MEDIUM",
+    "initial_context": {},
+    "initial_identity": {
+      "conversation_id": "conversation:p4_user_correction",
+      "permissions": [],
+      "region": "CN",
+      "roles": [],
+      "session_id": "session:p4_user_correction",
+      "tenant_id": "tenant:phase4",
+      "thread_id": "thread:p4_user_correction",
+      "user_id": "user:phase4"
+    },
+    "schema_version": "1.0",
+    "session_id": "p4_user_correction",
+    "session_success_contract": {
+      "require_no_memory_contamination": true,
+      "require_no_safety_violation": true,
+      "required_terminal_turn_pass": true,
+      "required_turn_ids": []
+    },
+    "source_metadata": {},
+    "split": "DEVELOPMENT",
+    "subcategory": "EXACT_SPEC",
+    "tags": [
+      "USER_CORRECTION",
+      "FACT_SUPERSESSION",
+      "STALE_MEMORY_RESISTANCE"
+    ],
+    "turns": [
+      {
+        "annotation_status": "MODEL_GENERATED_UNREVIEWED",
+        "artifact_expectations": {
+          "identity_scoped": true,
+          "required_artifact_ids": [],
+          "required_source_refs": []
+        },
+        "expected_behavior": {
+          "allowed_agents": [],
+          "allowed_recovery_actions": [],
+          "allowed_tools": [],
+          "authorization_required": null,
+          "clarification_required": null,
+          "forbidden_agents": [],
+          "forbidden_recovery_actions": [],
+          "forbidden_tools": [],
+          "handoff_reason": null,
+          "handoff_required": null,
+          "required_agents": [],
+          "required_clarification_slots": [],
+          "required_tools": [],
+          "response_type": "ANSWER"
+        },
+        "gold_evidence": [],
+        "gold_facts": [],
+        "memory_expectations": {
+          "active_entity_refs": [],
+          "allowed_fact_ids": [],
+          "disallow_cross_session_working_memory": true,
+          "forbidden_fact_ids": [],
+          "memory_dependent": false,
+          "required_fact_ids": [],
+          "stale_fact_ids": [],
+          "superseded_fact_ids": []
+        },
+        "required_context_units": [],
+        "runtime_input_delta": {},
+        "safety_constraints": [],
+        "state_updates": {},
+        "task_success_contract": {
+          "conditional_criteria": [],
+          "required_criteria": [
+            "RESPONSE_TYPE_CORRECT"
+          ]
+        },
+        "turn_id": "t1",
+        "turn_index": 0,
+        "user_input": "我的型号是 FR-100。"
+      },
+      {
+        "annotation_status": "MODEL_GENERATED_UNREVIEWED",
+        "artifact_expectations": {
+          "identity_scoped": true,
+          "required_artifact_ids": [],
+          "required_source_refs": []
+        },
+        "expected_behavior": {
+          "allowed_agents": [],
+          "allowed_recovery_actions": [],
+          "allowed_tools": [],
+          "authorization_required": null,
+          "clarification_required": null,
+          "forbidden_agents": [],
+          "forbidden_recovery_actions": [],
+          "forbidden_tools": [],
+          "handoff_reason": null,
+          "handoff_required": null,
+          "required_agents": [],
+          "required_clarification_slots": [],
+          "required_tools": [],
+          "response_type": "ANSWER"
+        },
+        "gold_evidence": [],
+        "gold_facts": [],
+        "memory_expectations": {
+          "active_entity_refs": [],
+          "allowed_fact_ids": [],
+          "disallow_cross_session_working_memory": true,
+          "forbidden_fact_ids": [],
+          "memory_dependent": false,
+          "required_fact_ids": [],
+          "stale_fact_ids": [],
+          "superseded_fact_ids": []
+        },
+        "required_context_units": [],
+        "runtime_input_delta": {},
+        "safety_constraints": [],
+        "state_updates": {},
+        "task_success_contract": {
+          "conditional_criteria": [],
+          "required_criteria": [
+            "RESPONSE_TYPE_CORRECT"
+          ]
+        },
+        "turn_id": "t2",
+        "turn_index": 1,
+        "user_input": "等等，我看错了，是 FR-200。"
+      },
+      {
+        "annotation_status": "MODEL_GENERATED_UNREVIEWED",
+        "artifact_expectations": {
+          "identity_scoped": true,
+          "required_artifact_ids": [],
+          "required_source_refs": []
+        },
+        "expected_behavior": {
+          "allowed_agents": [],
+          "allowed_recovery_actions": [],
+          "allowed_tools": [],
+          "authorization_required": null,
+          "clarification_required": null,
+          "forbidden_agents": [],
+          "forbidden_recovery_actions": [],
+          "forbidden_tools": [],
+          "handoff_reason": null,
+          "handoff_required": null,
+          "required_agents": [],
+          "required_clarification_slots": [],
+          "required_tools": [],
+          "response_type": "ANSWER"
+        },
+        "gold_evidence": [],
+        "gold_facts": [],
+        "memory_expectations": {
+          "active_entity_refs": [],
+          "allowed_fact_ids": [
+            "model:FR-200"
+          ],
+          "disallow_cross_session_working_memory": true,
+          "forbidden_fact_ids": [],
+          "memory_dependent": true,
+          "required_fact_ids": [],
+          "stale_fact_ids": [],
+          "superseded_fact_ids": [
+            "model:FR-100"
+          ]
+        },
+        "required_context_units": [
+          {
+            "critical": true,
+            "description": "corrected active model FR-200",
+            "normalized_value": null,
+            "source_ref": "turn:t2:product_model",
+            "supersedes_unit_ids": [],
+            "unit_id": "active_model",
+            "unit_type": "ENTITY"
+          }
+        ],
+        "runtime_input_delta": {},
+        "safety_constraints": [],
+        "state_updates": {},
+        "task_success_contract": {
+          "conditional_criteria": [],
+          "required_criteria": [
+            "RESPONSE_TYPE_CORRECT"
+          ]
+        },
+        "turn_id": "t3",
+        "turn_index": 2,
+        "user_input": "这个型号的保修期多久？"
+      }
+    ]
+  },
+  {
+    "annotation_metadata": {
+      "annotated_by": [
+        "phase4_seed_builder"
+      ],
+      "annotation_status": "MODEL_GENERATED_UNREVIEWED",
+      "annotation_version": "phase4-seed-v1",
+      "review_notes": "Candidate only; must be human-reviewed before formal Quality-Cost metrics.",
+      "reviewed_by": []
+    },
+    "category": "TROUBLESHOOTING",
+    "difficulty": "MEDIUM",
+    "initial_context": {},
+    "initial_identity": {
+      "conversation_id": "conversation:p4_topic_switch",
+      "permissions": [],
+      "region": "CN",
+      "roles": [],
+      "session_id": "session:p4_topic_switch",
+      "tenant_id": "tenant:phase4",
+      "thread_id": "thread:p4_topic_switch",
+      "user_id": "user:phase4"
+    },
+    "schema_version": "1.0",
+    "session_id": "p4_topic_switch",
+    "session_success_contract": {
+      "require_no_memory_contamination": false,
+      "require_no_safety_violation": true,
+      "required_terminal_turn_pass": true,
+      "required_turn_ids": []
+    },
+    "source_metadata": {},
+    "split": "DEVELOPMENT",
+    "subcategory": "MULTI_STEP",
+    "tags": [
+      "TOPIC_SWITCH",
+      "RETURN_TO_PREVIOUS_TOPIC"
+    ],
+    "turns": [
+      {
+        "annotation_status": "MODEL_GENERATED_UNREVIEWED",
+        "artifact_expectations": {
+          "identity_scoped": true,
+          "required_artifact_ids": [],
+          "required_source_refs": []
+        },
+        "expected_behavior": {
+          "allowed_agents": [],
+          "allowed_recovery_actions": [],
+          "allowed_tools": [],
+          "authorization_required": null,
+          "clarification_required": null,
+          "forbidden_agents": [],
+          "forbidden_recovery_actions": [],
+          "forbidden_tools": [],
+          "handoff_reason": null,
+          "handoff_required": null,
+          "required_agents": [],
+          "required_clarification_slots": [],
+          "required_tools": [],
+          "response_type": "ANSWER"
+        },
+        "gold_evidence": [],
+        "gold_facts": [],
+        "memory_expectations": {
+          "active_entity_refs": [],
+          "allowed_fact_ids": [],
+          "disallow_cross_session_working_memory": true,
+          "forbidden_fact_ids": [],
+          "memory_dependent": false,
+          "required_fact_ids": [],
+          "stale_fact_ids": [],
+          "superseded_fact_ids": []
+        },
+        "required_context_units": [],
+        "runtime_input_delta": {},
+        "safety_constraints": [],
+        "state_updates": {},
+        "task_success_contract": {
+          "conditional_criteria": [],
+          "required_criteria": [
+            "RESPONSE_TYPE_CORRECT"
+          ]
+        },
+        "turn_id": "t1",
+        "turn_index": 0,
+        "user_input": "我的冰箱 E12 怎么处理？"
+      },
+      {
+        "annotation_status": "MODEL_GENERATED_UNREVIEWED",
+        "artifact_expectations": {
+          "identity_scoped": true,
+          "required_artifact_ids": [],
+          "required_source_refs": []
+        },
+        "expected_behavior": {
+          "allowed_agents": [],
+          "allowed_recovery_actions": [],
+          "allowed_tools": [],
+          "authorization_required": null,
+          "clarification_required": null,
+          "forbidden_agents": [],
+          "forbidden_recovery_actions": [],
+          "forbidden_tools": [],
+          "handoff_reason": null,
+          "handoff_required": null,
+          "required_agents": [],
+          "required_clarification_slots": [],
+          "required_tools": [],
+          "response_type": "ANSWER"
+        },
+        "gold_evidence": [],
+        "gold_facts": [],
+        "memory_expectations": {
+          "active_entity_refs": [],
+          "allowed_fact_ids": [],
+          "disallow_cross_session_working_memory": true,
+          "forbidden_fact_ids": [],
+          "memory_dependent": false,
+          "required_fact_ids": [],
+          "stale_fact_ids": [],
+          "superseded_fact_ids": []
+        },
+        "required_context_units": [],
+        "runtime_input_delta": {},
+        "safety_constraints": [],
+        "state_updates": {},
+        "task_success_contract": {
+          "conditional_criteria": [],
+          "required_criteria": [
+            "RESPONSE_TYPE_CORRECT"
+          ]
+        },
+        "turn_id": "t2",
+        "turn_index": 1,
+        "user_input": "我这个订单是什么时候买的？"
+      },
+      {
+        "annotation_status": "MODEL_GENERATED_UNREVIEWED",
+        "artifact_expectations": {
+          "identity_scoped": true,
+          "required_artifact_ids": [],
+          "required_source_refs": []
+        },
+        "expected_behavior": {
+          "allowed_agents": [],
+          "allowed_recovery_actions": [],
+          "allowed_tools": [],
+          "authorization_required": null,
+          "clarification_required": null,
+          "forbidden_agents": [],
+          "forbidden_recovery_actions": [],
+          "forbidden_tools": [],
+          "handoff_reason": null,
+          "handoff_required": null,
+          "required_agents": [],
+          "required_clarification_slots": [],
+          "required_tools": [],
+          "response_type": "ANSWER"
+        },
+        "gold_evidence": [],
+        "gold_facts": [],
+        "memory_expectations": {
+          "active_entity_refs": [],
+          "allowed_fact_ids": [],
+          "disallow_cross_session_working_memory": true,
+          "forbidden_fact_ids": [],
+          "memory_dependent": false,
+          "required_fact_ids": [],
+          "stale_fact_ids": [],
+          "superseded_fact_ids": []
+        },
+        "required_context_units": [
+          {
+            "critical": true,
+            "description": "return to previous E12 troubleshooting topic",
+            "normalized_value": null,
+            "source_ref": "turn:t1:error_code",
+            "supersedes_unit_ids": [],
+            "unit_id": "previous_issue",
+            "unit_type": "SLOT"
+          }
+        ],
+        "runtime_input_delta": {},
+        "safety_constraints": [],
+        "state_updates": {},
+        "task_success_contract": {
+          "conditional_criteria": [],
+          "required_criteria": [
+            "RESPONSE_TYPE_CORRECT"
+          ]
+        },
+        "turn_id": "t3",
+        "turn_index": 2,
+        "user_input": "顺便问一下之前那个 E12 还需要维修吗？"
+      }
+    ]
+  },
+  {
+    "annotation_metadata": {
+      "annotated_by": [
+        "phase4_seed_builder"
+      ],
+      "annotation_status": "MODEL_GENERATED_UNREVIEWED",
+      "annotation_version": "phase4-seed-v1",
+      "review_notes": "Candidate only; must be human-reviewed before formal Quality-Cost metrics.",
+      "reviewed_by": []
+    },
+    "category": "MIXED_KNOWLEDGE_STRUCTURED",
+    "difficulty": "MEDIUM",
+    "initial_context": {},
+    "initial_identity": {
+      "conversation_id": "conversation:p4_private_policy",
+      "permissions": [],
+      "region": "CN",
+      "roles": [],
+      "session_id": "session:p4_private_policy",
+      "tenant_id": "tenant:phase4",
+      "thread_id": "thread:p4_private_policy",
+      "user_id": "user:phase4"
+    },
+    "schema_version": "1.0",
+    "session_id": "p4_private_policy",
+    "session_success_contract": {
+      "require_no_memory_contamination": false,
+      "require_no_safety_violation": true,
+      "required_terminal_turn_pass": true,
+      "required_turn_ids": []
+    },
+    "source_metadata": {},
+    "split": "DEVELOPMENT",
+    "subcategory": "ORDER_POLICY",
+    "tags": [
+      "PRIVATE_IDENTITY_CONTINUITY",
+      "WORKING_MEMORY_REUSE",
+      "STRUCTURED_PLUS_DOCUMENT"
+    ],
+    "turns": [
+      {
+        "annotation_status": "MODEL_GENERATED_UNREVIEWED",
+        "artifact_expectations": {
+          "identity_scoped": true,
+          "required_artifact_ids": [],
+          "required_source_refs": []
+        },
+        "expected_behavior": {
+          "allowed_agents": [],
+          "allowed_recovery_actions": [],
+          "allowed_tools": [],
+          "authorization_required": null,
+          "clarification_required": null,
+          "forbidden_agents": [],
+          "forbidden_recovery_actions": [],
+          "forbidden_tools": [],
+          "handoff_reason": null,
+          "handoff_required": null,
+          "required_agents": [],
+          "required_clarification_slots": [],
+          "required_tools": [],
+          "response_type": "ANSWER"
+        },
+        "gold_evidence": [],
+        "gold_facts": [],
+        "memory_expectations": {
+          "active_entity_refs": [],
+          "allowed_fact_ids": [],
+          "disallow_cross_session_working_memory": true,
+          "forbidden_fact_ids": [],
+          "memory_dependent": false,
+          "required_fact_ids": [],
+          "stale_fact_ids": [],
+          "superseded_fact_ids": []
+        },
+        "required_context_units": [],
+        "runtime_input_delta": {},
+        "safety_constraints": [],
+        "state_updates": {},
+        "task_success_contract": {
+          "conditional_criteria": [],
+          "required_criteria": [
+            "RESPONSE_TYPE_CORRECT"
+          ]
+        },
+        "turn_id": "t1",
+        "turn_index": 0,
+        "user_input": "我的订单 ORD-001 是什么时候买的？"
+      },
+      {
+        "annotation_status": "MODEL_GENERATED_UNREVIEWED",
+        "artifact_expectations": {
+          "identity_scoped": true,
+          "required_artifact_ids": [],
+          "required_source_refs": []
+        },
+        "expected_behavior": {
+          "allowed_agents": [],
+          "allowed_recovery_actions": [],
+          "allowed_tools": [],
+          "authorization_required": null,
+          "clarification_required": null,
+          "forbidden_agents": [],
+          "forbidden_recovery_actions": [],
+          "forbidden_tools": [],
+          "handoff_reason": null,
+          "handoff_required": null,
+          "required_agents": [],
+          "required_clarification_slots": [],
+          "required_tools": [],
+          "response_type": "ANSWER"
+        },
+        "gold_evidence": [],
+        "gold_facts": [],
+        "memory_expectations": {
+          "active_entity_refs": [],
+          "allowed_fact_ids": [],
+          "disallow_cross_session_working_memory": true,
+          "forbidden_fact_ids": [],
+          "memory_dependent": true,
+          "required_fact_ids": [],
+          "stale_fact_ids": [],
+          "superseded_fact_ids": []
+        },
+        "required_context_units": [
+          {
+            "critical": true,
+            "description": "previous order identity",
+            "normalized_value": null,
+            "source_ref": "record:order:ORD-001",
+            "supersedes_unit_ids": [],
+            "unit_id": "order_id",
+            "unit_type": "PREVIOUS_TOOL_RESULT_REF"
+          }
+        ],
+        "runtime_input_delta": {},
+        "safety_constraints": [],
+        "state_updates": {},
+        "task_success_contract": {
+          "conditional_criteria": [],
+          "required_criteria": [
+            "RESPONSE_TYPE_CORRECT"
+          ]
+        },
+        "turn_id": "t2",
+        "turn_index": 1,
+        "user_input": "那我现在还能退吗？"
+      }
+    ]
+  },
+  {
+    "annotation_metadata": {
+      "annotated_by": [
+        "phase4_seed_builder"
+      ],
+      "annotation_status": "MODEL_GENERATED_UNREVIEWED",
+      "annotation_version": "phase4-seed-v1",
+      "review_notes": "Candidate only; must be human-reviewed before formal Quality-Cost metrics.",
+      "reviewed_by": []
+    },
+    "category": "KNOWLEDGE_QA",
+    "difficulty": "MEDIUM",
+    "initial_context": {},
+    "initial_identity": {
+      "conversation_id": "conversation:p4_region_supersession",
+      "permissions": [],
+      "region": "CN",
+      "roles": [],
+      "session_id": "session:p4_region_supersession",
+      "tenant_id": "tenant:phase4",
+      "thread_id": "thread:p4_region_supersession",
+      "user_id": "user:phase4"
+    },
+    "schema_version": "1.0",
+    "session_id": "p4_region_supersession",
+    "session_success_contract": {
+      "require_no_memory_contamination": true,
+      "require_no_safety_violation": true,
+      "required_terminal_turn_pass": true,
+      "required_turn_ids": []
+    },
+    "source_metadata": {},
+    "split": "DEVELOPMENT",
+    "subcategory": "REGION_POLICY",
+    "tags": [
+      "FACT_SUPERSESSION",
+      "STALE_MEMORY_RESISTANCE"
+    ],
+    "turns": [
+      {
+        "annotation_status": "MODEL_GENERATED_UNREVIEWED",
+        "artifact_expectations": {
+          "identity_scoped": true,
+          "required_artifact_ids": [],
+          "required_source_refs": []
+        },
+        "expected_behavior": {
+          "allowed_agents": [],
+          "allowed_recovery_actions": [],
+          "allowed_tools": [],
+          "authorization_required": null,
+          "clarification_required": null,
+          "forbidden_agents": [],
+          "forbidden_recovery_actions": [],
+          "forbidden_tools": [],
+          "handoff_reason": null,
+          "handoff_required": null,
+          "required_agents": [],
+          "required_clarification_slots": [],
+          "required_tools": [],
+          "response_type": "ANSWER"
+        },
+        "gold_evidence": [],
+        "gold_facts": [],
+        "memory_expectations": {
+          "active_entity_refs": [],
+          "allowed_fact_ids": [],
+          "disallow_cross_session_working_memory": true,
+          "forbidden_fact_ids": [],
+          "memory_dependent": false,
+          "required_fact_ids": [],
+          "stale_fact_ids": [],
+          "superseded_fact_ids": []
+        },
+        "required_context_units": [],
+        "runtime_input_delta": {},
+        "safety_constraints": [],
+        "state_updates": {},
+        "task_success_contract": {
+          "conditional_criteria": [],
+          "required_criteria": [
+            "RESPONSE_TYPE_CORRECT"
+          ]
+        },
+        "turn_id": "t1",
+        "turn_index": 0,
+        "user_input": "我在上海使用。"
+      },
+      {
+        "annotation_status": "MODEL_GENERATED_UNREVIEWED",
+        "artifact_expectations": {
+          "identity_scoped": true,
+          "required_artifact_ids": [],
+          "required_source_refs": []
+        },
+        "expected_behavior": {
+          "allowed_agents": [],
+          "allowed_recovery_actions": [],
+          "allowed_tools": [],
+          "authorization_required": null,
+          "clarification_required": null,
+          "forbidden_agents": [],
+          "forbidden_recovery_actions": [],
+          "forbidden_tools": [],
+          "handoff_reason": null,
+          "handoff_required": null,
+          "required_agents": [],
+          "required_clarification_slots": [],
+          "required_tools": [],
+          "response_type": "ANSWER"
+        },
+        "gold_evidence": [],
+        "gold_facts": [],
+        "memory_expectations": {
+          "active_entity_refs": [],
+          "allowed_fact_ids": [],
+          "disallow_cross_session_working_memory": true,
+          "forbidden_fact_ids": [],
+          "memory_dependent": false,
+          "required_fact_ids": [],
+          "stale_fact_ids": [],
+          "superseded_fact_ids": []
+        },
+        "required_context_units": [],
+        "runtime_input_delta": {},
+        "safety_constraints": [],
+        "state_updates": {},
+        "task_success_contract": {
+          "conditional_criteria": [],
+          "required_criteria": [
+            "RESPONSE_TYPE_CORRECT"
+          ]
+        },
+        "turn_id": "t2",
+        "turn_index": 1,
+        "user_input": "我现在已经搬到北京了。"
+      },
+      {
+        "annotation_status": "MODEL_GENERATED_UNREVIEWED",
+        "artifact_expectations": {
+          "identity_scoped": true,
+          "required_artifact_ids": [],
+          "required_source_refs": []
+        },
+        "expected_behavior": {
+          "allowed_agents": [],
+          "allowed_recovery_actions": [],
+          "allowed_tools": [],
+          "authorization_required": null,
+          "clarification_required": null,
+          "forbidden_agents": [],
+          "forbidden_recovery_actions": [],
+          "forbidden_tools": [],
+          "handoff_reason": null,
+          "handoff_required": null,
+          "required_agents": [],
+          "required_clarification_slots": [],
+          "required_tools": [],
+          "response_type": "ANSWER"
+        },
+        "gold_evidence": [],
+        "gold_facts": [],
+        "memory_expectations": {
+          "active_entity_refs": [],
+          "allowed_fact_ids": [
+            "region:Beijing"
+          ],
+          "disallow_cross_session_working_memory": true,
+          "forbidden_fact_ids": [],
+          "memory_dependent": true,
+          "required_fact_ids": [],
+          "stale_fact_ids": [],
+          "superseded_fact_ids": [
+            "region:Shanghai"
+          ]
+        },
+        "required_context_units": [
+          {
+            "critical": true,
+            "description": "latest region Beijing",
+            "normalized_value": null,
+            "source_ref": "turn:t2:region",
+            "supersedes_unit_ids": [],
+            "unit_id": "active_region",
+            "unit_type": "SLOT"
+          }
+        ],
+        "runtime_input_delta": {},
+        "safety_constraints": [],
+        "state_updates": {},
+        "task_success_contract": {
+          "conditional_criteria": [],
+          "required_criteria": [
+            "RESPONSE_TYPE_CORRECT"
+          ]
+        },
+        "turn_id": "t3",
+        "turn_index": 2,
+        "user_input": "这个政策现在适用吗？"
+      }
+    ]
+  },
+  {
+    "annotation_metadata": {
+      "annotated_by": [
+        "phase4_seed_builder"
+      ],
+      "annotation_status": "MODEL_GENERATED_UNREVIEWED",
+      "annotation_version": "phase4-seed-v1",
+      "review_notes": "Candidate only; must be human-reviewed before formal Quality-Cost metrics.",
+      "reviewed_by": []
+    },
+    "category": "KNOWLEDGE_QA",
+    "difficulty": "MEDIUM",
+    "initial_context": {},
+    "initial_identity": {
+      "conversation_id": "conversation:p4_irrelevant_old_context",
+      "permissions": [],
+      "region": "CN",
+      "roles": [],
+      "session_id": "session:p4_irrelevant_old_context",
+      "tenant_id": "tenant:phase4",
+      "thread_id": "thread:p4_irrelevant_old_context",
+      "user_id": "user:phase4"
+    },
+    "schema_version": "1.0",
+    "session_id": "p4_irrelevant_old_context",
+    "session_success_contract": {
+      "require_no_memory_contamination": false,
+      "require_no_safety_violation": true,
+      "required_terminal_turn_pass": true,
+      "required_turn_ids": []
+    },
+    "source_metadata": {},
+    "split": "DEVELOPMENT",
+    "subcategory": "FAQ",
+    "tags": [
+      "IRRELEVANT_OLD_CONTEXT",
+      "OVER_CONTEXT"
+    ],
+    "turns": [
+      {
+        "annotation_status": "MODEL_GENERATED_UNREVIEWED",
+        "artifact_expectations": {
+          "identity_scoped": true,
+          "required_artifact_ids": [],
+          "required_source_refs": []
+        },
+        "expected_behavior": {
+          "allowed_agents": [],
+          "allowed_recovery_actions": [],
+          "allowed_tools": [],
+          "authorization_required": null,
+          "clarification_required": null,
+          "forbidden_agents": [],
+          "forbidden_recovery_actions": [],
+          "forbidden_tools": [],
+          "handoff_reason": null,
+          "handoff_required": null,
+          "required_agents": [],
+          "required_clarification_slots": [],
+          "required_tools": [],
+          "response_type": "ANSWER"
+        },
+        "gold_evidence": [],
+        "gold_facts": [],
+        "memory_expectations": {
+          "active_entity_refs": [],
+          "allowed_fact_ids": [],
+          "disallow_cross_session_working_memory": true,
+          "forbidden_fact_ids": [],
+          "memory_dependent": false,
+          "required_fact_ids": [],
+          "stale_fact_ids": [],
+          "superseded_fact_ids": []
+        },
+        "required_context_units": [],
+        "runtime_input_delta": {},
+        "safety_constraints": [],
+        "state_updates": {},
+        "task_success_contract": {
+          "conditional_criteria": [],
+          "required_criteria": [
+            "RESPONSE_TYPE_CORRECT"
+          ]
+        },
+        "turn_id": "t1",
+        "turn_index": 0,
+        "user_input": "之前我问过洗衣机 WM-100 的滤芯。"
+      },
+      {
+        "annotation_status": "MODEL_GENERATED_UNREVIEWED",
+        "artifact_expectations": {
+          "identity_scoped": true,
+          "required_artifact_ids": [],
+          "required_source_refs": []
+        },
+        "expected_behavior": {
+          "allowed_agents": [],
+          "allowed_recovery_actions": [],
+          "allowed_tools": [],
+          "authorization_required": null,
+          "clarification_required": null,
+          "forbidden_agents": [],
+          "forbidden_recovery_actions": [],
+          "forbidden_tools": [],
+          "handoff_reason": null,
+          "handoff_required": null,
+          "required_agents": [],
+          "required_clarification_slots": [],
+          "required_tools": [],
+          "response_type": "ANSWER"
+        },
+        "gold_evidence": [],
+        "gold_facts": [],
+        "memory_expectations": {
+          "active_entity_refs": [],
+          "allowed_fact_ids": [],
+          "disallow_cross_session_working_memory": true,
+          "forbidden_fact_ids": [],
+          "memory_dependent": false,
+          "required_fact_ids": [],
+          "stale_fact_ids": [],
+          "superseded_fact_ids": []
+        },
+        "required_context_units": [
+          {
+            "critical": true,
+            "description": "current entity FR-200",
+            "normalized_value": null,
+            "source_ref": "turn:t2:product_model",
+            "supersedes_unit_ids": [],
+            "unit_id": "current_model",
+            "unit_type": "ENTITY"
+          }
+        ],
+        "runtime_input_delta": {},
+        "safety_constraints": [],
+        "state_updates": {},
+        "task_success_contract": {
+          "conditional_criteria": [],
+          "required_criteria": [
+            "RESPONSE_TYPE_CORRECT"
+          ]
+        },
+        "turn_id": "t2",
+        "turn_index": 1,
+        "user_input": "现在只看冰箱 FR-200，E12 是什么意思？"
+      },
+      {
+        "annotation_status": "MODEL_GENERATED_UNREVIEWED",
+        "artifact_expectations": {
+          "identity_scoped": true,
+          "required_artifact_ids": [],
+          "required_source_refs": []
+        },
+        "expected_behavior": {
+          "allowed_agents": [],
+          "allowed_recovery_actions": [],
+          "allowed_tools": [],
+          "authorization_required": null,
+          "clarification_required": null,
+          "forbidden_agents": [],
+          "forbidden_recovery_actions": [],
+          "forbidden_tools": [],
+          "handoff_reason": null,
+          "handoff_required": null,
+          "required_agents": [],
+          "required_clarification_slots": [],
+          "required_tools": [],
+          "response_type": "ANSWER"
+        },
+        "gold_evidence": [],
+        "gold_facts": [],
+        "memory_expectations": {
+          "active_entity_refs": [],
+          "allowed_fact_ids": [],
+          "disallow_cross_session_working_memory": true,
+          "forbidden_fact_ids": [],
+          "memory_dependent": false,
+          "required_fact_ids": [],
+          "stale_fact_ids": [],
+          "superseded_fact_ids": []
+        },
+        "required_context_units": [
+          {
+            "critical": true,
+            "description": "current entity FR-200",
+            "normalized_value": null,
+            "source_ref": "turn:t2:product_model",
+            "supersedes_unit_ids": [],
+            "unit_id": "current_model",
+            "unit_type": "ENTITY"
+          }
+        ],
+        "runtime_input_delta": {},
+        "safety_constraints": [],
+        "state_updates": {},
+        "task_success_contract": {
+          "conditional_criteria": [],
+          "required_criteria": [
+            "RESPONSE_TYPE_CORRECT"
+          ]
+        },
+        "turn_id": "t3",
+        "turn_index": 2,
+        "user_input": "需要立刻停机吗？"
+      }
+    ]
+  },
+  {
+    "annotation_metadata": {
+      "annotated_by": [
+        "phase4_seed_builder"
+      ],
+      "annotation_status": "MODEL_GENERATED_UNREVIEWED",
+      "annotation_version": "phase4-seed-v1",
+      "review_notes": "Candidate only; must be human-reviewed before formal Quality-Cost metrics.",
+      "reviewed_by": []
+    },
+    "category": "KNOWLEDGE_QA",
+    "difficulty": "MEDIUM",
+    "initial_context": {},
+    "initial_identity": {
+      "conversation_id": "conversation:p4_long_term_reuse",
+      "permissions": [],
+      "region": "CN",
+      "roles": [],
+      "session_id": "session:p4_long_term_reuse",
+      "tenant_id": "tenant:phase4",
+      "thread_id": "thread:p4_long_term_reuse",
+      "user_id": "user:phase4"
+    },
+    "schema_version": "1.0",
+    "session_id": "p4_long_term_reuse",
+    "session_success_contract": {
+      "require_no_memory_contamination": false,
+      "require_no_safety_violation": true,
+      "required_terminal_turn_pass": true,
+      "required_turn_ids": []
+    },
+    "source_metadata": {},
+    "split": "DEVELOPMENT",
+    "subcategory": "REGION_POLICY",
+    "tags": [
+      "LONG_TERM_MEMORY_REUSE"
+    ],
+    "turns": [
+      {
+        "annotation_status": "MODEL_GENERATED_UNREVIEWED",
+        "artifact_expectations": {
+          "identity_scoped": true,
+          "required_artifact_ids": [],
+          "required_source_refs": []
+        },
+        "expected_behavior": {
+          "allowed_agents": [],
+          "allowed_recovery_actions": [],
+          "allowed_tools": [],
+          "authorization_required": null,
+          "clarification_required": null,
+          "forbidden_agents": [],
+          "forbidden_recovery_actions": [],
+          "forbidden_tools": [],
+          "handoff_reason": null,
+          "handoff_required": null,
+          "required_agents": [],
+          "required_clarification_slots": [],
+          "required_tools": [],
+          "response_type": "ANSWER"
+        },
+        "gold_evidence": [],
+        "gold_facts": [],
+        "memory_expectations": {
+          "active_entity_refs": [],
+          "allowed_fact_ids": [],
+          "disallow_cross_session_working_memory": true,
+          "forbidden_fact_ids": [],
+          "memory_dependent": false,
+          "required_fact_ids": [],
+          "stale_fact_ids": [],
+          "superseded_fact_ids": []
+        },
+        "required_context_units": [],
+        "runtime_input_delta": {},
+        "safety_constraints": [],
+        "state_updates": {},
+        "task_success_contract": {
+          "conditional_criteria": [],
+          "required_criteria": [
+            "RESPONSE_TYPE_CORRECT"
+          ]
+        },
+        "turn_id": "t1",
+        "turn_index": 0,
+        "user_input": "以后售后政策请按北京地区回答。"
+      },
+      {
+        "annotation_status": "MODEL_GENERATED_UNREVIEWED",
+        "artifact_expectations": {
+          "identity_scoped": true,
+          "required_artifact_ids": [],
+          "required_source_refs": []
+        },
+        "expected_behavior": {
+          "allowed_agents": [],
+          "allowed_recovery_actions": [],
+          "allowed_tools": [],
+          "authorization_required": null,
+          "clarification_required": null,
+          "forbidden_agents": [],
+          "forbidden_recovery_actions": [],
+          "forbidden_tools": [],
+          "handoff_reason": null,
+          "handoff_required": null,
+          "required_agents": [],
+          "required_clarification_slots": [],
+          "required_tools": [],
+          "response_type": "ANSWER"
+        },
+        "gold_evidence": [],
+        "gold_facts": [],
+        "memory_expectations": {
+          "active_entity_refs": [],
+          "allowed_fact_ids": [
+            "memory:region:beijing"
+          ],
+          "disallow_cross_session_working_memory": true,
+          "forbidden_fact_ids": [],
+          "memory_dependent": true,
+          "required_fact_ids": [
+            "memory:region:beijing"
+          ],
+          "stale_fact_ids": [],
+          "superseded_fact_ids": []
+        },
+        "required_context_units": [
+          {
+            "critical": true,
+            "description": "remembered preferred region",
+            "normalized_value": null,
+            "source_ref": "memory:region:beijing",
+            "supersedes_unit_ids": [],
+            "unit_id": "region_memory",
+            "unit_type": "MEMORY_FACT"
+          }
+        ],
+        "runtime_input_delta": {},
+        "safety_constraints": [],
+        "state_updates": {},
+        "task_success_contract": {
+          "conditional_criteria": [],
+          "required_criteria": [
+            "RESPONSE_TYPE_CORRECT"
+          ]
+        },
+        "turn_id": "t2",
+        "turn_index": 1,
+        "user_input": "退货政策是什么？"
+      }
+    ]
+  },
+  {
+    "annotation_metadata": {
+      "annotated_by": [
+        "phase4_seed_builder"
+      ],
+      "annotation_status": "MODEL_GENERATED_UNREVIEWED",
+      "annotation_version": "phase4-seed-v1",
+      "review_notes": "Candidate only; must be human-reviewed before formal Quality-Cost metrics.",
+      "reviewed_by": []
+    },
+    "category": "KNOWLEDGE_QA",
+    "difficulty": "MEDIUM",
+    "initial_context": {},
+    "initial_identity": {
+      "conversation_id": "conversation:p4_artifact_reuse",
+      "permissions": [],
+      "region": "CN",
+      "roles": [],
+      "session_id": "session:p4_artifact_reuse",
+      "tenant_id": "tenant:phase4",
+      "thread_id": "thread:p4_artifact_reuse",
+      "user_id": "user:phase4"
+    },
+    "schema_version": "1.0",
+    "session_id": "p4_artifact_reuse",
+    "session_success_contract": {
+      "require_no_memory_contamination": false,
+      "require_no_safety_violation": true,
+      "required_terminal_turn_pass": true,
+      "required_turn_ids": []
+    },
+    "source_metadata": {},
+    "split": "DEVELOPMENT",
+    "subcategory": "MULTI_DOCUMENT",
+    "tags": [
+      "ARTIFACT_REUSE"
+    ],
+    "turns": [
+      {
+        "annotation_status": "MODEL_GENERATED_UNREVIEWED",
+        "artifact_expectations": {
+          "identity_scoped": true,
+          "required_artifact_ids": [],
+          "required_source_refs": []
+        },
+        "expected_behavior": {
+          "allowed_agents": [],
+          "allowed_recovery_actions": [],
+          "allowed_tools": [],
+          "authorization_required": null,
+          "clarification_required": null,
+          "forbidden_agents": [],
+          "forbidden_recovery_actions": [],
+          "forbidden_tools": [],
+          "handoff_reason": null,
+          "handoff_required": null,
+          "required_agents": [],
+          "required_clarification_slots": [],
+          "required_tools": [],
+          "response_type": "ANSWER"
+        },
+        "gold_evidence": [],
+        "gold_facts": [],
+        "memory_expectations": {
+          "active_entity_refs": [],
+          "allowed_fact_ids": [],
+          "disallow_cross_session_working_memory": true,
+          "forbidden_fact_ids": [],
+          "memory_dependent": false,
+          "required_fact_ids": [],
+          "stale_fact_ids": [],
+          "superseded_fact_ids": []
+        },
+        "required_context_units": [],
+        "runtime_input_delta": {},
+        "safety_constraints": [],
+        "state_updates": {},
+        "task_success_contract": {
+          "conditional_criteria": [],
+          "required_criteria": [
+            "RESPONSE_TYPE_CORRECT"
+          ]
+        },
+        "turn_id": "t1",
+        "turn_index": 0,
+        "user_input": "请先帮我整理这次检索结果。"
+      },
+      {
+        "annotation_status": "MODEL_GENERATED_UNREVIEWED",
+        "artifact_expectations": {
+          "identity_scoped": true,
+          "required_artifact_ids": [
+            "artifact:phase4:policy"
+          ],
+          "required_source_refs": []
+        },
+        "expected_behavior": {
+          "allowed_agents": [],
+          "allowed_recovery_actions": [],
+          "allowed_tools": [],
+          "authorization_required": null,
+          "clarification_required": null,
+          "forbidden_agents": [],
+          "forbidden_recovery_actions": [],
+          "forbidden_tools": [],
+          "handoff_reason": null,
+          "handoff_required": null,
+          "required_agents": [],
+          "required_clarification_slots": [],
+          "required_tools": [],
+          "response_type": "ANSWER"
+        },
+        "gold_evidence": [],
+        "gold_facts": [],
+        "memory_expectations": {
+          "active_entity_refs": [],
+          "allowed_fact_ids": [],
+          "disallow_cross_session_working_memory": true,
+          "forbidden_fact_ids": [],
+          "memory_dependent": false,
+          "required_fact_ids": [],
+          "stale_fact_ids": [],
+          "superseded_fact_ids": []
+        },
+        "required_context_units": [
+          {
+            "critical": true,
+            "description": "previous retrieval artifact",
+            "normalized_value": null,
+            "source_ref": "artifact:phase4:policy",
+            "supersedes_unit_ids": [],
+            "unit_id": "prior_artifact",
+            "unit_type": "ARTIFACT_REF"
+          }
+        ],
+        "runtime_input_delta": {},
+        "safety_constraints": [],
+        "state_updates": {},
+        "task_success_contract": {
+          "conditional_criteria": [],
+          "required_criteria": [
+            "RESPONSE_TYPE_CORRECT"
+          ]
+        },
+        "turn_id": "t2",
+        "turn_index": 1,
+        "user_input": "继续基于刚才的结果比较两条政策。"
+      }
+    ]
+  },
+  {
+    "annotation_metadata": {
+      "annotated_by": [
+        "phase4_seed_builder"
+      ],
+      "annotation_status": "MODEL_GENERATED_UNREVIEWED",
+      "annotation_version": "phase4-seed-v1",
+      "review_notes": "Candidate only; must be human-reviewed before formal Quality-Cost metrics.",
+      "reviewed_by": []
+    },
+    "category": "TROUBLESHOOTING",
+    "difficulty": "MEDIUM",
+    "initial_context": {},
+    "initial_identity": {
+      "conversation_id": "conversation:p4_pronoun_reference",
+      "permissions": [],
+      "region": "CN",
+      "roles": [],
+      "session_id": "session:p4_pronoun_reference",
+      "tenant_id": "tenant:phase4",
+      "thread_id": "thread:p4_pronoun_reference",
+      "user_id": "user:phase4"
+    },
+    "schema_version": "1.0",
+    "session_id": "p4_pronoun_reference",
+    "session_success_contract": {
+      "require_no_memory_contamination": false,
+      "require_no_safety_violation": true,
+      "required_terminal_turn_pass": true,
+      "required_turn_ids": []
+    },
+    "source_metadata": {},
+    "split": "DEVELOPMENT",
+    "subcategory": "MISSING_INFORMATION",
+    "tags": [
+      "PRONOUN_REFERENCE",
+      "ENTITY_CARRY_OVER"
+    ],
+    "turns": [
+      {
+        "annotation_status": "MODEL_GENERATED_UNREVIEWED",
+        "artifact_expectations": {
+          "identity_scoped": true,
+          "required_artifact_ids": [],
+          "required_source_refs": []
+        },
+        "expected_behavior": {
+          "allowed_agents": [],
+          "allowed_recovery_actions": [],
+          "allowed_tools": [],
+          "authorization_required": null,
+          "clarification_required": null,
+          "forbidden_agents": [],
+          "forbidden_recovery_actions": [],
+          "forbidden_tools": [],
+          "handoff_reason": null,
+          "handoff_required": null,
+          "required_agents": [],
+          "required_clarification_slots": [],
+          "required_tools": [],
+          "response_type": "ANSWER"
+        },
+        "gold_evidence": [],
+        "gold_facts": [],
+        "memory_expectations": {
+          "active_entity_refs": [],
+          "allowed_fact_ids": [],
+          "disallow_cross_session_working_memory": true,
+          "forbidden_fact_ids": [],
+          "memory_dependent": false,
+          "required_fact_ids": [],
+          "stale_fact_ids": [],
+          "superseded_fact_ids": []
+        },
+        "required_context_units": [],
+        "runtime_input_delta": {},
+        "safety_constraints": [],
+        "state_updates": {},
+        "task_success_contract": {
+          "conditional_criteria": [],
+          "required_criteria": [
+            "RESPONSE_TYPE_CORRECT"
+          ]
+        },
+        "turn_id": "t1",
+        "turn_index": 0,
+        "user_input": "FR-200 的压缩机声音突然变大。"
+      },
+      {
+        "annotation_status": "MODEL_GENERATED_UNREVIEWED",
+        "artifact_expectations": {
+          "identity_scoped": true,
+          "required_artifact_ids": [],
+          "required_source_refs": []
+        },
+        "expected_behavior": {
+          "allowed_agents": [],
+          "allowed_recovery_actions": [],
+          "allowed_tools": [],
+          "authorization_required": null,
+          "clarification_required": null,
+          "forbidden_agents": [],
+          "forbidden_recovery_actions": [],
+          "forbidden_tools": [],
+          "handoff_reason": null,
+          "handoff_required": null,
+          "required_agents": [],
+          "required_clarification_slots": [],
+          "required_tools": [],
+          "response_type": "ANSWER"
+        },
+        "gold_evidence": [],
+        "gold_facts": [],
+        "memory_expectations": {
+          "active_entity_refs": [],
+          "allowed_fact_ids": [],
+          "disallow_cross_session_working_memory": true,
+          "forbidden_fact_ids": [],
+          "memory_dependent": false,
+          "required_fact_ids": [],
+          "stale_fact_ids": [],
+          "superseded_fact_ids": []
+        },
+        "required_context_units": [
+          {
+            "critical": true,
+            "description": "pronoun refers to FR-200",
+            "normalized_value": null,
+            "source_ref": "turn:t1:product_model",
+            "supersedes_unit_ids": [],
+            "unit_id": "pronoun_entity",
+            "unit_type": "ENTITY"
+          }
+        ],
+        "runtime_input_delta": {},
+        "safety_constraints": [],
+        "state_updates": {},
+        "task_success_contract": {
+          "conditional_criteria": [],
+          "required_criteria": [
+            "RESPONSE_TYPE_CORRECT"
+          ]
+        },
+        "turn_id": "t2",
+        "turn_index": 1,
+        "user_input": "它正常吗？"
+      }
+    ]
+  },
+  {
+    "annotation_metadata": {
+      "annotated_by": [
+        "phase4_seed_builder"
+      ],
+      "annotation_status": "MODEL_GENERATED_UNREVIEWED",
+      "annotation_version": "phase4-seed-v1",
+      "review_notes": "Candidate only; must be human-reviewed before formal Quality-Cost metrics.",
+      "reviewed_by": []
+    },
+    "category": "SAFETY_GOVERNANCE",
+    "difficulty": "MEDIUM",
+    "initial_context": {},
+    "initial_identity": {
+      "conversation_id": "conversation:p4_cross_session_guard",
+      "permissions": [],
+      "region": "CN",
+      "roles": [],
+      "session_id": "session:p4_cross_session_guard",
+      "tenant_id": "tenant:phase4",
+      "thread_id": "thread:p4_cross_session_guard",
+      "user_id": "user:phase4"
+    },
+    "schema_version": "1.0",
+    "session_id": "p4_cross_session_guard",
+    "session_success_contract": {
+      "require_no_memory_contamination": true,
+      "require_no_safety_violation": true,
+      "required_terminal_turn_pass": true,
+      "required_turn_ids": []
+    },
+    "source_metadata": {},
+    "split": "DEVELOPMENT",
+    "subcategory": "USER_ISOLATION",
+    "tags": [
+      "CROSS_SESSION_ISOLATION",
+      "WORKING_MEMORY_REUSE"
+    ],
+    "turns": [
+      {
+        "annotation_status": "MODEL_GENERATED_UNREVIEWED",
+        "artifact_expectations": {
+          "identity_scoped": true,
+          "required_artifact_ids": [],
+          "required_source_refs": []
+        },
+        "expected_behavior": {
+          "allowed_agents": [],
+          "allowed_recovery_actions": [],
+          "allowed_tools": [],
+          "authorization_required": null,
+          "clarification_required": null,
+          "forbidden_agents": [],
+          "forbidden_recovery_actions": [],
+          "forbidden_tools": [],
+          "handoff_reason": null,
+          "handoff_required": null,
+          "required_agents": [],
+          "required_clarification_slots": [],
+          "required_tools": [],
+          "response_type": "ANSWER"
+        },
+        "gold_evidence": [],
+        "gold_facts": [],
+        "memory_expectations": {
+          "active_entity_refs": [],
+          "allowed_fact_ids": [],
+          "disallow_cross_session_working_memory": true,
+          "forbidden_fact_ids": [],
+          "memory_dependent": false,
+          "required_fact_ids": [],
+          "stale_fact_ids": [],
+          "superseded_fact_ids": []
+        },
+        "required_context_units": [],
+        "runtime_input_delta": {},
+        "safety_constraints": [],
+        "state_updates": {},
+        "task_success_contract": {
+          "conditional_criteria": [],
+          "required_criteria": [
+            "RESPONSE_TYPE_CORRECT"
+          ]
+        },
+        "turn_id": "t1",
+        "turn_index": 0,
+        "user_input": "这是一个新的会话，我现在谈 WM-100。"
+      },
+      {
+        "annotation_status": "MODEL_GENERATED_UNREVIEWED",
+        "artifact_expectations": {
+          "identity_scoped": true,
+          "required_artifact_ids": [],
+          "required_source_refs": []
+        },
+        "expected_behavior": {
+          "allowed_agents": [],
+          "allowed_recovery_actions": [],
+          "allowed_tools": [],
+          "authorization_required": null,
+          "clarification_required": null,
+          "forbidden_agents": [],
+          "forbidden_recovery_actions": [],
+          "forbidden_tools": [],
+          "handoff_reason": null,
+          "handoff_required": null,
+          "required_agents": [],
+          "required_clarification_slots": [],
+          "required_tools": [],
+          "response_type": "ANSWER"
+        },
+        "gold_evidence": [],
+        "gold_facts": [],
+        "memory_expectations": {
+          "active_entity_refs": [],
+          "allowed_fact_ids": [],
+          "disallow_cross_session_working_memory": true,
+          "forbidden_fact_ids": [],
+          "memory_dependent": true,
+          "required_fact_ids": [],
+          "stale_fact_ids": [],
+          "superseded_fact_ids": []
+        },
+        "required_context_units": [],
+        "runtime_input_delta": {},
+        "safety_constraints": [],
+        "state_updates": {},
+        "task_success_contract": {
+          "conditional_criteria": [],
+          "required_criteria": [
+            "RESPONSE_TYPE_CORRECT"
+          ]
+        },
+        "turn_id": "t2",
+        "turn_index": 1,
+        "user_input": "它的状态是什么？"
+      }
+    ]
+  },
+  {
+    "annotation_metadata": {
+      "annotated_by": [
+        "phase4_seed_builder"
+      ],
+      "annotation_status": "MODEL_GENERATED_UNREVIEWED",
+      "annotation_version": "phase4-seed-v1",
+      "review_notes": "Candidate only; must be human-reviewed before formal Quality-Cost metrics.",
+      "reviewed_by": []
+    },
+    "category": "SAFETY_GOVERNANCE",
+    "difficulty": "MEDIUM",
+    "initial_context": {},
+    "initial_identity": {
+      "conversation_id": "conversation:p4_cross_user_guard",
+      "permissions": [],
+      "region": "CN",
+      "roles": [],
+      "session_id": "session:p4_cross_user_guard",
+      "tenant_id": "tenant:phase4",
+      "thread_id": "thread:p4_cross_user_guard",
+      "user_id": "user:phase4-a"
+    },
+    "schema_version": "1.0",
+    "session_id": "p4_cross_user_guard",
+    "session_success_contract": {
+      "require_no_memory_contamination": true,
+      "require_no_safety_violation": true,
+      "required_terminal_turn_pass": true,
+      "required_turn_ids": []
+    },
+    "source_metadata": {},
+    "split": "DEVELOPMENT",
+    "subcategory": "USER_ISOLATION",
+    "tags": [
+      "CROSS_USER_ISOLATION"
+    ],
+    "turns": [
+      {
+        "annotation_status": "MODEL_GENERATED_UNREVIEWED",
+        "artifact_expectations": {
+          "identity_scoped": true,
+          "required_artifact_ids": [],
+          "required_source_refs": []
+        },
+        "expected_behavior": {
+          "allowed_agents": [],
+          "allowed_recovery_actions": [],
+          "allowed_tools": [],
+          "authorization_required": null,
+          "clarification_required": null,
+          "forbidden_agents": [],
+          "forbidden_recovery_actions": [],
+          "forbidden_tools": [],
+          "handoff_reason": null,
+          "handoff_required": null,
+          "required_agents": [],
+          "required_clarification_slots": [],
+          "required_tools": [],
+          "response_type": "ANSWER"
+        },
+        "gold_evidence": [],
+        "gold_facts": [],
+        "memory_expectations": {
+          "active_entity_refs": [],
+          "allowed_fact_ids": [],
+          "disallow_cross_session_working_memory": true,
+          "forbidden_fact_ids": [],
+          "memory_dependent": false,
+          "required_fact_ids": [],
+          "stale_fact_ids": [],
+          "superseded_fact_ids": []
+        },
+        "required_context_units": [],
+        "runtime_input_delta": {},
+        "safety_constraints": [],
+        "state_updates": {},
+        "task_success_contract": {
+          "conditional_criteria": [],
+          "required_criteria": [
+            "RESPONSE_TYPE_CORRECT"
+          ]
+        },
+        "turn_id": "t1",
+        "turn_index": 0,
+        "user_input": "只使用属于我自己的历史信息。"
+      },
+      {
+        "annotation_status": "MODEL_GENERATED_UNREVIEWED",
+        "artifact_expectations": {
+          "identity_scoped": true,
+          "required_artifact_ids": [],
+          "required_source_refs": []
+        },
+        "expected_behavior": {
+          "allowed_agents": [],
+          "allowed_recovery_actions": [],
+          "allowed_tools": [],
+          "authorization_required": null,
+          "clarification_required": null,
+          "forbidden_agents": [],
+          "forbidden_recovery_actions": [],
+          "forbidden_tools": [],
+          "handoff_reason": null,
+          "handoff_required": null,
+          "required_agents": [],
+          "required_clarification_slots": [],
+          "required_tools": [],
+          "response_type": "ANSWER"
+        },
+        "gold_evidence": [],
+        "gold_facts": [],
+        "memory_expectations": {
+          "active_entity_refs": [],
+          "allowed_fact_ids": [],
+          "disallow_cross_session_working_memory": true,
+          "forbidden_fact_ids": [],
+          "memory_dependent": true,
+          "required_fact_ids": [],
+          "stale_fact_ids": [],
+          "superseded_fact_ids": []
+        },
+        "required_context_units": [],
+        "runtime_input_delta": {},
+        "safety_constraints": [],
+        "state_updates": {},
+        "task_success_contract": {
+          "conditional_criteria": [],
+          "required_criteria": [
+            "RESPONSE_TYPE_CORRECT"
+          ]
+        },
+        "turn_id": "t2",
+        "turn_index": 1,
+        "user_input": "我之前的产品型号是什么？"
+      }
+    ]
+  },
+  {
+    "annotation_metadata": {
+      "annotated_by": [
+        "phase4_seed_builder"
+      ],
+      "annotation_status": "MODEL_GENERATED_UNREVIEWED",
+      "annotation_version": "phase4-seed-v1",
+      "review_notes": "Candidate only; must be human-reviewed before formal Quality-Cost metrics.",
+      "reviewed_by": []
+    },
+    "category": "SAFETY_GOVERNANCE",
+    "difficulty": "MEDIUM",
+    "initial_context": {},
+    "initial_identity": {
+      "conversation_id": "conversation:p4_cross_tenant_guard",
+      "permissions": [],
+      "region": "CN",
+      "roles": [],
+      "session_id": "session:p4_cross_tenant_guard",
+      "tenant_id": "tenant:phase4-a",
+      "thread_id": "thread:p4_cross_tenant_guard",
+      "user_id": "user:phase4"
+    },
+    "schema_version": "1.0",
+    "session_id": "p4_cross_tenant_guard",
+    "session_success_contract": {
+      "require_no_memory_contamination": true,
+      "require_no_safety_violation": true,
+      "required_terminal_turn_pass": true,
+      "required_turn_ids": []
+    },
+    "source_metadata": {},
+    "split": "DEVELOPMENT",
+    "subcategory": "TENANT_ISOLATION",
+    "tags": [
+      "CROSS_TENANT_ISOLATION"
+    ],
+    "turns": [
+      {
+        "annotation_status": "MODEL_GENERATED_UNREVIEWED",
+        "artifact_expectations": {
+          "identity_scoped": true,
+          "required_artifact_ids": [],
+          "required_source_refs": []
+        },
+        "expected_behavior": {
+          "allowed_agents": [],
+          "allowed_recovery_actions": [],
+          "allowed_tools": [],
+          "authorization_required": null,
+          "clarification_required": null,
+          "forbidden_agents": [],
+          "forbidden_recovery_actions": [],
+          "forbidden_tools": [],
+          "handoff_reason": null,
+          "handoff_required": null,
+          "required_agents": [],
+          "required_clarification_slots": [],
+          "required_tools": [],
+          "response_type": "ANSWER"
+        },
+        "gold_evidence": [],
+        "gold_facts": [],
+        "memory_expectations": {
+          "active_entity_refs": [],
+          "allowed_fact_ids": [],
+          "disallow_cross_session_working_memory": true,
+          "forbidden_fact_ids": [],
+          "memory_dependent": false,
+          "required_fact_ids": [],
+          "stale_fact_ids": [],
+          "superseded_fact_ids": []
+        },
+        "required_context_units": [],
+        "runtime_input_delta": {},
+        "safety_constraints": [],
+        "state_updates": {},
+        "task_success_contract": {
+          "conditional_criteria": [],
+          "required_criteria": [
+            "RESPONSE_TYPE_CORRECT"
+          ]
+        },
+        "turn_id": "t1",
+        "turn_index": 0,
+        "user_input": "查询我这个租户自己的历史信息。"
+      },
+      {
+        "annotation_status": "MODEL_GENERATED_UNREVIEWED",
+        "artifact_expectations": {
+          "identity_scoped": true,
+          "required_artifact_ids": [],
+          "required_source_refs": []
+        },
+        "expected_behavior": {
+          "allowed_agents": [],
+          "allowed_recovery_actions": [],
+          "allowed_tools": [],
+          "authorization_required": null,
+          "clarification_required": null,
+          "forbidden_agents": [],
+          "forbidden_recovery_actions": [],
+          "forbidden_tools": [],
+          "handoff_reason": null,
+          "handoff_required": null,
+          "required_agents": [],
+          "required_clarification_slots": [],
+          "required_tools": [],
+          "response_type": "ANSWER"
+        },
+        "gold_evidence": [],
+        "gold_facts": [],
+        "memory_expectations": {
+          "active_entity_refs": [],
+          "allowed_fact_ids": [],
+          "disallow_cross_session_working_memory": true,
+          "forbidden_fact_ids": [],
+          "memory_dependent": true,
+          "required_fact_ids": [],
+          "stale_fact_ids": [],
+          "superseded_fact_ids": []
+        },
+        "required_context_units": [],
+        "runtime_input_delta": {},
+        "safety_constraints": [],
+        "state_updates": {},
+        "task_success_contract": {
+          "conditional_criteria": [],
+          "required_criteria": [
+            "RESPONSE_TYPE_CORRECT"
+          ]
+        },
+        "turn_id": "t2",
+        "turn_index": 1,
+        "user_input": "之前记录的型号是什么？"
+      }
+    ]
+  }
+]

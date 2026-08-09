@@ -1,0 +1,86 @@
+[
+  {
+    "detail": "No fully migrated PRIVATE_BUSINESS_QUERY cases despite production-readable structured facts.",
+    "gap": "PRIVATE_BUSINESS_QUERY_FORMAL_COVERAGE",
+    "priority": "P0"
+  },
+  {
+    "detail": "Existing formal troubleshooting coverage is tiny relative to source-linked troubleshooting sections/facts.",
+    "gap": "TROUBLESHOOTING_DEPTH",
+    "priority": "P0"
+  },
+  {
+    "detail": "Existing mixed cases are concentrated in one legacy family while 6 production-supported mixed families are source-grounded.",
+    "gap": "MIXED_RELATION_DIVERSITY",
+    "priority": "P0"
+  },
+  {
+    "detail": "Formal safety cases cover 1 subcategory labels versus 12 audited real attack surfaces.",
+    "gap": "SAFETY_ATTACK_SURFACE_DIVERSITY",
+    "priority": "P0"
+  },
+  {
+    "detail": "Formal canonical document Gold uses legacy Hxxx section ids; current corpus uses hashed section ids. D0 validates a unique-heading bridge, but D1 should materialize an explicit migration map before new formal case generation.",
+    "gap": "LEGACY_SECTION_IDENTITY_MIGRATION",
+    "priority": "P1"
+  },
+  {
+    "detail": "order_events/ticket_events templates omit event_id from output, so event-level field facts do not yet have unique stable Production evidence identity and are excluded from normal structured Gold capacity.",
+    "gap": "STRUCTURED_EVENT_IDENTITY_GAP",
+    "priority": "P1"
+  },
+  {
+    "detail": "Current checked-in knowledge documents do not carry explicit region/effective_from/effective_to metadata; region- or time-specific policy cases cannot be expanded as formal Gold without additional governed source metadata.",
+    "gap": "REGION_EFFECTIVE_TIME_SOURCE_GAP",
+    "priority": "P1"
+  },
+  {
+    "detail": "5 of 22 checked-in knowledge documents have no formal canonical evidence reference.",
+    "examples": [
+      "LIO-PROD-017_空气净化器手册",
+      "LIO-PROD-018_空调手册",
+      "LIO-PROD-019_蒸汽清洁机手册",
+      "LIO-PROD-020_蓝牙激光鼠标手册",
+      "liorin_support_faq"
+    ],
+    "gap": "UNTESTED_DOCUMENTS",
+    "priority": "P1"
+  },
+  {
+    "detail": "28 production-readable structured fact types have no formal field-level coverage.",
+    "examples": [
+      "customer.customer_id",
+      "customer.segment",
+      "order.channel",
+      "order.order_date",
+      "order.order_id",
+      "order.price_per_unit",
+      "order.product_id",
+      "order.product_name",
+      "order.quantity",
+      "order.status",
+      "order.total_amount",
+      "ticket.assigned_team",
+      "ticket.created_at",
+      "ticket.issue_type",
+      "ticket.order_id",
+      "ticket.priority",
+      "ticket.product_id",
+      "ticket.status",
+      "ticket.summary",
+      "ticket.ticket_id"
+    ],
+    "gap": "UNTESTED_STRUCTURED_FIELDS",
+    "priority": "P1"
+  },
+  {
+    "detail": "Current formal canonical set contains little/no reviewed clarification/handoff behavior relative to real ambiguity/escalation space.",
+    "gap": "CLARIFICATION_AND_HANDOFF",
+    "priority": "P1"
+  },
+  {
+    "detail": "Phase 4 has candidate multi-turn sessions but zero formal eligible sessions; D0 does not review them.",
+    "gap": "MULTI_TURN_REVIEW_DEBT",
+    "priority": "P2"
+  }
+]

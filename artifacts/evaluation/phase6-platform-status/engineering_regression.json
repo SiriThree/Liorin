@@ -1,0 +1,7 @@
+{
+  "classification": "ENGINEERING_REGRESSION_RESULT",
+  "compileall": "PASS",
+  "evaluation_tests": {"passed": 158, "failed": 0},
+  "full_repository_tests": {"passed": 370, "failed": 0},
+  "formal_quality_metric": false
+}

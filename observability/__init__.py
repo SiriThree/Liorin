@@ -15,4 +15,7 @@ __all__ = [
     "OpenTelemetryMetricsExporter", "PrometheusTextExporter", "RuntimeEvent",
     "RuntimeEventType", "TraceRecorder", "UnifiedMetricsRegistry",
     "get_default_metrics", "get_default_trace_recorder", "invoke_observed_tool",
+    "emit_identity_resolved", "emit_security_decision", "hashed_ref", "identity_refs",
 ]
+
+from observability.security import emit_identity_resolved, emit_security_decision, hashed_ref, identity_refs

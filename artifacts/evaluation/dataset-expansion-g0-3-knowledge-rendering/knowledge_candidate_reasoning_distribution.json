@@ -1,0 +1,38 @@
+{
+  "ATTRIBUTE_LOOKUP": {
+    "count": 12,
+    "ratio": 0.070175
+  },
+  "COMPATIBILITY_REASONING": {
+    "count": 17,
+    "ratio": 0.099415
+  },
+  "CONDITION_APPLICATION": {
+    "count": 10,
+    "ratio": 0.05848
+  },
+  "DIRECT_LOOKUP": {
+    "count": 49,
+    "ratio": 0.28655
+  },
+  "LIMITATION_REASONING": {
+    "count": 12,
+    "ratio": 0.070175
+  },
+  "MULTI_FACT_SYNTHESIS": {
+    "count": 42,
+    "ratio": 0.245614
+  },
+  "MULTI_SECTION_SYNTHESIS": {
+    "count": 13,
+    "ratio": 0.076023
+  },
+  "POLICY_INTERPRETATION": {
+    "count": 11,
+    "ratio": 0.064327
+  },
+  "SET_RETRIEVAL": {
+    "count": 5,
+    "ratio": 0.02924
+  }
+}

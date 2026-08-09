@@ -1,0 +1,101 @@
+[
+  {
+    "candidate_capacity": 1500,
+    "document_fact_types": [
+      "RETURN_POLICY"
+    ],
+    "join_path": "order -> after_sales_policy",
+    "mixed_family_id": "mixed:order-date:return-policy",
+    "notes": "Return eligibility needs both purchase/delivery timing and policy; actual delivery date may additionally require order events.",
+    "production_supported": true,
+    "required_evidence_types": [
+      "STRUCTURED_DATA",
+      "DOCUMENT"
+    ],
+    "structured_fact_type": "order.order_date"
+  },
+  {
+    "candidate_capacity": 1500,
+    "document_fact_types": [
+      "RETURN_POLICY",
+      "POLICY"
+    ],
+    "join_path": "order -> after_sales_policy",
+    "mixed_family_id": "mixed:order-status:cancel-policy",
+    "notes": "Cancellation/return path depends on current order state and policy.",
+    "production_supported": true,
+    "required_evidence_types": [
+      "STRUCTURED_DATA",
+      "DOCUMENT"
+    ],
+    "structured_fact_type": "order.status"
+  },
+  {
+    "candidate_capacity": 1500,
+    "document_fact_types": [
+      "FEATURE_OR_INSTRUCTION",
+      "PRODUCT_SPEC",
+      "SAFETY_INSTRUCTION",
+      "TROUBLESHOOTING_STEP"
+    ],
+    "join_path": "order -> order_items -> product -> manual",
+    "mixed_family_id": "mixed:order-product:manual",
+    "notes": "Product purchased in the private order determines which manual is applicable.",
+    "production_supported": true,
+    "required_evidence_types": [
+      "STRUCTURED_DATA",
+      "DOCUMENT"
+    ],
+    "structured_fact_type": "order.product_id"
+  },
+  {
+    "candidate_capacity": 420,
+    "document_fact_types": [
+      "TROUBLESHOOTING_STEP",
+      "ERROR_CODE",
+      "SAFETY_INSTRUCTION"
+    ],
+    "join_path": "ticket -> product -> manual",
+    "mixed_family_id": "mixed:ticket-product:troubleshooting",
+    "notes": "Ticket identifies product/context; manual provides resolution evidence.",
+    "production_supported": true,
+    "required_evidence_types": [
+      "STRUCTURED_DATA",
+      "DOCUMENT"
+    ],
+    "structured_fact_type": "ticket.product_id"
+  },
+  {
+    "candidate_capacity": 140,
+    "document_fact_types": [
+      "WARRANTY_POLICY",
+      "POLICY"
+    ],
+    "join_path": "warranty -> after_sales_policy",
+    "mixed_family_id": "mixed:warranty-status:policy",
+    "notes": "Structured warranty state plus policy explains coverage/next step.",
+    "production_supported": true,
+    "required_evidence_types": [
+      "STRUCTURED_DATA",
+      "DOCUMENT"
+    ],
+    "structured_fact_type": "warranty.coverage_status"
+  },
+  {
+    "candidate_capacity": 140,
+    "document_fact_types": [
+      "TROUBLESHOOTING_STEP",
+      "SAFETY_INSTRUCTION",
+      "FEATURE_OR_INSTRUCTION"
+    ],
+    "join_path": "warranty -> product -> manual",
+    "mixed_family_id": "mixed:warranty-product:manual",
+    "notes": "Warranty case anchors product while manual supplies troubleshooting/safety content.",
+    "production_supported": true,
+    "required_evidence_types": [
+      "STRUCTURED_DATA",
+      "DOCUMENT"
+    ],
+    "structured_fact_type": "warranty.product_id"
+  }
+]

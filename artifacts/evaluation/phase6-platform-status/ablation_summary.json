@@ -1,0 +1,236 @@
+{
+  "experiment_count": 11,
+  "experiments": [
+    {
+      "ablation_id": "full_minus_agentic_recovery",
+      "config_hash": "066bfbaeb8e2db79ca610265a94545dc254aeb4c37ef795c3240fc75a747d6ad",
+      "disabled_features": [
+        "agentic_recovery_enabled"
+      ],
+      "enabled_features": [],
+      "fairness": {
+        "expected_differences": [
+          "features.agentic_recovery_enabled"
+        ],
+        "unexpected_differences": [],
+        "valid": true
+      },
+      "paired_cases": 0,
+      "reason": "Production runtime blocked; no fixture result is promoted to formal ablation.",
+      "status": "NOT RUN",
+      "study_type": "REMOVAL",
+      "task_success_delta_pp": null
+    },
+    {
+      "ablation_id": "full_minus_evidence_verifier",
+      "config_hash": "c36e82d7106ab16a6bbaefc60a741b09027fee66e2545fd14aacdfce14e15d0a",
+      "disabled_features": [
+        "evidence_verifier_enabled"
+      ],
+      "enabled_features": [],
+      "fairness": {
+        "expected_differences": [
+          "features.evidence_verifier_enabled"
+        ],
+        "unexpected_differences": [],
+        "valid": true
+      },
+      "paired_cases": 0,
+      "reason": "Production runtime blocked; no fixture result is promoted to formal ablation.",
+      "status": "NOT RUN",
+      "study_type": "REMOVAL",
+      "task_success_delta_pp": null
+    },
+    {
+      "ablation_id": "full_minus_query_rewrite",
+      "config_hash": "08453c8beba849161cb901aa49898a9f5a5a6412ea7d3e789f7c8bc293368b4d",
+      "disabled_features": [
+        "query_rewrite_enabled"
+      ],
+      "enabled_features": [],
+      "fairness": {
+        "expected_differences": [
+          "features.query_rewrite_enabled"
+        ],
+        "unexpected_differences": [],
+        "valid": true
+      },
+      "paired_cases": 0,
+      "reason": "Production runtime blocked; no fixture result is promoted to formal ablation.",
+      "status": "NOT RUN",
+      "study_type": "REMOVAL",
+      "task_success_delta_pp": null
+    },
+    {
+      "ablation_id": "full_minus_supplement",
+      "config_hash": "b404732c89f97270cb03f522d6636bc3d1607d60455a3c216c50b13a282442ec",
+      "disabled_features": [
+        "supplement_enabled"
+      ],
+      "enabled_features": [],
+      "fairness": {
+        "expected_differences": [
+          "features.supplement_enabled"
+        ],
+        "unexpected_differences": [],
+        "valid": true
+      },
+      "paired_cases": 0,
+      "reason": "Production runtime blocked; no fixture result is promoted to formal ablation.",
+      "status": "NOT RUN",
+      "study_type": "REMOVAL",
+      "task_success_delta_pp": null
+    },
+    {
+      "ablation_id": "full_minus_clarification",
+      "config_hash": "04d98699410fac00d5ab5179f617bec5a922ed1882136a0f8309ec1a6ac008c7",
+      "disabled_features": [
+        "clarification_recovery_enabled"
+      ],
+      "enabled_features": [],
+      "fairness": {
+        "expected_differences": [
+          "features.clarification_recovery_enabled"
+        ],
+        "unexpected_differences": [],
+        "valid": true
+      },
+      "paired_cases": 0,
+      "reason": "Production runtime blocked; no fixture result is promoted to formal ablation.",
+      "status": "NOT RUN",
+      "study_type": "REMOVAL",
+      "task_success_delta_pp": null
+    },
+    {
+      "ablation_id": "full_minus_reranker",
+      "config_hash": "dc0947bed1187fad97dba32b482a8dc5b88d54b6f4647bb82af533293748aa8e",
+      "disabled_features": [
+        "reranker_enabled"
+      ],
+      "enabled_features": [],
+      "fairness": {
+        "expected_differences": [
+          "features.reranker_enabled"
+        ],
+        "unexpected_differences": [],
+        "valid": true
+      },
+      "paired_cases": 0,
+      "reason": "Production runtime blocked; no fixture result is promoted to formal ablation.",
+      "status": "NOT RUN",
+      "study_type": "REMOVAL",
+      "task_success_delta_pp": null
+    },
+    {
+      "ablation_id": "full_minus_parent_expansion",
+      "config_hash": "caea899bb69f09391c9afb92fb1b711de3c9f04e5b7a930b7a66c2f77c07b447",
+      "disabled_features": [
+        "parent_expansion_enabled"
+      ],
+      "enabled_features": [],
+      "fairness": {
+        "expected_differences": [
+          "features.parent_expansion_enabled"
+        ],
+        "unexpected_differences": [],
+        "valid": true
+      },
+      "paired_cases": 0,
+      "reason": "Production runtime blocked; no fixture result is promoted to formal ablation.",
+      "status": "NOT RUN",
+      "study_type": "REMOVAL",
+      "task_success_delta_pp": null
+    },
+    {
+      "ablation_id": "a1_plus_reranker",
+      "config_hash": "e620499af1fcad32b589645c72e2252241e2fd3f03dda9109013fa12bc6a870d",
+      "disabled_features": [],
+      "enabled_features": [
+        "reranker_enabled"
+      ],
+      "fairness": {
+        "expected_differences": [
+          "features.reranker_enabled"
+        ],
+        "unexpected_differences": [],
+        "valid": true
+      },
+      "paired_cases": 0,
+      "reason": "Production runtime blocked; no fixture result is promoted to formal ablation.",
+      "status": "NOT RUN",
+      "study_type": "ADDITION",
+      "task_success_delta_pp": null
+    },
+    {
+      "ablation_id": "a2_plus_parent_expansion",
+      "config_hash": "86421cce87709692860207f50aa52ee81e9b3cce9503067fe53d6b735a16151f",
+      "disabled_features": [],
+      "enabled_features": [
+        "parent_expansion_enabled"
+      ],
+      "fairness": {
+        "expected_differences": [
+          "features.parent_expansion_enabled"
+        ],
+        "unexpected_differences": [],
+        "valid": true
+      },
+      "paired_cases": 0,
+      "reason": "Production runtime blocked; no fixture result is promoted to formal ablation.",
+      "status": "NOT RUN",
+      "study_type": "ADDITION",
+      "task_success_delta_pp": null
+    },
+    {
+      "ablation_id": "a3_plus_verifier",
+      "config_hash": "2dc9293317df5dcfcd8c1b967e1381e309454f0f8305a49274db9cf22ae41901",
+      "disabled_features": [],
+      "enabled_features": [
+        "evidence_verifier_enabled"
+      ],
+      "fairness": {
+        "expected_differences": [
+          "features.evidence_verifier_enabled"
+        ],
+        "unexpected_differences": [],
+        "valid": true
+      },
+      "paired_cases": 0,
+      "reason": "Production runtime blocked; no fixture result is promoted to formal ablation.",
+      "status": "NOT RUN",
+      "study_type": "ADDITION",
+      "task_success_delta_pp": null
+    },
+    {
+      "ablation_id": "a4_plus_recovery",
+      "config_hash": "fe2ed5fa2d909e381083e7e12ee7d87ad7eae7cebcaa07a5b6ae125db524ab36",
+      "disabled_features": [],
+      "enabled_features": [
+        "agentic_recovery_enabled",
+        "query_rewrite_enabled",
+        "supplement_enabled",
+        "clarification_recovery_enabled"
+      ],
+      "fairness": {
+        "expected_differences": [
+          "features.agentic_recovery_enabled",
+          "features.clarification_recovery_enabled",
+          "features.query_rewrite_enabled",
+          "features.supplement_enabled"
+        ],
+        "unexpected_differences": [],
+        "valid": true
+      },
+      "paired_cases": 0,
+      "reason": "Production runtime blocked; no fixture result is promoted to formal ablation.",
+      "status": "NOT RUN",
+      "study_type": "ADDITION",
+      "task_success_delta_pp": null
+    }
+  ],
+  "formal_result": false,
+  "full_system_config_hash": "bd7889bdad8cb1dcd4336237c85c96f87dc7d3b7140dc4d4852c7c7ff78ce433",
+  "reason": "Production Support Graph is BLOCKED in the current environment; controlled ablation infrastructure is ready but no real paired experiment was executed.",
+  "schema_version": "1.0",
+  "status": "NOT RUN"
+}

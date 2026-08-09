@@ -686,11 +686,31 @@ def test_agent_database_tool_hides_identity_and_legacy_sql_fails_closed():
     safe_function = _underlying_tool_function(agent_execute_sql_template)
     parameters = inspect.signature(safe_function).parameters
     assert "customer_id" not in parameters and "tenant_id" not in parameters
-    runtime = types.SimpleNamespace(state={"tenant_id": "TENANT-NONE", "customer_id": "CUST-NONE"})
+    runtime = types.SimpleNamespace(state={
+        "tenant_id": "TENANT-NONE",
+        "customer_id": "CUST-NONE",
+        "identity_context": {
+            "tenant_id": "TENANT-NONE",
+            "user_id": "USER-NONE",
+            "conversation_id": "CONV-NONE",
+            "thread_id": "THREAD-NONE",
+            "session_id": "SESSION-NONE",
+        },
+        "structured_permissions": ["structured:read:self"],
+    })
     result = safe_function("customer_summary", runtime=runtime)
     assert result == "[]"
     denied = safe_function("customer_summary", runtime=types.SimpleNamespace(state={}))
     assert "被拒绝" in denied
+    denied_permission = safe_function(
+        "customer_summary",
+        runtime=types.SimpleNamespace(state={
+            "tenant_id": "TENANT-NONE",
+            "customer_id": "CUST-NONE",
+            "identity_context": {"tenant_id": "TENANT-NONE"},
+        }),
+    )
+    assert "被拒绝" in denied_permission
 
     legacy_function = _underlying_tool_function(legacy_execute_sql)
     legacy_result = legacy_function("SELECT * FROM customers")
@@ -721,3 +741,108 @@ def test_agent_database_tool_enforces_tenant_and_owner_together():
         customer_id=other["customer_id"],
         entity_id=target["order_id"],
     ) == []
+
+
+def test_phase7_structured_tool_runtime_permission_owner_and_trace_contract():
+    """Phase 7: the model cannot choose tenant/customer and cross-owner reads fail closed."""
+    from observability import get_default_trace_recorder
+
+    with sqlite3.connect(DEFAULT_DB_PATH) as connection:
+        connection.row_factory = sqlite3.Row
+        target = connection.execute(
+            "SELECT c.customer_id, c.tenant_id, o.order_id FROM customers c "
+            "JOIN orders o ON o.customer_id=c.customer_id ORDER BY c.customer_id, o.order_id LIMIT 1"
+        ).fetchone()
+        other = connection.execute(
+            "SELECT c.customer_id, c.tenant_id, o.order_id FROM customers c "
+            "JOIN orders o ON o.customer_id=c.customer_id "
+            "WHERE c.tenant_id=? AND c.customer_id<>? ORDER BY c.customer_id, o.order_id LIMIT 1",
+            (target["tenant_id"], target["customer_id"]),
+        ).fetchone()
+    assert target is not None and other is not None
+
+    safe_function = _underlying_tool_function(agent_execute_sql_template)
+    identity = {
+        "tenant_id": target["tenant_id"],
+        "user_id": "gateway-user-1",
+        "conversation_id": "conv-p7",
+        "thread_id": "thread-p7",
+        "session_id": "session-p7",
+    }
+    base_state = {
+        "tenant_id": target["tenant_id"],
+        "customer_id": target["customer_id"],
+        "identity_context": identity,
+        "structured_permissions": ["structured:read:self"],
+    }
+
+    denied_owner = safe_function(
+        "order_detail",
+        runtime=types.SimpleNamespace(state=base_state),
+        entity_id=other["order_id"],
+    )
+    assert "被拒绝" in denied_owner
+
+    denied_tenant = safe_function(
+        "customer_orders",
+        runtime=types.SimpleNamespace(state={**base_state, "tenant_id": "TENANT-CONFLICT"}),
+    )
+    assert "被拒绝" in denied_tenant
+
+    denied_permission = safe_function(
+        "customer_orders",
+        runtime=types.SimpleNamespace(state={**base_state, "structured_permissions": []}),
+    )
+    assert "被拒绝" in denied_permission
+
+    denied_unknown = safe_function(
+        "unknown_template",
+        runtime=types.SimpleNamespace(state=base_state),
+    )
+    assert "被拒绝" in denied_unknown
+
+    denied_injection = safe_function(
+        "order_detail",
+        runtime=types.SimpleNamespace(state=base_state),
+        entity_id="ORD-1' OR 1=1 --",
+    )
+    assert "失败" in denied_injection or "被拒绝" in denied_injection
+
+    recorder = get_default_trace_recorder()
+    request_id = "phase7-structured-trace"
+    with recorder.trace(
+        request_id=request_id,
+        conversation_id="conv-p7",
+        thread_id="thread-p7",
+        agent_name="order_agent",
+    ) as trace:
+        allowed = safe_function(
+            "order_detail",
+            runtime=types.SimpleNamespace(state=base_state),
+            entity_id=target["order_id"],
+        )
+    assert target["order_id"] in allowed
+    events = trace.to_state()["events"]
+    evidence_rows = [
+        item for item in events
+        if item.get("event_type") == "RETRIEVAL_EVENT"
+        and (item.get("attributes") or {}).get("step") == "evidence"
+    ]
+    stable_refs = {
+        ((item.get("attributes") or {}).get("data") or {}).get("stable_ref")
+        for item in evidence_rows
+    }
+    from retrieval.security import hash_identifier
+    order_ref = f"hash:{hash_identifier(target['order_id'], namespace='structured:order')}"
+    assert f"record:order:{order_ref}#order_date" in stable_refs
+    assert all(target["order_id"] not in str(ref) for ref in stable_refs if ref)
+    security = [item for item in events if item.get("event_type") == "SECURITY_DECISION"]
+    assert any((item.get("attributes") or {}).get("decision") == "ALLOW_READ" for item in security)
+
+
+def test_phase7_safe_template_registry_matches_model_visible_literal_contract():
+    import typing
+    safe_function = _underlying_tool_function(agent_execute_sql_template)
+    hints = typing.get_type_hints(safe_function)
+    allowed = set(typing.get_args(hints["template_id"]))
+    assert allowed == set(AGENT_SQL_TEMPLATES)

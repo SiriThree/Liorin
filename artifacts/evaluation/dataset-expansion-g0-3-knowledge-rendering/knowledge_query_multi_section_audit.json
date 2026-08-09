@@ -1,0 +1,282 @@
+[
+  {
+    "both_necessary": true,
+    "candidate_id": "KQC-38f2d5b0e43e3645",
+    "query_intent": "使用空调的调节出风方向时，具体怎么操作，同时需要注意哪些机型或设备兼容限制？",
+    "relation": [
+      {
+        "anchor": "调节出风方向",
+        "heading": "调节出风方向",
+        "referenced_source_unit_id": "KSU-37c15a5e1822a9bd",
+        "referencing_source_unit_id": "KSU-71abf41cd303731f",
+        "section_id": "LIO-PROD-018_空调手册:sec:c4ec7e68423e"
+      }
+    ],
+    "relation_preserved": true,
+    "sections": [
+      "LIO-PROD-018_空调手册:sec:2488ba9bad6b",
+      "LIO-PROD-018_空调手册:sec:c4ec7e68423e"
+    ],
+    "status": "SOURCE_VALIDATED",
+    "task_plan_id": "KTP-971bfdaa2d8e01ef"
+  },
+  {
+    "both_necessary": true,
+    "candidate_id": "KQC-e1090e8bfa929883",
+    "query_intent": "使用洗碗机的软水系统时，达到什么水硬度条件需要软化除垢，为什么还需要使用专用盐？",
+    "relation": [
+      {
+        "anchor": "软水系统",
+        "heading": "软水系统",
+        "referenced_source_unit_id": "KSU-7ebf1c9014c5a8b4",
+        "referencing_source_unit_id": "KSU-d6513b6dc0619597",
+        "section_id": "LIO-PROD-013_洗碗机手册:sec:7037773459e3"
+      }
+    ],
+    "relation_preserved": true,
+    "sections": [
+      "LIO-PROD-013_洗碗机手册:sec:65ce4752c6ed",
+      "LIO-PROD-013_洗碗机手册:sec:7037773459e3"
+    ],
+    "status": "SOURCE_VALIDATED",
+    "task_plan_id": "KTP-6f9d3807120ee617"
+  },
+  {
+    "both_necessary": true,
+    "candidate_id": "KQC-8deffd71b64c4a37",
+    "query_intent": "编辑健身单车的用户档案时，名称设置和退出编辑分别有什么规则？",
+    "relation": [
+      {
+        "anchor": "编辑用户档案",
+        "heading": "编辑用户档案",
+        "referenced_source_unit_id": "KSU-de1739a47b21b048",
+        "referencing_source_unit_id": "KSU-e32d435e82d4da10",
+        "section_id": "LIO-PROD-003_健身单车手册:sec:e9742f7864d2"
+      }
+    ],
+    "relation_preserved": true,
+    "sections": [
+      "LIO-PROD-003_健身单车手册:sec:ccc1c57d3ee0",
+      "LIO-PROD-003_健身单车手册:sec:e9742f7864d2"
+    ],
+    "status": "SOURCE_VALIDATED",
+    "task_plan_id": "KTP-788497a2e9ae733e"
+  },
+  {
+    "both_necessary": true,
+    "candidate_id": "KQC-36b6aef61e70931b",
+    "query_intent": "儿童使用VR头显时有哪些年龄限制，家长或监护人还能配置哪些使用限制？",
+    "relation": [
+      {
+        "anchor": "儿童使用",
+        "heading": "儿童使用",
+        "referenced_source_unit_id": "KSU-f6e708675a07dacf",
+        "referencing_source_unit_id": "KSU-16ae68f9b685d5d8",
+        "section_id": "LIO-PROD-001_VR头显手册:sec:b939e880d369"
+      }
+    ],
+    "relation_preserved": true,
+    "sections": [
+      "LIO-PROD-001_VR头显手册:sec:b939e880d369",
+      "LIO-PROD-001_VR头显手册:sec:ef67f1b04ea9"
+    ],
+    "status": "SOURCE_VALIDATED",
+    "task_plan_id": "KTP-e1e454a71ab21012"
+  },
+  {
+    "both_necessary": true,
+    "candidate_id": "KQC-ebc801050155fce7",
+    "query_intent": "冰箱的超强制冷适合在什么情况下开启，如果想提前停止又应该怎么操作？",
+    "relation": [
+      {
+        "anchor": "超强制冷",
+        "heading": "超强制冷",
+        "referenced_source_unit_id": "KSU-2fa309656cf16853",
+        "referencing_source_unit_id": "KSU-6d7a6f4d24afc6ef",
+        "section_id": "LIO-PROD-006_冰箱手册:sec:6981ff80e1cc"
+      }
+    ],
+    "relation_preserved": true,
+    "sections": [
+      "LIO-PROD-006_冰箱手册:sec:51058de998a4",
+      "LIO-PROD-006_冰箱手册:sec:6981ff80e1cc"
+    ],
+    "status": "SOURCE_VALIDATED",
+    "task_plan_id": "KTP-0e04dcad431e2dad"
+  },
+  {
+    "both_necessary": true,
+    "candidate_id": "KQC-6638a267703423ca",
+    "query_intent": "健身追踪器与安卓手机配对后可以实现什么功能，设置过程中还需要完成哪些必要权限操作？",
+    "relation": [
+      {
+        "anchor": "安卓手机",
+        "heading": "安卓手机",
+        "referenced_source_unit_id": "KSU-675236c990fd51da",
+        "referencing_source_unit_id": "KSU-2d55bcf914251395",
+        "section_id": "LIO-PROD-004_健身追踪器手册:sec:5cb561d2cf25"
+      }
+    ],
+    "relation_preserved": true,
+    "sections": [
+      "LIO-PROD-004_健身追踪器手册:sec:5cb561d2cf25",
+      "LIO-PROD-004_健身追踪器手册:sec:c97eb6b7c198"
+    ],
+    "status": "SOURCE_VALIDATED",
+    "task_plan_id": "KTP-d2609e3059e297f8"
+  },
+  {
+    "both_necessary": true,
+    "candidate_id": "KQC-53c7d34f3d3bca9b",
+    "query_intent": "首次给洗碗机添加专用盐时，前置准备和加盐后的处理分别有什么要求？",
+    "relation": [
+      {
+        "anchor": "添加专用盐",
+        "heading": "添加专用盐",
+        "referenced_source_unit_id": "KSU-5de345fb82716447",
+        "referencing_source_unit_id": "KSU-23859bc0f4e7c9ed",
+        "section_id": "LIO-PROD-013_洗碗机手册:sec:65ce4752c6ed"
+      }
+    ],
+    "relation_preserved": true,
+    "sections": [
+      "LIO-PROD-013_洗碗机手册:sec:090d5736d3a4",
+      "LIO-PROD-013_洗碗机手册:sec:65ce4752c6ed"
+    ],
+    "status": "SOURCE_VALIDATED",
+    "task_plan_id": "KTP-f984c10c6e3fb56e"
+  },
+  {
+    "both_necessary": true,
+    "candidate_id": "KQC-858a6b14d07e9db0",
+    "query_intent": "冰箱的门体换向能否调整，进行这项操作时还需要注意什么保修限制？",
+    "relation": [
+      {
+        "anchor": "门体换向",
+        "heading": "门体换向",
+        "referenced_source_unit_id": "KSU-7c4ea2090cd313f1",
+        "referencing_source_unit_id": "KSU-7e9aec9ac52a2ede",
+        "section_id": "LIO-PROD-006_冰箱手册:sec:f48ed12574cf"
+      }
+    ],
+    "relation_preserved": true,
+    "sections": [
+      "LIO-PROD-006_冰箱手册:sec:c14d292be016",
+      "LIO-PROD-006_冰箱手册:sec:f48ed12574cf"
+    ],
+    "status": "SOURCE_VALIDATED",
+    "task_plan_id": "KTP-1d382f7413c101fd"
+  },
+  {
+    "both_necessary": true,
+    "candidate_id": "KQC-8eb99f9e3d1ffebd",
+    "query_intent": "使用健身追踪器进行非接触式支付前，需要具备什么设备能力，并在应用和商店侧满足哪些条件？",
+    "relation": [
+      {
+        "anchor": "非接触式支付",
+        "heading": "非接触式支付",
+        "referenced_source_unit_id": "KSU-3465b720892c0b8e",
+        "referencing_source_unit_id": "KSU-f904a88c781223e1",
+        "section_id": "LIO-PROD-004_健身追踪器手册:sec:3047617170ed"
+      },
+      {
+        "anchor": "使用信用卡和借记卡",
+        "heading": "使用信用卡和借记卡",
+        "referenced_source_unit_id": "KSU-f904a88c781223e1",
+        "referencing_source_unit_id": "KSU-3465b720892c0b8e",
+        "section_id": "LIO-PROD-004_健身追踪器手册:sec:9f986352ba9e"
+      }
+    ],
+    "relation_preserved": true,
+    "sections": [
+      "LIO-PROD-004_健身追踪器手册:sec:3047617170ed",
+      "LIO-PROD-004_健身追踪器手册:sec:9f986352ba9e"
+    ],
+    "status": "SOURCE_VALIDATED",
+    "task_plan_id": "KTP-d51021ad35f9f7f7"
+  },
+  {
+    "both_necessary": true,
+    "candidate_id": "KQC-a0fc30e966def6b2",
+    "query_intent": "洗碗机在什么水硬度条件下需要软化除垢，正确调节软水系统会带来什么作用？",
+    "relation": [
+      {
+        "anchor": "软水系统",
+        "heading": "软水系统",
+        "referenced_source_unit_id": "KSU-7ebf1c9014c5a8b4",
+        "referencing_source_unit_id": "KSU-be3012dc8e9d350d",
+        "section_id": "LIO-PROD-013_洗碗机手册:sec:7037773459e3"
+      }
+    ],
+    "relation_preserved": true,
+    "sections": [
+      "LIO-PROD-013_洗碗机手册:sec:7037773459e3",
+      "LIO-PROD-013_洗碗机手册:sec:d9df0d43182c"
+    ],
+    "status": "SOURCE_VALIDATED",
+    "task_plan_id": "KTP-e497e52642254832"
+  },
+  {
+    "both_necessary": true,
+    "candidate_id": "KQC-2fb69a44680d0a29",
+    "query_intent": "冰箱的超强制冷适合在什么情况下开启，通常会运行多久并如何结束？",
+    "relation": [
+      {
+        "anchor": "超强制冷",
+        "heading": "超强制冷",
+        "referenced_source_unit_id": "KSU-e238d09a8380e83b",
+        "referencing_source_unit_id": "KSU-6d7a6f4d24afc6ef",
+        "section_id": "LIO-PROD-006_冰箱手册:sec:6981ff80e1cc"
+      }
+    ],
+    "relation_preserved": true,
+    "sections": [
+      "LIO-PROD-006_冰箱手册:sec:51058de998a4",
+      "LIO-PROD-006_冰箱手册:sec:6981ff80e1cc"
+    ],
+    "status": "SOURCE_VALIDATED",
+    "task_plan_id": "KTP-6a9740333273325a"
+  },
+  {
+    "both_necessary": true,
+    "candidate_id": "KQC-25f6fde8f9161224",
+    "query_intent": "设置健身追踪器时需要通过哪些手机平台，并完成哪些必要的配对权限操作？",
+    "relation": [
+      {
+        "anchor": "安卓手机",
+        "heading": "安卓手机",
+        "referenced_source_unit_id": "KSU-675236c990fd51da",
+        "referencing_source_unit_id": "KSU-bd008ed900a960ab",
+        "section_id": "LIO-PROD-004_健身追踪器手册:sec:5cb561d2cf25"
+      }
+    ],
+    "relation_preserved": true,
+    "sections": [
+      "LIO-PROD-004_健身追踪器手册:sec:3e8367903666",
+      "LIO-PROD-004_健身追踪器手册:sec:5cb561d2cf25"
+    ],
+    "status": "SOURCE_VALIDATED",
+    "task_plan_id": "KTP-93d892442d8486ac"
+  },
+  {
+    "both_necessary": true,
+    "candidate_id": "KQC-60f2e83940058eb5",
+    "query_intent": "健身追踪器进行非接触式支付需要具备什么设备能力，消费场所又需要满足什么条件？",
+    "relation": [
+      {
+        "anchor": "非接触式支付",
+        "heading": "非接触式支付",
+        "referenced_source_unit_id": "KSU-3465b720892c0b8e",
+        "referencing_source_unit_id": "KSU-3a32429cf1f74063",
+        "section_id": "LIO-PROD-004_健身追踪器手册:sec:3047617170ed"
+      }
+    ],
+    "relation_preserved": true,
+    "sections": [
+      "LIO-PROD-004_健身追踪器手册:sec:3047617170ed",
+      "LIO-PROD-004_健身追踪器手册:sec:8505270de0ae"
+    ],
+    "status": "SOURCE_VALIDATED",
+    "task_plan_id": "KTP-ecd226ca31568a47"
+  }
+]

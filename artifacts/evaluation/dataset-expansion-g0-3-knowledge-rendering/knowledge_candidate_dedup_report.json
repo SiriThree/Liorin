@@ -1,0 +1,13 @@
+{
+  "duplicate_semantic_signatures": [],
+  "effective_ratio": 1.0,
+  "effective_semantic_units": 171,
+  "exact_query_duplicate_excess": 0,
+  "normalized_query_duplicate_excess": 0,
+  "rendered": 180,
+  "semantic_duplicate_excess": 0,
+  "source_validated": 171,
+  "unique_evidence_sets": 161,
+  "unique_fact_sets": 171,
+  "unique_query_intent_signatures": 171
+}

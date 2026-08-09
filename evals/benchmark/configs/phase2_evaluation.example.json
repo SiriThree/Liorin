@@ -1,0 +1,19 @@
+{
+  "dataset_name": "liorin-canonical-validation",
+  "dataset_version": "1",
+  "model": null,
+  "embedding": null,
+  "production": {},
+  "judge": {
+    "enabled": false,
+    "judge_name": "phase2-semantic-judge",
+    "provider": "openai",
+    "model": "REPLACE_WITH_REAL_MODEL",
+    "temperature": 0.0,
+    "max_tokens": 1200,
+    "timeout": 30.0,
+    "max_retries": 2,
+    "prompt_version": "answer_correctness_v1",
+    "schema_version": "1.0"
+  }
+}

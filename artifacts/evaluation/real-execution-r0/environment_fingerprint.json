@@ -1,0 +1,44 @@
+{
+  "corpus_fingerprint": {
+    "file_count": 45,
+    "sha256": "5cd79b3739fd0287c0079c9953e75514cb78cccd8d31ab22fa6e46124dd2b4f7"
+  },
+  "db_fingerprint": {
+    "path": "data/structured/liorin.db",
+    "sha256": "0166d9b2252286ed36978e63a3969eb041077fe6fc33ba8e9c7258d37af8ed78",
+    "tables": {
+      "customers": 300,
+      "order_items": 3355,
+      "order_status_events": 7296,
+      "orders": 1500,
+      "products": 20,
+      "ticket_events": 1576,
+      "tickets": 420,
+      "warranty_cases": 140
+    }
+  },
+  "embedding": {
+    "dimension": 768,
+    "error": null,
+    "latency_ms": 428.32,
+    "model": "sentence-transformers/all-mpnet-base-v2",
+    "provider": "huggingface",
+    "success": true
+  },
+  "evaluation_config_hash": "9c8f3d8dd2fc3f6a184405395218f3f5a08043415e074fdc025464d5072b2aa5",
+  "formal_dataset_hash": "3f9cfc0ab4a5e8bf85bf4f3cd2e49e6bb7eaf49a237da7b17b8e697f8742fa88",
+  "git_commit": "f13ed72d1b0264b1f54d600a2a39ae0045937d65",
+  "milvus": {
+    "collection": "liorin_documents_huggingface",
+    "uri": "http://localhost:19530"
+  },
+  "model": {
+    "credential_present": true,
+    "name": "openai:qwen-plus"
+  },
+  "production_source_hash": {
+    "file_count": 65,
+    "sha256": "95e0f7a250457cb7f5cdbcd898661c1fbc70d27bef28d48d6f327d1d3350e1b8"
+  },
+  "run_timestamp": "2026-08-09T05:40:49.144464+00:00"
+}

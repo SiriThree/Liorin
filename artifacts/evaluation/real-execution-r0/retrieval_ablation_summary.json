@@ -1,0 +1,5 @@
+{
+  "reason": "Milvus connection/search failed during live readiness; no real index snapshot available",
+  "status": "NOT_RUN_SMOKE_GATE_FAILED",
+  "variant_count": 0
+}

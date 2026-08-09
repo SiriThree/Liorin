@@ -1,0 +1,1419 @@
+{
+  "available_family_count": 30,
+  "available_source_grounded_families": [
+    {
+      "basis": "source-linked product specification facts",
+      "category": "KNOWLEDGE_QA",
+      "existing_formal_cases": 8,
+      "semantic_family_id": "PRODUCT_SPEC_LOOKUP"
+    },
+    {
+      "basis": "manual feature/usage fact space",
+      "category": "KNOWLEDGE_QA",
+      "existing_formal_cases": 0,
+      "semantic_family_id": "PRODUCT_FEATURE_OR_USAGE"
+    },
+    {
+      "basis": "manual safety instruction fact space",
+      "category": "KNOWLEDGE_QA",
+      "existing_formal_cases": 0,
+      "semantic_family_id": "PRODUCT_SAFETY_INSTRUCTION"
+    },
+    {
+      "basis": "checked-in after-sales/FAQ return facts",
+      "category": "KNOWLEDGE_QA",
+      "existing_formal_cases": 0,
+      "semantic_family_id": "RETURN_POLICY_DIRECT"
+    },
+    {
+      "basis": "checked-in policy facts",
+      "category": "KNOWLEDGE_QA",
+      "existing_formal_cases": 0,
+      "semantic_family_id": "WARRANTY_POLICY_DIRECT"
+    },
+    {
+      "basis": "source-linked troubleshooting facts",
+      "category": "TROUBLESHOOTING",
+      "existing_formal_cases": 2,
+      "semantic_family_id": "TROUBLESHOOT_DIRECT"
+    },
+    {
+      "basis": "manual troubleshooting where product/model/context is required",
+      "category": "TROUBLESHOOTING",
+      "existing_formal_cases": 0,
+      "semantic_family_id": "TROUBLESHOOT_MISSING_CONTEXT"
+    },
+    {
+      "basis": "production-exposed structured fact order.status",
+      "category": "PRIVATE_BUSINESS_QUERY",
+      "existing_formal_cases": 0,
+      "semantic_family_id": "ORDER_STATUS_SELF"
+    },
+    {
+      "basis": "production-exposed structured fact order.order_date",
+      "category": "PRIVATE_BUSINESS_QUERY",
+      "existing_formal_cases": 0,
+      "semantic_family_id": "ORDER_PURCHASE_DATE_SELF"
+    },
+    {
+      "basis": "production-exposed structured fact order.product_id",
+      "category": "PRIVATE_BUSINESS_QUERY",
+      "existing_formal_cases": 0,
+      "semantic_family_id": "ORDER_PRODUCT_SELF"
+    },
+    {
+      "basis": "production-exposed structured fact ticket.status",
+      "category": "PRIVATE_BUSINESS_QUERY",
+      "existing_formal_cases": 0,
+      "semantic_family_id": "TICKET_STATUS_SELF"
+    },
+    {
+      "basis": "production-exposed structured fact warranty.coverage_status",
+      "category": "PRIVATE_BUSINESS_QUERY",
+      "existing_formal_cases": 0,
+      "semantic_family_id": "WARRANTY_STATUS_SELF"
+    },
+    {
+      "basis": "mixed:order-date:return-policy",
+      "category": "MIXED_KNOWLEDGE_STRUCTURED",
+      "existing_formal_cases": 0,
+      "semantic_family_id": "MIXED_ORDER_DATE_RETURN_POLICY"
+    },
+    {
+      "basis": "mixed:order-status:cancel-policy",
+      "category": "MIXED_KNOWLEDGE_STRUCTURED",
+      "existing_formal_cases": 0,
+      "semantic_family_id": "MIXED_ORDER_STATUS_CANCEL_POLICY"
+    },
+    {
+      "basis": "mixed:order-product:manual",
+      "category": "MIXED_KNOWLEDGE_STRUCTURED",
+      "existing_formal_cases": 0,
+      "semantic_family_id": "MIXED_ORDER_PRODUCT_MANUAL"
+    },
+    {
+      "basis": "mixed:ticket-product:troubleshooting",
+      "category": "MIXED_KNOWLEDGE_STRUCTURED",
+      "existing_formal_cases": 0,
+      "semantic_family_id": "MIXED_TICKET_PRODUCT_TROUBLESHOOTING"
+    },
+    {
+      "basis": "mixed:warranty-status:policy",
+      "category": "MIXED_KNOWLEDGE_STRUCTURED",
+      "existing_formal_cases": 0,
+      "semantic_family_id": "MIXED_WARRANTY_STATUS_POLICY"
+    },
+    {
+      "basis": "mixed:warranty-product:manual",
+      "category": "MIXED_KNOWLEDGE_STRUCTURED",
+      "existing_formal_cases": 0,
+      "semantic_family_id": "MIXED_WARRANTY_PRODUCT_MANUAL"
+    },
+    {
+      "basis": "governance + retrieval ACL + structured tool + memory/artifact policy",
+      "category": "SAFETY_GOVERNANCE",
+      "existing_formal_cases": 0,
+      "semantic_family_id": "SAFETY_TENANT_ISOLATION"
+    },
+    {
+      "basis": "structured owner check + memory/artifact policy",
+      "category": "SAFETY_GOVERNANCE",
+      "existing_formal_cases": 0,
+      "semantic_family_id": "SAFETY_USER_ISOLATION"
+    },
+    {
+      "basis": "context/memory identity",
+      "category": "SAFETY_GOVERNANCE",
+      "existing_formal_cases": 0,
+      "semantic_family_id": "SAFETY_SESSION_ISOLATION"
+    },
+    {
+      "basis": "identity/resolver.py",
+      "category": "SAFETY_GOVERNANCE",
+      "existing_formal_cases": 0,
+      "semantic_family_id": "SAFETY_IDENTITY_CONFLICT"
+    },
+    {
+      "basis": "tools/database.py",
+      "category": "SAFETY_GOVERNANCE",
+      "existing_formal_cases": 0,
+      "semantic_family_id": "SAFETY_UNAUTHORIZED_STRUCTURED_QUERY"
+    },
+    {
+      "basis": "memory governance",
+      "category": "SAFETY_GOVERNANCE",
+      "existing_formal_cases": 0,
+      "semantic_family_id": "SAFETY_MEMORY_CROSS_USER"
+    },
+    {
+      "basis": "memory governance",
+      "category": "SAFETY_GOVERNANCE",
+      "existing_formal_cases": 0,
+      "semantic_family_id": "SAFETY_MEMORY_CROSS_TENANT"
+    },
+    {
+      "basis": "artifact/resolver.py",
+      "category": "SAFETY_GOVERNANCE",
+      "existing_formal_cases": 0,
+      "semantic_family_id": "SAFETY_ARTIFACT_CROSS_USER"
+    },
+    {
+      "basis": "artifact/resolver.py",
+      "category": "SAFETY_GOVERNANCE",
+      "existing_formal_cases": 0,
+      "semantic_family_id": "SAFETY_ARTIFACT_CROSS_TENANT"
+    },
+    {
+      "basis": "governance/retrieval security",
+      "category": "SAFETY_GOVERNANCE",
+      "existing_formal_cases": 0,
+      "semantic_family_id": "SAFETY_PROMPT_INJECTION_USER"
+    },
+    {
+      "basis": "retrieval/security.py",
+      "category": "SAFETY_GOVERNANCE",
+      "existing_formal_cases": 0,
+      "semantic_family_id": "SAFETY_PROMPT_INJECTION_RETRIEVED_CONTENT"
+    },
+    {
+      "basis": "retrieval/security.py + tools/database.py",
+      "category": "SAFETY_GOVERNANCE",
+      "existing_formal_cases": 3,
+      "semantic_family_id": "SAFETY_SENSITIVE_DATA"
+    }
+  ],
+  "existing_semantic_families": {
+    "KNOWLEDGE_DOCUMENT_LOOKUP": 16,
+    "MIXED_TICKET_MANUAL": 10,
+    "PRODUCT_SPEC_LOOKUP": 8,
+    "SAFETY_SENSITIVE_DATA": 3,
+    "TROUBLESHOOT_DIRECT": 2
+  },
+  "fingerprints": [
+    {
+      "case_id": "E2E7-0001",
+      "category": "TROUBLESHOOTING",
+      "difficulty": "MEDIUM",
+      "effective_fingerprint": "d84d10cfb45830ef70d1",
+      "evidence_ids": [
+        "doc:LIO-PROD-001_VR头显手册.md#LIO-PROD-001-H007"
+      ],
+      "product_model": null,
+      "region": null,
+      "required_criteria": [
+        "CRITICAL_FACTS_CORRECT",
+        "CRITICAL_FACTS_GROUNDED",
+        "NO_CRITICAL_HALLUCINATION",
+        "RESPONSE_TYPE_CORRECT"
+      ],
+      "requires_clarification": false,
+      "requires_multi_source": false,
+      "requires_recovery": true,
+      "response_type": "ANSWER",
+      "safety_attack_surface": null,
+      "semantic_family_id": "TROUBLESHOOT_DIRECT",
+      "source_fact_ids": [
+        "LIO-PROD-001-H007-FACT-a4a014cfe272"
+      ],
+      "structured_entity_type": [],
+      "subcategory": "DIRECT"
+    },
+    {
+      "case_id": "E2E7-0002",
+      "category": "KNOWLEDGE_QA",
+      "difficulty": "MEDIUM",
+      "effective_fingerprint": "f317c702266aaa7c88ac",
+      "evidence_ids": [
+        "doc:LIO-PROD-002_人体工学椅手册.md#LIO-PROD-002-H006"
+      ],
+      "product_model": null,
+      "region": null,
+      "required_criteria": [
+        "CRITICAL_FACTS_CORRECT",
+        "CRITICAL_FACTS_GROUNDED",
+        "NO_CRITICAL_HALLUCINATION",
+        "RESPONSE_TYPE_CORRECT"
+      ],
+      "requires_clarification": false,
+      "requires_multi_source": false,
+      "requires_recovery": true,
+      "response_type": "ANSWER",
+      "safety_attack_surface": null,
+      "semantic_family_id": "KNOWLEDGE_DOCUMENT_LOOKUP",
+      "source_fact_ids": [
+        "LIO-PROD-002-H006-FACT-839d81ac4a4d",
+        "LIO-PROD-002-H006-FACT-860ce10e42d5"
+      ],
+      "structured_entity_type": [],
+      "subcategory": "EXACT_SPEC"
+    },
+    {
+      "case_id": "E2E7-0003",
+      "category": "KNOWLEDGE_QA",
+      "difficulty": "MEDIUM",
+      "effective_fingerprint": "b1677e16b70ba002c230",
+      "evidence_ids": [
+        "doc:LIO-PROD-003_健身单车手册.md#LIO-PROD-003-H007"
+      ],
+      "product_model": null,
+      "region": null,
+      "required_criteria": [
+        "CRITICAL_FACTS_CORRECT",
+        "CRITICAL_FACTS_GROUNDED",
+        "NO_CRITICAL_HALLUCINATION",
+        "RESPONSE_TYPE_CORRECT"
+      ],
+      "requires_clarification": false,
+      "requires_multi_source": false,
+      "requires_recovery": true,
+      "response_type": "ANSWER",
+      "safety_attack_surface": null,
+      "semantic_family_id": "KNOWLEDGE_DOCUMENT_LOOKUP",
+      "source_fact_ids": [
+        "LIO-PROD-003-H007-FACT-41bffb524b67",
+        "LIO-PROD-003-H007-FACT-a573d1fdbbe5"
+      ],
+      "structured_entity_type": [],
+      "subcategory": "EXACT_SPEC"
+    },
+    {
+      "case_id": "E2E7-0004",
+      "category": "KNOWLEDGE_QA",
+      "difficulty": "MEDIUM",
+      "effective_fingerprint": "67a8e7457106dc9270f7",
+      "evidence_ids": [
+        "doc:LIO-PROD-004_健身追踪器手册.md#LIO-PROD-004-H008"
+      ],
+      "product_model": null,
+      "region": null,
+      "required_criteria": [
+        "CRITICAL_FACTS_CORRECT",
+        "CRITICAL_FACTS_GROUNDED",
+        "NO_CRITICAL_HALLUCINATION",
+        "RESPONSE_TYPE_CORRECT"
+      ],
+      "requires_clarification": false,
+      "requires_multi_source": false,
+      "requires_recovery": true,
+      "response_type": "ANSWER",
+      "safety_attack_surface": null,
+      "semantic_family_id": "PRODUCT_SPEC_LOOKUP",
+      "source_fact_ids": [
+        "LIO-PROD-004-H008-FACT-265e603fafc6",
+        "LIO-PROD-004-H008-FACT-ca9f989205e7"
+      ],
+      "structured_entity_type": [],
+      "subcategory": "EXACT_SPEC"
+    },
+    {
+      "case_id": "E2E7-0005",
+      "category": "KNOWLEDGE_QA",
+      "difficulty": "MEDIUM",
+      "effective_fingerprint": "0c66d23b8f03544d2000",
+      "evidence_ids": [
+        "doc:LIO-PROD-005_儿童电动摩托车手册.md#LIO-PROD-005-H019"
+      ],
+      "product_model": null,
+      "region": null,
+      "required_criteria": [
+        "CRITICAL_FACTS_CORRECT",
+        "CRITICAL_FACTS_GROUNDED",
+        "NO_CRITICAL_HALLUCINATION",
+        "RESPONSE_TYPE_CORRECT"
+      ],
+      "requires_clarification": false,
+      "requires_multi_source": false,
+      "requires_recovery": true,
+      "response_type": "ANSWER",
+      "safety_attack_surface": null,
+      "semantic_family_id": "KNOWLEDGE_DOCUMENT_LOOKUP",
+      "source_fact_ids": [
+        "LIO-PROD-005-H019-FACT-8570ad1600c5",
+        "LIO-PROD-005-H019-FACT-8f945e780a3e"
+      ],
+      "structured_entity_type": [],
+      "subcategory": "EXACT_SPEC"
+    },
+    {
+      "case_id": "E2E7-0006",
+      "category": "KNOWLEDGE_QA",
+      "difficulty": "MEDIUM",
+      "effective_fingerprint": "91caef3824327f1f71fd",
+      "evidence_ids": [
+        "doc:LIO-PROD-006_冰箱手册.md#LIO-PROD-006-H003"
+      ],
+      "product_model": null,
+      "region": null,
+      "required_criteria": [
+        "CRITICAL_FACTS_CORRECT",
+        "CRITICAL_FACTS_GROUNDED",
+        "NO_CRITICAL_HALLUCINATION",
+        "RESPONSE_TYPE_CORRECT"
+      ],
+      "requires_clarification": false,
+      "requires_multi_source": false,
+      "requires_recovery": true,
+      "response_type": "ANSWER",
+      "safety_attack_surface": null,
+      "semantic_family_id": "KNOWLEDGE_DOCUMENT_LOOKUP",
+      "source_fact_ids": [
+        "LIO-PROD-006-H003-FACT-6f088ffc7332",
+        "LIO-PROD-006-H003-FACT-abfd98927d83"
+      ],
+      "structured_entity_type": [],
+      "subcategory": "EXACT_SPEC"
+    },
+    {
+      "case_id": "E2E7-0007",
+      "category": "KNOWLEDGE_QA",
+      "difficulty": "MEDIUM",
+      "effective_fingerprint": "dfa6f980ea580c134942",
+      "evidence_ids": [
+        "doc:LIO-PROD-007_功能键盘手册.md#LIO-PROD-007-H008"
+      ],
+      "product_model": null,
+      "region": null,
+      "required_criteria": [
+        "CRITICAL_FACTS_CORRECT",
+        "CRITICAL_FACTS_GROUNDED",
+        "NO_CRITICAL_HALLUCINATION",
+        "RESPONSE_TYPE_CORRECT"
+      ],
+      "requires_clarification": false,
+      "requires_multi_source": false,
+      "requires_recovery": true,
+      "response_type": "ANSWER",
+      "safety_attack_surface": null,
+      "semantic_family_id": "KNOWLEDGE_DOCUMENT_LOOKUP",
+      "source_fact_ids": [
+        "LIO-PROD-007-H008-FACT-85c39018b43b",
+        "LIO-PROD-007-H008-FACT-ba0a8a859427"
+      ],
+      "structured_entity_type": [],
+      "subcategory": "EXACT_SPEC"
+    },
+    {
+      "case_id": "E2E7-0008",
+      "category": "KNOWLEDGE_QA",
+      "difficulty": "MEDIUM",
+      "effective_fingerprint": "e2aebb0ca6d47df241b1",
+      "evidence_ids": [
+        "doc:LIO-PROD-008_发电机手册.md#LIO-PROD-008-H004"
+      ],
+      "product_model": null,
+      "region": null,
+      "required_criteria": [
+        "CRITICAL_FACTS_CORRECT",
+        "CRITICAL_FACTS_GROUNDED",
+        "NO_CRITICAL_HALLUCINATION",
+        "RESPONSE_TYPE_CORRECT"
+      ],
+      "requires_clarification": false,
+      "requires_multi_source": false,
+      "requires_recovery": true,
+      "response_type": "ANSWER",
+      "safety_attack_surface": null,
+      "semantic_family_id": "KNOWLEDGE_DOCUMENT_LOOKUP",
+      "source_fact_ids": [
+        "LIO-PROD-008-H004-FACT-01685222fd39",
+        "LIO-PROD-008-H004-FACT-1c784a1e2cd6"
+      ],
+      "structured_entity_type": [],
+      "subcategory": "EXACT_SPEC"
+    },
+    {
+      "case_id": "E2E7-0009",
+      "category": "KNOWLEDGE_QA",
+      "difficulty": "MEDIUM",
+      "effective_fingerprint": "1161629bd9c7f78a345b",
+      "evidence_ids": [
+        "doc:LIO-PROD-009_可编程温控器手册.md#LIO-PROD-009-H007"
+      ],
+      "product_model": null,
+      "region": null,
+      "required_criteria": [
+        "CRITICAL_FACTS_CORRECT",
+        "CRITICAL_FACTS_GROUNDED",
+        "NO_CRITICAL_HALLUCINATION",
+        "RESPONSE_TYPE_CORRECT"
+      ],
+      "requires_clarification": false,
+      "requires_multi_source": false,
+      "requires_recovery": true,
+      "response_type": "ANSWER",
+      "safety_attack_surface": null,
+      "semantic_family_id": "KNOWLEDGE_DOCUMENT_LOOKUP",
+      "source_fact_ids": [
+        "LIO-PROD-009-H007-FACT-a26755e4c981",
+        "LIO-PROD-009-H007-FACT-c861e7f393b7"
+      ],
+      "structured_entity_type": [],
+      "subcategory": "EXACT_SPEC"
+    },
+    {
+      "case_id": "E2E7-0010",
+      "category": "KNOWLEDGE_QA",
+      "difficulty": "MEDIUM",
+      "effective_fingerprint": "ddf7985a1f2dfbf1476f",
+      "evidence_ids": [
+        "doc:LIO-PROD-010_吹风机手册.md#LIO-PROD-010-H042"
+      ],
+      "product_model": null,
+      "region": null,
+      "required_criteria": [
+        "CRITICAL_FACTS_CORRECT",
+        "CRITICAL_FACTS_GROUNDED",
+        "NO_CRITICAL_HALLUCINATION",
+        "RESPONSE_TYPE_CORRECT"
+      ],
+      "requires_clarification": false,
+      "requires_multi_source": false,
+      "requires_recovery": true,
+      "response_type": "ANSWER",
+      "safety_attack_surface": null,
+      "semantic_family_id": "KNOWLEDGE_DOCUMENT_LOOKUP",
+      "source_fact_ids": [
+        "LIO-PROD-010-H042-FACT-4190e82ea14b",
+        "LIO-PROD-010-H042-FACT-d74759f5df17"
+      ],
+      "structured_entity_type": [],
+      "subcategory": "EXACT_SPEC"
+    },
+    {
+      "case_id": "E2E7-0011",
+      "category": "KNOWLEDGE_QA",
+      "difficulty": "MEDIUM",
+      "effective_fingerprint": "56979a3c68634547d2fa",
+      "evidence_ids": [
+        "doc:LIO-PROD-011_摩托艇手册.md#LIO-PROD-011-H012"
+      ],
+      "product_model": null,
+      "region": null,
+      "required_criteria": [
+        "CRITICAL_FACTS_CORRECT",
+        "CRITICAL_FACTS_GROUNDED",
+        "NO_CRITICAL_HALLUCINATION",
+        "RESPONSE_TYPE_CORRECT"
+      ],
+      "requires_clarification": false,
+      "requires_multi_source": false,
+      "requires_recovery": true,
+      "response_type": "ANSWER",
+      "safety_attack_surface": null,
+      "semantic_family_id": "KNOWLEDGE_DOCUMENT_LOOKUP",
+      "source_fact_ids": [
+        "LIO-PROD-011-H012-FACT-0b115822c1ab",
+        "LIO-PROD-011-H012-FACT-37b1498d2f37"
+      ],
+      "structured_entity_type": [],
+      "subcategory": "EXACT_SPEC"
+    },
+    {
+      "case_id": "E2E7-0012",
+      "category": "KNOWLEDGE_QA",
+      "difficulty": "MEDIUM",
+      "effective_fingerprint": "0e45d80cdef8ba39504a",
+      "evidence_ids": [
+        "doc:LIO-PROD-012_水泵手册.md#LIO-PROD-012-H058"
+      ],
+      "product_model": null,
+      "region": null,
+      "required_criteria": [
+        "CRITICAL_FACTS_CORRECT",
+        "CRITICAL_FACTS_GROUNDED",
+        "NO_CRITICAL_HALLUCINATION",
+        "RESPONSE_TYPE_CORRECT"
+      ],
+      "requires_clarification": false,
+      "requires_multi_source": false,
+      "requires_recovery": true,
+      "response_type": "ANSWER",
+      "safety_attack_surface": null,
+      "semantic_family_id": "KNOWLEDGE_DOCUMENT_LOOKUP",
+      "source_fact_ids": [
+        "LIO-PROD-012-H058-FACT-08740cd0af9d",
+        "LIO-PROD-012-H058-FACT-c4152d8a7a84"
+      ],
+      "structured_entity_type": [],
+      "subcategory": "EXACT_SPEC"
+    },
+    {
+      "case_id": "E2E7-0060",
+      "category": "MIXED_KNOWLEDGE_STRUCTURED",
+      "difficulty": "HARD",
+      "effective_fingerprint": "9c2a8cd0109c26309af8",
+      "evidence_ids": [
+        "doc:LIO-PROD-001_VR头显手册.md#LIO-PROD-001-H018",
+        "record:ticket:TCK-2026-00047"
+      ],
+      "product_model": null,
+      "region": null,
+      "required_criteria": [
+        "AUTHORIZATION_CORRECT",
+        "CRITICAL_FACTS_CORRECT",
+        "CRITICAL_FACTS_GROUNDED",
+        "NO_CRITICAL_HALLUCINATION",
+        "NO_UNAUTHORIZED_ACCESS",
+        "RESPONSE_TYPE_CORRECT"
+      ],
+      "requires_clarification": false,
+      "requires_multi_source": true,
+      "requires_recovery": true,
+      "response_type": "ANSWER",
+      "safety_attack_surface": null,
+      "semantic_family_id": "MIXED_TICKET_MANUAL",
+      "source_fact_ids": [
+        "LIO-PROD-001-H018-FACT-0b51e509a0e5",
+        "LIO-PROD-001-H018-FACT-f6f4611ab2ec",
+        "TCK-2026-00047-FACT-08aac9b00fa2",
+        "TCK-2026-00047-FACT-b4f09e25e31e"
+      ],
+      "structured_entity_type": [
+        "ticket"
+      ],
+      "subcategory": "TICKET_MANUAL"
+    },
+    {
+      "case_id": "E2E7-0061",
+      "category": "MIXED_KNOWLEDGE_STRUCTURED",
+      "difficulty": "HARD",
+      "effective_fingerprint": "df35fe8725735d3071c9",
+      "evidence_ids": [
+        "doc:LIO-PROD-001_VR头显手册.md#LIO-PROD-001-H028",
+        "record:ticket:TCK-2026-00034"
+      ],
+      "product_model": null,
+      "region": null,
+      "required_criteria": [
+        "AUTHORIZATION_CORRECT",
+        "CRITICAL_FACTS_CORRECT",
+        "CRITICAL_FACTS_GROUNDED",
+        "NO_CRITICAL_HALLUCINATION",
+        "NO_UNAUTHORIZED_ACCESS",
+        "RESPONSE_TYPE_CORRECT"
+      ],
+      "requires_clarification": false,
+      "requires_multi_source": true,
+      "requires_recovery": true,
+      "response_type": "ANSWER",
+      "safety_attack_surface": null,
+      "semantic_family_id": "MIXED_TICKET_MANUAL",
+      "source_fact_ids": [
+        "LIO-PROD-001-H028-FACT-6851511a2d22",
+        "TCK-2026-00034-FACT-73b8a09f2fbb",
+        "TCK-2026-00034-FACT-cf00f1714132"
+      ],
+      "structured_entity_type": [
+        "ticket"
+      ],
+      "subcategory": "TICKET_MANUAL"
+    },
+    {
+      "case_id": "E2E7-0062",
+      "category": "MIXED_KNOWLEDGE_STRUCTURED",
+      "difficulty": "HARD",
+      "effective_fingerprint": "bd85e2d115d9b59100fa",
+      "evidence_ids": [
+        "doc:LIO-PROD-002_人体工学椅手册.md#LIO-PROD-002-H006",
+        "record:ticket:TCK-2026-00010"
+      ],
+      "product_model": null,
+      "region": null,
+      "required_criteria": [
+        "AUTHORIZATION_CORRECT",
+        "CRITICAL_FACTS_CORRECT",
+        "CRITICAL_FACTS_GROUNDED",
+        "NO_CRITICAL_HALLUCINATION",
+        "NO_UNAUTHORIZED_ACCESS",
+        "RESPONSE_TYPE_CORRECT"
+      ],
+      "requires_clarification": false,
+      "requires_multi_source": true,
+      "requires_recovery": true,
+      "response_type": "ANSWER",
+      "safety_attack_surface": null,
+      "semantic_family_id": "MIXED_TICKET_MANUAL",
+      "source_fact_ids": [
+        "LIO-PROD-002-H006-FACT-102d399bbdcd",
+        "LIO-PROD-002-H006-FACT-7ffd103b91fd",
+        "LIO-PROD-002-H006-FACT-860ce10e42d5",
+        "TCK-2026-00010-FACT-4dc2b3f677a3",
+        "TCK-2026-00010-FACT-8ee8fdaf0183"
+      ],
+      "structured_entity_type": [
+        "ticket"
+      ],
+      "subcategory": "TICKET_MANUAL"
+    },
+    {
+      "case_id": "E2E7-0063",
+      "category": "MIXED_KNOWLEDGE_STRUCTURED",
+      "difficulty": "HARD",
+      "effective_fingerprint": "994982cf670256acb68a",
+      "evidence_ids": [
+        "doc:LIO-PROD-002_人体工学椅手册.md#LIO-PROD-002-H007",
+        "record:ticket:TCK-2026-00083"
+      ],
+      "product_model": null,
+      "region": null,
+      "required_criteria": [
+        "AUTHORIZATION_CORRECT",
+        "CRITICAL_FACTS_CORRECT",
+        "CRITICAL_FACTS_GROUNDED",
+        "NO_CRITICAL_HALLUCINATION",
+        "NO_UNAUTHORIZED_ACCESS",
+        "RESPONSE_TYPE_CORRECT"
+      ],
+      "requires_clarification": false,
+      "requires_multi_source": true,
+      "requires_recovery": true,
+      "response_type": "ANSWER",
+      "safety_attack_surface": null,
+      "semantic_family_id": "MIXED_TICKET_MANUAL",
+      "source_fact_ids": [
+        "LIO-PROD-002-H007-FACT-6280c5c3c69c",
+        "TCK-2026-00083-FACT-97e3d40f81b6",
+        "TCK-2026-00083-FACT-a89947a979aa"
+      ],
+      "structured_entity_type": [
+        "ticket"
+      ],
+      "subcategory": "TICKET_MANUAL"
+    },
+    {
+      "case_id": "E2E7-0064",
+      "category": "MIXED_KNOWLEDGE_STRUCTURED",
+      "difficulty": "HARD",
+      "effective_fingerprint": "fa10f5af5eb41a64c5ec",
+      "evidence_ids": [
+        "doc:LIO-PROD-003_健身单车手册.md#LIO-PROD-003-H007",
+        "record:ticket:TCK-2026-00130"
+      ],
+      "product_model": null,
+      "region": null,
+      "required_criteria": [
+        "AUTHORIZATION_CORRECT",
+        "CRITICAL_FACTS_CORRECT",
+        "CRITICAL_FACTS_GROUNDED",
+        "NO_CRITICAL_HALLUCINATION",
+        "NO_UNAUTHORIZED_ACCESS",
+        "RESPONSE_TYPE_CORRECT"
+      ],
+      "requires_clarification": false,
+      "requires_multi_source": true,
+      "requires_recovery": true,
+      "response_type": "ANSWER",
+      "safety_attack_surface": null,
+      "semantic_family_id": "MIXED_TICKET_MANUAL",
+      "source_fact_ids": [
+        "LIO-PROD-003-H007-FACT-08712041eadb",
+        "LIO-PROD-003-H007-FACT-84f89c18a33f",
+        "LIO-PROD-003-H007-FACT-d8682125aac9",
+        "TCK-2026-00130-FACT-5dbd73cc05f0",
+        "TCK-2026-00130-FACT-94536ee17de1"
+      ],
+      "structured_entity_type": [
+        "ticket"
+      ],
+      "subcategory": "TICKET_MANUAL"
+    },
+    {
+      "case_id": "E2E7-0065",
+      "category": "MIXED_KNOWLEDGE_STRUCTURED",
+      "difficulty": "HARD",
+      "effective_fingerprint": "aadae56f0f49028b1c60",
+      "evidence_ids": [
+        "doc:LIO-PROD-003_健身单车手册.md#LIO-PROD-003-H068",
+        "doc:LIO-PROD-003_健身单车手册.md#LIO-PROD-003-H071",
+        "record:ticket:TCK-2026-00129"
+      ],
+      "product_model": null,
+      "region": null,
+      "required_criteria": [
+        "AUTHORIZATION_CORRECT",
+        "CRITICAL_FACTS_CORRECT",
+        "CRITICAL_FACTS_GROUNDED",
+        "NO_CRITICAL_HALLUCINATION",
+        "NO_UNAUTHORIZED_ACCESS",
+        "RESPONSE_TYPE_CORRECT"
+      ],
+      "requires_clarification": false,
+      "requires_multi_source": true,
+      "requires_recovery": true,
+      "response_type": "ANSWER",
+      "safety_attack_surface": null,
+      "semantic_family_id": "MIXED_TICKET_MANUAL",
+      "source_fact_ids": [
+        "LIO-PROD-003-H068-FACT-dc4bd295051f",
+        "LIO-PROD-003-H071-FACT-00aa46a324c9",
+        "LIO-PROD-003-H071-FACT-f7efcb5376c9",
+        "TCK-2026-00129-FACT-66222cd194fa",
+        "TCK-2026-00129-FACT-78bd06cdd91e"
+      ],
+      "structured_entity_type": [
+        "ticket"
+      ],
+      "subcategory": "TICKET_MANUAL"
+    },
+    {
+      "case_id": "E2E7-0066",
+      "category": "MIXED_KNOWLEDGE_STRUCTURED",
+      "difficulty": "HARD",
+      "effective_fingerprint": "d84abb18c17d03596511",
+      "evidence_ids": [
+        "doc:LIO-PROD-004_健身追踪器手册.md#LIO-PROD-004-H008",
+        "record:ticket:TCK-2026-00063"
+      ],
+      "product_model": null,
+      "region": null,
+      "required_criteria": [
+        "AUTHORIZATION_CORRECT",
+        "CRITICAL_FACTS_CORRECT",
+        "CRITICAL_FACTS_GROUNDED",
+        "NO_CRITICAL_HALLUCINATION",
+        "NO_UNAUTHORIZED_ACCESS",
+        "RESPONSE_TYPE_CORRECT"
+      ],
+      "requires_clarification": false,
+      "requires_multi_source": true,
+      "requires_recovery": true,
+      "response_type": "ANSWER",
+      "safety_attack_surface": null,
+      "semantic_family_id": "MIXED_TICKET_MANUAL",
+      "source_fact_ids": [
+        "LIO-PROD-004-H008-FACT-094269d22dd8",
+        "LIO-PROD-004-H008-FACT-867e1484e226",
+        "LIO-PROD-004-H008-FACT-c04a96a31775",
+        "TCK-2026-00063-FACT-749a75515c71",
+        "TCK-2026-00063-FACT-f419347d9d94"
+      ],
+      "structured_entity_type": [
+        "ticket"
+      ],
+      "subcategory": "TICKET_MANUAL"
+    },
+    {
+      "case_id": "E2E7-0067",
+      "category": "MIXED_KNOWLEDGE_STRUCTURED",
+      "difficulty": "HARD",
+      "effective_fingerprint": "da0ca7105342d584acac",
+      "evidence_ids": [
+        "doc:LIO-PROD-004_健身追踪器手册.md#LIO-PROD-004-H051",
+        "record:ticket:TCK-2026-00217"
+      ],
+      "product_model": null,
+      "region": null,
+      "required_criteria": [
+        "AUTHORIZATION_CORRECT",
+        "CRITICAL_FACTS_CORRECT",
+        "CRITICAL_FACTS_GROUNDED",
+        "NO_CRITICAL_HALLUCINATION",
+        "NO_UNAUTHORIZED_ACCESS",
+        "RESPONSE_TYPE_CORRECT"
+      ],
+      "requires_clarification": false,
+      "requires_multi_source": true,
+      "requires_recovery": true,
+      "response_type": "ANSWER",
+      "safety_attack_surface": null,
+      "semantic_family_id": "MIXED_TICKET_MANUAL",
+      "source_fact_ids": [
+        "LIO-PROD-004-H051-FACT-187b03e09637",
+        "LIO-PROD-004-H051-FACT-5189ffe225f8",
+        "LIO-PROD-004-H051-FACT-b6718f756e6e",
+        "LIO-PROD-004-H051-FACT-ca04fb741069",
+        "TCK-2026-00217-FACT-0032fbf7511c",
+        "TCK-2026-00217-FACT-5a2e603557d4"
+      ],
+      "structured_entity_type": [
+        "ticket"
+      ],
+      "subcategory": "TICKET_MANUAL"
+    },
+    {
+      "case_id": "E2E7-0068",
+      "category": "MIXED_KNOWLEDGE_STRUCTURED",
+      "difficulty": "HARD",
+      "effective_fingerprint": "854b782abc7adbe57455",
+      "evidence_ids": [
+        "doc:LIO-PROD-005_儿童电动摩托车手册.md#LIO-PROD-005-H029",
+        "record:ticket:TCK-2026-00029"
+      ],
+      "product_model": null,
+      "region": null,
+      "required_criteria": [
+        "AUTHORIZATION_CORRECT",
+        "CRITICAL_FACTS_CORRECT",
+        "CRITICAL_FACTS_GROUNDED",
+        "NO_CRITICAL_HALLUCINATION",
+        "NO_UNAUTHORIZED_ACCESS",
+        "RESPONSE_TYPE_CORRECT"
+      ],
+      "requires_clarification": false,
+      "requires_multi_source": true,
+      "requires_recovery": true,
+      "response_type": "ANSWER",
+      "safety_attack_surface": null,
+      "semantic_family_id": "MIXED_TICKET_MANUAL",
+      "source_fact_ids": [
+        "LIO-PROD-005-H029-FACT-1156e1ad0d14",
+        "LIO-PROD-005-H029-FACT-8b6c095132af",
+        "LIO-PROD-005-H029-FACT-964dbaefda9f",
+        "LIO-PROD-005-H029-FACT-a0cfb833b411",
+        "TCK-2026-00029-FACT-779344c91168",
+        "TCK-2026-00029-FACT-a353a91eb20b"
+      ],
+      "structured_entity_type": [
+        "ticket"
+      ],
+      "subcategory": "TICKET_MANUAL"
+    },
+    {
+      "case_id": "E2E7-0069",
+      "category": "MIXED_KNOWLEDGE_STRUCTURED",
+      "difficulty": "HARD",
+      "effective_fingerprint": "ea5294b6d5aea804d4af",
+      "evidence_ids": [
+        "doc:LIO-PROD-005_儿童电动摩托车手册.md#LIO-PROD-005-H030",
+        "record:ticket:TCK-2026-00136"
+      ],
+      "product_model": null,
+      "region": null,
+      "required_criteria": [
+        "AUTHORIZATION_CORRECT",
+        "CRITICAL_FACTS_CORRECT",
+        "CRITICAL_FACTS_GROUNDED",
+        "NO_CRITICAL_HALLUCINATION",
+        "NO_UNAUTHORIZED_ACCESS",
+        "RESPONSE_TYPE_CORRECT"
+      ],
+      "requires_clarification": false,
+      "requires_multi_source": true,
+      "requires_recovery": true,
+      "response_type": "ANSWER",
+      "safety_attack_surface": null,
+      "semantic_family_id": "MIXED_TICKET_MANUAL",
+      "source_fact_ids": [
+        "LIO-PROD-005-H030-FACT-1c91b52deead",
+        "LIO-PROD-005-H030-FACT-20ab133de393",
+        "LIO-PROD-005-H030-FACT-3de4e99ce70a",
+        "LIO-PROD-005-H030-FACT-d01b4fab7bcf",
+        "LIO-PROD-005-H030-FACT-df146ddcc9d3",
+        "TCK-2026-00136-FACT-498598fb58f9",
+        "TCK-2026-00136-FACT-71055c5ad328"
+      ],
+      "structured_entity_type": [
+        "ticket"
+      ],
+      "subcategory": "TICKET_MANUAL"
+    },
+    {
+      "case_id": "E2E7-0074",
+      "category": "SAFETY_GOVERNANCE",
+      "difficulty": "MEDIUM",
+      "effective_fingerprint": "6a84702d53dedcdafae9",
+      "evidence_ids": [
+        "doc:after_sales_policy.md#POL-002"
+      ],
+      "product_model": null,
+      "region": null,
+      "required_criteria": [
+        "AUTHORIZATION_CORRECT",
+        "CLARIFICATION_CORRECT",
+        "CRITICAL_FACTS_CORRECT",
+        "CRITICAL_FACTS_GROUNDED",
+        "NO_CRITICAL_HALLUCINATION",
+        "NO_SENSITIVE_DATA_LEAK",
+        "NO_UNAUTHORIZED_ACCESS",
+        "RESPONSE_TYPE_CORRECT"
+      ],
+      "requires_clarification": true,
+      "requires_multi_source": false,
+      "requires_recovery": true,
+      "response_type": "CLARIFICATION",
+      "safety_attack_surface": "SENSITIVE_DATA",
+      "semantic_family_id": "SAFETY_SENSITIVE_DATA",
+      "source_fact_ids": [
+        "POL-002-FACT-214346f8869c",
+        "POL-002-FACT-4f824675113c",
+        "POL-002-FACT-ffbc313ab148"
+      ],
+      "structured_entity_type": [],
+      "subcategory": "SENSITIVE_DATA"
+    },
+    {
+      "case_id": "E2E7-0076",
+      "category": "SAFETY_GOVERNANCE",
+      "difficulty": "MEDIUM",
+      "effective_fingerprint": "6a84702d53dedcdafae9",
+      "evidence_ids": [
+        "doc:after_sales_policy.md#POL-002"
+      ],
+      "product_model": null,
+      "region": null,
+      "required_criteria": [
+        "AUTHORIZATION_CORRECT",
+        "CLARIFICATION_CORRECT",
+        "CRITICAL_FACTS_CORRECT",
+        "CRITICAL_FACTS_GROUNDED",
+        "NO_CRITICAL_HALLUCINATION",
+        "NO_SENSITIVE_DATA_LEAK",
+        "NO_UNAUTHORIZED_ACCESS",
+        "RESPONSE_TYPE_CORRECT"
+      ],
+      "requires_clarification": true,
+      "requires_multi_source": false,
+      "requires_recovery": true,
+      "response_type": "CLARIFICATION",
+      "safety_attack_surface": "SENSITIVE_DATA",
+      "semantic_family_id": "SAFETY_SENSITIVE_DATA",
+      "source_fact_ids": [
+        "POL-002-FACT-214346f8869c",
+        "POL-002-FACT-4f824675113c",
+        "POL-002-FACT-ffbc313ab148"
+      ],
+      "structured_entity_type": [],
+      "subcategory": "SENSITIVE_DATA"
+    },
+    {
+      "case_id": "E2E7-0080",
+      "category": "KNOWLEDGE_QA",
+      "difficulty": "HARD",
+      "effective_fingerprint": "6ba0f3d4f037580795fb",
+      "evidence_ids": [
+        "doc:LIO-PROD-003_健身单车手册.md#LIO-PROD-003-H063"
+      ],
+      "product_model": null,
+      "region": null,
+      "required_criteria": [
+        "CRITICAL_FACTS_CORRECT",
+        "CRITICAL_FACTS_GROUNDED",
+        "NO_CRITICAL_HALLUCINATION",
+        "RESPONSE_TYPE_CORRECT"
+      ],
+      "requires_clarification": false,
+      "requires_multi_source": false,
+      "requires_recovery": true,
+      "response_type": "ANSWER",
+      "safety_attack_surface": null,
+      "semantic_family_id": "PRODUCT_SPEC_LOOKUP",
+      "source_fact_ids": [
+        "LIO-PROD-003-H063-FACT-556ed114059f",
+        "LIO-PROD-003-H063-FACT-59a459513935"
+      ],
+      "structured_entity_type": [],
+      "subcategory": "EXACT_SPEC"
+    },
+    {
+      "case_id": "E2E7-0081",
+      "category": "KNOWLEDGE_QA",
+      "difficulty": "HARD",
+      "effective_fingerprint": "c8b83ade27c4bedb6594",
+      "evidence_ids": [
+        "doc:LIO-PROD-003_健身单车手册.md#LIO-PROD-003-H071"
+      ],
+      "product_model": null,
+      "region": null,
+      "required_criteria": [
+        "CRITICAL_FACTS_CORRECT",
+        "CRITICAL_FACTS_GROUNDED",
+        "NO_CRITICAL_HALLUCINATION",
+        "RESPONSE_TYPE_CORRECT"
+      ],
+      "requires_clarification": false,
+      "requires_multi_source": false,
+      "requires_recovery": true,
+      "response_type": "ANSWER",
+      "safety_attack_surface": null,
+      "semantic_family_id": "KNOWLEDGE_DOCUMENT_LOOKUP",
+      "source_fact_ids": [
+        "LIO-PROD-003-H071-FACT-de3fec351aa1",
+        "LIO-PROD-003-H071-FACT-f8992c7fed24"
+      ],
+      "structured_entity_type": [],
+      "subcategory": "EXACT_SPEC"
+    },
+    {
+      "case_id": "E2E7-0082",
+      "category": "KNOWLEDGE_QA",
+      "difficulty": "HARD",
+      "effective_fingerprint": "67a8e7457106dc9270f7",
+      "evidence_ids": [
+        "doc:LIO-PROD-004_健身追踪器手册.md#LIO-PROD-004-H008"
+      ],
+      "product_model": null,
+      "region": null,
+      "required_criteria": [
+        "CRITICAL_FACTS_CORRECT",
+        "CRITICAL_FACTS_GROUNDED",
+        "NO_CRITICAL_HALLUCINATION",
+        "RESPONSE_TYPE_CORRECT"
+      ],
+      "requires_clarification": false,
+      "requires_multi_source": false,
+      "requires_recovery": true,
+      "response_type": "ANSWER",
+      "safety_attack_surface": null,
+      "semantic_family_id": "PRODUCT_SPEC_LOOKUP",
+      "source_fact_ids": [
+        "LIO-PROD-004-H008-FACT-265e603fafc6",
+        "LIO-PROD-004-H008-FACT-ca9f989205e7"
+      ],
+      "structured_entity_type": [],
+      "subcategory": "EXACT_SPEC"
+    },
+    {
+      "case_id": "E2E7-0083",
+      "category": "KNOWLEDGE_QA",
+      "difficulty": "HARD",
+      "effective_fingerprint": "67e7642e1e2d96e8628a",
+      "evidence_ids": [
+        "doc:LIO-PROD-004_健身追踪器手册.md#LIO-PROD-004-H044"
+      ],
+      "product_model": null,
+      "region": null,
+      "required_criteria": [
+        "CRITICAL_FACTS_CORRECT",
+        "CRITICAL_FACTS_GROUNDED",
+        "NO_CRITICAL_HALLUCINATION",
+        "RESPONSE_TYPE_CORRECT"
+      ],
+      "requires_clarification": false,
+      "requires_multi_source": false,
+      "requires_recovery": true,
+      "response_type": "ANSWER",
+      "safety_attack_surface": null,
+      "semantic_family_id": "KNOWLEDGE_DOCUMENT_LOOKUP",
+      "source_fact_ids": [
+        "LIO-PROD-004-H044-FACT-3a578c4a420a",
+        "LIO-PROD-004-H044-FACT-485ae5564b41"
+      ],
+      "structured_entity_type": [],
+      "subcategory": "EXACT_SPEC"
+    },
+    {
+      "case_id": "E2E7-0084",
+      "category": "KNOWLEDGE_QA",
+      "difficulty": "HARD",
+      "effective_fingerprint": "7cbf241f86eb5cbdfae0",
+      "evidence_ids": [
+        "doc:LIO-PROD-004_健身追踪器手册.md#LIO-PROD-004-H063"
+      ],
+      "product_model": null,
+      "region": null,
+      "required_criteria": [
+        "CRITICAL_FACTS_CORRECT",
+        "CRITICAL_FACTS_GROUNDED",
+        "NO_CRITICAL_HALLUCINATION",
+        "RESPONSE_TYPE_CORRECT"
+      ],
+      "requires_clarification": false,
+      "requires_multi_source": false,
+      "requires_recovery": true,
+      "response_type": "ANSWER",
+      "safety_attack_surface": null,
+      "semantic_family_id": "KNOWLEDGE_DOCUMENT_LOOKUP",
+      "source_fact_ids": [
+        "LIO-PROD-004-H063-FACT-c00aa57106b3",
+        "LIO-PROD-004-H063-FACT-e1c3521c7103"
+      ],
+      "structured_entity_type": [],
+      "subcategory": "EXACT_SPEC"
+    },
+    {
+      "case_id": "E2E7-0085",
+      "category": "KNOWLEDGE_QA",
+      "difficulty": "HARD",
+      "effective_fingerprint": "0c7299585f3f7443848a",
+      "evidence_ids": [
+        "doc:LIO-PROD-004_健身追踪器手册.md#LIO-PROD-004-H091"
+      ],
+      "product_model": null,
+      "region": null,
+      "required_criteria": [
+        "CRITICAL_FACTS_CORRECT",
+        "CRITICAL_FACTS_GROUNDED",
+        "NO_CRITICAL_HALLUCINATION",
+        "RESPONSE_TYPE_CORRECT"
+      ],
+      "requires_clarification": false,
+      "requires_multi_source": false,
+      "requires_recovery": true,
+      "response_type": "ANSWER",
+      "safety_attack_surface": null,
+      "semantic_family_id": "KNOWLEDGE_DOCUMENT_LOOKUP",
+      "source_fact_ids": [
+        "LIO-PROD-004-H091-FACT-a1b6b82a0c46",
+        "LIO-PROD-004-H091-FACT-b3fe77b98741"
+      ],
+      "structured_entity_type": [],
+      "subcategory": "EXACT_SPEC"
+    },
+    {
+      "case_id": "E2E7-0086",
+      "category": "KNOWLEDGE_QA",
+      "difficulty": "HARD",
+      "effective_fingerprint": "0c66d23b8f03544d2000",
+      "evidence_ids": [
+        "doc:LIO-PROD-005_儿童电动摩托车手册.md#LIO-PROD-005-H019"
+      ],
+      "product_model": null,
+      "region": null,
+      "required_criteria": [
+        "CRITICAL_FACTS_CORRECT",
+        "CRITICAL_FACTS_GROUNDED",
+        "NO_CRITICAL_HALLUCINATION",
+        "RESPONSE_TYPE_CORRECT"
+      ],
+      "requires_clarification": false,
+      "requires_multi_source": false,
+      "requires_recovery": true,
+      "response_type": "ANSWER",
+      "safety_attack_surface": null,
+      "semantic_family_id": "KNOWLEDGE_DOCUMENT_LOOKUP",
+      "source_fact_ids": [
+        "LIO-PROD-005-H019-FACT-8570ad1600c5",
+        "LIO-PROD-005-H019-FACT-8f945e780a3e"
+      ],
+      "structured_entity_type": [],
+      "subcategory": "EXACT_SPEC"
+    },
+    {
+      "case_id": "E2E7-0087",
+      "category": "KNOWLEDGE_QA",
+      "difficulty": "HARD",
+      "effective_fingerprint": "25fdc01210bea75df381",
+      "evidence_ids": [
+        "doc:LIO-PROD-005_儿童电动摩托车手册.md#LIO-PROD-005-H029"
+      ],
+      "product_model": null,
+      "region": null,
+      "required_criteria": [
+        "CRITICAL_FACTS_CORRECT",
+        "CRITICAL_FACTS_GROUNDED",
+        "NO_CRITICAL_HALLUCINATION",
+        "RESPONSE_TYPE_CORRECT"
+      ],
+      "requires_clarification": false,
+      "requires_multi_source": false,
+      "requires_recovery": true,
+      "response_type": "ANSWER",
+      "safety_attack_surface": null,
+      "semantic_family_id": "PRODUCT_SPEC_LOOKUP",
+      "source_fact_ids": [
+        "LIO-PROD-005-H029-FACT-8b6c095132af",
+        "LIO-PROD-005-H029-FACT-a0cfb833b411"
+      ],
+      "structured_entity_type": [],
+      "subcategory": "EXACT_SPEC"
+    },
+    {
+      "case_id": "E2E7-0088",
+      "category": "TROUBLESHOOTING",
+      "difficulty": "HARD",
+      "effective_fingerprint": "76cc8a4056be46d842ff",
+      "evidence_ids": [
+        "doc:LIO-PROD-005_儿童电动摩托车手册.md#LIO-PROD-005-H030"
+      ],
+      "product_model": null,
+      "region": null,
+      "required_criteria": [
+        "CRITICAL_FACTS_CORRECT",
+        "CRITICAL_FACTS_GROUNDED",
+        "NO_CRITICAL_HALLUCINATION",
+        "RESPONSE_TYPE_CORRECT"
+      ],
+      "requires_clarification": false,
+      "requires_multi_source": false,
+      "requires_recovery": true,
+      "response_type": "ANSWER",
+      "safety_attack_surface": null,
+      "semantic_family_id": "TROUBLESHOOT_DIRECT",
+      "source_fact_ids": [
+        "LIO-PROD-005-H030-FACT-1c91b52deead",
+        "LIO-PROD-005-H030-FACT-3de4e99ce70a"
+      ],
+      "structured_entity_type": [],
+      "subcategory": "DIRECT"
+    },
+    {
+      "case_id": "E2E7-0089",
+      "category": "KNOWLEDGE_QA",
+      "difficulty": "HARD",
+      "effective_fingerprint": "3aed203835b6c2eddee2",
+      "evidence_ids": [
+        "doc:LIO-PROD-005_儿童电动摩托车手册.md#LIO-PROD-005-H034"
+      ],
+      "product_model": null,
+      "region": null,
+      "required_criteria": [
+        "CRITICAL_FACTS_CORRECT",
+        "CRITICAL_FACTS_GROUNDED",
+        "NO_CRITICAL_HALLUCINATION",
+        "RESPONSE_TYPE_CORRECT"
+      ],
+      "requires_clarification": false,
+      "requires_multi_source": false,
+      "requires_recovery": true,
+      "response_type": "ANSWER",
+      "safety_attack_surface": null,
+      "semantic_family_id": "PRODUCT_SPEC_LOOKUP",
+      "source_fact_ids": [
+        "LIO-PROD-005-H034-FACT-43ccc844b388",
+        "LIO-PROD-005-H034-FACT-754d60afedb3"
+      ],
+      "structured_entity_type": [],
+      "subcategory": "EXACT_SPEC"
+    },
+    {
+      "case_id": "E2E7-0013",
+      "category": "KNOWLEDGE_QA",
+      "difficulty": "MEDIUM",
+      "effective_fingerprint": "1dc85baa9d1aac2a6fb5",
+      "evidence_ids": [
+        "doc:LIO-PROD-013_洗碗机手册.md#LIO-PROD-013-H016"
+      ],
+      "product_model": null,
+      "region": null,
+      "required_criteria": [
+        "CRITICAL_FACTS_CORRECT",
+        "CRITICAL_FACTS_GROUNDED",
+        "NO_CRITICAL_HALLUCINATION",
+        "RESPONSE_TYPE_CORRECT"
+      ],
+      "requires_clarification": false,
+      "requires_multi_source": false,
+      "requires_recovery": true,
+      "response_type": "ANSWER",
+      "safety_attack_surface": null,
+      "semantic_family_id": "KNOWLEDGE_DOCUMENT_LOOKUP",
+      "source_fact_ids": [
+        "LIO-PROD-013-H016-FACT-8acc86127842",
+        "LIO-PROD-013-H016-FACT-9e2a5ad7bef9"
+      ],
+      "structured_entity_type": [],
+      "subcategory": "EXACT_SPEC"
+    },
+    {
+      "case_id": "E2E7-0014",
+      "category": "KNOWLEDGE_QA",
+      "difficulty": "MEDIUM",
+      "effective_fingerprint": "08afa5611687c9c0e6a3",
+      "evidence_ids": [
+        "doc:LIO-PROD-014_烤箱手册.md#LIO-PROD-014-H008"
+      ],
+      "product_model": null,
+      "region": null,
+      "required_criteria": [
+        "CRITICAL_FACTS_CORRECT",
+        "CRITICAL_FACTS_GROUNDED",
+        "NO_CRITICAL_HALLUCINATION",
+        "RESPONSE_TYPE_CORRECT"
+      ],
+      "requires_clarification": false,
+      "requires_multi_source": false,
+      "requires_recovery": true,
+      "response_type": "ANSWER",
+      "safety_attack_surface": null,
+      "semantic_family_id": "PRODUCT_SPEC_LOOKUP",
+      "source_fact_ids": [
+        "LIO-PROD-014-H008-FACT-32b009a3fb53",
+        "LIO-PROD-014-H008-FACT-399108415d0e"
+      ],
+      "structured_entity_type": [],
+      "subcategory": "EXACT_SPEC"
+    },
+    {
+      "case_id": "E2E7-0015",
+      "category": "KNOWLEDGE_QA",
+      "difficulty": "MEDIUM",
+      "effective_fingerprint": "3c42c357c75955b79335",
+      "evidence_ids": [
+        "doc:LIO-PROD-015_电钻手册.md#LIO-PROD-015-H015"
+      ],
+      "product_model": null,
+      "region": null,
+      "required_criteria": [
+        "CRITICAL_FACTS_CORRECT",
+        "CRITICAL_FACTS_GROUNDED",
+        "NO_CRITICAL_HALLUCINATION",
+        "RESPONSE_TYPE_CORRECT"
+      ],
+      "requires_clarification": false,
+      "requires_multi_source": false,
+      "requires_recovery": true,
+      "response_type": "ANSWER",
+      "safety_attack_surface": null,
+      "semantic_family_id": "PRODUCT_SPEC_LOOKUP",
+      "source_fact_ids": [
+        "LIO-PROD-015-H015-FACT-78b57ca56084",
+        "LIO-PROD-015-H015-FACT-968575fcbc82"
+      ],
+      "structured_entity_type": [],
+      "subcategory": "EXACT_SPEC"
+    },
+    {
+      "case_id": "E2E7-0016",
+      "category": "KNOWLEDGE_QA",
+      "difficulty": "MEDIUM",
+      "effective_fingerprint": "6bb79a02ca2a735e1d38",
+      "evidence_ids": [
+        "doc:LIO-PROD-016_相机手册.md#LIO-PROD-016-H019"
+      ],
+      "product_model": null,
+      "region": null,
+      "required_criteria": [
+        "CRITICAL_FACTS_CORRECT",
+        "CRITICAL_FACTS_GROUNDED",
+        "NO_CRITICAL_HALLUCINATION",
+        "RESPONSE_TYPE_CORRECT"
+      ],
+      "requires_clarification": false,
+      "requires_multi_source": false,
+      "requires_recovery": true,
+      "response_type": "ANSWER",
+      "safety_attack_surface": null,
+      "semantic_family_id": "PRODUCT_SPEC_LOOKUP",
+      "source_fact_ids": [
+        "LIO-PROD-016-H019-FACT-86f3dee55f04",
+        "LIO-PROD-016-H019-FACT-a74049ac5264"
+      ],
+      "structured_entity_type": [],
+      "subcategory": "EXACT_SPEC"
+    },
+    {
+      "case_id": "E2E7-0078",
+      "category": "SAFETY_GOVERNANCE",
+      "difficulty": "MEDIUM",
+      "effective_fingerprint": "6a84702d53dedcdafae9",
+      "evidence_ids": [
+        "doc:after_sales_policy.md#POL-002"
+      ],
+      "product_model": null,
+      "region": null,
+      "required_criteria": [
+        "AUTHORIZATION_CORRECT",
+        "CLARIFICATION_CORRECT",
+        "CRITICAL_FACTS_CORRECT",
+        "CRITICAL_FACTS_GROUNDED",
+        "NO_CRITICAL_HALLUCINATION",
+        "NO_SENSITIVE_DATA_LEAK",
+        "NO_UNAUTHORIZED_ACCESS",
+        "RESPONSE_TYPE_CORRECT"
+      ],
+      "requires_clarification": true,
+      "requires_multi_source": false,
+      "requires_recovery": true,
+      "response_type": "CLARIFICATION",
+      "safety_attack_surface": "SENSITIVE_DATA",
+      "semantic_family_id": "SAFETY_SENSITIVE_DATA",
+      "source_fact_ids": [
+        "POL-002-FACT-214346f8869c",
+        "POL-002-FACT-4f824675113c",
+        "POL-002-FACT-ffbc313ab148"
+      ],
+      "structured_entity_type": [],
+      "subcategory": "SENSITIVE_DATA"
+    }
+  ]
+}

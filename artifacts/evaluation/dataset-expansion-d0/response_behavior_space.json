@@ -1,0 +1,30 @@
+{
+  "existing_formal_distribution": {
+    "ANSWER": 36,
+    "CLARIFICATION": 3
+  },
+  "formal_clarification_count": 3,
+  "formal_handoff_count": 0,
+  "production_supported": [
+    {
+      "basis": "normal knowledge/structured/mixed completion",
+      "response_type": "ANSWER"
+    },
+    {
+      "basis": "query understanding / missing identity or ambiguous product context",
+      "response_type": "CLARIFICATION"
+    },
+    {
+      "basis": "verifier/evidence insufficiency, conflict, or high-risk manual escalation",
+      "response_type": "HANDOFF"
+    },
+    {
+      "basis": "authorization/governance fail-closed behavior",
+      "response_type": "REFUSAL"
+    },
+    {
+      "basis": "execution failure semantics; not a desired normal answer",
+      "response_type": "ERROR"
+    }
+  ]
+}

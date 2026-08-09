@@ -1,0 +1,183 @@
+{
+  "sources": [
+    {
+      "document_id": "LIO-PROD-001_VR头显手册",
+      "effective_units": 34,
+      "has_usable_units": true,
+      "product_id": "LIO-PROD-001",
+      "source_type": "manual",
+      "usable_units": 34
+    },
+    {
+      "document_id": "LIO-PROD-002_人体工学椅手册",
+      "effective_units": 7,
+      "has_usable_units": true,
+      "product_id": "LIO-PROD-002",
+      "source_type": "manual",
+      "usable_units": 7
+    },
+    {
+      "document_id": "LIO-PROD-003_健身单车手册",
+      "effective_units": 77,
+      "has_usable_units": true,
+      "product_id": "LIO-PROD-003",
+      "source_type": "manual",
+      "usable_units": 78
+    },
+    {
+      "document_id": "LIO-PROD-004_健身追踪器手册",
+      "effective_units": 109,
+      "has_usable_units": true,
+      "product_id": "LIO-PROD-004",
+      "source_type": "manual",
+      "usable_units": 122
+    },
+    {
+      "document_id": "LIO-PROD-005_儿童电动摩托车手册",
+      "effective_units": 29,
+      "has_usable_units": true,
+      "product_id": "LIO-PROD-005",
+      "source_type": "manual",
+      "usable_units": 29
+    },
+    {
+      "document_id": "LIO-PROD-006_冰箱手册",
+      "effective_units": 96,
+      "has_usable_units": true,
+      "product_id": "LIO-PROD-006",
+      "source_type": "manual",
+      "usable_units": 99
+    },
+    {
+      "document_id": "LIO-PROD-007_功能键盘手册",
+      "effective_units": 53,
+      "has_usable_units": true,
+      "product_id": "LIO-PROD-007",
+      "source_type": "manual",
+      "usable_units": 55
+    },
+    {
+      "document_id": "LIO-PROD-008_发电机手册",
+      "effective_units": 64,
+      "has_usable_units": true,
+      "product_id": "LIO-PROD-008",
+      "source_type": "manual",
+      "usable_units": 64
+    },
+    {
+      "document_id": "LIO-PROD-009_可编程温控器手册",
+      "effective_units": 38,
+      "has_usable_units": true,
+      "product_id": "LIO-PROD-009",
+      "source_type": "manual",
+      "usable_units": 38
+    },
+    {
+      "document_id": "LIO-PROD-010_吹风机手册",
+      "effective_units": 61,
+      "has_usable_units": true,
+      "product_id": "LIO-PROD-010",
+      "source_type": "manual",
+      "usable_units": 61
+    },
+    {
+      "document_id": "LIO-PROD-011_摩托艇手册",
+      "effective_units": 61,
+      "has_usable_units": true,
+      "product_id": "LIO-PROD-011",
+      "source_type": "manual",
+      "usable_units": 61
+    },
+    {
+      "document_id": "LIO-PROD-012_水泵手册",
+      "effective_units": 61,
+      "has_usable_units": true,
+      "product_id": "LIO-PROD-012",
+      "source_type": "manual",
+      "usable_units": 61
+    },
+    {
+      "document_id": "LIO-PROD-013_洗碗机手册",
+      "effective_units": 111,
+      "has_usable_units": true,
+      "product_id": "LIO-PROD-013",
+      "source_type": "manual",
+      "usable_units": 112
+    },
+    {
+      "document_id": "LIO-PROD-014_烤箱手册",
+      "effective_units": 65,
+      "has_usable_units": true,
+      "product_id": "LIO-PROD-014",
+      "source_type": "manual",
+      "usable_units": 65
+    },
+    {
+      "document_id": "LIO-PROD-015_电钻手册",
+      "effective_units": 61,
+      "has_usable_units": true,
+      "product_id": "LIO-PROD-015",
+      "source_type": "manual",
+      "usable_units": 61
+    },
+    {
+      "document_id": "LIO-PROD-016_相机手册",
+      "effective_units": 102,
+      "has_usable_units": true,
+      "product_id": "LIO-PROD-016",
+      "source_type": "manual",
+      "usable_units": 102
+    },
+    {
+      "document_id": "LIO-PROD-017_空气净化器手册",
+      "effective_units": 30,
+      "has_usable_units": true,
+      "product_id": "LIO-PROD-017",
+      "source_type": "manual",
+      "usable_units": 30
+    },
+    {
+      "document_id": "LIO-PROD-018_空调手册",
+      "effective_units": 72,
+      "has_usable_units": true,
+      "product_id": "LIO-PROD-018",
+      "source_type": "manual",
+      "usable_units": 77
+    },
+    {
+      "document_id": "LIO-PROD-019_蒸汽清洁机手册",
+      "effective_units": 27,
+      "has_usable_units": true,
+      "product_id": "LIO-PROD-019",
+      "source_type": "manual",
+      "usable_units": 27
+    },
+    {
+      "document_id": "LIO-PROD-020_蓝牙激光鼠标手册",
+      "effective_units": 22,
+      "has_usable_units": true,
+      "product_id": "LIO-PROD-020",
+      "source_type": "manual",
+      "usable_units": 22
+    },
+    {
+      "document_id": "after_sales_policy",
+      "effective_units": 7,
+      "has_usable_units": true,
+      "product_id": null,
+      "source_type": "policy",
+      "usable_units": 7
+    },
+    {
+      "document_id": "liorin_support_faq",
+      "effective_units": 8,
+      "has_usable_units": true,
+      "product_id": null,
+      "source_type": "faq",
+      "usable_units": 8
+    }
+  ],
+  "sources_with_usable_units": 22,
+  "sources_without_usable_units": [],
+  "total_sources": 22
+}

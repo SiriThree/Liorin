@@ -1,0 +1,26 @@
+{
+  "BOUNDED_FACT_SET": {
+    "count": 29,
+    "ratio": 0.161111
+  },
+  "COMPATIBILITY_JUDGMENT": {
+    "count": 21,
+    "ratio": 0.116667
+  },
+  "LIMITATION_JUDGMENT": {
+    "count": 12,
+    "ratio": 0.066667
+  },
+  "PROCEDURE_SUBSET": {
+    "count": 18,
+    "ratio": 0.1
+  },
+  "SINGLE_FACT": {
+    "count": 87,
+    "ratio": 0.483333
+  },
+  "SYNTHESIZED_CONCLUSION": {
+    "count": 13,
+    "ratio": 0.072222
+  }
+}

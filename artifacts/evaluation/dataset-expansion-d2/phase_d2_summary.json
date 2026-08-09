@@ -1,0 +1,89 @@
+{
+  "alignment": {
+    "aligned": 84,
+    "misaligned": 0,
+    "multi_field_aligned": 15,
+    "multi_field_count": 15
+  },
+  "annotation_batch_hash": "c3b3aa7c65497813a9947e2ee0a8f05bae84958c0f5f09ba1f7bc1f3bc22e01c",
+  "annotation_batch_id": "PBQ-D2-C3B3AA7C6549",
+  "annotation_packets": 76,
+  "critical_gold_fact_count": 94,
+  "deterministically_classified": 84,
+  "domain_status": {
+    "order": {
+      "READY_FOR_DUAL_ANNOTATION": 36
+    },
+    "ticket": {
+      "NEEDS_MANUAL_PRECHECK": 8,
+      "READY_FOR_DUAL_ANNOTATION": 18
+    },
+    "warranty": {
+      "READY_FOR_DUAL_ANNOTATION": 22
+    }
+  },
+  "dual_annotation_runs": 0,
+  "existing_formal_canonical_cases": 39,
+  "field_semantics": {
+    "BUSINESS_VALID_BUT_REVIEW": 2,
+    "INTERNAL_ONLY": 0,
+    "SENSITIVE": 0,
+    "UNSUPPORTED": 0,
+    "USER_FACING": 21
+  },
+  "gold_drafts_attempted": 84,
+  "gold_evidence_count": 99,
+  "gold_fact_count": 99,
+  "human_reviewed_gold": 0,
+  "input_candidates": 84,
+  "judge_execution": "NOT RUN",
+  "needs_manual_precheck": 8,
+  "new_formal_cases": 0,
+  "order_item_ambiguity": {
+    "ambiguous": 0,
+    "audited_order_candidates": 36,
+    "item_level_candidates": 13
+  },
+  "phase": "D2_PRIVATE_GOLD_PREPARATION",
+  "production_agent_execution": "NOT RUN",
+  "ready_for_dual_annotation": 76,
+  "rejected_before_annotation": 0,
+  "review_requirement_distribution": {
+    "BUSINESS_VISIBILITY_PRECHECK:assigned_team": 3,
+    "BUSINESS_VISIBILITY_PRECHECK:priority": 5,
+    "FUTURE_DEDUP_REVIEW": 5,
+    "HIGH_FIELD_REVIEW:assigned_team": 3,
+    "HIGH_FIELD_REVIEW:priority": 5,
+    "HIGH_FIELD_REVIEW:summary": 3
+  },
+  "runtime_materialization": {
+    "materializable": 84,
+    "not_materializable": 0
+  },
+  "semantic_judge_required_fields": 1,
+  "status": "COMPLETE",
+  "surface_collision": {
+    "candidate_information_counts": {
+      "HIGH_INFORMATION": 35,
+      "LOW_INFORMATION": 5,
+      "MEDIUM_INFORMATION": 44,
+      "NO_COLLISION": 0
+    },
+    "collision_group_count": 25,
+    "high_information_groups": 10,
+    "low_information_groups": 1,
+    "medium_information_groups": 14,
+    "normalized_duplicate_excess": 59
+  },
+  "ticket_summary_audit": {
+    "candidate_count": 3,
+    "semantic_judge_required": 3,
+    "sensitive_redaction_rejections": 0
+  },
+  "warranty_answerability": {
+    "ambiguous": 0,
+    "answerable": 22,
+    "tool_output_insufficient": 0,
+    "total": 22
+  }
+}

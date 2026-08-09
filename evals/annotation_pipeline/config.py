@@ -24,6 +24,7 @@ class AgentConfig(StrictModel):
     temperature: float = Field(default=0.0, ge=0.0, le=2.0)
     max_tokens: int = Field(default=4000, ge=256)
     timeout_seconds: float = Field(default=120.0, gt=0)
+    max_retries: int = Field(default=4, ge=0, le=10)
     seed: int | None = None
 
     def api_key(self) -> str:

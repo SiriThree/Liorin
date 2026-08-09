@@ -1,0 +1,80 @@
+{
+  "db": {
+    "db": "data/structured/liorin.db",
+    "error": null,
+    "identity": {
+      "customer_id": "CUST-001",
+      "permission": "structured:read:self",
+      "tenant_id": "TENANT-CONSUMER"
+    },
+    "latency_ms": 1.62,
+    "result_count": 1,
+    "result_preview": [
+      {
+        "company_name": null,
+        "customer_id": "CUST-001",
+        "name": "Lin Chen",
+        "segment": "Consumer",
+        "source_system": "shopify"
+      }
+    ],
+    "success": true,
+    "tool": "customer_summary",
+    "trace": "direct_template_smoke_no_trace_context"
+  },
+  "embedding": {
+    "dimension": 768,
+    "error": null,
+    "latency_ms": 428.32,
+    "model": "sentence-transformers/all-mpnet-base-v2",
+    "provider": "huggingface",
+    "success": true
+  },
+  "milvus": {
+    "collection": "liorin_documents_huggingface",
+    "collection_exists": false,
+    "connect": false,
+    "error": "MilvusException: <MilvusException: (code=2, message=Fail connecting to server on localhost:19530, illegal connection params or server unavailable)>",
+    "latency_ms": null,
+    "load": false,
+    "results": null,
+    "search_success": false,
+    "uri": "http://localhost:19530"
+  },
+  "model": {
+    "content_preview": "OK",
+    "error": null,
+    "input_tokens": 13,
+    "latency_ms": 2571.06,
+    "model": "openai:qwen-plus",
+    "output_tokens": 1,
+    "provider": "openai",
+    "request_success": true
+  },
+  "smoke_gate": {
+    "blocked_components": [
+      "dependency_lock",
+      "judge_provider",
+      "retrieval_backend/Milvus"
+    ],
+    "pass": false,
+    "reason": "live readiness failed; formal39 and retrieval ablation not executed"
+  },
+  "support_graph": {
+    "case_ids": [
+      "E2E7-0001",
+      "E2E7-0002",
+      "E2E7-0060",
+      "E2E7-0074",
+      "E2E7-0013"
+    ],
+    "cases": 5,
+    "failure": 2,
+    "success": 3,
+    "task_success": {
+      "denominator": 5,
+      "numerator": 0,
+      "rate": 0.0
+    }
+  }
+}

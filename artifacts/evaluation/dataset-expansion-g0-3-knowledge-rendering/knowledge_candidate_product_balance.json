@@ -1,0 +1,27 @@
+{
+  "covered": 20,
+  "max": 11,
+  "max_ratio": 0.064327,
+  "plans_per_product": {
+    "LIO-PROD-001": 8,
+    "LIO-PROD-002": 4,
+    "LIO-PROD-003": 8,
+    "LIO-PROD-004": 11,
+    "LIO-PROD-005": 9,
+    "LIO-PROD-006": 11,
+    "LIO-PROD-007": 6,
+    "LIO-PROD-008": 8,
+    "LIO-PROD-009": 8,
+    "LIO-PROD-010": 9,
+    "LIO-PROD-011": 5,
+    "LIO-PROD-012": 8,
+    "LIO-PROD-013": 9,
+    "LIO-PROD-014": 8,
+    "LIO-PROD-015": 9,
+    "LIO-PROD-016": 7,
+    "LIO-PROD-017": 7,
+    "LIO-PROD-018": 9,
+    "LIO-PROD-019": 8,
+    "LIO-PROD-020": 8
+  }
+}

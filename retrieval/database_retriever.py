@@ -30,6 +30,7 @@ from retrieval.protocols import (
 )
 from retrieval.trace import trace_event
 from retrieval.security import redact_text
+from observability import emit_security_decision, hashed_ref
 from retrieval.resilience import call_with_resilience, RetryPolicy
 
 MAX_DATABASE_ROWS = 50
@@ -302,6 +303,12 @@ def database_search(
             RetrieverStatus.SKIPPED_BY_PLAN,
         )
     if not _can_query_database(principal, business_entities):
+        emit_security_decision(
+            kind="retrieval_acl", stage="structured_retrieval", allowed=False,
+            decision="DENY", reason="principal lacks structured database access",
+            actor_tenant_id=principal.tenant_id, actor_user_id=principal.user_id,
+            resource_type="structured_database", side_effect="NONE", policy="RetrievalPrincipalACL",
+        )
         error = RetrievalError(
             stage=retriever,
             error_type="PermissionDenied",
@@ -322,6 +329,13 @@ def database_search(
         )
         return RetrieverExecutionResult(retriever, RetrieverStatus.INVALID_FILTER, errors=[error])
     if unified.tenant_id and unified.tenant_id != principal.tenant_id:
+        emit_security_decision(
+            kind="retrieval_acl", stage="structured_retrieval", allowed=False,
+            decision="DENY", reason="tenant filter does not match principal",
+            actor_tenant_id=principal.tenant_id, actor_user_id=principal.user_id,
+            resource_tenant_id=unified.tenant_id, resource_type="structured_database",
+            side_effect="NONE", policy="RetrievalPrincipalACL",
+        )
         error = RetrievalError(
             stage=retriever,
             error_type="PermissionDenied",
@@ -355,6 +369,14 @@ def database_search(
                     if not _entity_owned_by_principal(
                         entity_field, entity, principal, timeout_ms=timeout_ms
                     ):
+                        emit_security_decision(
+                            kind="retrieval_acl", stage="structured_retrieval", allowed=False,
+                            decision="DENY", reason="principal does not own requested business record",
+                            actor_tenant_id=principal.tenant_id, actor_user_id=principal.user_id,
+                            resource_type=entity_field.removesuffix("_id"),
+                            resource_ref=hashed_ref(entity, namespace=entity_field),
+                            side_effect="NONE", policy="StructuredRecordOwnership",
+                        )
                         errors.append(RetrievalError(
                             stage=retriever,
                             error_type="PermissionDenied",
@@ -397,6 +419,18 @@ def database_search(
                         subquery_id=subquery_id,
                     ))
                     continue
+                if rows:
+                    emit_security_decision(
+                        kind="retrieval_acl", stage="structured_retrieval", allowed=True,
+                        decision="ALLOW_READ", reason="tenant and owner checks passed before returning structured rows",
+                        actor_tenant_id=principal.tenant_id, actor_user_id=principal.user_id,
+                        resource_tenant_id=principal.tenant_id,
+                        resource_user_id=principal.user_id if "customer" in principal.roles else None,
+                        resource_type=entity_field.removesuffix("_id"),
+                        resource_ref=hashed_ref(entity, namespace=entity_field),
+                        side_effect="EXECUTED_READ", policy="StructuredRecordOwnership",
+                        metadata={"template_id": template.template_id, "row_count": len(rows)},
+                    )
                 event = trace_event(
                     retriever,
                     "template_complete",

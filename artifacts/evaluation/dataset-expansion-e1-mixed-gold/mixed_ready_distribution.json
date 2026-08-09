@@ -1,0 +1,18 @@
+{
+  "max_cases_per_policy_fact": 8,
+  "max_cases_per_policy_section": 8,
+  "max_policy_fact_ratio_over_ready": 0.5,
+  "policy_candidate_count": 16,
+  "precheck": 42,
+  "ready": 16,
+  "ready_by_family": {
+    "MIXED_ORDER_STATUS_POLICY": 8,
+    "MIXED_WARRANTY_STATUS_POLICY": 8
+  },
+  "ready_document_counts": {
+    "source:policy:after_sales_policy": 16
+  },
+  "ready_documents": 1,
+  "ready_products": 8,
+  "rejected": 0
+}

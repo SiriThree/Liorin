@@ -1,0 +1,134 @@
+[
+  {
+    "actor_boundary": "IdentityContext tenant boundary",
+    "attack_surface_id": "TENANT_ISOLATION",
+    "candidate_negative_case": true,
+    "candidate_positive_case": true,
+    "formal_gold_possible": true,
+    "policy_source": "governance + retrieval ACL + structured tool + memory/artifact policy",
+    "production_enforcement_point": "governance + retrieval ACL + structured tool + memory/artifact policy",
+    "resource_type": "structured/retrieval/memory/artifact",
+    "trace_observability": "AVAILABLE_OR_PARTIAL"
+  },
+  {
+    "actor_boundary": "verified customer / user boundary",
+    "attack_surface_id": "USER_ISOLATION",
+    "candidate_negative_case": true,
+    "candidate_positive_case": true,
+    "formal_gold_possible": true,
+    "policy_source": "structured owner check + memory/artifact policy",
+    "production_enforcement_point": "structured owner check + memory/artifact policy",
+    "resource_type": "structured/memory/artifact",
+    "trace_observability": "AVAILABLE_OR_PARTIAL"
+  },
+  {
+    "actor_boundary": "session-scoped working memory",
+    "attack_surface_id": "SESSION_ISOLATION",
+    "candidate_negative_case": true,
+    "candidate_positive_case": true,
+    "formal_gold_possible": true,
+    "policy_source": "context/memory identity",
+    "production_enforcement_point": "context/memory identity",
+    "resource_type": "working_memory",
+    "trace_observability": "AVAILABLE_OR_PARTIAL"
+  },
+  {
+    "actor_boundary": "IdentityResolver conflict rejection",
+    "attack_surface_id": "IDENTITY_CONFLICT",
+    "candidate_negative_case": true,
+    "candidate_positive_case": true,
+    "formal_gold_possible": true,
+    "policy_source": "identity/resolver.py",
+    "production_enforcement_point": "identity/resolver.py",
+    "resource_type": "request identity",
+    "trace_observability": "AVAILABLE_OR_PARTIAL"
+  },
+  {
+    "actor_boundary": "structured:read:self + owner/tenant",
+    "attack_surface_id": "UNAUTHORIZED_STRUCTURED_QUERY",
+    "candidate_negative_case": true,
+    "candidate_positive_case": true,
+    "formal_gold_possible": true,
+    "policy_source": "tools/database.py",
+    "production_enforcement_point": "tools/database.py",
+    "resource_type": "structured_database",
+    "trace_observability": "AVAILABLE_OR_PARTIAL"
+  },
+  {
+    "actor_boundary": "memory identity policy",
+    "attack_surface_id": "MEMORY_CROSS_USER",
+    "candidate_negative_case": true,
+    "candidate_positive_case": true,
+    "formal_gold_possible": true,
+    "policy_source": "memory governance",
+    "production_enforcement_point": "memory governance",
+    "resource_type": "memory",
+    "trace_observability": "AVAILABLE_OR_PARTIAL"
+  },
+  {
+    "actor_boundary": "memory tenant policy",
+    "attack_surface_id": "MEMORY_CROSS_TENANT",
+    "candidate_negative_case": true,
+    "candidate_positive_case": true,
+    "formal_gold_possible": true,
+    "policy_source": "memory governance",
+    "production_enforcement_point": "memory governance",
+    "resource_type": "memory",
+    "trace_observability": "AVAILABLE_OR_PARTIAL"
+  },
+  {
+    "actor_boundary": "artifact resolver identity",
+    "attack_surface_id": "ARTIFACT_CROSS_USER",
+    "candidate_negative_case": true,
+    "candidate_positive_case": true,
+    "formal_gold_possible": true,
+    "policy_source": "artifact/resolver.py",
+    "production_enforcement_point": "artifact/resolver.py",
+    "resource_type": "artifact",
+    "trace_observability": "AVAILABLE_OR_PARTIAL"
+  },
+  {
+    "actor_boundary": "artifact tenant identity",
+    "attack_surface_id": "ARTIFACT_CROSS_TENANT",
+    "candidate_negative_case": true,
+    "candidate_positive_case": true,
+    "formal_gold_possible": true,
+    "policy_source": "artifact/resolver.py",
+    "production_enforcement_point": "artifact/resolver.py",
+    "resource_type": "artifact",
+    "trace_observability": "AVAILABLE_OR_PARTIAL"
+  },
+  {
+    "actor_boundary": "governance/safety evaluator + tool auth",
+    "attack_surface_id": "PROMPT_INJECTION_USER",
+    "candidate_negative_case": true,
+    "candidate_positive_case": true,
+    "formal_gold_possible": true,
+    "policy_source": "governance/retrieval security",
+    "production_enforcement_point": "governance/retrieval security",
+    "resource_type": "model/tool/retrieval",
+    "trace_observability": "AVAILABLE_OR_PARTIAL"
+  },
+  {
+    "actor_boundary": "retrieval security scanner",
+    "attack_surface_id": "PROMPT_INJECTION_RETRIEVED_CONTENT",
+    "candidate_negative_case": true,
+    "candidate_positive_case": true,
+    "formal_gold_possible": true,
+    "policy_source": "retrieval/security.py",
+    "production_enforcement_point": "retrieval/security.py",
+    "resource_type": "retrieved_document",
+    "trace_observability": "AVAILABLE_OR_PARTIAL"
+  },
+  {
+    "actor_boundary": "redaction + principal-bound access",
+    "attack_surface_id": "SENSITIVE_DATA",
+    "candidate_negative_case": true,
+    "candidate_positive_case": true,
+    "formal_gold_possible": true,
+    "policy_source": "retrieval/security.py + tools/database.py",
+    "production_enforcement_point": "retrieval/security.py + tools/database.py",
+    "resource_type": "PII/private records",
+    "trace_observability": "AVAILABLE_OR_PARTIAL"
+  }
+]

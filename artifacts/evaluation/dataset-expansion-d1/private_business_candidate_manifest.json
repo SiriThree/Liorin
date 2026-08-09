@@ -1,0 +1,20 @@
+{
+  "construction_timestamp": "2026-08-08T11:20:14.234174+00:00",
+  "d0_inventory_hash": "821acb2706a0b76d01230d7d10383e5f9af1ce8a6072373a3c26db8565236205",
+  "db_sha256": "0166d9b2252286ed36978e63a3969eb041077fe6fc33ba8e9c7258d37af8ed78",
+  "formal_metric_eligible": false,
+  "generation_method": "DETERMINISTIC_SOURCE_PLAN + CONTROLLED_LANGUAGE_RENDERER",
+  "generation_version": "private-business-d1-v1",
+  "human_reviewed": false,
+  "judge_executed": false,
+  "production_agent_executed": false,
+  "random_seed": 0,
+  "raw_candidate_count": 84,
+  "raw_candidate_sha256": "7885191d82cb97e51e38e000d7a70a77dbea865b2cd61b74256c98ad950855f6",
+  "rejected_count": 0,
+  "schema_version": "1.0",
+  "source_inventory_hash": "1cd455f72918815a1e278d87309e02402dedc40331192ba480b170c8a715898e",
+  "source_validated_count": 84,
+  "source_validated_sha256": "7885191d82cb97e51e38e000d7a70a77dbea865b2cd61b74256c98ad950855f6",
+  "tool_registry_fingerprint": "357078e0ea6a82a7badf519450d9b440d330707c1bd55c690bf4342a0ce33e32"
+}

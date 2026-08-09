@@ -1,0 +1,79 @@
+[
+  {
+    "decision": "MIGRATE_WITH_REVIEW",
+    "path": "evals/baseline_dataset.json",
+    "reason": "expected_source/required_keywords are legacy annotations, not canonical GoldEvidence/GoldFact",
+    "row_count": 12,
+    "type": "legacy_dataset"
+  },
+  {
+    "decision": "MIGRATE_WITH_REVIEW",
+    "path": "evals/tracemind/multiturn_benchmark_200.csv",
+    "reason": "legacy TraceMind schema lacks canonical evidence/fact/success contracts; lexical fields are not promoted",
+    "row_count": 200,
+    "type": "legacy_csv"
+  },
+  {
+    "decision": "MIGRATE_WITH_REVIEW",
+    "path": "evals/tracemind/multiturn_benchmark_50.csv",
+    "reason": "legacy TraceMind schema lacks canonical evidence/fact/success contracts; lexical fields are not promoted",
+    "row_count": 50,
+    "type": "legacy_csv"
+  },
+  {
+    "decision": "MIGRATE_WITH_REVIEW",
+    "path": "evals/tracemind/multiturn_cases.csv",
+    "reason": "legacy TraceMind schema lacks canonical evidence/fact/success contracts; lexical fields are not promoted",
+    "row_count": 8,
+    "type": "legacy_csv"
+  },
+  {
+    "decision": "MIGRATE_WITH_REVIEW",
+    "path": "evals/tracemind/multiturn_failure_cases.csv",
+    "reason": "legacy TraceMind schema lacks canonical evidence/fact/success contracts; lexical fields are not promoted",
+    "row_count": 2,
+    "type": "legacy_csv"
+  },
+  {
+    "decision": "MIGRATE_WITH_REVIEW",
+    "path": "evals/tracemind/multiturn_transition_cases.csv",
+    "reason": "legacy TraceMind schema lacks canonical evidence/fact/success contracts; lexical fields are not promoted",
+    "row_count": 2,
+    "type": "legacy_csv"
+  },
+  {
+    "decision": "MIGRATE_WITH_REVIEW",
+    "path": "evals/tracemind/question_public.csv",
+    "reason": "legacy TraceMind schema lacks canonical evidence/fact/success contracts; lexical fields are not promoted",
+    "row_count": 400,
+    "type": "legacy_csv"
+  },
+  {
+    "decision": "RETIRED_AS_DATASET_INPUT",
+    "path": "evals/tracemind/submission_example.csv",
+    "reason": "submission output example contains predictions, not evaluation Gold",
+    "row_count": 400,
+    "type": "legacy_csv"
+  },
+  {
+    "decision": "MIGRATE_WITH_REVIEW",
+    "path": "evals/tracemind/trace_annotation_template.csv",
+    "reason": "legacy TraceMind schema lacks canonical evidence/fact/success contracts; lexical fields are not promoted",
+    "row_count": 5,
+    "type": "legacy_csv"
+  },
+  {
+    "decision": "KEEP",
+    "path": "evals/annotation_pipeline/",
+    "reason": "annotation/review capability is retained for future canonical Gold review; no annotation output dataset is checked into this directory",
+    "row_count": 0,
+    "type": "annotation_pipeline"
+  },
+  {
+    "decision": "KEEP_LEGACY_REPORT_NOT_MIGRATION_INPUT",
+    "path": "evals/agentic_rag_metrics_report.json",
+    "reason": "historical metric artifact is not a source of canonical Gold",
+    "row_count": 0,
+    "type": "legacy_report"
+  }
+]

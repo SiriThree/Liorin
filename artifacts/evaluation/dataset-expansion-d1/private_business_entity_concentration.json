@@ -1,0 +1,14 @@
+{
+  "max_per_customer": 4,
+  "max_per_entity": 1,
+  "max_per_product": 6,
+  "max_per_tenant": 6,
+  "product_concentration_ratio": 0.09523809523809523,
+  "tenant_concentration_ratio": 0.07142857142857142,
+  "unique_customer_ratio": 0.8095238095238095,
+  "unique_customers": 68,
+  "unique_entities": 84,
+  "unique_entity_ratio": 1.0,
+  "unique_products": 20,
+  "unique_tenants": 19
+}

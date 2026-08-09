@@ -1,0 +1,46 @@
+{
+  "annotation_status": "MODEL_GENERATED_UNREVIEWED",
+  "average_turns_per_session": 2.4166666666666665,
+  "candidate_sessions": 12,
+  "category_distribution": {
+    "KNOWLEDGE_QA": 5,
+    "MIXED_KNOWLEDGE_STRUCTURED": 1,
+    "SAFETY_GOVERNANCE": 3,
+    "TROUBLESHOOTING": 3
+  },
+  "created_at": "2026-08-08T09:15:27.642144+00:00",
+  "dataset_hash": "0fc7b243e0013423787702d3576bb2836b6fe39d17bc4739390d0cd0ac527fea",
+  "dataset_name": "phase4_multi_turn_candidates",
+  "dataset_version": "1",
+  "eligibility_statuses": {
+    "MISSING_CONTEXT_GOLD": 3,
+    "NEEDS_REVIEW": 9
+  },
+  "eligible_sessions": 0,
+  "formal_metric_eligible": false,
+  "intended_usage": "SCHEMA_STRATEGY_PIPELINE_AND_REVIEW_QUEUE_ONLY",
+  "needs_review_sessions": 9,
+  "schema_version": "1.0",
+  "tag_distribution": {
+    "ARTIFACT_REUSE": 1,
+    "CROSS_SESSION_ISOLATION": 1,
+    "CROSS_TENANT_ISOLATION": 1,
+    "CROSS_USER_ISOLATION": 1,
+    "ENTITY_CARRY_OVER": 2,
+    "FACT_SUPERSESSION": 2,
+    "FOLLOW_UP_QUERY": 1,
+    "IRRELEVANT_OLD_CONTEXT": 1,
+    "LONG_TERM_MEMORY_REUSE": 1,
+    "OVER_CONTEXT": 1,
+    "PRIVATE_IDENTITY_CONTINUITY": 1,
+    "PRONOUN_REFERENCE": 1,
+    "RETURN_TO_PREVIOUS_TOPIC": 1,
+    "SLOT_CARRY_OVER": 1,
+    "STALE_MEMORY_RESISTANCE": 2,
+    "STRUCTURED_PLUS_DOCUMENT": 1,
+    "TOPIC_SWITCH": 1,
+    "USER_CORRECTION": 1,
+    "WORKING_MEMORY_REUSE": 2
+  },
+  "turn_count": 29
+}

@@ -23,10 +23,14 @@ dependencies = [
     "jieba>=0.42.1",
     "python-dotenv>=1.2.2",
     "langgraph-cli[inmem]>=0.4.4",
-    "agentevals>=0.0.9",
-    "openevals>=0.0.9",
     "httpx>=0.28.0",
     "pyyaml>=6.0.0",
+]
+
+[project.optional-dependencies]
+legacy-evaluation = [
+    "agentevals>=0.0.9",
+    "openevals>=0.0.9",
 ]
 
 [dependency-groups]

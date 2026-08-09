@@ -1,0 +1,12 @@
+{
+  "candidates_with_hidden_required_context": 12,
+  "hidden_required_context_distribution": {
+    "drainage_state": 1,
+    "indicator_movement_pattern": 1,
+    "new_battery_test_result": 1,
+    "power_source_type": 1,
+    "previous_action_result": 2,
+    "product_name_or_model": 5,
+    "safety_symptom_presence": 1
+  }
+}

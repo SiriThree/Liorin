@@ -19,6 +19,8 @@ __all__ = [
     "create_supervisor_agent",
     "SUPERVISOR_AGENT_SYSTEM_PROMPT",
     "create_support_agent",
+    "AgentFeatureConfig",
+    "FULL_AGENT_FEATURES",
 ]
 
 _EXPORTS = {
@@ -30,6 +32,8 @@ _EXPORTS = {
     "create_supervisor_agent": ("agents.conversation_supervisor", "create_supervisor_agent"),
     "SUPERVISOR_AGENT_SYSTEM_PROMPT": ("agents.conversation_supervisor", "SUPERVISOR_AGENT_SYSTEM_PROMPT"),
     "create_support_agent": ("agents.support_workflow", "create_support_agent"),
+    "AgentFeatureConfig": ("agents.feature_flags", "AgentFeatureConfig"),
+    "FULL_AGENT_FEATURES": ("agents.feature_flags", "FULL_AGENT_FEATURES"),
 }
 
 

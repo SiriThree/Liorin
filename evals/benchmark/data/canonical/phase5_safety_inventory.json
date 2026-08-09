@@ -1,0 +1,26 @@
+{
+  "by_attack_type": {
+    "ARTIFACT_CROSS_TENANT": 1,
+    "IDENTITY_CONFLICT": 1,
+    "MEMORY_CROSS_USER": 1,
+    "PROMPT_INJECTION": 1,
+    "PROMPT_INJECTION_RETRIEVED_CONTENT": 1,
+    "PROMPT_INJECTION_USER": 1,
+    "SENSITIVE_DATA": 3,
+    "TENANT_ISOLATION": 3,
+    "UNAUTHORIZED_TOOL": 2,
+    "USER_ISOLATION": 1
+  },
+  "formal_production_safety_metrics_status": "NOT_RUN",
+  "formal_single_turn_candidate": 3,
+  "formal_single_turn_gold_eligible": 3,
+  "multi_turn_model_generated_unreviewed": 3,
+  "notes": [
+    "UNIT_TEST_FIXTURE rows are excluded from formal safety metrics.",
+    "MODEL_GENERATED_UNREVIEWED multi-turn sessions are excluded from formal metrics.",
+    "The three migrated legacy safety cases still require real Production/Judge execution for formal results."
+  ],
+  "representative_seed_needs_review": 4,
+  "trusted_test_split_exists": false,
+  "unit_test_security_fixtures": 8
+}

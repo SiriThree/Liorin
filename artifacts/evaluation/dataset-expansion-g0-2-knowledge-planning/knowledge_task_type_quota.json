@@ -1,0 +1,59 @@
+{
+  "actual": {
+    "COMPATIBILITY": 21,
+    "DIRECT_FACT": 21,
+    "FAQ_PROCESS": 5,
+    "FEATURE_OR_INSTRUCTION": 42,
+    "LIMITATION": 12,
+    "MULTI_FACT_SYNTHESIS": 42,
+    "MULTI_SECTION_SYNTHESIS": 13,
+    "POLICY_OR_WARRANTY": 12,
+    "PRODUCT_SPEC": 12
+  },
+  "direct_spec_cap": 0.2,
+  "direct_spec_cap_pass": true,
+  "feature_cap": 0.25,
+  "feature_cap_pass": true,
+  "proposal_available": {
+    "COMPATIBILITY": 43,
+    "DIRECT_FACT": 85,
+    "FAQ_PROCESS": 8,
+    "FEATURE_OR_INSTRUCTION": 868,
+    "LIMITATION": 16,
+    "MULTI_FACT_SYNTHESIS": 194,
+    "MULTI_SECTION_SYNTHESIS": 15,
+    "POLICY_OR_WARRANTY": 40,
+    "PRODUCT_SPEC": 49
+  },
+  "quality_rejected": {
+    "COMPATIBILITY": 4,
+    "DIRECT_FACT": 3,
+    "FEATURE_OR_INSTRUCTION": 56,
+    "LIMITATION": 1,
+    "MULTI_FACT_SYNTHESIS": 1,
+    "POLICY_OR_WARRANTY": 5,
+    "PRODUCT_SPEC": 3
+  },
+  "quality_valid_available": {
+    "COMPATIBILITY": 39,
+    "DIRECT_FACT": 82,
+    "FAQ_PROCESS": 8,
+    "FEATURE_OR_INSTRUCTION": 812,
+    "LIMITATION": 15,
+    "MULTI_FACT_SYNTHESIS": 193,
+    "MULTI_SECTION_SYNTHESIS": 15,
+    "POLICY_OR_WARRANTY": 35,
+    "PRODUCT_SPEC": 46
+  },
+  "target": {
+    "COMPATIBILITY": 21,
+    "DIRECT_FACT": 21,
+    "FAQ_PROCESS": 8,
+    "FEATURE_OR_INSTRUCTION": 40,
+    "LIMITATION": 12,
+    "MULTI_FACT_SYNTHESIS": 30,
+    "MULTI_SECTION_SYNTHESIS": 24,
+    "POLICY_OR_WARRANTY": 11,
+    "PRODUCT_SPEC": 12
+  }
+}

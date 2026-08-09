@@ -1,0 +1,440 @@
+{
+  "all_references_resolvable": true,
+  "document_alias_policy": "Legacy Hxxx section ids are not current runtime ids; UNIQUE_HEADING_ALIAS is an explicit deterministic migration bridge, not identity equality.",
+  "references": [
+    {
+      "case_id": "E2E7-0001",
+      "current_section_id": "LIO-PROD-001_VR头显手册:sec:7d1ec6d516fc",
+      "legacy_document_id": "LIO-PROD-001_VR头显手册.md",
+      "legacy_heading": "出现以下症状时请立即停止游玩",
+      "legacy_section_id": "LIO-PROD-001-H007",
+      "source_type": "DOCUMENT",
+      "status": "UNIQUE_HEADING_ALIAS"
+    },
+    {
+      "case_id": "E2E7-0002",
+      "current_section_id": "LIO-PROD-002_人体工学椅手册:sec:4d8b662127f4",
+      "legacy_document_id": "LIO-PROD-002_人体工学椅手册.md",
+      "legacy_heading": "安装说明",
+      "legacy_section_id": "LIO-PROD-002-H006",
+      "source_type": "DOCUMENT",
+      "status": "UNIQUE_HEADING_ALIAS"
+    },
+    {
+      "case_id": "E2E7-0003",
+      "current_section_id": "LIO-PROD-003_健身单车手册:sec:8d500982d309",
+      "legacy_document_id": "LIO-PROD-003_健身单车手册.md",
+      "legacy_heading": "基本装配提示",
+      "legacy_section_id": "LIO-PROD-003-H007",
+      "source_type": "DOCUMENT",
+      "status": "UNIQUE_HEADING_ALIAS"
+    },
+    {
+      "case_id": "E2E7-0004",
+      "current_section_id": "LIO-PROD-004_健身追踪器手册:sec:8e8d0c432d66",
+      "legacy_document_id": "LIO-PROD-004_健身追踪器手册.md",
+      "legacy_heading": "为手表充电",
+      "legacy_section_id": "LIO-PROD-004-H008",
+      "source_type": "DOCUMENT",
+      "status": "UNIQUE_HEADING_ALIAS"
+    },
+    {
+      "case_id": "E2E7-0005",
+      "current_section_id": "LIO-PROD-005_儿童电动摩托车手册:sec:f6f9eb031284",
+      "legacy_document_id": "LIO-PROD-005_儿童电动摩托车手册.md",
+      "legacy_heading": "安全骑行规则",
+      "legacy_section_id": "LIO-PROD-005-H019",
+      "source_type": "DOCUMENT",
+      "status": "UNIQUE_HEADING_ALIAS"
+    },
+    {
+      "case_id": "E2E7-0006",
+      "current_section_id": "LIO-PROD-006_冰箱手册:sec:0c87a7f38f34",
+      "legacy_document_id": "LIO-PROD-006_冰箱手册.md",
+      "legacy_heading": "基本安全注意事项",
+      "legacy_section_id": "LIO-PROD-006-H003",
+      "source_type": "DOCUMENT",
+      "status": "UNIQUE_HEADING_ALIAS"
+    },
+    {
+      "case_id": "E2E7-0007",
+      "current_section_id": "LIO-PROD-007_功能键盘手册:sec:722421ae5b2e",
+      "legacy_document_id": "LIO-PROD-007_功能键盘手册.md",
+      "legacy_heading": "5. 键盘设置",
+      "legacy_section_id": "LIO-PROD-007-H008",
+      "source_type": "DOCUMENT",
+      "status": "UNIQUE_HEADING_ALIAS"
+    },
+    {
+      "case_id": "E2E7-0008",
+      "current_section_id": "LIO-PROD-008_发电机手册:sec:f53ade6fdd94",
+      "legacy_document_id": "LIO-PROD-008_发电机手册.md",
+      "legacy_heading": "识别码记录",
+      "legacy_section_id": "LIO-PROD-008-H004",
+      "source_type": "DOCUMENT",
+      "status": "UNIQUE_HEADING_ALIAS"
+    },
+    {
+      "case_id": "E2E7-0009",
+      "current_section_id": "LIO-PROD-009_可编程温控器手册:sec:0ab97baee8d5",
+      "legacy_document_id": "LIO-PROD-009_可编程温控器手册.md",
+      "legacy_heading": "安装温控器",
+      "legacy_section_id": "LIO-PROD-009-H007",
+      "source_type": "DOCUMENT",
+      "status": "UNIQUE_HEADING_ALIAS"
+    },
+    {
+      "case_id": "E2E7-0010",
+      "current_section_id": "LIO-PROD-010_吹风机手册:sec:18b3bccf4692",
+      "legacy_document_id": "LIO-PROD-010_吹风机手册.md",
+      "legacy_heading": "安装集尘袋及各类吸尘管",
+      "legacy_section_id": "LIO-PROD-010-H042",
+      "source_type": "DOCUMENT",
+      "status": "UNIQUE_HEADING_ALIAS"
+    },
+    {
+      "case_id": "E2E7-0011",
+      "current_section_id": "LIO-PROD-011_摩托艇手册:sec:d99870c4a30d",
+      "legacy_document_id": "LIO-PROD-011_摩托艇手册.md",
+      "legacy_heading": "训练2：驾驶前检查",
+      "legacy_section_id": "LIO-PROD-011-H012",
+      "source_type": "DOCUMENT",
+      "status": "UNIQUE_HEADING_ALIAS"
+    },
+    {
+      "case_id": "E2E7-0012",
+      "current_section_id": "LIO-PROD-012_水泵手册:sec:4511b2f43b10",
+      "legacy_document_id": "LIO-PROD-012_水泵手册.md",
+      "legacy_heading": "发动机无法启动",
+      "legacy_section_id": "LIO-PROD-012-H058",
+      "source_type": "DOCUMENT",
+      "status": "UNIQUE_HEADING_ALIAS"
+    },
+    {
+      "case_id": "E2E7-0060",
+      "record_ref_hash": "c403b56f3fe78828",
+      "record_type": "ticket",
+      "source_type": "STRUCTURED_DATA",
+      "status": "RESOLVED"
+    },
+    {
+      "case_id": "E2E7-0060",
+      "current_section_id": "LIO-PROD-001_VR头显手册:sec:5dc7d3388a07",
+      "legacy_document_id": "LIO-PROD-001_VR头显手册.md",
+      "legacy_heading": "使用与操作",
+      "legacy_section_id": "LIO-PROD-001-H018",
+      "source_type": "DOCUMENT",
+      "status": "UNIQUE_HEADING_ALIAS"
+    },
+    {
+      "case_id": "E2E7-0061",
+      "record_ref_hash": "e9a79b42d453ac8c",
+      "record_type": "ticket",
+      "source_type": "STRUCTURED_DATA",
+      "status": "RESOLVED"
+    },
+    {
+      "case_id": "E2E7-0061",
+      "current_section_id": "LIO-PROD-001_VR头显手册:sec:f7f04bcfbe5d",
+      "legacy_document_id": "LIO-PROD-001_VR头显手册.md",
+      "legacy_heading": "使用PS VR",
+      "legacy_section_id": "LIO-PROD-001-H028",
+      "source_type": "DOCUMENT",
+      "status": "UNIQUE_HEADING_ALIAS"
+    },
+    {
+      "case_id": "E2E7-0062",
+      "record_ref_hash": "f9738d26faf423b4",
+      "record_type": "ticket",
+      "source_type": "STRUCTURED_DATA",
+      "status": "RESOLVED"
+    },
+    {
+      "case_id": "E2E7-0062",
+      "current_section_id": "LIO-PROD-002_人体工学椅手册:sec:4d8b662127f4",
+      "legacy_document_id": "LIO-PROD-002_人体工学椅手册.md",
+      "legacy_heading": "安装说明",
+      "legacy_section_id": "LIO-PROD-002-H006",
+      "source_type": "DOCUMENT",
+      "status": "UNIQUE_HEADING_ALIAS"
+    },
+    {
+      "case_id": "E2E7-0063",
+      "record_ref_hash": "40bf8e208abe5431",
+      "record_type": "ticket",
+      "source_type": "STRUCTURED_DATA",
+      "status": "RESOLVED"
+    },
+    {
+      "case_id": "E2E7-0063",
+      "current_section_id": "LIO-PROD-002_人体工学椅手册:sec:becfe4ce4d1f",
+      "legacy_document_id": "LIO-PROD-002_人体工学椅手册.md",
+      "legacy_heading": "常见问题：",
+      "legacy_section_id": "LIO-PROD-002-H007",
+      "source_type": "DOCUMENT",
+      "status": "UNIQUE_HEADING_ALIAS"
+    },
+    {
+      "case_id": "E2E7-0064",
+      "record_ref_hash": "ceb966991ce2c3a9",
+      "record_type": "ticket",
+      "source_type": "STRUCTURED_DATA",
+      "status": "RESOLVED"
+    },
+    {
+      "case_id": "E2E7-0064",
+      "current_section_id": "LIO-PROD-003_健身单车手册:sec:8d500982d309",
+      "legacy_document_id": "LIO-PROD-003_健身单车手册.md",
+      "legacy_heading": "基本装配提示",
+      "legacy_section_id": "LIO-PROD-003-H007",
+      "source_type": "DOCUMENT",
+      "status": "UNIQUE_HEADING_ALIAS"
+    },
+    {
+      "case_id": "E2E7-0065",
+      "record_ref_hash": "68f62d3982205d2b",
+      "record_type": "ticket",
+      "source_type": "STRUCTURED_DATA",
+      "status": "RESOLVED"
+    },
+    {
+      "case_id": "E2E7-0065",
+      "current_section_id": "LIO-PROD-003_健身单车手册:sec:2945e739b343",
+      "legacy_document_id": "LIO-PROD-003_健身单车手册.md",
+      "legacy_heading": "危险",
+      "legacy_section_id": "LIO-PROD-003-H068",
+      "source_type": "DOCUMENT",
+      "status": "UNIQUE_HEADING_ALIAS"
+    },
+    {
+      "case_id": "E2E7-0065",
+      "current_section_id": "LIO-PROD-003_健身单车手册:sec:14a8ef80df93",
+      "legacy_document_id": "LIO-PROD-003_健身单车手册.md",
+      "legacy_heading": "每月或使用 20 小时后：",
+      "legacy_section_id": "LIO-PROD-003-H071",
+      "source_type": "DOCUMENT",
+      "status": "UNIQUE_HEADING_ALIAS"
+    },
+    {
+      "case_id": "E2E7-0066",
+      "record_ref_hash": "3d3c4d3ffc957818",
+      "record_type": "ticket",
+      "source_type": "STRUCTURED_DATA",
+      "status": "RESOLVED"
+    },
+    {
+      "case_id": "E2E7-0066",
+      "current_section_id": "LIO-PROD-004_健身追踪器手册:sec:8e8d0c432d66",
+      "legacy_document_id": "LIO-PROD-004_健身追踪器手册.md",
+      "legacy_heading": "为手表充电",
+      "legacy_section_id": "LIO-PROD-004-H008",
+      "source_type": "DOCUMENT",
+      "status": "UNIQUE_HEADING_ALIAS"
+    },
+    {
+      "case_id": "E2E7-0067",
+      "record_ref_hash": "b6b4c1a04fc72aea",
+      "record_type": "ticket",
+      "source_type": "STRUCTURED_DATA",
+      "status": "RESOLVED"
+    },
+    {
+      "case_id": "E2E7-0067",
+      "current_section_id": "LIO-PROD-004_健身追踪器手册:sec:1dd45af55c00",
+      "legacy_document_id": "LIO-PROD-004_健身追踪器手册.md",
+      "legacy_heading": "iPhone",
+      "legacy_section_id": "LIO-PROD-004-H051",
+      "source_type": "DOCUMENT",
+      "status": "UNIQUE_HEADING_ALIAS"
+    },
+    {
+      "case_id": "E2E7-0068",
+      "record_ref_hash": "5d07ab25c65728a6",
+      "record_type": "ticket",
+      "source_type": "STRUCTURED_DATA",
+      "status": "RESOLVED"
+    },
+    {
+      "case_id": "E2E7-0068",
+      "current_section_id": "LIO-PROD-005_儿童电动摩托车手册:sec:d0193bc7a045",
+      "legacy_document_id": "LIO-PROD-005_儿童电动摩托车手册.md",
+      "legacy_heading": "问题：车辆无法行驶",
+      "legacy_section_id": "LIO-PROD-005-H029",
+      "source_type": "DOCUMENT",
+      "status": "UNIQUE_HEADING_ALIAS"
+    },
+    {
+      "case_id": "E2E7-0069",
+      "record_ref_hash": "3984b91d7064a9fa",
+      "record_type": "ticket",
+      "source_type": "STRUCTURED_DATA",
+      "status": "RESOLVED"
+    },
+    {
+      "case_id": "E2E7-0069",
+      "current_section_id": "LIO-PROD-005_儿童电动摩托车手册:sec:5ffe4f650177",
+      "legacy_document_id": "LIO-PROD-005_儿童电动摩托车手册.md",
+      "legacy_heading": "问题：电池无法充电。",
+      "legacy_section_id": "LIO-PROD-005-H030",
+      "source_type": "DOCUMENT",
+      "status": "UNIQUE_HEADING_ALIAS"
+    },
+    {
+      "case_id": "E2E7-0074",
+      "current_section_id": "after_sales_policy:sec:262565711e12",
+      "legacy_document_id": "after_sales_policy.md",
+      "legacy_heading": "身份验证",
+      "legacy_section_id": "POL-002",
+      "source_type": "DOCUMENT",
+      "status": "UNIQUE_HEADING_ALIAS"
+    },
+    {
+      "case_id": "E2E7-0076",
+      "current_section_id": "after_sales_policy:sec:262565711e12",
+      "legacy_document_id": "after_sales_policy.md",
+      "legacy_heading": "身份验证",
+      "legacy_section_id": "POL-002",
+      "source_type": "DOCUMENT",
+      "status": "UNIQUE_HEADING_ALIAS"
+    },
+    {
+      "case_id": "E2E7-0080",
+      "current_section_id": "LIO-PROD-003_健身单车手册:sec:40c54644fdb0",
+      "legacy_document_id": "LIO-PROD-003_健身单车手册.md",
+      "legacy_heading": "心率控制（HRC）运动程序",
+      "legacy_section_id": "LIO-PROD-003-H063",
+      "source_type": "DOCUMENT",
+      "status": "UNIQUE_HEADING_ALIAS"
+    },
+    {
+      "case_id": "E2E7-0081",
+      "current_section_id": "LIO-PROD-003_健身单车手册:sec:14a8ef80df93",
+      "legacy_document_id": "LIO-PROD-003_健身单车手册.md",
+      "legacy_heading": "每月或使用 20 小时后：",
+      "legacy_section_id": "LIO-PROD-003-H071",
+      "source_type": "DOCUMENT",
+      "status": "UNIQUE_HEADING_ALIAS"
+    },
+    {
+      "case_id": "E2E7-0082",
+      "current_section_id": "LIO-PROD-004_健身追踪器手册:sec:8e8d0c432d66",
+      "legacy_document_id": "LIO-PROD-004_健身追踪器手册.md",
+      "legacy_heading": "为手表充电",
+      "legacy_section_id": "LIO-PROD-004-H008",
+      "source_type": "DOCUMENT",
+      "status": "UNIQUE_HEADING_ALIAS"
+    },
+    {
+      "case_id": "E2E7-0083",
+      "current_section_id": "LIO-PROD-004_健身追踪器手册:sec:53cfd3e63a52",
+      "legacy_document_id": "LIO-PROD-004_健身追踪器手册.md",
+      "legacy_heading": "设置通知",
+      "legacy_section_id": "LIO-PROD-004-H044",
+      "source_type": "DOCUMENT",
+      "status": "UNIQUE_HEADING_ALIAS"
+    },
+    {
+      "case_id": "E2E7-0084",
+      "current_section_id": "LIO-PROD-004_健身追踪器手册:sec:10c57fea9460",
+      "legacy_document_id": "LIO-PROD-004_健身追踪器手册.md",
+      "legacy_heading": "追踪睡眠",
+      "legacy_section_id": "LIO-PROD-004-H063",
+      "source_type": "DOCUMENT",
+      "status": "UNIQUE_HEADING_ALIAS"
+    },
+    {
+      "case_id": "E2E7-0085",
+      "current_section_id": "LIO-PROD-004_健身追踪器手册:sec:893c67957197",
+      "legacy_document_id": "LIO-PROD-004_健身追踪器手册.md",
+      "legacy_heading": "心率信号丢失",
+      "legacy_section_id": "LIO-PROD-004-H091",
+      "source_type": "DOCUMENT",
+      "status": "UNIQUE_HEADING_ALIAS"
+    },
+    {
+      "case_id": "E2E7-0086",
+      "current_section_id": "LIO-PROD-005_儿童电动摩托车手册:sec:f6f9eb031284",
+      "legacy_document_id": "LIO-PROD-005_儿童电动摩托车手册.md",
+      "legacy_heading": "安全骑行规则",
+      "legacy_section_id": "LIO-PROD-005-H019",
+      "source_type": "DOCUMENT",
+      "status": "UNIQUE_HEADING_ALIAS"
+    },
+    {
+      "case_id": "E2E7-0087",
+      "current_section_id": "LIO-PROD-005_儿童电动摩托车手册:sec:d0193bc7a045",
+      "legacy_document_id": "LIO-PROD-005_儿童电动摩托车手册.md",
+      "legacy_heading": "问题：车辆无法行驶",
+      "legacy_section_id": "LIO-PROD-005-H029",
+      "source_type": "DOCUMENT",
+      "status": "UNIQUE_HEADING_ALIAS"
+    },
+    {
+      "case_id": "E2E7-0088",
+      "current_section_id": "LIO-PROD-005_儿童电动摩托车手册:sec:5ffe4f650177",
+      "legacy_document_id": "LIO-PROD-005_儿童电动摩托车手册.md",
+      "legacy_heading": "问题：电池无法充电。",
+      "legacy_section_id": "LIO-PROD-005-H030",
+      "source_type": "DOCUMENT",
+      "status": "UNIQUE_HEADING_ALIAS"
+    },
+    {
+      "case_id": "E2E7-0089",
+      "current_section_id": "LIO-PROD-005_儿童电动摩托车手册:sec:9583dc28f6d0",
+      "legacy_document_id": "LIO-PROD-005_儿童电动摩托车手册.md",
+      "legacy_heading": "保养维护",
+      "legacy_section_id": "LIO-PROD-005-H034",
+      "source_type": "DOCUMENT",
+      "status": "UNIQUE_HEADING_ALIAS"
+    },
+    {
+      "case_id": "E2E7-0013",
+      "current_section_id": "LIO-PROD-013_洗碗机手册:sec:7209649d24b8",
+      "legacy_document_id": "LIO-PROD-013_洗碗机手册.md",
+      "legacy_heading": "合适的安装位置",
+      "legacy_section_id": "LIO-PROD-013-H016",
+      "source_type": "DOCUMENT",
+      "status": "UNIQUE_HEADING_ALIAS"
+    },
+    {
+      "case_id": "E2E7-0014",
+      "current_section_id": "LIO-PROD-014_烤箱手册:sec:5d7370877997",
+      "legacy_document_id": "LIO-PROD-014_烤箱手册.md",
+      "legacy_heading": "电气连接",
+      "legacy_section_id": "LIO-PROD-014-H008",
+      "source_type": "DOCUMENT",
+      "status": "UNIQUE_HEADING_ALIAS"
+    },
+    {
+      "case_id": "E2E7-0015",
+      "current_section_id": "LIO-PROD-015_电钻手册:sec:d66d9577ec35",
+      "legacy_document_id": "LIO-PROD-015_电钻手册.md",
+      "legacy_heading": "充电步骤（图1）",
+      "legacy_section_id": "LIO-PROD-015-H015",
+      "source_type": "DOCUMENT",
+      "status": "UNIQUE_HEADING_ALIAS"
+    },
+    {
+      "case_id": "E2E7-0016",
+      "current_section_id": "LIO-PROD-016_相机手册:sec:fb177234c9be",
+      "legacy_document_id": "LIO-PROD-016_相机手册.md",
+      "legacy_heading": "电池充电",
+      "legacy_section_id": "LIO-PROD-016-H019",
+      "source_type": "DOCUMENT",
+      "status": "UNIQUE_HEADING_ALIAS"
+    },
+    {
+      "case_id": "E2E7-0078",
+      "current_section_id": "after_sales_policy:sec:262565711e12",
+      "legacy_document_id": "after_sales_policy.md",
+      "legacy_heading": "身份验证",
+      "legacy_section_id": "POL-002",
+      "source_type": "DOCUMENT",
+      "status": "UNIQUE_HEADING_ALIAS"
+    }
+  ],
+  "status_distribution": {
+    "RESOLVED": 10,
+    "UNIQUE_HEADING_ALIAS": 40
+  }
+}

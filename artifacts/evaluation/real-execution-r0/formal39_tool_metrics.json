@@ -1,0 +1,16 @@
+{
+  "duplicate_tool_calls": null,
+  "smoke": {
+    "tool_calls": 3,
+    "tool_calls_per_task": 0.6,
+    "tool_error_rate": 0.6666666666666666,
+    "tool_names": [
+      "knowledge_agent"
+    ]
+  },
+  "status": "NOT_RUN_SMOKE_GATE_FAILED",
+  "tool_calls": null,
+  "tool_calls_per_task": null,
+  "tool_error_rate": null,
+  "unauthorized_tool_attempt": null
+}

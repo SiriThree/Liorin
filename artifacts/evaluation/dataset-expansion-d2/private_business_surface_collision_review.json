@@ -1,0 +1,646 @@
+{
+  "candidate_collision_class": {
+    "PBQ-0484FC54944F2D5D": "LOW_INFORMATION",
+    "PBQ-048CDC96FD654D9C": "MEDIUM_INFORMATION",
+    "PBQ-0C548DF5C6D72B22": "MEDIUM_INFORMATION",
+    "PBQ-0E95762DC07FE11E": "HIGH_INFORMATION",
+    "PBQ-0EE5C3C7108BED28": "MEDIUM_INFORMATION",
+    "PBQ-14F685DE33DE8F95": "HIGH_INFORMATION",
+    "PBQ-1567DC77F259C130": "MEDIUM_INFORMATION",
+    "PBQ-1BA22E36EB7AB173": "HIGH_INFORMATION",
+    "PBQ-1F2375F8FC344B70": "MEDIUM_INFORMATION",
+    "PBQ-1F4E39D2F1DB6288": "MEDIUM_INFORMATION",
+    "PBQ-20617690C580D073": "MEDIUM_INFORMATION",
+    "PBQ-267184687AA53A12": "HIGH_INFORMATION",
+    "PBQ-2AE02820A28CA2F4": "HIGH_INFORMATION",
+    "PBQ-30FD848AD6799D56": "HIGH_INFORMATION",
+    "PBQ-386B29A1542BB49D": "MEDIUM_INFORMATION",
+    "PBQ-39672ECCC91DCF93": "HIGH_INFORMATION",
+    "PBQ-3C9F1275E9730856": "MEDIUM_INFORMATION",
+    "PBQ-3FD50C98F0643170": "MEDIUM_INFORMATION",
+    "PBQ-437BC99A96ADC046": "MEDIUM_INFORMATION",
+    "PBQ-49C83A426692E569": "LOW_INFORMATION",
+    "PBQ-4AFD378D10DDEB67": "MEDIUM_INFORMATION",
+    "PBQ-4C24169A3DD3BC92": "MEDIUM_INFORMATION",
+    "PBQ-4C80552FBA9AB93C": "HIGH_INFORMATION",
+    "PBQ-4EB5124F3D51E623": "MEDIUM_INFORMATION",
+    "PBQ-53F1A4023BBF0306": "HIGH_INFORMATION",
+    "PBQ-5805FEA90F0BE37C": "MEDIUM_INFORMATION",
+    "PBQ-59758530D91BABE1": "HIGH_INFORMATION",
+    "PBQ-6502CDF309DFE341": "HIGH_INFORMATION",
+    "PBQ-6A5B844C42D2D9CD": "HIGH_INFORMATION",
+    "PBQ-6C9819978962DE31": "HIGH_INFORMATION",
+    "PBQ-6F809B9695B1A5A8": "HIGH_INFORMATION",
+    "PBQ-7140067BCF81A5E3": "HIGH_INFORMATION",
+    "PBQ-729E57F4C4422FD0": "MEDIUM_INFORMATION",
+    "PBQ-73E98E1E815868F3": "HIGH_INFORMATION",
+    "PBQ-774317DF1C3D2841": "HIGH_INFORMATION",
+    "PBQ-7759F304ED3D1D7A": "MEDIUM_INFORMATION",
+    "PBQ-787F6E379AD15E8E": "MEDIUM_INFORMATION",
+    "PBQ-86DBE00C3CB51556": "MEDIUM_INFORMATION",
+    "PBQ-8A4098836EE94DE3": "MEDIUM_INFORMATION",
+    "PBQ-8B1E0BE682E0287F": "MEDIUM_INFORMATION",
+    "PBQ-8D7A5BC8F9875798": "MEDIUM_INFORMATION",
+    "PBQ-8E8E951F284FA604": "MEDIUM_INFORMATION",
+    "PBQ-8F10CDDD464D974F": "MEDIUM_INFORMATION",
+    "PBQ-95B8489A67C4B8FC": "HIGH_INFORMATION",
+    "PBQ-95CD26B20A25881C": "MEDIUM_INFORMATION",
+    "PBQ-966A380A3AE0A99A": "HIGH_INFORMATION",
+    "PBQ-9AAA1BDA47EE2037": "MEDIUM_INFORMATION",
+    "PBQ-9F14E359ADE264D6": "HIGH_INFORMATION",
+    "PBQ-A0E0BD8FDB4A7FCD": "LOW_INFORMATION",
+    "PBQ-A15ADAE5745496C4": "MEDIUM_INFORMATION",
+    "PBQ-A32B56AABF789C15": "HIGH_INFORMATION",
+    "PBQ-A9EF3E7F5A8EBFAA": "HIGH_INFORMATION",
+    "PBQ-AC71481D49DC5350": "MEDIUM_INFORMATION",
+    "PBQ-B361D2B425C2A692": "LOW_INFORMATION",
+    "PBQ-B3814E796B44E38B": "MEDIUM_INFORMATION",
+    "PBQ-B5786DCEC2AE4D52": "HIGH_INFORMATION",
+    "PBQ-B93874361DD58CDF": "MEDIUM_INFORMATION",
+    "PBQ-B9ADBAB0968F43EF": "HIGH_INFORMATION",
+    "PBQ-BB1850C6B8A4B8E2": "LOW_INFORMATION",
+    "PBQ-BD02DBE97CB739FD": "HIGH_INFORMATION",
+    "PBQ-BE7CA26D370D40AE": "MEDIUM_INFORMATION",
+    "PBQ-C1468131E149CBB2": "HIGH_INFORMATION",
+    "PBQ-C37515E743F2D874": "MEDIUM_INFORMATION",
+    "PBQ-CBB047604D840EDA": "HIGH_INFORMATION",
+    "PBQ-CC0D8CF7C1B4B531": "MEDIUM_INFORMATION",
+    "PBQ-CD860189F61FE74F": "MEDIUM_INFORMATION",
+    "PBQ-D0CBA96DE248F663": "MEDIUM_INFORMATION",
+    "PBQ-D3B402ABEBF07E9E": "MEDIUM_INFORMATION",
+    "PBQ-D3F9460EEA7CCE2F": "MEDIUM_INFORMATION",
+    "PBQ-D5AE75DD0E13A0DA": "HIGH_INFORMATION",
+    "PBQ-D6F47B22A54885E0": "MEDIUM_INFORMATION",
+    "PBQ-DA1D7A18DE2FB14B": "HIGH_INFORMATION",
+    "PBQ-E4A662D00009AF99": "MEDIUM_INFORMATION",
+    "PBQ-E7CD67D25D06E0F2": "MEDIUM_INFORMATION",
+    "PBQ-ECD5E0E87E3A758C": "HIGH_INFORMATION",
+    "PBQ-EF26F23133EF0DA0": "HIGH_INFORMATION",
+    "PBQ-EFE5162B873590A0": "MEDIUM_INFORMATION",
+    "PBQ-F56B400A5A088BA3": "MEDIUM_INFORMATION",
+    "PBQ-F60902293BED769D": "MEDIUM_INFORMATION",
+    "PBQ-FA0C3DDA49A03B16": "MEDIUM_INFORMATION",
+    "PBQ-FA3768D79BC5BC45": "HIGH_INFORMATION",
+    "PBQ-FDBA49930A35F10B": "HIGH_INFORMATION",
+    "PBQ-FF352D0AD1F81958": "HIGH_INFORMATION",
+    "PBQ-FF3905E05A55682A": "HIGH_INFORMATION"
+  },
+  "candidate_information_counts": {
+    "HIGH_INFORMATION": 35,
+    "LOW_INFORMATION": 5,
+    "MEDIUM_INFORMATION": 44,
+    "NO_COLLISION": 0
+  },
+  "candidate_retention_priority": {
+    "PBQ-0484FC54944F2D5D": "LOW",
+    "PBQ-048CDC96FD654D9C": "MEDIUM",
+    "PBQ-0C548DF5C6D72B22": "MEDIUM",
+    "PBQ-0E95762DC07FE11E": "HIGH",
+    "PBQ-0EE5C3C7108BED28": "MEDIUM",
+    "PBQ-14F685DE33DE8F95": "HIGH",
+    "PBQ-1567DC77F259C130": "MEDIUM",
+    "PBQ-1BA22E36EB7AB173": "HIGH",
+    "PBQ-1F2375F8FC344B70": "MEDIUM",
+    "PBQ-1F4E39D2F1DB6288": "MEDIUM",
+    "PBQ-20617690C580D073": "MEDIUM",
+    "PBQ-267184687AA53A12": "HIGH",
+    "PBQ-2AE02820A28CA2F4": "HIGH",
+    "PBQ-30FD848AD6799D56": "HIGH",
+    "PBQ-386B29A1542BB49D": "MEDIUM",
+    "PBQ-39672ECCC91DCF93": "HIGH",
+    "PBQ-3C9F1275E9730856": "MEDIUM",
+    "PBQ-3FD50C98F0643170": "MEDIUM",
+    "PBQ-437BC99A96ADC046": "MEDIUM",
+    "PBQ-49C83A426692E569": "LOW",
+    "PBQ-4AFD378D10DDEB67": "MEDIUM",
+    "PBQ-4C24169A3DD3BC92": "MEDIUM",
+    "PBQ-4C80552FBA9AB93C": "HIGH",
+    "PBQ-4EB5124F3D51E623": "MEDIUM",
+    "PBQ-53F1A4023BBF0306": "HIGH",
+    "PBQ-5805FEA90F0BE37C": "MEDIUM",
+    "PBQ-59758530D91BABE1": "HIGH",
+    "PBQ-6502CDF309DFE341": "HIGH",
+    "PBQ-6A5B844C42D2D9CD": "HIGH",
+    "PBQ-6C9819978962DE31": "HIGH",
+    "PBQ-6F809B9695B1A5A8": "HIGH",
+    "PBQ-7140067BCF81A5E3": "HIGH",
+    "PBQ-729E57F4C4422FD0": "MEDIUM",
+    "PBQ-73E98E1E815868F3": "HIGH",
+    "PBQ-774317DF1C3D2841": "HIGH",
+    "PBQ-7759F304ED3D1D7A": "MEDIUM",
+    "PBQ-787F6E379AD15E8E": "MEDIUM",
+    "PBQ-86DBE00C3CB51556": "MEDIUM",
+    "PBQ-8A4098836EE94DE3": "MEDIUM",
+    "PBQ-8B1E0BE682E0287F": "MEDIUM",
+    "PBQ-8D7A5BC8F9875798": "MEDIUM",
+    "PBQ-8E8E951F284FA604": "MEDIUM",
+    "PBQ-8F10CDDD464D974F": "MEDIUM",
+    "PBQ-95B8489A67C4B8FC": "HIGH",
+    "PBQ-95CD26B20A25881C": "MEDIUM",
+    "PBQ-966A380A3AE0A99A": "HIGH",
+    "PBQ-9AAA1BDA47EE2037": "MEDIUM",
+    "PBQ-9F14E359ADE264D6": "HIGH",
+    "PBQ-A0E0BD8FDB4A7FCD": "LOW",
+    "PBQ-A15ADAE5745496C4": "MEDIUM",
+    "PBQ-A32B56AABF789C15": "HIGH",
+    "PBQ-A9EF3E7F5A8EBFAA": "HIGH",
+    "PBQ-AC71481D49DC5350": "MEDIUM",
+    "PBQ-B361D2B425C2A692": "LOW",
+    "PBQ-B3814E796B44E38B": "MEDIUM",
+    "PBQ-B5786DCEC2AE4D52": "HIGH",
+    "PBQ-B93874361DD58CDF": "MEDIUM",
+    "PBQ-B9ADBAB0968F43EF": "HIGH",
+    "PBQ-BB1850C6B8A4B8E2": "LOW",
+    "PBQ-BD02DBE97CB739FD": "HIGH",
+    "PBQ-BE7CA26D370D40AE": "MEDIUM",
+    "PBQ-C1468131E149CBB2": "HIGH",
+    "PBQ-C37515E743F2D874": "MEDIUM",
+    "PBQ-CBB047604D840EDA": "HIGH",
+    "PBQ-CC0D8CF7C1B4B531": "MEDIUM",
+    "PBQ-CD860189F61FE74F": "MEDIUM",
+    "PBQ-D0CBA96DE248F663": "MEDIUM",
+    "PBQ-D3B402ABEBF07E9E": "MEDIUM",
+    "PBQ-D3F9460EEA7CCE2F": "MEDIUM",
+    "PBQ-D5AE75DD0E13A0DA": "HIGH",
+    "PBQ-D6F47B22A54885E0": "MEDIUM",
+    "PBQ-DA1D7A18DE2FB14B": "HIGH",
+    "PBQ-E4A662D00009AF99": "MEDIUM",
+    "PBQ-E7CD67D25D06E0F2": "MEDIUM",
+    "PBQ-ECD5E0E87E3A758C": "HIGH",
+    "PBQ-EF26F23133EF0DA0": "HIGH",
+    "PBQ-EFE5162B873590A0": "MEDIUM",
+    "PBQ-F56B400A5A088BA3": "MEDIUM",
+    "PBQ-F60902293BED769D": "MEDIUM",
+    "PBQ-FA0C3DDA49A03B16": "MEDIUM",
+    "PBQ-FA3768D79BC5BC45": "HIGH",
+    "PBQ-FDBA49930A35F10B": "HIGH",
+    "PBQ-FF352D0AD1F81958": "HIGH",
+    "PBQ-FF3905E05A55682A": "HIGH"
+  },
+  "collision_group_count": 25,
+  "groups": [
+    {
+      "candidate_count": 3,
+      "candidate_ids": [
+        "PBQ-39672ECCC91DCF93",
+        "PBQ-6502CDF309DFE341",
+        "PBQ-4C80552FBA9AB93C"
+      ],
+      "distinct_entities": 3,
+      "distinct_products": 3,
+      "distinct_states": 1,
+      "distinct_value_buckets": 3,
+      "information_class": "HIGH_INFORMATION",
+      "retention_reason": "distinct business state/value/family gives the shared surface meaningful coverage value",
+      "semantic_families": [
+        "TICKET_ORDER_LINK_LOOKUP"
+      ],
+      "surface_signature": "63da824434b27cf82aec"
+    },
+    {
+      "candidate_count": 3,
+      "candidate_ids": [
+        "PBQ-1BA22E36EB7AB173",
+        "PBQ-B9ADBAB0968F43EF",
+        "PBQ-59758530D91BABE1"
+      ],
+      "distinct_entities": 3,
+      "distinct_products": 3,
+      "distinct_states": 2,
+      "distinct_value_buckets": 3,
+      "information_class": "HIGH_INFORMATION",
+      "retention_reason": "distinct business state/value/family gives the shared surface meaningful coverage value",
+      "semantic_families": [
+        "TICKET_PRODUCT_LOOKUP"
+      ],
+      "surface_signature": "6b11db0800afba984c85"
+    },
+    {
+      "candidate_count": 3,
+      "candidate_ids": [
+        "PBQ-53F1A4023BBF0306",
+        "PBQ-7140067BCF81A5E3",
+        "PBQ-A9EF3E7F5A8EBFAA"
+      ],
+      "distinct_entities": 3,
+      "distinct_products": 3,
+      "distinct_states": 2,
+      "distinct_value_buckets": 2,
+      "information_class": "HIGH_INFORMATION",
+      "retention_reason": "distinct business state/value/family gives the shared surface meaningful coverage value",
+      "semantic_families": [
+        "TICKET_PRIORITY_LOOKUP"
+      ],
+      "surface_signature": "b74fadc61f6ecb9d1fd1"
+    },
+    {
+      "candidate_count": 2,
+      "candidate_ids": [
+        "PBQ-386B29A1542BB49D",
+        "PBQ-CD860189F61FE74F"
+      ],
+      "distinct_entities": 2,
+      "distinct_products": 2,
+      "distinct_states": 1,
+      "distinct_value_buckets": 2,
+      "information_class": "MEDIUM_INFORMATION",
+      "retention_reason": "same surface retains source/value/product diversity but needs later annotation-level dedup review",
+      "semantic_families": [
+        "TICKET_CREATED_AT_LOOKUP"
+      ],
+      "surface_signature": "bbf41fb8749b3570a7df"
+    },
+    {
+      "candidate_count": 3,
+      "candidate_ids": [
+        "PBQ-0E95762DC07FE11E",
+        "PBQ-CBB047604D840EDA",
+        "PBQ-9F14E359ADE264D6"
+      ],
+      "distinct_entities": 3,
+      "distinct_products": 3,
+      "distinct_states": 2,
+      "distinct_value_buckets": 3,
+      "information_class": "HIGH_INFORMATION",
+      "retention_reason": "distinct business state/value/family gives the shared surface meaningful coverage value",
+      "semantic_families": [
+        "TICKET_ASSIGNED_TEAM_LOOKUP"
+      ],
+      "surface_signature": "8c14b276cac7b5fa821d"
+    },
+    {
+      "candidate_count": 3,
+      "candidate_ids": [
+        "PBQ-6A5B844C42D2D9CD",
+        "PBQ-30FD848AD6799D56",
+        "PBQ-BD02DBE97CB739FD"
+      ],
+      "distinct_entities": 3,
+      "distinct_products": 3,
+      "distinct_states": 1,
+      "distinct_value_buckets": 3,
+      "information_class": "HIGH_INFORMATION",
+      "retention_reason": "distinct business state/value/family gives the shared surface meaningful coverage value",
+      "semantic_families": [
+        "TICKET_ISSUE_TYPE_LOOKUP"
+      ],
+      "surface_signature": "715f86a4115159b636a0"
+    },
+    {
+      "candidate_count": 3,
+      "candidate_ids": [
+        "PBQ-D3F9460EEA7CCE2F",
+        "PBQ-437BC99A96ADC046",
+        "PBQ-EFE5162B873590A0"
+      ],
+      "distinct_entities": 3,
+      "distinct_products": 3,
+      "distinct_states": 1,
+      "distinct_value_buckets": 3,
+      "information_class": "MEDIUM_INFORMATION",
+      "retention_reason": "same surface retains source/value/product diversity but needs later annotation-level dedup review",
+      "semantic_families": [
+        "TICKET_SUMMARY_LOOKUP"
+      ],
+      "surface_signature": "75c2d00d859b45aecaa8"
+    },
+    {
+      "candidate_count": 4,
+      "candidate_ids": [
+        "PBQ-DA1D7A18DE2FB14B",
+        "PBQ-73E98E1E815868F3",
+        "PBQ-774317DF1C3D2841",
+        "PBQ-FDBA49930A35F10B"
+      ],
+      "distinct_entities": 4,
+      "distinct_products": 1,
+      "distinct_states": 2,
+      "distinct_value_buckets": 4,
+      "information_class": "HIGH_INFORMATION",
+      "retention_reason": "distinct business state/value/family gives the shared surface meaningful coverage value",
+      "semantic_families": [
+        "ORDER_DATE_LOOKUP"
+      ],
+      "surface_signature": "9f6926ab6351636a22c9"
+    },
+    {
+      "candidate_count": 4,
+      "candidate_ids": [
+        "PBQ-3FD50C98F0643170",
+        "PBQ-8B1E0BE682E0287F",
+        "PBQ-8E8E951F284FA604",
+        "PBQ-B93874361DD58CDF"
+      ],
+      "distinct_entities": 4,
+      "distinct_products": 2,
+      "distinct_states": 1,
+      "distinct_value_buckets": 4,
+      "information_class": "MEDIUM_INFORMATION",
+      "retention_reason": "same surface retains source/value/product diversity but needs later annotation-level dedup review",
+      "semantic_families": [
+        "ORDER_CHANNEL_LOOKUP"
+      ],
+      "surface_signature": "5fcf3571932bf0a26cd4"
+    },
+    {
+      "candidate_count": 4,
+      "candidate_ids": [
+        "PBQ-5805FEA90F0BE37C",
+        "PBQ-8A4098836EE94DE3",
+        "PBQ-4C24169A3DD3BC92",
+        "PBQ-0EE5C3C7108BED28"
+      ],
+      "distinct_entities": 4,
+      "distinct_products": 1,
+      "distinct_states": 1,
+      "distinct_value_buckets": 2,
+      "information_class": "MEDIUM_INFORMATION",
+      "retention_reason": "same surface retains source/value/product diversity but needs later annotation-level dedup review",
+      "semantic_families": [
+        "ORDER_AMOUNT_LOOKUP"
+      ],
+      "surface_signature": "fe0a452e5f7b14a2066b"
+    },
+    {
+      "candidate_count": 5,
+      "candidate_ids": [
+        "PBQ-C1468131E149CBB2",
+        "PBQ-FF352D0AD1F81958",
+        "PBQ-A32B56AABF789C15",
+        "PBQ-FF3905E05A55682A",
+        "PBQ-267184687AA53A12"
+      ],
+      "distinct_entities": 5,
+      "distinct_products": 5,
+      "distinct_states": 2,
+      "distinct_value_buckets": 5,
+      "information_class": "HIGH_INFORMATION",
+      "retention_reason": "distinct business state/value/family gives the shared surface meaningful coverage value",
+      "semantic_families": [
+        "ORDER_PRODUCT_LOOKUP"
+      ],
+      "surface_signature": "3302065e58e4b7f34d01"
+    },
+    {
+      "candidate_count": 4,
+      "candidate_ids": [
+        "PBQ-EF26F23133EF0DA0",
+        "PBQ-966A380A3AE0A99A",
+        "PBQ-D5AE75DD0E13A0DA",
+        "PBQ-2AE02820A28CA2F4"
+      ],
+      "distinct_entities": 4,
+      "distinct_products": 3,
+      "distinct_states": 1,
+      "distinct_value_buckets": 2,
+      "information_class": "HIGH_INFORMATION",
+      "retention_reason": "distinct business state/value/family gives the shared surface meaningful coverage value",
+      "semantic_families": [
+        "ORDER_QUANTITY_LOOKUP"
+      ],
+      "surface_signature": "3c0a531c0de3763b2ace"
+    },
+    {
+      "candidate_count": 4,
+      "candidate_ids": [
+        "PBQ-95B8489A67C4B8FC",
+        "PBQ-ECD5E0E87E3A758C",
+        "PBQ-6C9819978962DE31",
+        "PBQ-FA3768D79BC5BC45"
+      ],
+      "distinct_entities": 4,
+      "distinct_products": 4,
+      "distinct_states": 1,
+      "distinct_value_buckets": 2,
+      "information_class": "HIGH_INFORMATION",
+      "retention_reason": "distinct business state/value/family gives the shared surface meaningful coverage value",
+      "semantic_families": [
+        "ORDER_UNIT_PRICE_LOOKUP"
+      ],
+      "surface_signature": "619fb11966ad43d671da"
+    },
+    {
+      "candidate_count": 2,
+      "candidate_ids": [
+        "PBQ-3C9F1275E9730856",
+        "PBQ-86DBE00C3CB51556"
+      ],
+      "distinct_entities": 2,
+      "distinct_products": 2,
+      "distinct_states": 1,
+      "distinct_value_buckets": 1,
+      "information_class": "MEDIUM_INFORMATION",
+      "retention_reason": "same surface retains source/value/product diversity but needs later annotation-level dedup review",
+      "semantic_families": [
+        "TICKET_MULTI_FIELD_SUMMARY"
+      ],
+      "surface_signature": "fafe5acdc8bf11c799d6"
+    },
+    {
+      "candidate_count": 6,
+      "candidate_ids": [
+        "PBQ-048CDC96FD654D9C",
+        "PBQ-F56B400A5A088BA3",
+        "PBQ-C37515E743F2D874",
+        "PBQ-1F4E39D2F1DB6288",
+        "PBQ-729E57F4C4422FD0",
+        "PBQ-D0CBA96DE248F663"
+      ],
+      "distinct_entities": 6,
+      "distinct_products": 2,
+      "distinct_states": 1,
+      "distinct_value_buckets": 6,
+      "information_class": "MEDIUM_INFORMATION",
+      "retention_reason": "same surface retains source/value/product diversity but needs later annotation-level dedup review",
+      "semantic_families": [
+        "ORDER_MULTI_FIELD_SUMMARY"
+      ],
+      "surface_signature": "9d1ca9b58c2dca1fdd7b"
+    },
+    {
+      "candidate_count": 2,
+      "candidate_ids": [
+        "PBQ-D3B402ABEBF07E9E",
+        "PBQ-1567DC77F259C130"
+      ],
+      "distinct_entities": 2,
+      "distinct_products": 2,
+      "distinct_states": 1,
+      "distinct_value_buckets": 2,
+      "information_class": "MEDIUM_INFORMATION",
+      "retention_reason": "same surface retains source/value/product diversity but needs later annotation-level dedup review",
+      "semantic_families": [
+        "WARRANTY_MULTI_FIELD_SUMMARY"
+      ],
+      "surface_signature": "802548be06e022317d9b"
+    },
+    {
+      "candidate_count": 4,
+      "candidate_ids": [
+        "PBQ-D6F47B22A54885E0",
+        "PBQ-7759F304ED3D1D7A",
+        "PBQ-F60902293BED769D",
+        "PBQ-95CD26B20A25881C"
+      ],
+      "distinct_entities": 4,
+      "distinct_products": 4,
+      "distinct_states": 1,
+      "distinct_value_buckets": 1,
+      "information_class": "MEDIUM_INFORMATION",
+      "retention_reason": "same surface retains source/value/product diversity but needs later annotation-level dedup review",
+      "semantic_families": [
+        "TICKET_STATUS_LOOKUP"
+      ],
+      "surface_signature": "c0ac10dfe40b6e1edeb1"
+    },
+    {
+      "candidate_count": 5,
+      "candidate_ids": [
+        "PBQ-A0E0BD8FDB4A7FCD",
+        "PBQ-49C83A426692E569",
+        "PBQ-B361D2B425C2A692",
+        "PBQ-0484FC54944F2D5D",
+        "PBQ-BB1850C6B8A4B8E2"
+      ],
+      "distinct_entities": 5,
+      "distinct_products": 1,
+      "distinct_states": 1,
+      "distinct_value_buckets": 1,
+      "information_class": "LOW_INFORMATION",
+      "retention_reason": "same surface/family/state/value bucket; entity replacement contributes limited incremental information",
+      "semantic_families": [
+        "ORDER_STATUS_LOOKUP"
+      ],
+      "surface_signature": "0bf0cfcf5295df5099df"
+    },
+    {
+      "candidate_count": 3,
+      "candidate_ids": [
+        "PBQ-E4A662D00009AF99",
+        "PBQ-CC0D8CF7C1B4B531",
+        "PBQ-4AFD378D10DDEB67"
+      ],
+      "distinct_entities": 3,
+      "distinct_products": 3,
+      "distinct_states": 1,
+      "distinct_value_buckets": 1,
+      "information_class": "MEDIUM_INFORMATION",
+      "retention_reason": "same surface retains source/value/product diversity but needs later annotation-level dedup review",
+      "semantic_families": [
+        "WARRANTY_STATUS_LOOKUP"
+      ],
+      "surface_signature": "26770017e636e654b84a"
+    },
+    {
+      "candidate_count": 2,
+      "candidate_ids": [
+        "PBQ-A15ADAE5745496C4",
+        "PBQ-0C548DF5C6D72B22"
+      ],
+      "distinct_entities": 2,
+      "distinct_products": 2,
+      "distinct_states": 1,
+      "distinct_value_buckets": 2,
+      "information_class": "MEDIUM_INFORMATION",
+      "retention_reason": "same surface retains source/value/product diversity but needs later annotation-level dedup review",
+      "semantic_families": [
+        "WARRANTY_ORDER_LINK_LOOKUP"
+      ],
+      "surface_signature": "f0131dff4687925d572b"
+    },
+    {
+      "candidate_count": 2,
+      "candidate_ids": [
+        "PBQ-8D7A5BC8F9875798",
+        "PBQ-B3814E796B44E38B"
+      ],
+      "distinct_entities": 2,
+      "distinct_products": 2,
+      "distinct_states": 1,
+      "distinct_value_buckets": 2,
+      "information_class": "MEDIUM_INFORMATION",
+      "retention_reason": "same surface retains source/value/product diversity but needs later annotation-level dedup review",
+      "semantic_families": [
+        "WARRANTY_TICKET_LINK_LOOKUP"
+      ],
+      "surface_signature": "6794b8aa7ddba74949ce"
+    },
+    {
+      "candidate_count": 3,
+      "candidate_ids": [
+        "PBQ-AC71481D49DC5350",
+        "PBQ-E7CD67D25D06E0F2",
+        "PBQ-BE7CA26D370D40AE"
+      ],
+      "distinct_entities": 3,
+      "distinct_products": 3,
+      "distinct_states": 1,
+      "distinct_value_buckets": 3,
+      "information_class": "MEDIUM_INFORMATION",
+      "retention_reason": "same surface retains source/value/product diversity but needs later annotation-level dedup review",
+      "semantic_families": [
+        "WARRANTY_PRODUCT_LOOKUP"
+      ],
+      "surface_signature": "47392fe7457ea41b6bb0"
+    },
+    {
+      "candidate_count": 3,
+      "candidate_ids": [
+        "PBQ-6F809B9695B1A5A8",
+        "PBQ-14F685DE33DE8F95",
+        "PBQ-B5786DCEC2AE4D52"
+      ],
+      "distinct_entities": 3,
+      "distinct_products": 3,
+      "distinct_states": 1,
+      "distinct_value_buckets": 2,
+      "information_class": "HIGH_INFORMATION",
+      "retention_reason": "distinct business state/value/family gives the shared surface meaningful coverage value",
+      "semantic_families": [
+        "WARRANTY_COVERAGE_TYPE_LOOKUP"
+      ],
+      "surface_signature": "41e8d9c37ef7b5ce0584"
+    },
+    {
+      "candidate_count": 4,
+      "candidate_ids": [
+        "PBQ-8F10CDDD464D974F",
+        "PBQ-4EB5124F3D51E623",
+        "PBQ-787F6E379AD15E8E",
+        "PBQ-9AAA1BDA47EE2037"
+      ],
+      "distinct_entities": 4,
+      "distinct_products": 3,
+      "distinct_states": 1,
+      "distinct_value_buckets": 1,
+      "information_class": "MEDIUM_INFORMATION",
+      "retention_reason": "same surface retains source/value/product diversity but needs later annotation-level dedup review",
+      "semantic_families": [
+        "WARRANTY_COVERAGE_STATUS_LOOKUP"
+      ],
+      "surface_signature": "7dea9448aae1cead48cb"
+    },
+    {
+      "candidate_count": 3,
+      "candidate_ids": [
+        "PBQ-20617690C580D073",
+        "PBQ-1F2375F8FC344B70",
+        "PBQ-FA0C3DDA49A03B16"
+      ],
+      "distinct_entities": 3,
+      "distinct_products": 3,
+      "distinct_states": 1,
+      "distinct_value_buckets": 3,
+      "information_class": "MEDIUM_INFORMATION",
+      "retention_reason": "same surface retains source/value/product diversity but needs later annotation-level dedup review",
+      "semantic_families": [
+        "WARRANTY_EXPIRY_LOOKUP"
+      ],
+      "surface_signature": "dcc35f5ead734127ad73"
+    }
+  ],
+  "high_information_groups": 10,
+  "low_information_groups": 1,
+  "medium_information_groups": 14,
+  "normalized_duplicate_excess": 59
+}

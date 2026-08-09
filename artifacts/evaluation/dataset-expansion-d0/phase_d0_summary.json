@@ -1,0 +1,48 @@
+{
+  "artifact_version": "dataset-expansion-d0-v1",
+  "atomic_fact_count": 4913,
+  "benchmark_usable_atomic_facts": 4907,
+  "benchmark_usable_structured_fact_types": 28,
+  "clarification_formal_cases": 3,
+  "development_cases": 34,
+  "document_sections": 1216,
+  "document_sources": 22,
+  "effective_case_count": 35,
+  "existing_formal_canonical_cases": 39,
+  "formal_multi_turn_eligible": 0,
+  "formal_safety_cases": 3,
+  "handoff_formal_cases": 0,
+  "inventory_hash_sha256": "821acb2706a0b76d01230d7d10383e5f9af1ce8a6072373a3c26db8565236205",
+  "mixed_families": 6,
+  "new_formal_cases_generated": 0,
+  "recommended_formal_dataset": {
+    "candidate_pool_target_range": [
+      474,
+      569
+    ],
+    "formal_target_minimum": 204,
+    "formal_target_recommended": 370,
+    "formal_target_upper_reasonable_bound": 536,
+    "note": "Candidate pool margin is for source validation/dedup/review rejection; it is not a quality metric or a guarantee.",
+    "planning_rejection_rate_range": [
+      0.22,
+      0.35
+    ],
+    "recommended_formal_range": [
+      326,
+      414
+    ]
+  },
+  "recovery_challenge_ready": false,
+  "relation_families": 13,
+  "response_type_distribution": {
+    "ANSWER": 36,
+    "CLARIFICATION": 3
+  },
+  "safety_attack_surfaces": 12,
+  "semantic_family_count": 5,
+  "structured_fact_types": 41,
+  "surface_variations": 4,
+  "trusted_test_present": false,
+  "validation_cases": 5
+}

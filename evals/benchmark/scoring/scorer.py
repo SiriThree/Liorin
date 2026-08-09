@@ -164,6 +164,10 @@ def score_predictions(
         samples = [sample for sample in samples if sample["layer"] in layers]
     if allow_partial:
         samples = [sample for sample in samples if sample["id"] in pred_by_id]
+    if any(not sample.get("gold") for sample in samples):
+        raise ValueError(
+            "cannot score samples without local Gold; use predictions-only mode and score in the Gold-custodian environment"
+        )
     details = []
     by_layer: dict[str, list[dict[str, float]]] = defaultdict(list)
     missing = []
@@ -194,5 +198,15 @@ def score_predictions(
         "by_layer": summary,
         "details": details,
         "run_metadata": run_metadata or {},
-        "warning": "fact_coverage_proxy is deterministic lexical coverage, not answer correctness; use locked judge or human review for semantic quality.",
+        "metric_semantics": {
+            "macro_objective_score": "LEGACY_DIAGNOSTIC_DEPRECATED_AS_PRIMARY",
+            "objective_score": "LEGACY_LAYER_DIAGNOSTIC",
+            "fact_coverage_proxy": "LEXICAL_PROXY_ONLY_NOT_ANSWER_CORRECTNESS",
+        },
+        "primary_metric_status": "NOT_DEFINED_IN_PHASE0",
+        "warning": (
+            "macro_objective_score is a legacy diagnostic, not End-to-End Task Success. "
+            "fact_coverage_proxy is deterministic lexical coverage, not answer correctness; "
+            "use locked judge or human review for semantic quality."
+        ),
     }

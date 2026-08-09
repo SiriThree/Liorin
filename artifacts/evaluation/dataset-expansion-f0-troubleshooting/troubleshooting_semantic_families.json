@@ -1,0 +1,21 @@
+{
+  "symptom_families": {
+    "CHARGING_OR_BATTERY": 4,
+    "CONNECTIVITY_OR_INTERFACE": 3,
+    "DOOR_OR_MECHANICAL": 8,
+    "INDICATOR_OR_DISPLAY": 8,
+    "MAINTENANCE": 4,
+    "OTHER_TROUBLESHOOTING": 11,
+    "START_OR_RESPONSE_FAILURE": 14,
+    "WATER_FLOW_OR_DRAINAGE": 14
+  },
+  "task_behavior_taxonomy": {
+    "CLARIFICATION_REQUIRED": 12,
+    "CONDITIONAL": 22,
+    "DIRECT": 11,
+    "HANDOFF": 8,
+    "MULTI_STEP": 4,
+    "NO_CLARIFICATION_CONTROL": 11,
+    "RECOVERY_ORIENTED": 22
+  }
+}

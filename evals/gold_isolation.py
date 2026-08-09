@@ -8,9 +8,31 @@ import subprocess
 from typing import Any
 
 FORBIDDEN_RUNTIME_KEYS = frozenset({
-    "gold", "reviewed_gold", "reviewed_gold_v7_4", "qrels", "expected_action",
-    "expected_document_ids", "expected_section_ids", "required_atomic_facts",
-    "forbidden_sources", "outdated_sources",
+    "gold",
+    "reviewed_gold",
+    "reviewed_gold_v7_4",
+    "qrels",
+    "expected_answer",
+    "expected_source",
+    "expected_sources",
+    "expected_agent",
+    "expected_tool",
+    "expected_tools",
+    "expected_route",
+    "expected_action",
+    "expected_response_type",
+    "expected_document_ids",
+    "expected_section_ids",
+    "required_atomic_facts",
+    "required_keywords",
+    "expected_behavior",
+    "task_success_contract",
+    "safety_constraints",
+    "gold_evidence",
+    "gold_fact",
+    "gold_facts",
+    "forbidden_sources",
+    "outdated_sources",
 })
 
 

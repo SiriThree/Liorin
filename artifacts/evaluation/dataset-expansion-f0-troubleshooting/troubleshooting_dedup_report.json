@@ -1,0 +1,8 @@
+{
+  "cross_product_same_semantic_fact_excess": 5,
+  "exact_query_duplicates": 0,
+  "normalized_query_duplicates": 0,
+  "same_scenario_family_excess": 16,
+  "same_semantic_signature_excess": 5,
+  "same_source_unit_excess": 44
+}

@@ -1,0 +1,119 @@
+{
+  "AFTER_SALES": {
+    "context_dependent": 0,
+    "effective_contribution": 5,
+    "excluded": 0,
+    "group_only": 6,
+    "independent_askable": 7,
+    "source_count": 13,
+    "task_usable": 7
+  },
+  "COMPATIBILITY": {
+    "context_dependent": 0,
+    "effective_contribution": 48,
+    "excluded": 5,
+    "group_only": 0,
+    "independent_askable": 64,
+    "source_count": 69,
+    "task_usable": 64
+  },
+  "ERROR_CODE": {
+    "context_dependent": 0,
+    "effective_contribution": 1,
+    "excluded": 0,
+    "group_only": 2,
+    "independent_askable": 0,
+    "source_count": 2,
+    "task_usable": 0
+  },
+  "FAQ_PROCESS": {
+    "context_dependent": 0,
+    "effective_contribution": 4,
+    "excluded": 0,
+    "group_only": 10,
+    "independent_askable": 0,
+    "source_count": 10,
+    "task_usable": 0
+  },
+  "FEATURE_OR_INSTRUCTION": {
+    "context_dependent": 1,
+    "effective_contribution": 943,
+    "excluded": 201,
+    "group_only": 1075,
+    "independent_askable": 2356,
+    "source_count": 3633,
+    "task_usable": 2356
+  },
+  "LIMITATION": {
+    "context_dependent": 0,
+    "effective_contribution": 16,
+    "excluded": 1,
+    "group_only": 0,
+    "independent_askable": 19,
+    "source_count": 20,
+    "task_usable": 19
+  },
+  "POLICY": {
+    "context_dependent": 0,
+    "effective_contribution": 5,
+    "excluded": 1,
+    "group_only": 0,
+    "independent_askable": 9,
+    "source_count": 10,
+    "task_usable": 9
+  },
+  "PRODUCT_SPEC": {
+    "context_dependent": 0,
+    "effective_contribution": 35,
+    "excluded": 2,
+    "group_only": 0,
+    "independent_askable": 41,
+    "source_count": 43,
+    "task_usable": 41
+  },
+  "RETURN_POLICY": {
+    "context_dependent": 0,
+    "effective_contribution": 6,
+    "excluded": 0,
+    "group_only": 1,
+    "independent_askable": 8,
+    "source_count": 9,
+    "task_usable": 8
+  },
+  "SAFETY_INSTRUCTION": {
+    "context_dependent": 0,
+    "effective_contribution": 173,
+    "excluded": 50,
+    "group_only": 173,
+    "independent_askable": 484,
+    "source_count": 707,
+    "task_usable": 484
+  },
+  "TROUBLESHOOTING_STEP": {
+    "context_dependent": 0,
+    "effective_contribution": 94,
+    "excluded": 145,
+    "group_only": 57,
+    "independent_askable": 115,
+    "source_count": 317,
+    "task_usable": 115
+  },
+  "WARRANTY": {
+    "context_dependent": 0,
+    "effective_contribution": 33,
+    "excluded": 8,
+    "group_only": 18,
+    "independent_askable": 50,
+    "source_count": 76,
+    "task_usable": 50
+  },
+  "WARRANTY_POLICY": {
+    "context_dependent": 0,
+    "effective_contribution": 2,
+    "excluded": 0,
+    "group_only": 1,
+    "independent_askable": 3,
+    "source_count": 4,
+    "task_usable": 3
+  }
+}

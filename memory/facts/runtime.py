@@ -30,7 +30,7 @@ from memory.facts.store import (
     reset_default_memory_fact_store,
 )
 from metrics import MemoryMetricsRegistry, get_default_memory_metrics
-from observability import RuntimeEventType, get_default_metrics, get_default_trace_recorder
+from observability import RuntimeEventType, emit_security_decision, get_default_metrics, get_default_trace_recorder, identity_refs
 
 
 def _lifecycle_contracts():
@@ -317,6 +317,12 @@ class LongTermMemoryRuntime:
         self.metrics.increment("memory_retrieval_count")
         if identity_context.is_anonymous:
             self.metrics.increment("acl_denied_count")
+            emit_security_decision(
+                kind="memory_access", stage="memory", allowed=False, decision="DENY",
+                reason="anonymous identity cannot access long-term memory",
+                actor_identity=identity_context, resource_type="memory",
+                side_effect="NONE", policy="MemoryAccessPolicy",
+            )
             return MemoryRetrievalResult((), "", ())
         try:
             self.access_policy.assert_allowed(
@@ -330,8 +336,13 @@ class LongTermMemoryRuntime:
                 limit=limit,
                 now=now,
             )
-        except MemoryAccessDenied:
+        except MemoryAccessDenied as exc:
             self.metrics.increment("acl_denied_count")
+            emit_security_decision(
+                kind="memory_access", stage="memory", allowed=False, decision="DENY",
+                reason=str(exc) or "memory ACL denied", actor_identity=identity_context,
+                resource_type="memory", side_effect="NONE", policy="MemoryAccessPolicy",
+            )
             return MemoryRetrievalResult((), "", ())
         except Exception as exc:
             self.metrics.increment("backend_failure_count")
@@ -366,10 +377,27 @@ class LongTermMemoryRuntime:
         unified.increment("memory_read")
         unified.observe("memory_latency_ms", retrieval_latency_ms)
         unified.increment("memory_hit", 1.0 if result.facts else 0.0)
+        for fact in result.facts:
+            emit_security_decision(
+                kind="memory_access", stage="memory", allowed=True, decision="ALLOW_READ",
+                reason="memory fact passed production ownership policy",
+                actor_identity=identity_context, resource_identity=fact.identity_context,
+                resource_type="memory_fact", resource_ref=fact.fact_id,
+                side_effect="EXECUTED_READ", policy="MemoryAccessPolicy",
+            )
+        for fact_id in result.denied_fact_ids:
+            emit_security_decision(
+                kind="memory_access", stage="memory", allowed=False, decision="DENY",
+                reason="memory candidate rejected by production ownership policy",
+                actor_identity=identity_context, resource_type="memory_fact", resource_ref=fact_id,
+                side_effect="NONE", policy="MemoryAccessPolicy",
+            )
         get_default_trace_recorder().emit(
             RuntimeEventType.MEMORY_READ,
             attributes={
                 "fact_ids": [fact.fact_id for fact in result.facts],
+                "fact_identity_scopes": [identity_refs(fact.identity_context) for fact in result.facts],
+                "request_identity": identity_refs(identity_context),
                 "hit_count": len(result.facts),
                 "expired_count": len(result.expired_fact_ids),
                 "denied_count": len(result.denied_fact_ids),

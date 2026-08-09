@@ -1,0 +1,10 @@
+{
+  "annotation_runs": 0,
+  "packet_count": 16,
+  "packet_hash_unique_count": 16,
+  "ready_by_family": {
+    "MIXED_ORDER_STATUS_POLICY": 8,
+    "MIXED_WARRANTY_STATUS_POLICY": 8
+  },
+  "source_snapshot_hash_unique_count": 16
+}

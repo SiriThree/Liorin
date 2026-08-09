@@ -1,0 +1,186 @@
+{
+  "ablation": {
+    "status": "NOT RUN"
+  },
+  "context_quality_cost": {
+    "status": "NOT RUN"
+  },
+  "core_metrics": {
+    "end_to_end_task_success": "NOT RUN",
+    "first_pass_failure_recovery_rate": "NOT RUN",
+    "grounded_claim_rate": "NOT RUN",
+    "required_gold_evidence_recall": "NOT RUN",
+    "safety_pass_rate": "NOT RUN"
+  },
+  "dataset_scope": {
+    "multi_turn": {
+      "details": {
+        "eligible_sessions": 0
+      },
+      "name": "multi_turn_subset",
+      "reason": "formal eligible multi-turn sessions=0",
+      "status": "NOT_READY"
+    },
+    "recovery": {
+      "details": {},
+      "name": "recovery_subset",
+      "reason": "COVERAGE_INSUFFICIENT_NEEDS_REVIEW",
+      "status": "NOT_READY"
+    },
+    "safety": {
+      "details": {
+        "eligible_cases": 3
+      },
+      "name": "safety_subset",
+      "reason": "formal safety candidates=3",
+      "status": "READY"
+    },
+    "trusted_test": false,
+    "validation": {
+      "case_count": 5
+    }
+  },
+  "evaluation_platform": "READY",
+  "evaluation_platform_engineering": "COMPLETE",
+  "failure_attribution": {
+    "status": "NOT RUN"
+  },
+  "formal_quality_evaluation": "BLOCKED",
+  "formal_validation": "NOT RUN",
+  "formal_validation_status": "BLOCKED",
+  "limitations": [
+    "No trusted TEST split unless readiness explicitly says READY.",
+    "Formal metrics are NOT RUN when Production or required Judge is blocked.",
+    "Phase-4 multi-turn candidate sessions remain review debt unless formally eligible.",
+    "Order Agent structured business-query tool wiring remains a Production gap."
+  ],
+  "metadata": {
+    "generated_by": "eval_platform.cli final-report"
+  },
+  "readiness": {
+    "items": [
+      {
+        "details": {},
+        "name": "production_runtime",
+        "reason": "ModuleNotFoundError: No module named 'langchain'",
+        "status": "BLOCKED"
+      },
+      {
+        "details": {
+          "credential_present": false,
+          "langchain_present": false,
+          "model": null
+        },
+        "name": "model_provider",
+        "reason": "model/provider cannot be fully verified in current environment",
+        "status": "PARTIAL"
+      },
+      {
+        "details": {
+          "credential_present": false,
+          "judge_model": null,
+          "langchain_present": false
+        },
+        "name": "judge_provider",
+        "reason": "real Judge cannot run without LangChain/provider credentials and LIORIN_JUDGE_MODEL",
+        "status": "BLOCKED"
+      },
+      {
+        "details": {
+          "milvus_uri_configured": false,
+          "pymilvus_present": false
+        },
+        "name": "retrieval_backend",
+        "reason": "Milvus runtime is not verifiable in this environment",
+        "status": "NOT_READY"
+      },
+      {
+        "details": {
+          "local_db": "data/structured/liorin.db",
+          "postgres_configured": false
+        },
+        "name": "structured_data_backend",
+        "reason": "structured data source detected; Production specialist wiring remains separately audited",
+        "status": "PARTIAL"
+      },
+      {
+        "details": {},
+        "name": "memory_backend",
+        "reason": "Memory runtime exists; external production backend is not live-verified by doctor",
+        "status": "PARTIAL"
+      },
+      {
+        "details": {},
+        "name": "artifact_backend",
+        "reason": "Artifact runtime exists; external production backend is not live-verified by doctor",
+        "status": "PARTIAL"
+      },
+      {
+        "details": {
+          "case_count": 39
+        },
+        "name": "canonical_dataset",
+        "reason": "39 fully canonical legacy cases available",
+        "status": "READY"
+      },
+      {
+        "details": {
+          "case_count": 5
+        },
+        "name": "validation_split",
+        "reason": "5 canonical validation cases available",
+        "status": "READY"
+      },
+      {
+        "details": {},
+        "name": "trusted_test_split",
+        "reason": "NO TRUSTED TEST SPLIT",
+        "status": "NOT_READY"
+      },
+      {
+        "details": {},
+        "name": "recovery_subset",
+        "reason": "COVERAGE_INSUFFICIENT_NEEDS_REVIEW",
+        "status": "NOT_READY"
+      },
+      {
+        "details": {
+          "eligible_sessions": 0
+        },
+        "name": "multi_turn_subset",
+        "reason": "formal eligible multi-turn sessions=0",
+        "status": "NOT_READY"
+      },
+      {
+        "details": {
+          "eligible_cases": 3
+        },
+        "name": "safety_subset",
+        "reason": "formal safety candidates=3",
+        "status": "READY"
+      },
+      {
+        "details": {
+          "config_count": 11
+        },
+        "name": "ablation_configs",
+        "reason": "ablation configs=11",
+        "status": "READY"
+      },
+      {
+        "details": {
+          "baseline_count": 0,
+          "path": "artifacts/evaluation/baseline_registry.json"
+        },
+        "name": "baseline_registry",
+        "reason": "BASELINE_NOT_ESTABLISHED",
+        "status": "NOT_READY"
+      }
+    ],
+    "system_status": "PRODUCTION_BLOCKED"
+  },
+  "regression_gate": {
+    "status": "BASELINE_NOT_ESTABLISHED"
+  },
+  "schema_version": "1.0"
+}

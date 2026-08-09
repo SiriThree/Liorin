@@ -1,0 +1,10 @@
+{
+  "complete_dual_source_policy_or_synthesis": 58,
+  "derived_fact_count": 58,
+  "reasoning_type_distribution": {
+    "MULTI_SOURCE_SYNTHESIS": 8,
+    "POLICY_APPLICATION": 8,
+    "SOURCE_ROUTING": 42
+  },
+  "unsupported_derivation": 0
+}

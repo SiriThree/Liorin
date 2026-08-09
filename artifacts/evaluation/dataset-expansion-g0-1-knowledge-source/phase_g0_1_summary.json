@@ -1,0 +1,43 @@
+{
+  "annotation_runs": 0,
+  "atomic_facts": 4913,
+  "benchmark_usable_source_units": 1220,
+  "capacity_blueprint": {
+    "basis": {
+      "coherent_fact_groups": 228,
+      "effective_source_units": 1195,
+      "independent_askable_facts": 3156,
+      "principle": "balanced source-unit/task-semantic selection; no paraphrase multiplication",
+      "semantic_topics": 18,
+      "usable_sources": 22
+    },
+    "confidence": "HIGH",
+    "minimum_high_quality_candidate_capacity": 120,
+    "note": "Planning capacity, not generated Candidate count and not Formal Benchmark size.",
+    "recommended_first_wave_capacity": 180,
+    "upper_reasonable_capacity": 240
+  },
+  "coherent_fact_groups": 228,
+  "cross_product_duplicate_groups": 12,
+  "d3r": "DEFERRED_BY_ENVIRONMENT",
+  "effective_source_units": 1195,
+  "faq": 1,
+  "formal_canonical": 39,
+  "heuristic_usable": 4907,
+  "independent_askable_facts": 3156,
+  "knowledge_source_units": 1355,
+  "manuals": 20,
+  "new_candidates": 0,
+  "new_formal_cases": 0,
+  "new_queries": 0,
+  "phase": "G0.1",
+  "policies": 1,
+  "production_agent": "NOT RUN",
+  "products_with_usable_units": 20,
+  "source_drift": "NO_SOURCE_DRIFT",
+  "sources": 22,
+  "sources_with_usable_units": 22,
+  "stable_sections": 1216,
+  "status": "COMPLETE",
+  "task_usable_facts": 3156
+}

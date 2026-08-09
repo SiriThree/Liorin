@@ -1,0 +1,12 @@
+{
+  "conditional_sections": 86,
+  "fact_count": 319,
+  "fact_type_distribution": {
+    "ERROR_CODE": 2,
+    "TROUBLESHOOTING_STEP": 317
+  },
+  "handoff_or_escalation_sections": 40,
+  "missing_information_sections": 72,
+  "multi_step_sections": 21,
+  "section_count": 137
+}

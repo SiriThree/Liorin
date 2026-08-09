@@ -1,0 +1,77 @@
+{
+  "categories": [
+    {
+      "category": "KNOWLEDGE_QA",
+      "confidence": "HIGH",
+      "evidence": [
+        "4588 benchmark-usable non-troubleshooting document fact candidates",
+        "20 product manuals + FAQ + policy"
+      ],
+      "minimum": 80,
+      "recommended": 150,
+      "upper_reasonable_bound": 220
+    },
+    {
+      "category": "TROUBLESHOOTING",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "319 troubleshooting/error-code fact candidates",
+        "21 multi-step sections"
+      ],
+      "minimum": 35,
+      "recommended": 70,
+      "upper_reasonable_bound": 100
+    },
+    {
+      "category": "PRIVATE_BUSINESS_QUERY",
+      "confidence": "HIGH",
+      "evidence": [
+        "28 production-exposed structured fact types",
+        "1500 orders / 420 tickets / 140 warranty cases provide entity/state diversity"
+      ],
+      "minimum": 35,
+      "recommended": 60,
+      "upper_reasonable_bound": 90
+    },
+    {
+      "category": "MIXED_KNOWLEDGE_STRUCTURED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "6 production-supported mixed relation families",
+        "capacity capped by independent relation semantics, not entity Cartesian product"
+      ],
+      "minimum": 30,
+      "recommended": 54,
+      "upper_reasonable_bound": 78
+    },
+    {
+      "category": "SAFETY_GOVERNANCE",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "12 real governance attack surfaces",
+        "positive/negative policy-boundary variants without invented write surfaces"
+      ],
+      "minimum": 24,
+      "recommended": 36,
+      "upper_reasonable_bound": 48
+    }
+  ],
+  "recommended_dataset": {
+    "candidate_pool_target_range": [
+      474,
+      569
+    ],
+    "formal_target_minimum": 204,
+    "formal_target_recommended": 370,
+    "formal_target_upper_reasonable_bound": 536,
+    "note": "Candidate pool margin is for source validation/dedup/review rejection; it is not a quality metric or a guarantee.",
+    "planning_rejection_rate_range": [
+      0.22,
+      0.35
+    ],
+    "recommended_formal_range": [
+      326,
+      414
+    ]
+  }
+}

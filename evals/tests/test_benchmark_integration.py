@@ -71,13 +71,37 @@ def test_scorer_layer_filter_and_partial_submission(tmp_path: Path):
     assert "fact_coverage_proxy is deterministic lexical coverage" in report["warning"]
 
 
-def test_end_to_end_adapter_attempts_support_graph():
+def test_end_to_end_adapter_uses_single_production_prediction_record():
     dataset = json.loads(Path("evals/benchmark/data/validation_v7_3.json").read_text(encoding="utf-8"))
     sample = next(row for row in dataset if row["layer"] == "end_to_end")
+    from eval_platform import PredictionRecord
     from evals.benchmark.adapters import end_to_end
 
-    with patch("evals.benchmark.adapters.end_to_end.create_support_agent") as create_support:
-        create_support.side_effect = RuntimeError("offline graph unavailable")
+    record = PredictionRecord(
+        case_id=sample["id"],
+        trace_id="eval:test:trace",
+        final_response="production answer",
+        response_type="answer",
+        trace_facts={
+            "trace_id": "eval:test:trace",
+            "selected_evidence_ids": [],
+            "used_sources": [],
+            "verifier_actions": ["accept"],
+            "recovery_actions": [],
+            "workflow_decisions": [],
+            "retrieval_rounds": 1,
+            "model_calls": 1,
+            "tool_calls": 1,
+        },
+        runtime_metrics={"latency_ms": 1.0, "model_calls": 1, "tool_calls": 1, "retrieval_rounds": 1},
+    )
+    with patch("evals.benchmark.adapters.end_to_end.ProductionEvaluationAdapter") as adapter_cls:
+        adapter_cls.return_value.run.return_value = record
         row = end_to_end.predict(sample, registry=BenchmarkCorpusRegistry())
+
+    adapter_cls.return_value.run.assert_called_once()
+    assert row["prediction"]["answer"] == "production answer"
     assert row["diagnostics"]["support_graph_called"] is True
-    assert "offline graph unavailable" in row["diagnostics"]["support_graph_fallback_reason"]
+    assert row["diagnostics"]["single_execution"] is True
+    assert row["diagnostics"]["trace_id"] == "eval:test:trace"
+    assert row["diagnostics"]["support_graph_fallback_reason"] is None

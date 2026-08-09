@@ -1,0 +1,1436 @@
+{
+  "count": 84,
+  "materialization_version": "private-business-runtime-materialization-v1",
+  "raw_fixture_ids_persisted": false,
+  "rows": [
+    {
+      "candidate_id": "PBQ-A0E0BD8FDB4A7FCD",
+      "deterministic": true,
+      "fixture_identifier_sha256": "0e00da9e50146181695e90f8bd87adc89c90c8b1b98d22276d60852a9507ce90",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "请帮我查一下订单 [ORDER_FIXTURE_ID] 现在是什么状态？",
+      "runtime_query_sha256": "ebe5288ee1094eecdc14a27c257b1c81291d6caac717596e3f5445e35430f1e1",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-49C83A426692E569",
+      "deterministic": true,
+      "fixture_identifier_sha256": "2f38bf485ea4d0449ec4c8abd7c724209ae58b757a04acde55a07f3bda149a10",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "请帮我查一下订单 [ORDER_FIXTURE_ID] 现在是什么状态？",
+      "runtime_query_sha256": "0697e69a7e79bb60127831d8b18e8ec9a0001c054306c87761ac0efa5aeb9167",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-B361D2B425C2A692",
+      "deterministic": true,
+      "fixture_identifier_sha256": "31ad534711e10f9ec4c118a0dbd5c9af3999ec20861fe95b663167b815af2207",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "请帮我查一下订单 [ORDER_FIXTURE_ID] 现在是什么状态？",
+      "runtime_query_sha256": "78dcd79a8f507ac604dd05181457ea1f87d19a2e005624417840869291235163",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-0484FC54944F2D5D",
+      "deterministic": true,
+      "fixture_identifier_sha256": "4376ebc1ee6fa19024a935a2c15e317c2f311e64bbc0a6d60e3c8a93252e76b6",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "请帮我查一下订单 [ORDER_FIXTURE_ID] 现在是什么状态？",
+      "runtime_query_sha256": "04b634b3daffe6df9f3b7edf188212b94c62fe6c7e3384444f3fa21a0501f758",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-BB1850C6B8A4B8E2",
+      "deterministic": true,
+      "fixture_identifier_sha256": "67e079697358955ef03ed9a321d9c5e4236b8fd7e9f5de13c4da1930c725ffa1",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "请帮我查一下订单 [ORDER_FIXTURE_ID] 现在是什么状态？",
+      "runtime_query_sha256": "f49d70d9a6fc9ea11af5faa9449cc551272390aeffe87e89c7d892f9368e07dc",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-DA1D7A18DE2FB14B",
+      "deterministic": true,
+      "fixture_identifier_sha256": "b785d1e45c7bc0da1f69d94f016d3dc37b93e4675ba64c97abfb2bea5786a3fa",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 是哪天下单的？",
+      "runtime_query_sha256": "3f9956afaa9fcebefc21a4b255c7ba6e7c69fd9a5e71f45e13f2f02e0216d8ea",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-73E98E1E815868F3",
+      "deterministic": true,
+      "fixture_identifier_sha256": "d768e1d54045c658ff7342b6eb25e013a97fbdeb9655a2ae226ef8be07c5bfb2",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 是哪天下单的？",
+      "runtime_query_sha256": "2ed77a4123d8fe742411552a7252e4c89d74f335f949d85f3f58c3fafb588328",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-774317DF1C3D2841",
+      "deterministic": true,
+      "fixture_identifier_sha256": "1706c75e4132d0183e5a9b67e9b6b9b60192da9dd9160fce564c9dde3f0aa310",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 是哪天下单的？",
+      "runtime_query_sha256": "aae82b6824a8b64ce7cc293196a4599f11f4410757063a028a96bf78d92e2e31",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-FDBA49930A35F10B",
+      "deterministic": true,
+      "fixture_identifier_sha256": "b9f14f0239149a6e669f59dea8dabdc50ff8434220b1966a3a38fba64810ab65",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 是哪天下单的？",
+      "runtime_query_sha256": "a9e6e59346413249eba00c62f77b2353246cfbf35f888f1bbf70367ab5ec02de",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-C1468131E149CBB2",
+      "deterministic": true,
+      "fixture_identifier_sha256": "bf675157e85099df1e16b4d04c873f11aca3fa9f9172dfd6e684d6e723938ed9",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 购买的是什么产品？",
+      "runtime_query_sha256": "3625d90ba158e8e1dbfce0d7a60b4f68496be23fb75523a23d83a33fda914367",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-FF352D0AD1F81958",
+      "deterministic": true,
+      "fixture_identifier_sha256": "e2a4f4e11474705cfcd66c202313e60c1280b1d74e16eda03448de5c56d67567",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 购买的是什么产品？",
+      "runtime_query_sha256": "39b1fe08d0628076b33f5cd96b2f28548db58cd1b3f2c9cdf8545d678888fb63",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-A32B56AABF789C15",
+      "deterministic": true,
+      "fixture_identifier_sha256": "0fc31f1d29ad680c0e33b1831095c87b8ed5234c55e4f192734fd6b607d026d9",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 购买的是什么产品？",
+      "runtime_query_sha256": "00b07cd6c4aa3f1a6421a52bad45416486d2a86e3da26b3bc3cad3444896feaa",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-FF3905E05A55682A",
+      "deterministic": true,
+      "fixture_identifier_sha256": "ee4254219721b9d18f1e33a0ae103c9f9702baab6921684d8a71bac858a59ed6",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 购买的是什么产品？",
+      "runtime_query_sha256": "b84c562f2c2e228b1466f9bd88770a846ae9a3252705dfbe9da9d9ed230695b3",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-267184687AA53A12",
+      "deterministic": true,
+      "fixture_identifier_sha256": "03d3f03712683818ac81be478209cd20552835a7bbef842de1ea26d1a7ff35ba",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 购买的是什么产品？",
+      "runtime_query_sha256": "ec1350ac11f9b163e154ce9c6ab6ee94890ef5288ca8eb140ac41cc005435f9d",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-EF26F23133EF0DA0",
+      "deterministic": true,
+      "fixture_identifier_sha256": "dd2c455c6ff2a8cdc94160138aea1eacefea536fe6b18b420d44cfc542152c5e",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 里的这件产品买了几件？",
+      "runtime_query_sha256": "c29dfb149df8bcbf2e1d2e869f657c187295237b80d15b917b8aa2452254f94d",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-966A380A3AE0A99A",
+      "deterministic": true,
+      "fixture_identifier_sha256": "f82dbf2787ae92322cb187638ce8f99d94bd58ec3d12d78c91f71ebb2f62456a",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 里的这件产品买了几件？",
+      "runtime_query_sha256": "2e6e4c9a55b37e0124126488a018ecc3339c5943961c51ac78ebbf0fc49f3984",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-D5AE75DD0E13A0DA",
+      "deterministic": true,
+      "fixture_identifier_sha256": "6e928a5b2ecca9599c45a8ba1d730b5a7b2b82646d7c63a074f1c4974b7a9820",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 里的这件产品买了几件？",
+      "runtime_query_sha256": "cdbd421ca632315a37eb958d97650eee22b1743522c2a30c27166ae8571d9d19",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-2AE02820A28CA2F4",
+      "deterministic": true,
+      "fixture_identifier_sha256": "37bdb1c47d9c67510422bcf80af05a354e173ec0b41cc3591df4ce738a5a24a5",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 里的这件产品买了几件？",
+      "runtime_query_sha256": "8be63416d386e6ca749168c97447ab91c3846c21169cb779715a3b788049f0ed",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-95B8489A67C4B8FC",
+      "deterministic": true,
+      "fixture_identifier_sha256": "a5bc3904d698906d0e474e2a68fb22830fcef3d4e72afa6fd7751858229a766e",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 里这件产品的单价是多少？",
+      "runtime_query_sha256": "dd1eda3e09f10d55ab55427f5ebb50066346b2af1e8116fcdc4e123e91cc9760",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-ECD5E0E87E3A758C",
+      "deterministic": true,
+      "fixture_identifier_sha256": "e673a83875de2891717a87b2243da22795e5f4ca22e1add99142ce3ffcb5645c",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 里这件产品的单价是多少？",
+      "runtime_query_sha256": "f1b76d92dff9551aef2adb1ce12db826a7d610862d0ba8f68e3f4bd382340380",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-6C9819978962DE31",
+      "deterministic": true,
+      "fixture_identifier_sha256": "f4a5e770d27e54ac797ddba87a99c040385abe712d59411dd34617fb8ddf2cfa",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 里这件产品的单价是多少？",
+      "runtime_query_sha256": "045b14ef5e852ce73afd204f8e36cb4703c73191f3d71d4ce4b442ea740bfb23",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-FA3768D79BC5BC45",
+      "deterministic": true,
+      "fixture_identifier_sha256": "b8b5ee749181724ffda3be9eee58c8056c48b3aef2315e10e7f76be206faa9e6",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 里这件产品的单价是多少？",
+      "runtime_query_sha256": "17d146f5d944e50ff4bb476cbc53ffdbc382942ab56e918f9d0304a5d28f1e15",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-5805FEA90F0BE37C",
+      "deterministic": true,
+      "fixture_identifier_sha256": "0083cc432332010926a62b273c9dc384a0ec78dd1dc77452335f5cd5eb652416",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 的订单总金额是多少？",
+      "runtime_query_sha256": "7df4428ef2c5e9e872571349a1c4314b17eab0471bf790ea6ee9d57a1bc04011",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-8A4098836EE94DE3",
+      "deterministic": true,
+      "fixture_identifier_sha256": "0492b3142803dc968d1e7a4aedbf7d2d0e41cff07ac026f03920aaca215f365f",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 的订单总金额是多少？",
+      "runtime_query_sha256": "268310fd45460f45825148de7fa142510cd7b8695d5301bd684a7e2cac61de2e",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-4C24169A3DD3BC92",
+      "deterministic": true,
+      "fixture_identifier_sha256": "0570c61f9c7d5af7dad178dae4e148d6e28f622ddec2115cf67b7018b5cb43d3",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 的订单总金额是多少？",
+      "runtime_query_sha256": "91703a3b8a52c78d2b6b3b69a7f5494202826e0c6ce003a73cb7475552c7838a",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-0EE5C3C7108BED28",
+      "deterministic": true,
+      "fixture_identifier_sha256": "0a11d020fe8502a6573ef5f189f3a96c05ff14baf9d5b18247240a4b2e7cd9e6",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 的订单总金额是多少？",
+      "runtime_query_sha256": "5136fd2cd8a8a639f267f72ff9d9cf5b71822924fe77c94b38d127f13d10efba",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-3FD50C98F0643170",
+      "deterministic": true,
+      "fixture_identifier_sha256": "0d5de244a4997995083aeba17785f686e6660432a99e4a44e9655e976f99593b",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 是通过什么渠道下单的？",
+      "runtime_query_sha256": "d40ff92275e1f248f642b9bc6fdfdf8df593b952906233fdc80e14119ad90dc1",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-8B1E0BE682E0287F",
+      "deterministic": true,
+      "fixture_identifier_sha256": "140274d54fa163f893ba1e6e60e688c61c4dc9617de5175fd96287ff5c75662a",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 是通过什么渠道下单的？",
+      "runtime_query_sha256": "1f418d53d6bd7cd572fa44bafadd51d7a46a77d3b2ac3642c7312423e41877bf",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-8E8E951F284FA604",
+      "deterministic": true,
+      "fixture_identifier_sha256": "28c3eded952bef3366eb33ed5ae321554220ac0f3934523485e74706217e6cf5",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 是通过什么渠道下单的？",
+      "runtime_query_sha256": "0535fe2087ddcb9e1650a9ecd76443c1e642dfd4575708b0207434f7546bf729",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-B93874361DD58CDF",
+      "deterministic": true,
+      "fixture_identifier_sha256": "00ab47fa8ec8e2cd099bfe0eb9af3ff3c24cbaa33c994a10d813334ef7ae190a",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "订单 [ORDER_FIXTURE_ID] 是通过什么渠道下单的？",
+      "runtime_query_sha256": "6b3d4cad6c40d6e95206f26fd309e5d3498fe5f56d6ff89c8a8bd7abd3dc5058",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-048CDC96FD654D9C",
+      "deterministic": true,
+      "fixture_identifier_sha256": "02ec02d121399bb53324acc265c8559899d252ce7f004fec6e8e66f4205ea7fb",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "请同时告诉我订单 [ORDER_FIXTURE_ID] 的当前状态和下单日期。",
+      "runtime_query_sha256": "c407013f17a032aff84de2cacae0c2a1cb43fec49f934b12be565b16d6ad9713",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-F56B400A5A088BA3",
+      "deterministic": true,
+      "fixture_identifier_sha256": "036f975ff569318ea7048ff6fb81ecd2300bec137c2a4291aa40259c602ea016",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "请同时告诉我订单 [ORDER_FIXTURE_ID] 的当前状态和下单日期。",
+      "runtime_query_sha256": "e58fab8d72c911e63977a3d15123aa7eba32aa3df56492a0f1fb099cd58c81b2",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-C37515E743F2D874",
+      "deterministic": true,
+      "fixture_identifier_sha256": "045ca404185dac0bfed9b2a1a21a6b0750ca21c166e449685e59cd035fbc8d8e",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "请同时告诉我订单 [ORDER_FIXTURE_ID] 的当前状态和下单日期。",
+      "runtime_query_sha256": "b16c23e764d289ecd766904780cbd110bbbe80f6443274626b18778b08554271",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-1F4E39D2F1DB6288",
+      "deterministic": true,
+      "fixture_identifier_sha256": "0692790b174e279d3ed6ea5d75c39995a38ca9ff738914f06844b0d7a45ecee2",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "请同时告诉我订单 [ORDER_FIXTURE_ID] 的当前状态和下单日期。",
+      "runtime_query_sha256": "29507c119ed14227b9a1d44fc0b50444f71181a5b7087b13cc431c0f33ce5401",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-729E57F4C4422FD0",
+      "deterministic": true,
+      "fixture_identifier_sha256": "071d4494c88727bc6ce574b4643db0377964c5205af9209d05e2e58c4529685f",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "请同时告诉我订单 [ORDER_FIXTURE_ID] 的当前状态和下单日期。",
+      "runtime_query_sha256": "e384320634d21aa3aafcbcad3bd2d15bc603c6e02da1f7b9d4527170b2f87296",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-D0CBA96DE248F663",
+      "deterministic": true,
+      "fixture_identifier_sha256": "0872a925230495c1dd5db7cef9eeba7d188fcb01914d4abfa76c87c32d406a13",
+      "fixture_identifier_type": "order_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "请同时告诉我订单 [ORDER_FIXTURE_ID] 的当前状态和下单日期。",
+      "runtime_query_sha256": "9ef49948790e3e3abdfea83c3c624118fddd7da6dd5d998ee82e93dbd82eddb5",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-D6F47B22A54885E0",
+      "deterministic": true,
+      "fixture_identifier_sha256": "58b18f5da9af8e733789c368c4ca30474f4d9797c608520b719655cc16e32aff",
+      "fixture_identifier_type": "ticket_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "请帮我查一下工单 [TICKET_FIXTURE_ID] 现在是什么状态？",
+      "runtime_query_sha256": "fa7e939ca5b8ab34825c697c2fffd77e29d5939ec4135a37865f1935ab0247e8",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-7759F304ED3D1D7A",
+      "deterministic": true,
+      "fixture_identifier_sha256": "720369f59dd09349d7be29d6530edcd21c0ebda44fba506ab32b913d5184f9de",
+      "fixture_identifier_type": "ticket_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "请帮我查一下工单 [TICKET_FIXTURE_ID] 现在是什么状态？",
+      "runtime_query_sha256": "d8d559ca239a9b1ba77c79e021b817eaab33d39abdc5599b2a1025f576eca73b",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-F60902293BED769D",
+      "deterministic": true,
+      "fixture_identifier_sha256": "7249453b4468e8dc909b264510c64745b190c5bc6b2cf3b5183648330f3e9284",
+      "fixture_identifier_type": "ticket_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "请帮我查一下工单 [TICKET_FIXTURE_ID] 现在是什么状态？",
+      "runtime_query_sha256": "332b0a8bac1a1fe990e6bf71ef2b0f113880ed5d1c5e6907ef7dc475db0b6a77",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-95CD26B20A25881C",
+      "deterministic": true,
+      "fixture_identifier_sha256": "ff6cb678dd1e785093dc1ca59fe0f7f442dd3f06ee6e2af04c147279cf6e3429",
+      "fixture_identifier_type": "ticket_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "请帮我查一下工单 [TICKET_FIXTURE_ID] 现在是什么状态？",
+      "runtime_query_sha256": "87bd92eab45ae4eaf5a8f0b2f9d2075ee91f4d676f5ccf95b9e4b2f0d5f2e28b",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-53F1A4023BBF0306",
+      "deterministic": true,
+      "fixture_identifier_sha256": "56be754a9e290d1317955dd55c31bce0066f52411b43ac3ff839c185397b4bb5",
+      "fixture_identifier_type": "ticket_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "工单 [TICKET_FIXTURE_ID] 当前的优先级是什么？",
+      "runtime_query_sha256": "83ad74a78fb776e80cc8544b7e23dbd92a8adc4ffafd190a4bf976bbdb9ba095",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-7140067BCF81A5E3",
+      "deterministic": true,
+      "fixture_identifier_sha256": "a772c7253465a749cafc8b3136becf781fd39315c336344b95b6ab3dafb9d910",
+      "fixture_identifier_type": "ticket_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "工单 [TICKET_FIXTURE_ID] 当前的优先级是什么？",
+      "runtime_query_sha256": "48815986cf9696ab149ec45179199943c9309661ba62b265e9683b3bacd87f97",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-A9EF3E7F5A8EBFAA",
+      "deterministic": true,
+      "fixture_identifier_sha256": "22b67abaa0dbec45c196467a968587907b3b05b9646d15691ad87a3bc3dc04d1",
+      "fixture_identifier_type": "ticket_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "工单 [TICKET_FIXTURE_ID] 当前的优先级是什么？",
+      "runtime_query_sha256": "aca00b10c55c75d990ed419fef501fe6d136aed914ed97bfa49b29b9abca7599",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-6A5B844C42D2D9CD",
+      "deterministic": true,
+      "fixture_identifier_sha256": "5b1d7a0688f9376a0ca50457db478941b2d5f282142e30af98d2322d3e6ba44f",
+      "fixture_identifier_type": "ticket_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "工单 [TICKET_FIXTURE_ID] 记录的问题类型是什么？",
+      "runtime_query_sha256": "2ea9dfd9b89cb0e50ce2fd7a4568bbf32822443e839a0fab3e8935782fd23a8f",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-30FD848AD6799D56",
+      "deterministic": true,
+      "fixture_identifier_sha256": "0a6791889538781538bb5900fae8e65a17792025a14ab39add160552eccf87da",
+      "fixture_identifier_type": "ticket_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "工单 [TICKET_FIXTURE_ID] 记录的问题类型是什么？",
+      "runtime_query_sha256": "de9245cb2879ae782cc04a8310101b1a81e02686d50dc4c2be1f9132053f93e8",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-BD02DBE97CB739FD",
+      "deterministic": true,
+      "fixture_identifier_sha256": "11c2cef71cda08a9c7ebbe355ca992487b9992e0845907d13578d0a5ac266308",
+      "fixture_identifier_type": "ticket_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "工单 [TICKET_FIXTURE_ID] 记录的问题类型是什么？",
+      "runtime_query_sha256": "105e6068944d236db2083313195e5d76c9dfb4530180af54debdb85e0558fb19",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-1BA22E36EB7AB173",
+      "deterministic": true,
+      "fixture_identifier_sha256": "3fab9296f218abb8f8e127fa1a0850400bdb0d71dfd78179b92c9be11c76a88d",
+      "fixture_identifier_type": "ticket_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "工单 [TICKET_FIXTURE_ID] 对应的是哪款产品？",
+      "runtime_query_sha256": "eccd6ee59c0eb750d56ed4f917c482035eed9c845119bb550f9bbd0fddbc9bad",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-B9ADBAB0968F43EF",
+      "deterministic": true,
+      "fixture_identifier_sha256": "566f5765d8158a46a0248864d54fe4ca22b495f1f4d490a54a09e18511ac27b1",
+      "fixture_identifier_type": "ticket_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "工单 [TICKET_FIXTURE_ID] 对应的是哪款产品？",
+      "runtime_query_sha256": "31a456b887e92c581b22f48eab71bdad7cb36524c0512d65384256070a4a5c1c",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-59758530D91BABE1",
+      "deterministic": true,
+      "fixture_identifier_sha256": "326ca9cd8fe2331c1a0edaaacbb024bfddcee568a13db6d44c0b73425fbb559d",
+      "fixture_identifier_type": "ticket_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "工单 [TICKET_FIXTURE_ID] 对应的是哪款产品？",
+      "runtime_query_sha256": "068d62598237e0902d2c689887f4334cb405566dc6bd6198df892914de742475",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-39672ECCC91DCF93",
+      "deterministic": true,
+      "fixture_identifier_sha256": "7f128f5af6019872220f586d3b8050bc449352d23153f6148b83fdbd5e71fe1f",
+      "fixture_identifier_type": "ticket_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "工单 [TICKET_FIXTURE_ID] 关联的是哪一笔订单？",
+      "runtime_query_sha256": "7442347df90ea0aca512555861cdffefe035bfb2508a0b2ebd47a54b5fbb6205",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-6502CDF309DFE341",
+      "deterministic": true,
+      "fixture_identifier_sha256": "d4170951545e771c24391d3faa6ce845eaedeb3e0bd38dcbdefda03e3a4b0ba6",
+      "fixture_identifier_type": "ticket_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "工单 [TICKET_FIXTURE_ID] 关联的是哪一笔订单？",
+      "runtime_query_sha256": "b6eb7a522e1af0a7bd2a12a7b1542fdafe95067142a65c00dd405f22803e65b9",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-4C80552FBA9AB93C",
+      "deterministic": true,
+      "fixture_identifier_sha256": "1fd54c2ea402161439478960620536eda90e7cebc989198a7e26a0f16b936b92",
+      "fixture_identifier_type": "ticket_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "工单 [TICKET_FIXTURE_ID] 关联的是哪一笔订单？",
+      "runtime_query_sha256": "7e2f5278014b5ea62dce7970a02ccafda0cee05779a550aedeafde034285ac70",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-0E95762DC07FE11E",
+      "deterministic": true,
+      "fixture_identifier_sha256": "66d9e79ea3052f2defcb38484dd5aa61d0aaf1630bab872094a24d02b8da89c9",
+      "fixture_identifier_type": "ticket_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "工单 [TICKET_FIXTURE_ID] 目前分配给哪个处理团队？",
+      "runtime_query_sha256": "1cf35aa2de20402ecc30876ac2bd4e345afca4c285eec14ca2b3bcde8a917ba2",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-CBB047604D840EDA",
+      "deterministic": true,
+      "fixture_identifier_sha256": "27d1fef70dd0783dff21316c1aecfbebad8eb58358ed0bdbd5d5b05cc56cbc60",
+      "fixture_identifier_type": "ticket_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "工单 [TICKET_FIXTURE_ID] 目前分配给哪个处理团队？",
+      "runtime_query_sha256": "ea40d42cd3454c94680b236ce3456a11286b49eb979339f710b452370cc7047e",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-9F14E359ADE264D6",
+      "deterministic": true,
+      "fixture_identifier_sha256": "50777a92ff2b4115cd3e180b659a166eec785a70c56fb9313b1ae4ee6d16e8f8",
+      "fixture_identifier_type": "ticket_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "工单 [TICKET_FIXTURE_ID] 目前分配给哪个处理团队？",
+      "runtime_query_sha256": "c024b016461b12b8828cae3fea46cd8f41c72141196bd9303abe8a891c562bb3",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-D3F9460EEA7CCE2F",
+      "deterministic": true,
+      "fixture_identifier_sha256": "09b580a30bba038300e5e923a00f63dbc65c6cc68df4708c060a2066150c8a3b",
+      "fixture_identifier_type": "ticket_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "工单 [TICKET_FIXTURE_ID] 里记录的问题摘要是什么？",
+      "runtime_query_sha256": "2c9ceeb045667eb7e4c8219bf982bad73440e231ab03fa7e0a6baf4262941b11",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-437BC99A96ADC046",
+      "deterministic": true,
+      "fixture_identifier_sha256": "922e1824e2ea3b17b5a81691fefd8f5f43500a0c4af09d1902116a198c70b96d",
+      "fixture_identifier_type": "ticket_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "工单 [TICKET_FIXTURE_ID] 里记录的问题摘要是什么？",
+      "runtime_query_sha256": "9e70b3f0cad696fb84fef752bd31373990b4ef061fad025d07a7d748fdc63bc2",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-EFE5162B873590A0",
+      "deterministic": true,
+      "fixture_identifier_sha256": "f55d80f76839a5f50653f350e9afa81cf37a68bd1ecff85834bc867b33c13168",
+      "fixture_identifier_type": "ticket_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "工单 [TICKET_FIXTURE_ID] 里记录的问题摘要是什么？",
+      "runtime_query_sha256": "7cfe2ce1ae200c7dbdc363f849888a65139f38aded69169a1b2ebd4793bc4dba",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-386B29A1542BB49D",
+      "deterministic": true,
+      "fixture_identifier_sha256": "9c12408146c7ea1d14050baa87893d40c67cb22e812c673ed52aefb7247b1b3a",
+      "fixture_identifier_type": "ticket_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "工单 [TICKET_FIXTURE_ID] 是什么时候创建的？",
+      "runtime_query_sha256": "d676f3e873dfcf3acdf36b9d989933febeb9c829aa3bdaf1f907db8364af413a",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-CD860189F61FE74F",
+      "deterministic": true,
+      "fixture_identifier_sha256": "83393939b3b40beed8d23efb28c4caf42b4e2f0bc5808f042eca31d81b089d26",
+      "fixture_identifier_type": "ticket_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "工单 [TICKET_FIXTURE_ID] 是什么时候创建的？",
+      "runtime_query_sha256": "d2984132d3483193f771aad6c82e8687cb15810a4be12d70ce8c2040811c8be0",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-3C9F1275E9730856",
+      "deterministic": true,
+      "fixture_identifier_sha256": "fe88d7746c73a96be1b05611216432dd2ab4bfb96600331ecba729614ecebac9",
+      "fixture_identifier_type": "ticket_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "请同时告诉我工单 [TICKET_FIXTURE_ID] 的状态和优先级。",
+      "runtime_query_sha256": "83dc955a3df95868adca1f189f948d8e32ea6b1b5ee8cc3e1ab60b550b792155",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-86DBE00C3CB51556",
+      "deterministic": true,
+      "fixture_identifier_sha256": "2364a7e308fa225343b2b8ddd6fc600f73c5e7e694ee960e6b7a39d00368a219",
+      "fixture_identifier_type": "ticket_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "请同时告诉我工单 [TICKET_FIXTURE_ID] 的状态和优先级。",
+      "runtime_query_sha256": "6c28716be2785e3d78fad41622cc235c591b19108831bae62a30422f84a2b9b5",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-E4A662D00009AF99",
+      "deterministic": true,
+      "fixture_identifier_sha256": "0c35a24bee2f141b16d9cc92321833f2f1e7a5b167633037afaba4c070995423",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "请帮我查一下质保案例 [WARRANTY_FIXTURE_ID] 当前是什么状态？",
+      "runtime_query_sha256": "e418423765f7e4930d8da82a2b3c0fea610fd06c5ea8febba88ae85882a56d63",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-CC0D8CF7C1B4B531",
+      "deterministic": true,
+      "fixture_identifier_sha256": "9066d350d58b8b81e41388b15bd6cb364f0171ade68abcabd5c1b33954b0db8a",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "请帮我查一下质保案例 [WARRANTY_FIXTURE_ID] 当前是什么状态？",
+      "runtime_query_sha256": "443401d2491fae26132833deeaf0ab468bd85725ad92d24dc79481472532c230",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-4AFD378D10DDEB67",
+      "deterministic": true,
+      "fixture_identifier_sha256": "9a05a0489f8c065350e239e38a2b4e549c0af90b0fe068e66ecd7a23ddb40728",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "请帮我查一下质保案例 [WARRANTY_FIXTURE_ID] 当前是什么状态？",
+      "runtime_query_sha256": "13dd6081f0c91ca60adea0651f7883befb91528b1a656a9ec098e133d54f9536",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-8F10CDDD464D974F",
+      "deterministic": true,
+      "fixture_identifier_sha256": "a311099435ce82ad426f0bba1c6a1105bd2f432897092824703fa745fb6c8a3a",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "质保案例 [WARRANTY_FIXTURE_ID] 当前是否仍在保修范围内？",
+      "runtime_query_sha256": "e9e227bb20b88354ba20228b15ad69599d555ca71692bfa54aa84a9ae85caf38",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-4EB5124F3D51E623",
+      "deterministic": true,
+      "fixture_identifier_sha256": "c26a0c520ddfbfd256b66d6ab64e6ef7ece39ef19caa09230b32e409e19c7646",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "质保案例 [WARRANTY_FIXTURE_ID] 当前是否仍在保修范围内？",
+      "runtime_query_sha256": "8fc8afa0de1530d7a517e415c4cc1a8deb187dab18b64b44e7a66d197e0d1f2f",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-787F6E379AD15E8E",
+      "deterministic": true,
+      "fixture_identifier_sha256": "33742b0560c98068c9c6bd3ad1b2bd0f2d6c43dc8e44440fa4a72603ac15e75a",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "质保案例 [WARRANTY_FIXTURE_ID] 当前是否仍在保修范围内？",
+      "runtime_query_sha256": "4bfd04819d696c6a462bbbe6302d3e5f712a4003784eb6893dde3b17bcf7d512",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-9AAA1BDA47EE2037",
+      "deterministic": true,
+      "fixture_identifier_sha256": "4b431faaf0745048b90be803845e2a9e485c94cb90c88d8edbbdef9820c3fff2",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "质保案例 [WARRANTY_FIXTURE_ID] 当前是否仍在保修范围内？",
+      "runtime_query_sha256": "d93f0db86e7d242cdd9fdee04d1530dd3e4fa547233dde15c53b4638af0c463a",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-6F809B9695B1A5A8",
+      "deterministic": true,
+      "fixture_identifier_sha256": "13acff59fa32b65ca6049b4cdc7f92ac416433c70683ccb8cb1aa472bcdb2122",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "质保案例 [WARRANTY_FIXTURE_ID] 属于哪种保修类型？",
+      "runtime_query_sha256": "61d60e82a19245f6dc6dfbd24e8e2facbce0481eb05eea63058ba21f2a4fb777",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-14F685DE33DE8F95",
+      "deterministic": true,
+      "fixture_identifier_sha256": "144f367f4b301c408bc287cbc39781e745ec91412f7f7b6b87897f12ce886700",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "质保案例 [WARRANTY_FIXTURE_ID] 属于哪种保修类型？",
+      "runtime_query_sha256": "892d2bc705b73b1dbd2afd63533db71400b9e8bb34ee4fa63982c25523d336e2",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-B5786DCEC2AE4D52",
+      "deterministic": true,
+      "fixture_identifier_sha256": "1c5869cb7b4ff5a883da4913dcb228c63a193f6bfa8621bb86553b6b2c702bf6",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "质保案例 [WARRANTY_FIXTURE_ID] 属于哪种保修类型？",
+      "runtime_query_sha256": "9685337d3c720a8f065a541921011a67f2785c15e9df39776f9e8e9293fd2de3",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-20617690C580D073",
+      "deterministic": true,
+      "fixture_identifier_sha256": "5d65d58b4d899cafa97a4d7907386ae61847cb4649ab3210a22e512b589c40ee",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "质保案例 [WARRANTY_FIXTURE_ID] 的到期日期是什么时候？",
+      "runtime_query_sha256": "cce395bc61759c2c8abe2aa2f89a73a06c9cc911d6f48d6cddf8cb52f2bfcddf",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-1F2375F8FC344B70",
+      "deterministic": true,
+      "fixture_identifier_sha256": "3c288e561ded09bf1ff578ae97c06681776950c9adca06c772fd563441d9258e",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "质保案例 [WARRANTY_FIXTURE_ID] 的到期日期是什么时候？",
+      "runtime_query_sha256": "30632c0dfe09580a9690470911aea3be39a11ccf1ccdf03e0c5bafdefee71796",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-FA0C3DDA49A03B16",
+      "deterministic": true,
+      "fixture_identifier_sha256": "91a5adf3e48f6971d1fdcbef6bdcddac64a29c60a5fad87224cbcea23ccdf138",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "质保案例 [WARRANTY_FIXTURE_ID] 的到期日期是什么时候？",
+      "runtime_query_sha256": "aaf89a5ee7ecabe9573f36f42372490098a32d7460c7f4e68cfb61e0610846b0",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-AC71481D49DC5350",
+      "deterministic": true,
+      "fixture_identifier_sha256": "a9286cb34dcdf96fb65cedcca1c22c5db5c869e651883ad3dee062465a56776d",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "质保案例 [WARRANTY_FIXTURE_ID] 对应的是哪款产品？",
+      "runtime_query_sha256": "99a47bf07f06997523f72ae49408a801212abb7235527d6b266794b932160f75",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-E7CD67D25D06E0F2",
+      "deterministic": true,
+      "fixture_identifier_sha256": "50f455dcabe23584a97c8fdaec7435d3b4b4cfb177592ceec147b5dc8624c1aa",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "质保案例 [WARRANTY_FIXTURE_ID] 对应的是哪款产品？",
+      "runtime_query_sha256": "9c8bf79a3c6e48cf463e1d546194ac39a42ee736a2ab6c3f784748e5c6551913",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-BE7CA26D370D40AE",
+      "deterministic": true,
+      "fixture_identifier_sha256": "e5337f7b42e19d24f78fbcb9ced606ba7a7c306a3258a66575b51bad1ab7cf78",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "质保案例 [WARRANTY_FIXTURE_ID] 对应的是哪款产品？",
+      "runtime_query_sha256": "bf9cd0a55fd180a6d384445c920742ca2cab4c31318fd518c7aad2231d3873cd",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-A15ADAE5745496C4",
+      "deterministic": true,
+      "fixture_identifier_sha256": "17bd98709a4a45c7ee09cf9b6d7f9ef5a86e9e59672440f232808b22cbd2a8a3",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "质保案例 [WARRANTY_FIXTURE_ID] 关联的是哪一笔订单？",
+      "runtime_query_sha256": "178f04a95c8992d29441d052ad757d2636c98b8e4d34d2043f1e2de79ec3f719",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-0C548DF5C6D72B22",
+      "deterministic": true,
+      "fixture_identifier_sha256": "734ae0451d4f8dc9b9f91bf206bbf620ea5ed499c512e1a47e5f012b3bf698f7",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "质保案例 [WARRANTY_FIXTURE_ID] 关联的是哪一笔订单？",
+      "runtime_query_sha256": "8bc202771526665d763099355c62173e11bc8c5cb2d6f67d2bc28ecf104c1acc",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-8D7A5BC8F9875798",
+      "deterministic": true,
+      "fixture_identifier_sha256": "0c20d0389e0edd960154fd11b7353173d4eca51cea0de71217ce88c3bf0f0a85",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "质保案例 [WARRANTY_FIXTURE_ID] 关联的是哪个工单？",
+      "runtime_query_sha256": "81e53fc13d3680d4ae52e19a995a55b162996e05d62a034e2e34f6478286282d",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-B3814E796B44E38B",
+      "deterministic": true,
+      "fixture_identifier_sha256": "5982ae313ebaa7ad71eef815d03f86381ac06744353628ddd217b1b086b9ea83",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "质保案例 [WARRANTY_FIXTURE_ID] 关联的是哪个工单？",
+      "runtime_query_sha256": "433a6862fa55ed7de8bf0c440f3a4b62a2d75e1a548f701bf15725901298f5e7",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-D3B402ABEBF07E9E",
+      "deterministic": true,
+      "fixture_identifier_sha256": "923e57ee86b718d62d4086e73efc85f51f0c26d596d6cef9f479d6e390580587",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "请同时告诉我质保案例 [WARRANTY_FIXTURE_ID] 的保修状态和到期日期。",
+      "runtime_query_sha256": "dadbb64d923a0c19abdc80a135b4308248203886285a89a1e65eea974c27e4c3",
+      "status": "MATERIALIZABLE"
+    },
+    {
+      "candidate_id": "PBQ-1567DC77F259C130",
+      "deterministic": true,
+      "fixture_identifier_sha256": "87acfc45aa3be63494665af5dbbeb6fdd3f820b6e2d69a1624b7c56db2fa9153",
+      "fixture_identifier_type": "case_id",
+      "materialization_version": "private-business-runtime-materialization-v1",
+      "naturalness_checks": {
+        "answer_value_not_intentionally_injected": true,
+        "construction_token_absent_after_materialization": true,
+        "sql_or_schema_syntax_absent": true
+      },
+      "policy": "RAW_FIXTURE_ID_ALLOWED",
+      "raw_identifier_persisted": false,
+      "runtime_query_redacted": "请同时告诉我质保案例 [WARRANTY_FIXTURE_ID] 的保修状态和到期日期。",
+      "runtime_query_sha256": "78881bb3baf991aa9dff37d4669bbae6d1c331aa2207e98cbb5327a10f8fe17f",
+      "status": "MATERIALIZABLE"
+    }
+  ],
+  "synthetic_fixture_source": true
+}

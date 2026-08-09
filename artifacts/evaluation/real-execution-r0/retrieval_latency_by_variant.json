@@ -1,0 +1,32 @@
+{
+  "BM25": {
+    "mean_latency": null,
+    "p50": null,
+    "p95": null
+  },
+  "Dense": {
+    "mean_latency": null,
+    "p50": null,
+    "p95": null
+  },
+  "Dense+BM25": {
+    "mean_latency": null,
+    "p50": null,
+    "p95": null
+  },
+  "Dense+BM25+Fusion": {
+    "mean_latency": null,
+    "p50": null,
+    "p95": null
+  },
+  "Hybrid+Reranker": {
+    "mean_latency": null,
+    "p50": null,
+    "p95": null
+  },
+  "Hybrid+Reranker+Parent Expansion": {
+    "mean_latency": null,
+    "p50": null,
+    "p95": null
+  }
+}

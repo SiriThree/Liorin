@@ -1,0 +1,40 @@
+{
+  "draft_count": 58,
+  "exact_gold_duplicate_excess": 10,
+  "existing_formal_gold_collision_count": 0,
+  "existing_formal_gold_collisions": [],
+  "existing_formal_mixed_count": 10,
+  "low_information_entity_variation_count": 16,
+  "low_information_groups": [
+    [
+      "MIX-2887742F9EFF2CFB",
+      "MIX-901005D494C28080"
+    ],
+    [
+      "MIX-306368761A7EC11C",
+      "MIX-356E84C36E209E02"
+    ],
+    [
+      "MIX-760DA13959417A41",
+      "MIX-BDCED0FDDA6DCCED"
+    ],
+    [
+      "MIX-0923DF7CFEE05AA4",
+      "MIX-C5906F7B4B9061ED"
+    ],
+    [
+      "MIX-8D1A7DE60DEF26D3",
+      "MIX-8D38376FCD5A26B5",
+      "MIX-728656AA6CA5C29D",
+      "MIX-A865F9FBA535D89A"
+    ],
+    [
+      "MIX-64ED87D7191A11F1",
+      "MIX-211FFF820D1DEE48",
+      "MIX-4C7CB22FD6D5F286",
+      "MIX-71719BCF1F08305D"
+    ]
+  ],
+  "same_reasoning_signature_groups": 6,
+  "unique_gold_information_signatures": 48
+}

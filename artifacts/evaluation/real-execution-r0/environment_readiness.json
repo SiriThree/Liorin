@@ -1,0 +1,162 @@
+{
+  "items": [
+    {
+      "details": {
+        "legacy_optional_still_locked_as_main": [
+          "agentevals",
+          "openevals"
+        ],
+        "missing_main_in_lock": []
+      },
+      "name": "dependency_lock",
+      "reason": "uv.lock does not match current pyproject dependency roles",
+      "status": "BLOCKED"
+    },
+    {
+      "details": {
+        "langchain": true,
+        "langchain_core": true,
+        "langgraph": true,
+        "pymilvus": true
+      },
+      "name": "python_dependencies",
+      "reason": "required Python runtime dependencies are importable",
+      "status": "READY"
+    },
+    {
+      "details": {},
+      "name": "production_runtime",
+      "reason": "deployment graph imports and constructs successfully",
+      "status": "READY"
+    },
+    {
+      "details": {
+        "credential_present": true,
+        "live_check": true,
+        "model": "openai:qwen-plus"
+      },
+      "name": "model_provider",
+      "reason": "provider invocation returned a response",
+      "status": "READY"
+    },
+    {
+      "details": {
+        "credential_present": false,
+        "judge_model": null,
+        "live_check": true
+      },
+      "name": "judge_provider",
+      "reason": "LIORIN_JUDGE_MODEL and its provider credential are required",
+      "status": "BLOCKED"
+    },
+    {
+      "details": {
+        "live_check": true,
+        "milvus_uri_configured": true
+      },
+      "name": "retrieval_backend",
+      "reason": "MilvusException: <MilvusException: (code=2, message=Fail connecting to server on localhost:19530, illegal connection params or server unavailable)>",
+      "status": "BLOCKED"
+    },
+    {
+      "details": {
+        "local_db": "D:\\找实习\\Liorin\\data\\structured\\liorin.db",
+        "tables": [
+          "customers",
+          "order_items",
+          "order_status_events",
+          "orders",
+          "products",
+          "ticket_events",
+          "tickets",
+          "warranty_cases"
+        ]
+      },
+      "name": "structured_data_backend",
+      "reason": "structured SQLite connectivity and required tables verified",
+      "status": "READY"
+    },
+    {
+      "details": {},
+      "name": "memory_backend",
+      "reason": "production bootstrap supports in-memory Memory backend fallback",
+      "status": "READY"
+    },
+    {
+      "details": {},
+      "name": "artifact_backend",
+      "reason": "production bootstrap supports in-memory Artifact backend fallback",
+      "status": "READY"
+    },
+    {
+      "details": {
+        "path": "D:\\找实习\\Liorin\\artifacts\\evaluation"
+      },
+      "name": "artifact_output",
+      "reason": "evaluation artifact directory is writable",
+      "status": "READY"
+    },
+    {
+      "details": {
+        "case_count": 39
+      },
+      "name": "canonical_dataset",
+      "reason": "39 fully canonical legacy cases available",
+      "status": "READY"
+    },
+    {
+      "details": {
+        "case_count": 5
+      },
+      "name": "validation_split",
+      "reason": "5 canonical validation cases available",
+      "status": "READY"
+    },
+    {
+      "details": {},
+      "name": "trusted_test_split",
+      "reason": "NO TRUSTED TEST SPLIT",
+      "status": "NOT_READY"
+    },
+    {
+      "details": {},
+      "name": "recovery_subset",
+      "reason": "COVERAGE_INSUFFICIENT_NEEDS_REVIEW",
+      "status": "NOT_READY"
+    },
+    {
+      "details": {
+        "eligible_sessions": 0
+      },
+      "name": "multi_turn_subset",
+      "reason": "formal eligible multi-turn sessions=0",
+      "status": "NOT_READY"
+    },
+    {
+      "details": {
+        "eligible_cases": 3
+      },
+      "name": "safety_subset",
+      "reason": "formal safety candidates=3",
+      "status": "READY"
+    },
+    {
+      "details": {
+        "config_count": 11
+      },
+      "name": "ablation_configs",
+      "reason": "ablation configs=11",
+      "status": "READY"
+    },
+    {
+      "details": {
+        "baseline_count": 0,
+        "path": "D:\\找实习\\Liorin\\artifacts\\evaluation\\baseline_registry.json"
+      },
+      "name": "baseline_registry",
+      "reason": "BASELINE_NOT_ESTABLISHED",
+      "status": "NOT_READY"
+    }
+  ],
+  "system_status": "PRODUCTION_BLOCKED"
+}

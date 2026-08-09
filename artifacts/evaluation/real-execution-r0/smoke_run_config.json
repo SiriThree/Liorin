@@ -1,0 +1,27 @@
+{
+  "dataset_name": "liorin-canonical-formal39-r0-dev34-validation5",
+  "dataset_version": "1.0",
+  "embedding": "huggingface",
+  "judge": {
+    "enabled": false
+  },
+  "model": "openai:qwen-plus",
+  "production": {
+    "features": {
+      "agentic_recovery_enabled": true,
+      "clarification_recovery_enabled": true,
+      "evidence_verifier_enabled": true,
+      "parent_expansion_enabled": true,
+      "query_rewrite_enabled": true,
+      "reranker_enabled": true,
+      "supplement_enabled": true
+    },
+    "retrieval": {
+      "bm25": true,
+      "dense": true,
+      "fusion": "RRF",
+      "milvus_collection": "liorin_documents_huggingface",
+      "structured_db": true
+    }
+  }
+}

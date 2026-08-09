@@ -34,7 +34,7 @@ flowchart TB
 agents/
   support_workflow.py          # 身份验证 + Supervisor 的生产图
   conversation_supervisor.py   # 会话路由与最终答复
-  order_agent.py               # 只读 SQL 结构化数据查询
+  order_agent.py               # Principal-bound allow-listed 结构化业务查询
   knowledge_agent.py           # 产品手册与售后政策检索
 
 tools/
@@ -69,7 +69,7 @@ simulations/
 - Agentic RAG：`knowledge_agent` 主动调用手册/政策检索工具，基于 TraceMind 手册和 Liorin 政策回答问题。
 - Context Engineering：通过 `Context`、`customer_id` 状态、Supervisor prompt 和数据库 schema 注入运行时上下文。
 - Human-in-the-loop：账户/订单类问题先验证邮箱；高风险动作目前只判断资格和下一步，不直接执行。
-- Agent Evaluation：`evals/run_ci_eval.py` 将 `baseline_dataset.json` 同步到 LangSmith 数据集并执行回归评测。
+- Agent Evaluation：统一正式入口为 `python -m eval_platform.cli`；Task Success 使用 Canonical Gold + 单次 Production Trace 的 required-criteria conjunction。旧 `evals/benchmark` 与 `evals/run_ci_eval.py` 仅保留兼容/diagnostic。
 - Agent Observability：仿真脚本和 LangSmith tracing 用于生成多轮客服轨迹、观察工具调用和失败案例。
 
 ## 快速开始
@@ -144,18 +144,50 @@ evals/tracemind/
 
 ## 评测与仿真
 
+正式 Evaluation 唯一入口：
+
 ```bash
-uv run python evals/run_ci_eval.py
-uv run python -m evals.benchmark.cli smoke
-uv run python -m evals.benchmark.cli run --dataset validation --report evals/reports/benchmark_validation_report.json
+# 环境 / 数据 / baseline readiness
+uv run python -m eval_platform.cli doctor --root .
+
+# Canonical Dataset fail-closed validation
+uv run python -m eval_platform.cli validate \
+  --dataset evals/benchmark/data/canonical/validation_v7_3_canonical_v1.json
+
+# 正式 Production evaluation（需要真实 Production + Judge 依赖）
+uv run python -m eval_platform.cli run \
+  --dataset evals/benchmark/data/canonical/validation_v7_3_canonical_v1.json \
+  --split VALIDATION --config evals/benchmark/configs/phase2_evaluation.example.json \
+  --output artifacts/evaluation/formal-validation
+
+# 冻结 Prediction 重新评分，不重新执行 Agent
+uv run python -m eval_platform.cli score-existing-predictions --dataset ... --predictions ... --output ...
+
+# Context / Recovery / Ablation controlled experiments
+uv run python -m eval_platform.cli experiment context ...
+uv run python -m eval_platform.cli experiment recovery ...
+uv run python -m eval_platform.cli ablation ...
+
+# Safety / Failure Attribution / Regression / Final report
+uv run python -m eval_platform.cli safety ...
+uv run python -m eval_platform.cli attribute-failures ...
+uv run python -m eval_platform.cli gate ...
+uv run python -m eval_platform.cli final-report --root . --output artifacts/evaluation/final
+```
+
+正式 North Star 只有 **End-to-End Task Success**；`macro_objective_score`、`fact_coverage_proxy`、历史 component token reduction 都是 legacy/component diagnostics，不得作为正式 Agent 质量指标。正式报告见 `docs/evaluation/FINAL_EVALUATION_REPORT.md`，简历可用指标只能从 `docs/evaluation/RESUME_SAFE_METRICS.md` 获取。
+
+运行环境与正式评测流程见 `docs/evaluation/EVALUATION_RUNBOOK.md`；Phase 0–6 最终架构见 `docs/evaluation/PHASE6_FINAL_EVALUATION_SYSTEM.md`；真实 Production 恢复与 Structured Business Tool hardening 见 `docs/production/PHASE7_PRODUCTION_HARDENING.md`。
+
+仿真仍可使用：
+
+```bash
 uv run python simulations/run_simulation.py --count 3 --mode static
 ```
 
-CI 默认执行离线 benchmark smoke 和旧本地 smoke，不会重建远程 LangSmith 数据集。仿真默认目标图为 `support_agent`。
+## Legacy Benchmark 与标注流水线
 
-## Benchmark 与标注流水线
-
-正式评测入口：
+以下 `evals/benchmark` 命令为 **legacy diagnostic / migration compatibility**，不是正式 Task Success 入口：
 
 ```bash
 # 快速离线 smoke：每层至少跑一个公开 validation 样本

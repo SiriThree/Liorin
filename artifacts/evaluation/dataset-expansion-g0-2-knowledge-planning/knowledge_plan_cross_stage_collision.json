@@ -1,0 +1,11 @@
+{
+  "planned_partial_or_composite_overlap": {
+    "FORMAL": 2,
+    "MIXED": 3
+  },
+  "principle": "exact single-fact reuse is rejected; composite plans may contain previously observed facts only when required fact set/reasoning/answer scope is different",
+  "rejected_exact_single_fact": {
+    "COLLIDES_FORMAL_FACT": 30,
+    "COLLIDES_MIXED_FACT": 28
+  }
+}

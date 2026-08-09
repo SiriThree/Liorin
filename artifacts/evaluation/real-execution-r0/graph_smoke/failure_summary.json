@@ -1,0 +1,46 @@
+{
+  "attribution_coverage": {
+    "denominator": 5,
+    "numerator": 2,
+    "rate": 0.4
+  },
+  "attribution_policy_version": "earliest_causal_fail_anywhere_v1",
+  "failed_cases": 5,
+  "failure_taxonomy_version": "1.0",
+  "observability_insufficient": 0,
+  "partially_attributable": 3,
+  "primary_codes": {
+    "AUTHORIZATION_ERROR": {
+      "count": 1,
+      "rate_overall_cases": 0.2,
+      "share_of_failures": 0.2
+    },
+    "RETRIEVAL_MISS": {
+      "count": 2,
+      "rate_overall_cases": 0.4,
+      "share_of_failures": 0.4
+    },
+    "TIMEOUT": {
+      "count": 2,
+      "rate_overall_cases": 0.4,
+      "share_of_failures": 0.4
+    }
+  },
+  "primary_domains": {
+    "AUTHORIZATION": {
+      "count": 1,
+      "rate_overall_cases": 0.2,
+      "share_of_failures": 0.2
+    },
+    "EXECUTION": {
+      "count": 2,
+      "rate_overall_cases": 0.4,
+      "share_of_failures": 0.4
+    },
+    "RETRIEVAL": {
+      "count": 2,
+      "rate_overall_cases": 0.4,
+      "share_of_failures": 0.4
+    }
+  }
+}

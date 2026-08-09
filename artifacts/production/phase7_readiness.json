@@ -1,0 +1,166 @@
+{
+  "system_status": "PRODUCTION_BLOCKED",
+  "items": [
+    {
+      "name": "dependency_lock",
+      "status": "BLOCKED",
+      "reason": "uv.lock does not match current pyproject dependency roles",
+      "details": {
+        "missing_main_in_lock": [
+          "httpx",
+          "jieba",
+          "pyyaml"
+        ],
+        "legacy_optional_still_locked_as_main": [
+          "agentevals",
+          "openevals"
+        ]
+      }
+    },
+    {
+      "name": "python_dependencies",
+      "status": "BLOCKED",
+      "reason": "missing runtime dependencies: ['langchain', 'langchain_core', 'langgraph', 'pymilvus']",
+      "details": {
+        "langchain": false,
+        "langchain_core": false,
+        "langgraph": false,
+        "pymilvus": false
+      }
+    },
+    {
+      "name": "production_runtime",
+      "status": "BLOCKED",
+      "reason": "ModuleNotFoundError: missing runtime dependencies: ['langchain', 'langchain_core', 'langgraph', 'pymilvus']",
+      "details": {}
+    },
+    {
+      "name": "model_provider",
+      "status": "BLOCKED",
+      "reason": "LangChain runtime is unavailable",
+      "details": {
+        "model": "openai:deepseek-chat",
+        "credential_present": false,
+        "live_check": false
+      }
+    },
+    {
+      "name": "judge_provider",
+      "status": "BLOCKED",
+      "reason": "LangChain runtime is unavailable",
+      "details": {
+        "judge_model": null,
+        "credential_present": false,
+        "live_check": false
+      }
+    },
+    {
+      "name": "retrieval_backend",
+      "status": "BLOCKED",
+      "reason": "pymilvus is not installed",
+      "details": {
+        "milvus_uri_configured": true,
+        "live_check": false
+      }
+    },
+    {
+      "name": "structured_data_backend",
+      "status": "READY",
+      "reason": "structured SQLite connectivity and required tables verified",
+      "details": {
+        "local_db": "/mnt/data/liorin_phase7_work/data/structured/liorin.db",
+        "tables": [
+          "customers",
+          "order_items",
+          "order_status_events",
+          "orders",
+          "products",
+          "ticket_events",
+          "tickets",
+          "warranty_cases"
+        ]
+      }
+    },
+    {
+      "name": "memory_backend",
+      "status": "READY",
+      "reason": "production bootstrap supports in-memory Memory backend fallback",
+      "details": {}
+    },
+    {
+      "name": "artifact_backend",
+      "status": "READY",
+      "reason": "production bootstrap supports in-memory Artifact backend fallback",
+      "details": {}
+    },
+    {
+      "name": "artifact_output",
+      "status": "READY",
+      "reason": "evaluation artifact directory is writable",
+      "details": {
+        "path": "/mnt/data/liorin_phase7_work/artifacts/evaluation"
+      }
+    },
+    {
+      "name": "canonical_dataset",
+      "status": "READY",
+      "reason": "39 fully canonical legacy cases available",
+      "details": {
+        "case_count": 39
+      }
+    },
+    {
+      "name": "validation_split",
+      "status": "READY",
+      "reason": "5 canonical validation cases available",
+      "details": {
+        "case_count": 5
+      }
+    },
+    {
+      "name": "trusted_test_split",
+      "status": "NOT_READY",
+      "reason": "NO TRUSTED TEST SPLIT",
+      "details": {}
+    },
+    {
+      "name": "recovery_subset",
+      "status": "NOT_READY",
+      "reason": "COVERAGE_INSUFFICIENT_NEEDS_REVIEW",
+      "details": {}
+    },
+    {
+      "name": "multi_turn_subset",
+      "status": "NOT_READY",
+      "reason": "formal eligible multi-turn sessions=0",
+      "details": {
+        "eligible_sessions": 0
+      }
+    },
+    {
+      "name": "safety_subset",
+      "status": "READY",
+      "reason": "formal safety candidates=3",
+      "details": {
+        "eligible_cases": 3
+      }
+    },
+    {
+      "name": "ablation_configs",
+      "status": "READY",
+      "reason": "ablation configs=11",
+      "details": {
+        "config_count": 11
+      }
+    },
+    {
+      "name": "baseline_registry",
+      "status": "NOT_READY",
+      "reason": "BASELINE_NOT_ESTABLISHED",
+      "details": {
+        "baseline_count": 0,
+        "path": "/mnt/data/liorin_phase7_work/artifacts/evaluation/baseline_registry.json"
+      }
+    }
+  ]
+}

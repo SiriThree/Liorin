@@ -1,0 +1,62 @@
+{
+  "BM25": {
+    "MRR": null,
+    "NDCG@5": null,
+    "Recall@1": null,
+    "Recall@3": null,
+    "Recall@5": null,
+    "Required Evidence Coverage": null,
+    "Required Gold Evidence Recall": null,
+    "Selected Evidence Precision": null
+  },
+  "Dense": {
+    "MRR": null,
+    "NDCG@5": null,
+    "Recall@1": null,
+    "Recall@3": null,
+    "Recall@5": null,
+    "Required Evidence Coverage": null,
+    "Required Gold Evidence Recall": null,
+    "Selected Evidence Precision": null
+  },
+  "Dense+BM25": {
+    "MRR": null,
+    "NDCG@5": null,
+    "Recall@1": null,
+    "Recall@3": null,
+    "Recall@5": null,
+    "Required Evidence Coverage": null,
+    "Required Gold Evidence Recall": null,
+    "Selected Evidence Precision": null
+  },
+  "Dense+BM25+Fusion": {
+    "MRR": null,
+    "NDCG@5": null,
+    "Recall@1": null,
+    "Recall@3": null,
+    "Recall@5": null,
+    "Required Evidence Coverage": null,
+    "Required Gold Evidence Recall": null,
+    "Selected Evidence Precision": null
+  },
+  "Hybrid+Reranker": {
+    "MRR": null,
+    "NDCG@5": null,
+    "Recall@1": null,
+    "Recall@3": null,
+    "Recall@5": null,
+    "Required Evidence Coverage": null,
+    "Required Gold Evidence Recall": null,
+    "Selected Evidence Precision": null
+  },
+  "Hybrid+Reranker+Parent Expansion": {
+    "MRR": null,
+    "NDCG@5": null,
+    "Recall@1": null,
+    "Recall@3": null,
+    "Recall@5": null,
+    "Required Evidence Coverage": null,
+    "Required Gold Evidence Recall": null,
+    "Selected Evidence Precision": null
+  }
+}

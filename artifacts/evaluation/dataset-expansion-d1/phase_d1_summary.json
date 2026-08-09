@@ -1,0 +1,44 @@
+{
+  "concentration_warnings": [],
+  "dedup": {
+    "exact_query_duplicates": 0,
+    "family_state_repetitions": 54,
+    "normalized_query_duplicates": 59,
+    "normalized_surface_collisions_retained_due_distinct_source_entity": 59,
+    "rejected_duplicates": 0,
+    "semantic_entity_field_duplicates": 0
+  },
+  "difficulty_distribution": {
+    "EASY": 66,
+    "MEDIUM": 18
+  },
+  "domain_distribution": {
+    "order": 36,
+    "ticket": 26,
+    "warranty": 22
+  },
+  "effective_candidates": 84,
+  "existing_formal_canonical_cases": 39,
+  "field_types_covered": 23,
+  "judge_execution": "NOT RUN",
+  "legacy_alias_ambiguous": 0,
+  "legacy_alias_missing": 0,
+  "legacy_alias_resolved": 40,
+  "legacy_alias_total": 40,
+  "new_formal_cases": 0,
+  "new_human_reviewed_gold": 0,
+  "phase": "D1_PRIVATE_BUSINESS",
+  "production_agent_execution": "NOT RUN",
+  "production_ordinary_gold_usable_types": 28,
+  "raw_candidates": 84,
+  "rejected": 0,
+  "semantic_families": 25,
+  "source_validated": 84,
+  "source_validation_rate": 1.0,
+  "status": "COMPLETE",
+  "surface_variations": 0,
+  "unique_customer_ratio": 0.8095238095238095,
+  "unique_entity_ratio": 1.0,
+  "unique_products": 20,
+  "unique_tenants": 19
+}

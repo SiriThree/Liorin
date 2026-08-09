@@ -1,0 +1,19 @@
+{
+  "candidate_set_hash": "9617f6c8846306df50d1c253f12873cd5d3042d77eeca12e0783164e4b6774c0",
+  "corpus_fingerprint": "ddb153a29a039f7b0e00b04eefe6f666809577ac10d8f4ae8be4c71a8d6da6eb",
+  "d0_inventory_hash": "2f5f669efcd52dfb490f74f0ec7a0f1ecb8c52db49ecabb0eaa044ba1b4a0a71",
+  "d3r_status": "DEFERRED_BY_ENVIRONMENT",
+  "effective_semantic_count": 61,
+  "generation_method": "DETERMINISTIC_SOURCE_UNIT_PLAN + CONTROLLED_LANGUAGE_RENDERER",
+  "generation_version": "deterministic-troubleshooting-f0-1",
+  "mixed_batch_hash": "6987053d0f8f238fa6494f4ae828d9e552168239a1fc87618823d0b2164356d8",
+  "private_batch_hash": "c3b3aa7c65497813a9947e2ee0a8f05bae84958c0f5f09ba1f7bc1f3bc22e01c",
+  "production_capability_fingerprint": "f4d3fe2502aad8d92e6740d281fbfa1a60006325e9260c7fc7b5105d38dc4903",
+  "random_seed": 0,
+  "raw_candidate_count": 100,
+  "rejected_count": 34,
+  "scenario_family_count": 50,
+  "schema_version": "f0-troubleshooting-candidate-1",
+  "source_unit_count": 137,
+  "source_validated_count": 66
+}

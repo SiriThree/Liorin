@@ -1,0 +1,21 @@
+{
+  "comparison_mode_distribution": {
+    "DATE": 17,
+    "NORMALIZED_EXACT": 67,
+    "NUMERIC": 12,
+    "SEMANTIC": 3
+  },
+  "critical_gold_fact_count": 94,
+  "draft_count": 84,
+  "gold_evidence_count": 99,
+  "gold_fact_count": 99,
+  "optional_gold_fact_count": 5,
+  "raw_private_id_persisted": false,
+  "value_type_distribution": {
+    "DATE": 17,
+    "ENUM": 44,
+    "FLOAT": 8,
+    "INTEGER": 4,
+    "STRING": 26
+  }
+}

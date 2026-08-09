@@ -1,0 +1,140 @@
+{
+  "cases": [
+    {
+      "case_id": "E2E7-0060",
+      "current_document_sections": [
+        "LIO-PROD-001-H018"
+      ],
+      "products": [],
+      "query": "我的VR头显出现连接不稳定。找相似工单参考，再给手册里的排查方向；如果历史记录没写清怎么修好的，要明确说不知道。",
+      "semantic_family": "MIXED_TICKET_MANUAL",
+      "structured_record_types": [
+        "ticket"
+      ],
+      "subcategory": "TICKET_MANUAL"
+    },
+    {
+      "case_id": "E2E7-0061",
+      "current_document_sections": [
+        "LIO-PROD-001-H028"
+      ],
+      "products": [],
+      "query": "我的VR头显出现固件升级失败。找相似工单参考，再给手册里的排查方向；如果历史记录没写清怎么修好的，要明确说不知道。",
+      "semantic_family": "MIXED_TICKET_MANUAL",
+      "structured_record_types": [
+        "ticket"
+      ],
+      "subcategory": "TICKET_MANUAL"
+    },
+    {
+      "case_id": "E2E7-0062",
+      "current_document_sections": [
+        "LIO-PROD-002-H006"
+      ],
+      "products": [],
+      "query": "我的人体工学椅出现安装步骤不清楚。找相似工单参考，再给手册里的排查方向；如果历史记录没写清怎么修好的，要明确说不知道。",
+      "semantic_family": "MIXED_TICKET_MANUAL",
+      "structured_record_types": [
+        "ticket"
+      ],
+      "subcategory": "TICKET_MANUAL"
+    },
+    {
+      "case_id": "E2E7-0063",
+      "current_document_sections": [
+        "LIO-PROD-002-H007"
+      ],
+      "products": [],
+      "query": "我的人体工学椅出现噪音或振动异常。找相似工单参考，再给手册里的排查方向；如果历史记录没写清怎么修好的，要明确说不知道。",
+      "semantic_family": "MIXED_TICKET_MANUAL",
+      "structured_record_types": [
+        "ticket"
+      ],
+      "subcategory": "TICKET_MANUAL"
+    },
+    {
+      "case_id": "E2E7-0064",
+      "current_document_sections": [
+        "LIO-PROD-003-H007"
+      ],
+      "products": [],
+      "query": "我的健身单车出现安装步骤不清楚。找相似工单参考，再给手册里的排查方向；如果历史记录没写清怎么修好的，要明确说不知道。",
+      "semantic_family": "MIXED_TICKET_MANUAL",
+      "structured_record_types": [
+        "ticket"
+      ],
+      "subcategory": "TICKET_MANUAL"
+    },
+    {
+      "case_id": "E2E7-0065",
+      "current_document_sections": [
+        "LIO-PROD-003-H068",
+        "LIO-PROD-003-H071"
+      ],
+      "products": [],
+      "query": "我的健身单车出现噪音或振动异常。找相似工单参考，再给手册里的排查方向；如果历史记录没写清怎么修好的，要明确说不知道。",
+      "semantic_family": "MIXED_TICKET_MANUAL",
+      "structured_record_types": [
+        "ticket"
+      ],
+      "subcategory": "TICKET_MANUAL"
+    },
+    {
+      "case_id": "E2E7-0066",
+      "current_document_sections": [
+        "LIO-PROD-004-H008"
+      ],
+      "products": [],
+      "query": "我的健身追踪器出现电池或供电异常。找相似工单参考，再给手册里的排查方向；如果历史记录没写清怎么修好的，要明确说不知道。",
+      "semantic_family": "MIXED_TICKET_MANUAL",
+      "structured_record_types": [
+        "ticket"
+      ],
+      "subcategory": "TICKET_MANUAL"
+    },
+    {
+      "case_id": "E2E7-0067",
+      "current_document_sections": [
+        "LIO-PROD-004-H051"
+      ],
+      "products": [],
+      "query": "我的健身追踪器出现蓝牙无法配对。找相似工单参考，再给手册里的排查方向；如果历史记录没写清怎么修好的，要明确说不知道。",
+      "semantic_family": "MIXED_TICKET_MANUAL",
+      "structured_record_types": [
+        "ticket"
+      ],
+      "subcategory": "TICKET_MANUAL"
+    },
+    {
+      "case_id": "E2E7-0068",
+      "current_document_sections": [
+        "LIO-PROD-005-H029"
+      ],
+      "products": [],
+      "query": "我的儿童电动摩托车出现电池或供电异常。找相似工单参考，再给手册里的排查方向；如果历史记录没写清怎么修好的，要明确说不知道。",
+      "semantic_family": "MIXED_TICKET_MANUAL",
+      "structured_record_types": [
+        "ticket"
+      ],
+      "subcategory": "TICKET_MANUAL"
+    },
+    {
+      "case_id": "E2E7-0069",
+      "current_document_sections": [
+        "LIO-PROD-005-H030"
+      ],
+      "products": [],
+      "query": "我的儿童电动摩托车出现充电器疑似故障。找相似工单参考，再给手册里的排查方向；如果历史记录没写清怎么修好的，要明确说不知道。",
+      "semantic_family": "MIXED_TICKET_MANUAL",
+      "structured_record_types": [
+        "ticket"
+      ],
+      "subcategory": "TICKET_MANUAL"
+    }
+  ],
+  "count": 10,
+  "effective_count": 10,
+  "semantic_family_distribution": {
+    "MIXED_TICKET_MANUAL": 10
+  }
+}

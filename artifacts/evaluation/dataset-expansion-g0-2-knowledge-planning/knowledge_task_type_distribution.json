@@ -1,0 +1,38 @@
+{
+  "COMPATIBILITY": {
+    "count": 21,
+    "ratio": 0.116667
+  },
+  "DIRECT_FACT": {
+    "count": 21,
+    "ratio": 0.116667
+  },
+  "FAQ_PROCESS": {
+    "count": 5,
+    "ratio": 0.027778
+  },
+  "FEATURE_OR_INSTRUCTION": {
+    "count": 42,
+    "ratio": 0.233333
+  },
+  "LIMITATION": {
+    "count": 12,
+    "ratio": 0.066667
+  },
+  "MULTI_FACT_SYNTHESIS": {
+    "count": 42,
+    "ratio": 0.233333
+  },
+  "MULTI_SECTION_SYNTHESIS": {
+    "count": 13,
+    "ratio": 0.072222
+  },
+  "POLICY_OR_WARRANTY": {
+    "count": 12,
+    "ratio": 0.066667
+  },
+  "PRODUCT_SPEC": {
+    "count": 12,
+    "ratio": 0.066667
+  }
+}

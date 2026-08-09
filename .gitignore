@@ -179,3 +179,6 @@ evals/benchmark/reports/*.json
 data/*benchmark*.zip
 data/*maintainer*.zip
 data/*custodian*.zip
+
+# Local real annotator runtime config (secrets still come from environment)
+evals/benchmark/configs/private_business_dual_annotation.local.yaml

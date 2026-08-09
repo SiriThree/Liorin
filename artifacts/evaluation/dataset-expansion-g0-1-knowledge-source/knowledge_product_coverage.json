@@ -1,0 +1,107 @@
+{
+  "products": [
+    {
+      "effective_units": 34,
+      "product_id": "LIO-PROD-001",
+      "usable_units": 34
+    },
+    {
+      "effective_units": 7,
+      "product_id": "LIO-PROD-002",
+      "usable_units": 7
+    },
+    {
+      "effective_units": 77,
+      "product_id": "LIO-PROD-003",
+      "usable_units": 78
+    },
+    {
+      "effective_units": 109,
+      "product_id": "LIO-PROD-004",
+      "usable_units": 122
+    },
+    {
+      "effective_units": 29,
+      "product_id": "LIO-PROD-005",
+      "usable_units": 29
+    },
+    {
+      "effective_units": 96,
+      "product_id": "LIO-PROD-006",
+      "usable_units": 99
+    },
+    {
+      "effective_units": 53,
+      "product_id": "LIO-PROD-007",
+      "usable_units": 55
+    },
+    {
+      "effective_units": 64,
+      "product_id": "LIO-PROD-008",
+      "usable_units": 64
+    },
+    {
+      "effective_units": 38,
+      "product_id": "LIO-PROD-009",
+      "usable_units": 38
+    },
+    {
+      "effective_units": 61,
+      "product_id": "LIO-PROD-010",
+      "usable_units": 61
+    },
+    {
+      "effective_units": 61,
+      "product_id": "LIO-PROD-011",
+      "usable_units": 61
+    },
+    {
+      "effective_units": 61,
+      "product_id": "LIO-PROD-012",
+      "usable_units": 61
+    },
+    {
+      "effective_units": 111,
+      "product_id": "LIO-PROD-013",
+      "usable_units": 112
+    },
+    {
+      "effective_units": 65,
+      "product_id": "LIO-PROD-014",
+      "usable_units": 65
+    },
+    {
+      "effective_units": 61,
+      "product_id": "LIO-PROD-015",
+      "usable_units": 61
+    },
+    {
+      "effective_units": 102,
+      "product_id": "LIO-PROD-016",
+      "usable_units": 102
+    },
+    {
+      "effective_units": 30,
+      "product_id": "LIO-PROD-017",
+      "usable_units": 30
+    },
+    {
+      "effective_units": 72,
+      "product_id": "LIO-PROD-018",
+      "usable_units": 77
+    },
+    {
+      "effective_units": 27,
+      "product_id": "LIO-PROD-019",
+      "usable_units": 27
+    },
+    {
+      "effective_units": 22,
+      "product_id": "LIO-PROD-020",
+      "usable_units": 22
+    }
+  ],
+  "products_with_usable_units": 20,
+  "products_without_usable_units": [],
+  "total_products": 20
+}

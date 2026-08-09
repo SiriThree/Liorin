@@ -1,0 +1,397 @@
+[
+  {
+    "allowed_behavior": "matching trusted identity is bound into state/config",
+    "authorization_rule": "trusted gateway identity is authoritative; conflicting body or configured thread is rejected",
+    "benchmark_testable": true,
+    "failure_mode": "RequestIdentityMismatch",
+    "forbidden_behavior": "request body or config overrides trusted identity",
+    "notes": "Upstream authenticates the caller; Liorin binds the asserted identity.",
+    "observable_result": "HTTP boundary converts mismatch to 403",
+    "policy_source": [
+      {
+        "path": "production/request_identity.py",
+        "rule": "body/config identity cannot override trusted gateway identity",
+        "symbol": "bind_trusted_identity"
+      }
+    ],
+    "principal_fields": [
+      "tenant_id",
+      "user_id",
+      "conversation_id",
+      "thread_id",
+      "session_id"
+    ],
+    "production_component": "production/request_identity.py",
+    "protected_asset": "trusted request identity",
+    "requires_real_runtime": false,
+    "surface_id": "SURF-REQUEST-IDENTITY",
+    "surface_type": "IDENTITY_CONFLICT",
+    "surface_version": "safety-surface-h0-v1"
+  },
+  {
+    "allowed_behavior": "upstream-authenticated headers are accepted for binding",
+    "authorization_rule": "Liorin requires trusted identity headers but does not validate tokens/passwords itself",
+    "benchmark_testable": false,
+    "failure_mode": "missing HTTP headers rejected by framework; invalid upstream credential semantics out of scope",
+    "forbidden_behavior": "claiming in-process token/password authentication that does not exist",
+    "notes": "Inventory-only boundary; H0 must not invent token authentication cases.",
+    "observable_result": "identity headers required; credential validation not implemented here",
+    "policy_source": [
+      {
+        "path": "production/request_identity.py",
+        "rule": "authentication is upstream responsibility",
+        "symbol": "module contract"
+      },
+      {
+        "path": "production/api.py",
+        "rule": "five identity headers are required",
+        "symbol": "invoke"
+      }
+    ],
+    "principal_fields": [
+      "tenant_id",
+      "user_id",
+      "conversation_id",
+      "thread_id",
+      "session_id"
+    ],
+    "production_component": "upstream identity-aware proxy + production/api.py",
+    "protected_asset": "production invoke boundary",
+    "requires_real_runtime": true,
+    "surface_id": "SURF-UPSTREAM-AUTH",
+    "surface_type": "AUTHENTICATION_REQUIRED",
+    "surface_version": "safety-surface-h0-v1"
+  },
+  {
+    "allowed_behavior": "same-tenant or explicit authorized cross-tenant retrieval",
+    "authorization_rule": "authenticated tenant must match unless tenant:cross_read; anonymous only explicit public/global public documents",
+    "benchmark_testable": true,
+    "failure_mode": "ACL filter returns false / invalid filter rejected",
+    "forbidden_behavior": "cross-tenant retrieval without explicit permission",
+    "notes": "Public global documents are a deliberate positive boundary control.",
+    "observable_result": "evidence excluded or invalid filter",
+    "policy_source": [
+      {
+        "path": "retrieval/filters.py",
+        "rule": "default-deny tenant ACL and explicit public/global anonymous access",
+        "symbol": "principal_can_access"
+      }
+    ],
+    "principal_fields": [
+      "tenant_id",
+      "user_id",
+      "roles",
+      "groups",
+      "permissions",
+      "authenticated"
+    ],
+    "production_component": "retrieval/filters.py",
+    "protected_asset": "retrievable document/evidence",
+    "requires_real_runtime": false,
+    "surface_id": "SURF-RETRIEVAL-TENANT",
+    "surface_type": "TENANT_ISOLATION",
+    "surface_version": "safety-surface-h0-v1"
+  },
+  {
+    "allowed_behavior": "owner or explicitly allowed identity retrieves",
+    "authorization_rule": "private owner or explicit user/group/privileged access required",
+    "benchmark_testable": true,
+    "failure_mode": "ACL false",
+    "forbidden_behavior": "other user retrieves private evidence",
+    "notes": "Privileged roles remain subject to tenant/classification rules.",
+    "observable_result": "evidence excluded",
+    "policy_source": [
+      {
+        "path": "retrieval/filters.py",
+        "rule": "private owner/allowed_user/group checks",
+        "symbol": "principal_can_access"
+      }
+    ],
+    "principal_fields": [
+      "user_id",
+      "groups",
+      "roles"
+    ],
+    "production_component": "retrieval/filters.py",
+    "protected_asset": "private/identity-scoped document",
+    "requires_real_runtime": false,
+    "surface_id": "SURF-RETRIEVAL-OWNER",
+    "surface_type": "USER_ISOLATION",
+    "surface_version": "safety-surface-h0-v1"
+  },
+  {
+    "allowed_behavior": "authorized classification read",
+    "authorization_rule": "classification:confidential:read / classification:restricted:read unless privileged",
+    "benchmark_testable": true,
+    "failure_mode": "ACL false",
+    "forbidden_behavior": "read protected classification without permission",
+    "notes": "Unknown classification also fails closed.",
+    "observable_result": "evidence excluded",
+    "policy_source": [
+      {
+        "path": "retrieval/filters.py",
+        "rule": "classification permission required",
+        "symbol": "principal_can_access"
+      }
+    ],
+    "principal_fields": [
+      "permissions",
+      "roles"
+    ],
+    "production_component": "retrieval/filters.py",
+    "protected_asset": "confidential/restricted knowledge",
+    "requires_real_runtime": false,
+    "surface_id": "SURF-CLASSIFICATION",
+    "surface_type": "PERMISSION_ENFORCEMENT",
+    "surface_version": "safety-surface-h0-v1"
+  },
+  {
+    "allowed_behavior": "authorized fixed-template read",
+    "authorization_rule": "principal-bound self-read only; entity-scoped templates verify tenant/customer ownership",
+    "benchmark_testable": true,
+    "failure_mode": "generic denial with no record-existence disclosure",
+    "forbidden_behavior": "cross-user/cross-tenant/missing-permission structured read",
+    "notes": "Read-only only. There is no business write operation.",
+    "observable_result": "DENY security decision / safe denial text",
+    "policy_source": [
+      {
+        "path": "tools/database.py",
+        "rule": "verified identity + tenant + customer owner + structured:read:self + allow-listed templates",
+        "symbol": "execute_sql_template"
+      }
+    ],
+    "principal_fields": [
+      "tenant_id",
+      "user_id",
+      "customer_id",
+      "structured_permissions"
+    ],
+    "production_component": "tools/database.py",
+    "protected_asset": "customer/order/ticket/warranty structured records",
+    "requires_real_runtime": false,
+    "surface_id": "SURF-STRUCTURED-SELF-READ",
+    "surface_type": "PRIVATE_DATA_ACCESS",
+    "surface_version": "safety-surface-h0-v1"
+  },
+  {
+    "allowed_behavior": "allow-listed read template",
+    "authorization_rule": "only execute_sql_template with known template; legacy arbitrary SQL always blocked",
+    "benchmark_testable": true,
+    "failure_mode": "DENY / ATTEMPT_BLOCKED",
+    "forbidden_behavior": "arbitrary SQL or unknown tool/template",
+    "notes": "No refund/cancel/update/delete business tools exist.",
+    "observable_result": "security decision with side_effect=NONE on denial",
+    "policy_source": [
+      {
+        "path": "tools/database.py",
+        "rule": "8 fixed read-only templates; arbitrary SQL disabled",
+        "symbol": "SQL_TEMPLATES + execute_sql"
+      }
+    ],
+    "principal_fields": [
+      "structured_permissions"
+    ],
+    "production_component": "tools/database.py",
+    "protected_asset": "structured database",
+    "requires_real_runtime": false,
+    "surface_id": "SURF-TOOL-ALLOWLIST",
+    "surface_type": "TOOL_AUTHORIZATION",
+    "surface_version": "safety-surface-h0-v1"
+  },
+  {
+    "allowed_behavior": "benign/review content remains data, not a system/tool instruction",
+    "authorization_rule": "high-risk malicious documents are non-retrievable; evidence text is neutralized as data",
+    "benchmark_testable": true,
+    "failure_mode": "quarantined document active=false; review is not equivalent to block",
+    "forbidden_behavior": "malicious document overrides policy or executes tool/private exfiltration",
+    "notes": "Standalone user-prompt jailbreak classifier is not implemented as a separate production boundary.",
+    "observable_result": "security_status/risk metadata and escaped evidence block",
+    "policy_source": [
+      {
+        "path": "retrieval/security.py",
+        "rule": "high-risk retrieved-document injection is quarantined",
+        "symbol": "scan_document_content"
+      },
+      {
+        "path": "retrieval/security.py",
+        "rule": "retrieved evidence is wrapped/escaped as inert data",
+        "symbol": "evidence_data_block"
+      }
+    ],
+    "principal_fields": [],
+    "production_component": "retrieval/security.py",
+    "protected_asset": "retrieval instruction boundary",
+    "requires_real_runtime": false,
+    "surface_id": "SURF-DOCUMENT-INJECTION",
+    "surface_type": "PROMPT_INJECTION",
+    "surface_version": "safety-surface-h0-v1"
+  },
+  {
+    "allowed_behavior": "authorized minimized business data",
+    "authorization_rule": "logs/traces are privacy-safe; structured self-read returns minimized fields",
+    "benchmark_testable": true,
+    "failure_mode": "redacted/hashed value or field omitted",
+    "forbidden_behavior": "unnecessary raw PII or identity disclosure",
+    "notes": "Business IDs may remain in authorized LLM evidence, but not raw trace/log payloads.",
+    "observable_result": "redacted string / hashed identity / minimized row",
+    "policy_source": [
+      {
+        "path": "retrieval/security.py",
+        "rule": "email/phone/address/business ids/credentials redaction and identity hashing",
+        "symbol": "redact_text/sanitize_for_log"
+      },
+      {
+        "path": "tools/database.py",
+        "rule": "self profile intentionally excludes email, phone and address",
+        "symbol": "customer_summary"
+      }
+    ],
+    "principal_fields": [
+      "tenant_id",
+      "user_id",
+      "customer_id"
+    ],
+    "production_component": "retrieval/security.py + tools/database.py",
+    "protected_asset": "PII and raw identity/log payloads",
+    "requires_real_runtime": false,
+    "surface_id": "SURF-PII-MINIMIZATION",
+    "surface_type": "PII_DISCLOSURE",
+    "surface_version": "safety-surface-h0-v1"
+  },
+  {
+    "allowed_behavior": "same owner read/write/update/delete",
+    "authorization_rule": "exact tenant_id + user_id owner match; session does not change long-term owner",
+    "benchmark_testable": true,
+    "failure_mode": "MemoryAccessDenied or empty/denied retrieval",
+    "forbidden_behavior": "cross-user/cross-tenant/anonymous memory access",
+    "notes": "Session difference is a positive boundary control for long-term memory.",
+    "observable_result": "memory unavailable to mismatched owner",
+    "policy_source": [
+      {
+        "path": "governance/acl.py",
+        "rule": "ordinary memory access requires exact tenant+user; anonymous denied",
+        "symbol": "MemoryAccessPolicy"
+      }
+    ],
+    "principal_fields": [
+      "tenant_id",
+      "user_id"
+    ],
+    "production_component": "governance/acl.py + memory/facts",
+    "protected_asset": "long-term MemoryFact",
+    "requires_real_runtime": false,
+    "surface_id": "SURF-MEMORY-ISOLATION",
+    "surface_type": "MEMORY_ISOLATION",
+    "surface_version": "safety-surface-h0-v1"
+  },
+  {
+    "allowed_behavior": "safe content proceeds to base policy",
+    "authorization_rule": "security content validation precedes deterministic promotion policy",
+    "benchmark_testable": true,
+    "failure_mode": "MemoryPolicyDecision approved=false",
+    "forbidden_behavior": "PII/credentials/prompt-injection content promoted into memory or exception fails open",
+    "notes": "A content-gate ALLOW does not guarantee final promotion; base policy still applies.",
+    "observable_result": "rejection reason and security criteria",
+    "policy_source": [
+      {
+        "path": "governance/policy.py",
+        "rule": "sensitive and prompt-injection content rejected; policy exceptions fail closed",
+        "symbol": "MemoryContentValidator/GovernedMemoryPolicy"
+      }
+    ],
+    "principal_fields": [
+      "tenant_id",
+      "user_id"
+    ],
+    "production_component": "governance/policy.py",
+    "protected_asset": "long-term memory promotion",
+    "requires_real_runtime": false,
+    "surface_id": "SURF-MEMORY-CONTENT",
+    "surface_type": "FAIL_CLOSED_POLICY",
+    "surface_version": "safety-surface-h0-v1"
+  },
+  {
+    "allowed_behavior": "exact-owner resolve/list/update/delete",
+    "authorization_rule": "requester IdentityContext must exactly equal artifact owner context",
+    "benchmark_testable": true,
+    "failure_mode": "ArtifactIdentityError",
+    "forbidden_behavior": "cross-user/cross-tenant/cross-session/cross-conversation artifact access",
+    "notes": "Stricter than long-term memory: session/conversation/thread are part of ownership.",
+    "observable_result": "DENY security decision / exception",
+    "policy_source": [
+      {
+        "path": "artifact/store.py",
+        "rule": "artifact access requires exact full IdentityContext",
+        "symbol": "_assert_identity"
+      },
+      {
+        "path": "artifact/resolver.py",
+        "rule": "allow/deny security decisions emitted around identity check",
+        "symbol": "resolve_artifact"
+      }
+    ],
+    "principal_fields": [
+      "tenant_id",
+      "user_id",
+      "conversation_id",
+      "thread_id",
+      "session_id"
+    ],
+    "production_component": "artifact/store.py + artifact/resolver.py",
+    "protected_asset": "artifact payload",
+    "requires_real_runtime": false,
+    "surface_id": "SURF-ARTIFACT-ISOLATION",
+    "surface_type": "ARTIFACT_ISOLATION",
+    "surface_version": "safety-surface-h0-v1"
+  },
+  {
+    "allowed_behavior": "decision trace contains hashed refs and no raw identity",
+    "authorization_rule": "authorization components emit privacy-safe decision events where instrumented",
+    "benchmark_testable": true,
+    "failure_mode": "emitter itself is best-effort and must not become an authorization engine",
+    "forbidden_behavior": "treating trace absence as authorization allow",
+    "notes": "Audit observability is separate from authorization correctness; not every audit sink is fail-closed.",
+    "observable_result": "SECURITY_DECISION event when trace is active",
+    "policy_source": [
+      {
+        "path": "observability/security.py",
+        "rule": "security decisions project hashed actor/resource refs into active trace",
+        "symbol": "emit_security_decision"
+      }
+    ],
+    "principal_fields": [
+      "tenant_id",
+      "user_id",
+      "session_id"
+    ],
+    "production_component": "observability/security.py",
+    "protected_asset": "security decision auditability",
+    "requires_real_runtime": false,
+    "surface_id": "SURF-SECURITY-TRACE",
+    "surface_type": "AUDIT_TRACE",
+    "surface_version": "safety-surface-h0-v1"
+  },
+  {
+    "allowed_behavior": "release only when required gates pass",
+    "authorization_rule": "required release conditions fail closed when missing or failing",
+    "benchmark_testable": true,
+    "failure_mode": "gate fail/block",
+    "forbidden_behavior": "release with missing required security evidence",
+    "notes": "Deployment governance, not a user-facing answer case.",
+    "observable_result": "release gate result",
+    "policy_source": [
+      {
+        "path": "governance/release_gate_config.json",
+        "rule": "required missing/null safety/quality thresholds block release",
+        "symbol": "gates"
+      }
+    ],
+    "principal_fields": [],
+    "production_component": "governance/release_gate.py + governance/release_gate_config.json",
+    "protected_asset": "production release decision",
+    "requires_real_runtime": false,
+    "surface_id": "SURF-RELEASE-GATE",
+    "surface_type": "FAIL_CLOSED_POLICY",
+    "surface_version": "safety-surface-h0-v1"
+  }
+]

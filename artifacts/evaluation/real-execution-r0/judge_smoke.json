@@ -1,0 +1,9 @@
+{
+  "errors": [
+    "LIORIN_JUDGE_MODEL not configured; judge smoke not run"
+  ],
+  "model": null,
+  "schema_valid": null,
+  "smoke_cases": 0,
+  "status": "BLOCKED"
+}

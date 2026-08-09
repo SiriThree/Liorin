@@ -1,0 +1,17 @@
+{
+  "max": null,
+  "mean": null,
+  "median": null,
+  "n": 0,
+  "p90": null,
+  "p95": null,
+  "smoke_latency_ms": {
+    "max": 64385.227,
+    "mean": 36780.2376,
+    "median": 52232.087,
+    "n": 5,
+    "p90": 63747.4338,
+    "p95": 64066.3304
+  },
+  "status": "NOT_RUN_SMOKE_GATE_FAILED"
+}

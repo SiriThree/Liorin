@@ -1,0 +1,31 @@
+{
+  "atomic_fact_count": 4913,
+  "corpus_fingerprint": "ddb153a29a039f7b0e00b04eefe6f666809577ac10d8f4ae8be4c71a8d6da6eb",
+  "d0_inventory_hash": "2f5f669efcd52dfb490f74f0ec7a0f1ecb8c52db49ecabb0eaa044ba1b4a0a71",
+  "d3r": "DEFERRED_BY_ENVIRONMENT",
+  "effective_source_units": 1195,
+  "generation_method": "DETERMINISTIC_SOURCE_AUDIT + RULE_BASED_FACT_GROUPING",
+  "generation_version": "deterministic-knowledge-source-audit-g0.1-1",
+  "knowledge_source_space_hash": "206fac5baaf012483066e913e56bfb10fb6ce97cc1d4d6dfeb9b22b8800cc40b",
+  "llm_used": false,
+  "mixed_batch_hash": "6987053d0f8f238fa6494f4ae828d9e552168239a1fc87618823d0b2164356d8",
+  "new_candidates": 0,
+  "new_formal_cases": 0,
+  "new_queries": 0,
+  "private_batch_hash": "c3b3aa7c65497813a9947e2ee0a8f05bae84958c0f5f09ba1f7bc1f3bc22e01c",
+  "random_seed": 0,
+  "schema_version": "g0.1-knowledge-source-space-1",
+  "section_count": 1216,
+  "source_count": 22,
+  "source_drift": {
+    "atomic_fact_inventory_equal": true,
+    "current_atomic_facts": 4913,
+    "current_sources": 22,
+    "d0_atomic_facts": 4913,
+    "d0_sources": 22,
+    "document_hashes_equal": true,
+    "status": "NO_SOURCE_DRIFT"
+  },
+  "source_unit_count": 1355,
+  "troubleshooting_candidate_set_hash": "9617f6c8846306df50d1c253f12873cd5d3042d77eeca12e0783164e4b6774c0"
+}

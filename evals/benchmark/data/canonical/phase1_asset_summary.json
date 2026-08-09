@@ -1,0 +1,15 @@
+{
+  "created_at": "2026-08-08T08:06:08Z",
+  "fully_migrated_by_source": {
+    "blind_test_inputs_v7_3.json": 0,
+    "dev_v7_3.json": 34,
+    "validation_v7_3.json": 5
+  },
+  "fully_migrated_legacy_total": 39,
+  "needs_review_source_rows_total": 1252,
+  "non_v73_needs_review_source_rows": 679,
+  "non_v73_retired_source_rows": 400,
+  "representative_seed_count": 15,
+  "trusted_test_status": "NO_TRUSTED_TEST_SPLIT_YET",
+  "v73_review_queue_count": 573
+}

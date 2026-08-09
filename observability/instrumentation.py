@@ -39,7 +39,13 @@ def invoke_observed_tool(
     with trace_context:
         recorder.emit(RuntimeEventType.TOOL_STARTED, attributes={"tool_name": tool_name, "input_preview": input_preview[:300]})
         try:
-            call = lambda: execute_with_timeout(operation, timeout_seconds)
+            def operation_with_trace() -> T:
+                if existing is None:
+                    return operation()
+                with recorder.bind(existing):
+                    return operation()
+
+            call = lambda: execute_with_timeout(operation_with_trace, timeout_seconds)
             result = retry_policy.execute(call) if retry_policy is not None else call()
         except Exception as exc:
             latency = (perf_counter() - started) * 1000

@@ -1,0 +1,67 @@
+{
+  "datasets": {
+    "legacy_dev": {
+      "alternative_groups": 0,
+      "annotation_status": {
+        "MIGRATED_LEGACY": 34
+      },
+      "cases": 34,
+      "cases_declaring_allowed_recovery_actions": 34,
+      "cases_with_gold_evidence": 34,
+      "cases_with_required_source": {
+        "DOCUMENT": 34,
+        "STRUCTURED_DATA": 10
+      },
+      "clarification_required_cases": 2,
+      "path": "evals/benchmark/data/canonical/dev_v7_3_canonical_v1.json",
+      "required_gold_evidence": {
+        "DOCUMENT": 35,
+        "STRUCTURED_DATA": 10
+      }
+    },
+    "legacy_validation": {
+      "alternative_groups": 0,
+      "annotation_status": {
+        "MIGRATED_LEGACY": 5
+      },
+      "cases": 5,
+      "cases_declaring_allowed_recovery_actions": 5,
+      "cases_with_gold_evidence": 5,
+      "cases_with_required_source": {
+        "DOCUMENT": 5
+      },
+      "clarification_required_cases": 1,
+      "path": "evals/benchmark/data/canonical/validation_v7_3_canonical_v1.json",
+      "required_gold_evidence": {
+        "DOCUMENT": 5
+      }
+    },
+    "representative_seed": {
+      "alternative_groups": 0,
+      "annotation_status": {
+        "NEEDS_REVIEW": 15
+      },
+      "cases": 15,
+      "cases_declaring_allowed_recovery_actions": 0,
+      "cases_with_gold_evidence": 10,
+      "cases_with_required_source": {
+        "DOCUMENT": 7,
+        "STRUCTURED_DATA": 5
+      },
+      "clarification_required_cases": 1,
+      "path": "evals/benchmark/data/canonical/representative_seed_v1.json",
+      "required_gold_evidence": {
+        "DOCUMENT": 8,
+        "STRUCTURED_DATA": 5
+      }
+    }
+  },
+  "formal_cases_with_gold_evidence": 39,
+  "formal_cases_with_required_structured_evidence": 10,
+  "formal_legacy_canonical_cases": 39,
+  "formal_metric_generated": false,
+  "recovery_challenge_dataset_status": "COVERAGE_INSUFFICIENT_NEEDS_REVIEW",
+  "recovery_challenge_reason": "Canonical Gold does not yet carry an independently reviewed first-pass insufficiency condition for a formal recovery challenge subset; runtime recovery diagnostics can be computed after a real trace, but no challenge score is pre-certified from Gold alone.",
+  "semantics": "Phase-3 data-readiness inventory only; no Production/Judge execution and no quality metric",
+  "trusted_test_split": false
+}

@@ -1,0 +1,19 @@
+{
+  "business_write_tools": [],
+  "legacy_tool": "execute_sql",
+  "legacy_tool_behavior": "ATTEMPT_BLOCKED",
+  "permission": "structured:read:self",
+  "read_only": true,
+  "template_count": 8,
+  "templates": [
+    "customer_summary",
+    "customer_orders",
+    "order_detail",
+    "order_events",
+    "customer_tickets",
+    "ticket_detail",
+    "ticket_events",
+    "warranty_cases"
+  ],
+  "tool": "execute_sql_template"
+}

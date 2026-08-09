@@ -1,0 +1,36 @@
+{
+  "exact_query_collisions": [],
+  "existing_formal_mixed_count": 10,
+  "existing_formal_troubleshooting_count": 2,
+  "formal_section_collisions": [
+    "TRBL-15222DA60168EEAF",
+    "TRBL-D510C9E22B9B6222",
+    "TRBL-8A60D3AA4F8CDDF7",
+    "TRBL-5FD827FD3E8292C4",
+    "TRBL-4C31F358EB6A5A99",
+    "TRBL-2E7A7BE92188BC72",
+    "TRBL-63263E62D4EE5657",
+    "TRBL-4D2ADAB553C244E7",
+    "TRBL-8A60D3AA4F8CDDF7"
+  ],
+  "mixed_gold_fact_collisions": [
+    "TRBL-6EFB3380B14942AD",
+    "TRBL-00E1979B2D45155A",
+    "TRBL-1D30B2FCAB05153F",
+    "TRBL-F6ACB7E575673F09"
+  ],
+  "protected_current_sections": [
+    "LIO-PROD-001_VR头显手册:sec:5dc7d3388a07",
+    "LIO-PROD-001_VR头显手册:sec:7d1ec6d516fc",
+    "LIO-PROD-001_VR头显手册:sec:f7f04bcfbe5d",
+    "LIO-PROD-002_人体工学椅手册:sec:4d8b662127f4",
+    "LIO-PROD-002_人体工学椅手册:sec:becfe4ce4d1f",
+    "LIO-PROD-003_健身单车手册:sec:14a8ef80df93",
+    "LIO-PROD-003_健身单车手册:sec:2945e739b343",
+    "LIO-PROD-003_健身单车手册:sec:8d500982d309",
+    "LIO-PROD-004_健身追踪器手册:sec:1dd45af55c00",
+    "LIO-PROD-004_健身追踪器手册:sec:8e8d0c432d66",
+    "LIO-PROD-005_儿童电动摩托车手册:sec:5ffe4f650177",
+    "LIO-PROD-005_儿童电动摩托车手册:sec:d0193bc7a045"
+  ]
+}

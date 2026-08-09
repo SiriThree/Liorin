@@ -1,0 +1,132 @@
+{
+  "difficulty_distribution": {
+    "EASY": 66,
+    "MEDIUM": 18
+  },
+  "domain_distribution": {
+    "order": 36,
+    "ticket": 26,
+    "warranty": 22
+  },
+  "field_combination_distribution": {
+    "order:channel": 4,
+    "order:order_date": 4,
+    "order:order_date+status": 6,
+    "order:price_per_unit": 4,
+    "order:product_id+product_name": 5,
+    "order:quantity": 4,
+    "order:status": 5,
+    "order:total_amount": 4,
+    "ticket:assigned_team": 3,
+    "ticket:created_at": 2,
+    "ticket:issue_type": 3,
+    "ticket:order_id": 3,
+    "ticket:priority": 3,
+    "ticket:priority+status": 2,
+    "ticket:product_id": 3,
+    "ticket:status": 4,
+    "ticket:summary": 3,
+    "warranty:coverage_status": 4,
+    "warranty:coverage_status+expires_at": 2,
+    "warranty:coverage_type": 3,
+    "warranty:expires_at": 3,
+    "warranty:order_id": 2,
+    "warranty:product_id": 3,
+    "warranty:status": 3,
+    "warranty:ticket_id": 2
+  },
+  "field_distribution": {
+    "order.channel": 4,
+    "order.order_date": 10,
+    "order.price_per_unit": 4,
+    "order.product_id": 5,
+    "order.product_name": 5,
+    "order.quantity": 4,
+    "order.status": 11,
+    "order.total_amount": 4,
+    "ticket.assigned_team": 3,
+    "ticket.created_at": 2,
+    "ticket.issue_type": 3,
+    "ticket.order_id": 3,
+    "ticket.priority": 5,
+    "ticket.product_id": 3,
+    "ticket.status": 6,
+    "ticket.summary": 3,
+    "warranty.coverage_status": 6,
+    "warranty.coverage_type": 3,
+    "warranty.expires_at": 5,
+    "warranty.order_id": 2,
+    "warranty.product_id": 3,
+    "warranty.status": 3,
+    "warranty.ticket_id": 2
+  },
+  "max_per_customer": 4,
+  "max_per_entity": 1,
+  "max_per_product": 6,
+  "max_per_semantic_family": 6,
+  "max_per_tenant": 6,
+  "product_concentration_ratio": 0.09523809523809523,
+  "product_resolved_candidates": 63,
+  "sampling_reason_distribution": {
+    "BALANCED_FAMILY_STATE_COVERAGE": 35,
+    "RARE_STATE_COVERAGE": 49
+  },
+  "semantic_family_distribution": {
+    "ORDER_AMOUNT_LOOKUP": 4,
+    "ORDER_CHANNEL_LOOKUP": 4,
+    "ORDER_DATE_LOOKUP": 4,
+    "ORDER_MULTI_FIELD_SUMMARY": 6,
+    "ORDER_PRODUCT_LOOKUP": 5,
+    "ORDER_QUANTITY_LOOKUP": 4,
+    "ORDER_STATUS_LOOKUP": 5,
+    "ORDER_UNIT_PRICE_LOOKUP": 4,
+    "TICKET_ASSIGNED_TEAM_LOOKUP": 3,
+    "TICKET_CREATED_AT_LOOKUP": 2,
+    "TICKET_ISSUE_TYPE_LOOKUP": 3,
+    "TICKET_MULTI_FIELD_SUMMARY": 2,
+    "TICKET_ORDER_LINK_LOOKUP": 3,
+    "TICKET_PRIORITY_LOOKUP": 3,
+    "TICKET_PRODUCT_LOOKUP": 3,
+    "TICKET_STATUS_LOOKUP": 4,
+    "TICKET_SUMMARY_LOOKUP": 3,
+    "WARRANTY_COVERAGE_STATUS_LOOKUP": 4,
+    "WARRANTY_COVERAGE_TYPE_LOOKUP": 3,
+    "WARRANTY_EXPIRY_LOOKUP": 3,
+    "WARRANTY_MULTI_FIELD_SUMMARY": 2,
+    "WARRANTY_ORDER_LINK_LOOKUP": 2,
+    "WARRANTY_PRODUCT_LOOKUP": 3,
+    "WARRANTY_STATUS_LOOKUP": 3,
+    "WARRANTY_TICKET_LINK_LOOKUP": 2
+  },
+  "state_distribution": {
+    "order_status": {
+      "Cancelled": 8,
+      "Delivered": 15,
+      "Processing": 7,
+      "Shipped": 6
+    },
+    "ticket_status": {
+      "in_progress": 6,
+      "open": 6,
+      "pending_customer": 6,
+      "resolved": 8
+    },
+    "warranty_coverage_status": {
+      "expired": 10,
+      "in_warranty": 12
+    },
+    "warranty_status": {
+      "active": 7,
+      "denied": 2,
+      "expired": 8,
+      "under_review": 5
+    }
+  },
+  "tenant_concentration_ratio": 0.07142857142857142,
+  "unique_customer_ratio": 0.8095238095238095,
+  "unique_customers": 68,
+  "unique_entities": 84,
+  "unique_entity_ratio": 1.0,
+  "unique_products": 20,
+  "unique_tenants": 19
+}

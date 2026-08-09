@@ -1,0 +1,56 @@
+{
+  "annotation_runs": 0,
+  "behavior_distribution": {
+    "CLARIFICATION_REQUIRED": 12,
+    "CONDITIONAL": 22,
+    "DIRECT": 11,
+    "HANDOFF": 8,
+    "MULTI_STEP": 4,
+    "NO_CLARIFICATION_CONTROL": 11,
+    "RECOVERY_ORIENTED": 22
+  },
+  "benchmark_usable_source_units": 28,
+  "clarification_required": 12,
+  "d3r": "DEFERRED_BY_ENVIRONMENT",
+  "effective_semantic_units": 61,
+  "false_clarification_controls": 11,
+  "formal_canonical_expected": 39,
+  "handoff": 8,
+  "mixed_frozen_batch_unchanged": true,
+  "new_formal_cases": 0,
+  "observed_production_first_pass_failures": 0,
+  "phase": "F0",
+  "private_frozen_batch_unchanged": true,
+  "procedure_families": 22,
+  "production_agent": "NOT RUN",
+  "raw_candidates": 100,
+  "real_recovery_runs": 0,
+  "recovered_cases": 0,
+  "recovery_action_distribution": {
+    "CLARIFY": 12,
+    "REWRITE": 10,
+    "SUPPLEMENT": 10
+  },
+  "recovery_eligible": 22,
+  "recovery_oriented_behavior": 22,
+  "recovery_trigger_distribution": {
+    "MISSING_REQUIRED_CONTEXT": 12,
+    "PARTIAL_PROCEDURE": 5,
+    "WRONG_SCOPE_RETRIEVAL": 5
+  },
+  "rejected": 34,
+  "rejection_reasons": {
+    "DUPLICATE_EXISTING_FORMAL_SECTION": 9,
+    "DUPLICATE_FROZEN_MIXED_MANUAL_FACT": 4,
+    "REQUIRED_STEPS_MISSING": 18,
+    "SCOPE_TOO_BROAD": 5,
+    "SOURCE_UNIT_NOT_BENCHMARK_USABLE": 20
+  },
+  "scenario_families": 50,
+  "source_units": 137,
+  "source_validated": 66,
+  "status": "COMPLETE",
+  "symptom_families": 8,
+  "unique_documents": 12,
+  "unique_products": 12
+}

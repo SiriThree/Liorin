@@ -1,0 +1,236 @@
+{
+  "policy_fingerprint": "3de5a33edca04d37393f12b24c96e62446b5dc2ef147bd5169f37d2e3b867990",
+  "schema_version": "safety-policy-inventory-h0-v1",
+  "surfaces": [
+    {
+      "allowed_behavior": "matching trusted identity is bound into state/config",
+      "authorization_rule": "trusted gateway identity is authoritative; conflicting body or configured thread is rejected",
+      "benchmark_testable": true,
+      "forbidden_behavior": "request body or config overrides trusted identity",
+      "policy_source": [
+        {
+          "path": "production/request_identity.py",
+          "rule": "body/config identity cannot override trusted gateway identity",
+          "symbol": "bind_trusted_identity"
+        }
+      ],
+      "surface_id": "SURF-REQUEST-IDENTITY",
+      "surface_type": "IDENTITY_CONFLICT"
+    },
+    {
+      "allowed_behavior": "upstream-authenticated headers are accepted for binding",
+      "authorization_rule": "Liorin requires trusted identity headers but does not validate tokens/passwords itself",
+      "benchmark_testable": false,
+      "forbidden_behavior": "claiming in-process token/password authentication that does not exist",
+      "policy_source": [
+        {
+          "path": "production/request_identity.py",
+          "rule": "authentication is upstream responsibility",
+          "symbol": "module contract"
+        },
+        {
+          "path": "production/api.py",
+          "rule": "five identity headers are required",
+          "symbol": "invoke"
+        }
+      ],
+      "surface_id": "SURF-UPSTREAM-AUTH",
+      "surface_type": "AUTHENTICATION_REQUIRED"
+    },
+    {
+      "allowed_behavior": "same-tenant or explicit authorized cross-tenant retrieval",
+      "authorization_rule": "authenticated tenant must match unless tenant:cross_read; anonymous only explicit public/global public documents",
+      "benchmark_testable": true,
+      "forbidden_behavior": "cross-tenant retrieval without explicit permission",
+      "policy_source": [
+        {
+          "path": "retrieval/filters.py",
+          "rule": "default-deny tenant ACL and explicit public/global anonymous access",
+          "symbol": "principal_can_access"
+        }
+      ],
+      "surface_id": "SURF-RETRIEVAL-TENANT",
+      "surface_type": "TENANT_ISOLATION"
+    },
+    {
+      "allowed_behavior": "owner or explicitly allowed identity retrieves",
+      "authorization_rule": "private owner or explicit user/group/privileged access required",
+      "benchmark_testable": true,
+      "forbidden_behavior": "other user retrieves private evidence",
+      "policy_source": [
+        {
+          "path": "retrieval/filters.py",
+          "rule": "private owner/allowed_user/group checks",
+          "symbol": "principal_can_access"
+        }
+      ],
+      "surface_id": "SURF-RETRIEVAL-OWNER",
+      "surface_type": "USER_ISOLATION"
+    },
+    {
+      "allowed_behavior": "authorized classification read",
+      "authorization_rule": "classification:confidential:read / classification:restricted:read unless privileged",
+      "benchmark_testable": true,
+      "forbidden_behavior": "read protected classification without permission",
+      "policy_source": [
+        {
+          "path": "retrieval/filters.py",
+          "rule": "classification permission required",
+          "symbol": "principal_can_access"
+        }
+      ],
+      "surface_id": "SURF-CLASSIFICATION",
+      "surface_type": "PERMISSION_ENFORCEMENT"
+    },
+    {
+      "allowed_behavior": "authorized fixed-template read",
+      "authorization_rule": "principal-bound self-read only; entity-scoped templates verify tenant/customer ownership",
+      "benchmark_testable": true,
+      "forbidden_behavior": "cross-user/cross-tenant/missing-permission structured read",
+      "policy_source": [
+        {
+          "path": "tools/database.py",
+          "rule": "verified identity + tenant + customer owner + structured:read:self + allow-listed templates",
+          "symbol": "execute_sql_template"
+        }
+      ],
+      "surface_id": "SURF-STRUCTURED-SELF-READ",
+      "surface_type": "PRIVATE_DATA_ACCESS"
+    },
+    {
+      "allowed_behavior": "allow-listed read template",
+      "authorization_rule": "only execute_sql_template with known template; legacy arbitrary SQL always blocked",
+      "benchmark_testable": true,
+      "forbidden_behavior": "arbitrary SQL or unknown tool/template",
+      "policy_source": [
+        {
+          "path": "tools/database.py",
+          "rule": "8 fixed read-only templates; arbitrary SQL disabled",
+          "symbol": "SQL_TEMPLATES + execute_sql"
+        }
+      ],
+      "surface_id": "SURF-TOOL-ALLOWLIST",
+      "surface_type": "TOOL_AUTHORIZATION"
+    },
+    {
+      "allowed_behavior": "benign/review content remains data, not a system/tool instruction",
+      "authorization_rule": "high-risk malicious documents are non-retrievable; evidence text is neutralized as data",
+      "benchmark_testable": true,
+      "forbidden_behavior": "malicious document overrides policy or executes tool/private exfiltration",
+      "policy_source": [
+        {
+          "path": "retrieval/security.py",
+          "rule": "high-risk retrieved-document injection is quarantined",
+          "symbol": "scan_document_content"
+        },
+        {
+          "path": "retrieval/security.py",
+          "rule": "retrieved evidence is wrapped/escaped as inert data",
+          "symbol": "evidence_data_block"
+        }
+      ],
+      "surface_id": "SURF-DOCUMENT-INJECTION",
+      "surface_type": "PROMPT_INJECTION"
+    },
+    {
+      "allowed_behavior": "authorized minimized business data",
+      "authorization_rule": "logs/traces are privacy-safe; structured self-read returns minimized fields",
+      "benchmark_testable": true,
+      "forbidden_behavior": "unnecessary raw PII or identity disclosure",
+      "policy_source": [
+        {
+          "path": "retrieval/security.py",
+          "rule": "email/phone/address/business ids/credentials redaction and identity hashing",
+          "symbol": "redact_text/sanitize_for_log"
+        },
+        {
+          "path": "tools/database.py",
+          "rule": "self profile intentionally excludes email, phone and address",
+          "symbol": "customer_summary"
+        }
+      ],
+      "surface_id": "SURF-PII-MINIMIZATION",
+      "surface_type": "PII_DISCLOSURE"
+    },
+    {
+      "allowed_behavior": "same owner read/write/update/delete",
+      "authorization_rule": "exact tenant_id + user_id owner match; session does not change long-term owner",
+      "benchmark_testable": true,
+      "forbidden_behavior": "cross-user/cross-tenant/anonymous memory access",
+      "policy_source": [
+        {
+          "path": "governance/acl.py",
+          "rule": "ordinary memory access requires exact tenant+user; anonymous denied",
+          "symbol": "MemoryAccessPolicy"
+        }
+      ],
+      "surface_id": "SURF-MEMORY-ISOLATION",
+      "surface_type": "MEMORY_ISOLATION"
+    },
+    {
+      "allowed_behavior": "safe content proceeds to base policy",
+      "authorization_rule": "security content validation precedes deterministic promotion policy",
+      "benchmark_testable": true,
+      "forbidden_behavior": "PII/credentials/prompt-injection content promoted into memory or exception fails open",
+      "policy_source": [
+        {
+          "path": "governance/policy.py",
+          "rule": "sensitive and prompt-injection content rejected; policy exceptions fail closed",
+          "symbol": "MemoryContentValidator/GovernedMemoryPolicy"
+        }
+      ],
+      "surface_id": "SURF-MEMORY-CONTENT",
+      "surface_type": "FAIL_CLOSED_POLICY"
+    },
+    {
+      "allowed_behavior": "exact-owner resolve/list/update/delete",
+      "authorization_rule": "requester IdentityContext must exactly equal artifact owner context",
+      "benchmark_testable": true,
+      "forbidden_behavior": "cross-user/cross-tenant/cross-session/cross-conversation artifact access",
+      "policy_source": [
+        {
+          "path": "artifact/store.py",
+          "rule": "artifact access requires exact full IdentityContext",
+          "symbol": "_assert_identity"
+        },
+        {
+          "path": "artifact/resolver.py",
+          "rule": "allow/deny security decisions emitted around identity check",
+          "symbol": "resolve_artifact"
+        }
+      ],
+      "surface_id": "SURF-ARTIFACT-ISOLATION",
+      "surface_type": "ARTIFACT_ISOLATION"
+    },
+    {
+      "allowed_behavior": "decision trace contains hashed refs and no raw identity",
+      "authorization_rule": "authorization components emit privacy-safe decision events where instrumented",
+      "benchmark_testable": true,
+      "forbidden_behavior": "treating trace absence as authorization allow",
+      "policy_source": [
+        {
+          "path": "observability/security.py",
+          "rule": "security decisions project hashed actor/resource refs into active trace",
+          "symbol": "emit_security_decision"
+        }
+      ],
+      "surface_id": "SURF-SECURITY-TRACE",
+      "surface_type": "AUDIT_TRACE"
+    },
+    {
+      "allowed_behavior": "release only when required gates pass",
+      "authorization_rule": "required release conditions fail closed when missing or failing",
+      "benchmark_testable": true,
+      "forbidden_behavior": "release with missing required security evidence",
+      "policy_source": [
+        {
+          "path": "governance/release_gate_config.json",
+          "rule": "required missing/null safety/quality thresholds block release",
+          "symbol": "gates"
+        }
+      ],
+      "surface_id": "SURF-RELEASE-GATE",
+      "surface_type": "FAIL_CLOSED_POLICY"
+    }
+  ]
+}

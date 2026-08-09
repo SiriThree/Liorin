@@ -62,6 +62,8 @@ __all__ = [
     "ContextItem",
     "ContextItemType",
     "ContextRuntime",
+    "ContextEvaluationStrategy",
+    "ContextStrategyConfig",
     "ContextSelection",
     "ContextSelector",
     "IdentityContext",
@@ -76,3 +78,5 @@ __all__ = [
     "SummarySourceRange",
     "estimate_token_cost",
 ]
+
+from context_engine.strategy import ContextEvaluationStrategy, ContextStrategyConfig

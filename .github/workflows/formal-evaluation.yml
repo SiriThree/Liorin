@@ -1,0 +1,48 @@
+name: Scheduled Formal Evaluation
+
+permissions:
+  contents: read
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 6 * * 1'
+
+jobs:
+  formal-validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      LIORIN_MODEL: ${{ vars.LIORIN_FORMAL_MODEL }}
+      LIORIN_JUDGE_MODEL: ${{ vars.LIORIN_JUDGE_MODEL }}
+      MILVUS_URI: ${{ secrets.MILVUS_URI }}
+      DATABASE_URL: ${{ secrets.LIORIN_DATABASE_URL }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v4
+      - run: uv sync --dev
+      - name: Environment doctor
+        run: uv run python -m eval_platform.cli doctor --root . --output readiness.json
+      - name: Validate formal validation data
+        run: uv run python -m eval_platform.cli validate --dataset evals/benchmark/data/canonical/validation_v7_3_canonical_v1.json --split VALIDATION
+      - name: Require configured external evaluation dependencies
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          d=json.load(open('readiness.json'))
+          blocked=[x for x in d['items'] if x['name'] in {'production_runtime','judge_provider'} and x['status'] != 'READY']
+          if blocked:
+              raise SystemExit('FORMAL EVAL BLOCKED: '+repr(blocked))
+          PY
+      - name: Formal validation run
+        run: uv run python -m eval_platform.cli run --dataset evals/benchmark/data/canonical/validation_v7_3_canonical_v1.json --split VALIDATION --config evals/benchmark/configs/phase6_formal_evaluation.example.json --output artifacts/evaluation/formal-validation
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: formal-evaluation
+          path: |
+            readiness.json
+            artifacts/evaluation/formal-validation/**

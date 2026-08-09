@@ -1,0 +1,38 @@
+{
+  "annotation_status_distribution": {
+    "MIGRATED_LEGACY": 34
+  },
+  "case_count": 34,
+  "category_distribution": {
+    "KNOWLEDGE_QA": 20,
+    "MIXED_KNOWLEDGE_STRUCTURED": 10,
+    "SAFETY_GOVERNANCE": 2,
+    "TROUBLESHOOTING": 2
+  },
+  "contamination_status": "DEVELOPMENT_ONLY",
+  "created_at": "2026-08-08T08:06:08Z",
+  "dataset_hash": "f385879cebe6583f8d4f52224155ed6259e9a83471a522cdb2f9fe8c6aa6b7d4",
+  "dataset_name": "liorin_dev_v7_3_canonical",
+  "dataset_version": "1.0",
+  "difficulty_distribution": {
+    "HARD": 20,
+    "MEDIUM": 14
+  },
+  "gold_status": "LEGACY_GOLD_MIGRATED_CONSERVATIVELY",
+  "intended_usage": "DEVELOPMENT",
+  "review_status": "MIGRATED_LEGACY_NOT_HUMAN_REVIEWED",
+  "schema_version": "1.0",
+  "source_datasets": [
+    "dev_v7_3.json"
+  ],
+  "split_distribution": {
+    "DEVELOPMENT": 34
+  },
+  "subcategory_distribution": {
+    "DIRECT": 2,
+    "EXACT_SPEC": 20,
+    "SENSITIVE_DATA": 2,
+    "TICKET_MANUAL": 10
+  },
+  "trust_level": "DEVELOPMENT"
+}

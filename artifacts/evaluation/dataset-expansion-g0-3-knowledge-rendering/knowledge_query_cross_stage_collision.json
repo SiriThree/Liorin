@@ -1,0 +1,7 @@
+{
+  "formal_exact_or_normalized": 0,
+  "mixed_collision": 0,
+  "note": "plan-level frozen fact/evidence collisions remain governed by G0.2; G0.3 reports query-level exact/normalized and category drift",
+  "private_category_drift": 0,
+  "troubleshooting_collision": 1
+}

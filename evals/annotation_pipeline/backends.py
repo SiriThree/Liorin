@@ -16,6 +16,14 @@ class BackendError(RuntimeError):
     pass
 
 
+class RetryableBackendError(BackendError):
+    pass
+
+
+class NonRetryableBackendError(BackendError):
+    pass
+
+
 class JSONBackend(ABC):
     def __init__(self, config: AgentConfig):
         self.config = config
@@ -50,19 +58,23 @@ class OpenAICompatibleBackend(JSONBackend):
             "Content-Type": "application/json",
         }
         last_error: Exception | None = None
-        for attempt in range(5):
+        attempts = self.config.max_retries + 1
+        for attempt in range(attempts):
             self.last_http_attempt_count = attempt + 1
             try:
                 response = self.client.post(endpoint, headers=headers, json=payload)
                 if response.status_code in {429, 500, 502, 503, 504}:
-                    raise BackendError(f"transient HTTP {response.status_code}: {response.text[:500]}")
-                response.raise_for_status()
+                    raise RetryableBackendError(f"transient HTTP {response.status_code}: {response.text[:500]}")
+                if response.status_code >= 400:
+                    raise NonRetryableBackendError(f"non-retryable HTTP {response.status_code}: {response.text[:500]}")
                 body = response.json()
                 raw = body["choices"][0]["message"]["content"]
                 return parse_json_object(raw), raw
-            except (httpx.HTTPError, KeyError, ValueError, BackendError) as exc:
+            except NonRetryableBackendError:
+                raise
+            except (httpx.HTTPError, KeyError, ValueError, RetryableBackendError) as exc:
                 last_error = exc
-                if attempt == 4:
+                if attempt == attempts - 1:
                     break
                 time.sleep(min(16.0, 1.5 * (2**attempt)))
         raise BackendError(f"{self.config.agent_id} failed after retries: {last_error}")

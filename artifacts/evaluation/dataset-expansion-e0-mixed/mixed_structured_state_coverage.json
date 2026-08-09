@@ -1,0 +1,26 @@
+{
+  "MIXED_ORDER_PRODUCT_MANUAL": {
+    "Delivered": 17,
+    "Shipped": 1
+  },
+  "MIXED_ORDER_STATUS_POLICY": {
+    "Cancelled": 2,
+    "Delivered": 2,
+    "Processing": 2,
+    "Shipped": 2
+  },
+  "MIXED_TICKET_TROUBLESHOOTING": {
+    "open": 1,
+    "pending_customer": 1,
+    "resolved": 6
+  },
+  "MIXED_WARRANTY_PRODUCT_MANUAL": {
+    "active": 11,
+    "denied": 1,
+    "under_review": 4
+  },
+  "MIXED_WARRANTY_STATUS_POLICY": {
+    "expired": 4,
+    "in_warranty": 4
+  }
+}

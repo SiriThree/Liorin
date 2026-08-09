@@ -1,0 +1,608 @@
+[
+  {
+    "candidate_ids": [
+      "TRBL-0074F1025FF0312D"
+    ],
+    "clarification_variant_ids": [],
+    "full_context_candidate_ids": [],
+    "recovery_variant_ids": [],
+    "scenario_family_id": "SCN-00E02B6DBAD8",
+    "source_unit_id": "tsu:104bec057cb450a6"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-28350213D55A4154"
+    ],
+    "clarification_variant_ids": [],
+    "full_context_candidate_ids": [],
+    "recovery_variant_ids": [],
+    "scenario_family_id": "SCN-04423EFA1962",
+    "source_unit_id": "tsu:a8c8dece59b3cc5b"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-07CD4C78D4619086",
+      "TRBL-3157401827B2B91E"
+    ],
+    "clarification_variant_ids": [
+      "TRBL-07CD4C78D4619086"
+    ],
+    "full_context_candidate_ids": [
+      "TRBL-3157401827B2B91E"
+    ],
+    "recovery_variant_ids": [
+      "TRBL-07CD4C78D4619086"
+    ],
+    "scenario_family_id": "SCN-0819EEE9545B",
+    "source_unit_id": "tsu:a0f29776fc44b8a5"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-AAE0FE26F23A5B8F",
+      "TRBL-1E645BD6524509B1"
+    ],
+    "clarification_variant_ids": [
+      "TRBL-AAE0FE26F23A5B8F"
+    ],
+    "full_context_candidate_ids": [
+      "TRBL-1E645BD6524509B1"
+    ],
+    "recovery_variant_ids": [
+      "TRBL-AAE0FE26F23A5B8F"
+    ],
+    "scenario_family_id": "SCN-0C65CE9C3F7E",
+    "source_unit_id": "tsu:6155df4b9051c536"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-B6260D7C7A4EDAAD",
+      "TRBL-B044E7713CE6FA3D"
+    ],
+    "clarification_variant_ids": [
+      "TRBL-B6260D7C7A4EDAAD"
+    ],
+    "full_context_candidate_ids": [
+      "TRBL-B044E7713CE6FA3D"
+    ],
+    "recovery_variant_ids": [
+      "TRBL-B6260D7C7A4EDAAD"
+    ],
+    "scenario_family_id": "SCN-10DB8FC06105",
+    "source_unit_id": "tsu:82192d91a37cf4b5"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-F5345E3BBC5BC8A1"
+    ],
+    "clarification_variant_ids": [],
+    "full_context_candidate_ids": [],
+    "recovery_variant_ids": [],
+    "scenario_family_id": "SCN-169E81C5BFDD",
+    "source_unit_id": "tsu:a0f29776fc44b8a5"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-14A394426A2B17B0"
+    ],
+    "clarification_variant_ids": [],
+    "full_context_candidate_ids": [],
+    "recovery_variant_ids": [],
+    "scenario_family_id": "SCN-2701C0C298FB",
+    "source_unit_id": "tsu:e283a539476a0feb"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-90FFE37A43E5B323",
+      "TRBL-E1040FC8D3219892"
+    ],
+    "clarification_variant_ids": [
+      "TRBL-90FFE37A43E5B323"
+    ],
+    "full_context_candidate_ids": [
+      "TRBL-E1040FC8D3219892"
+    ],
+    "recovery_variant_ids": [
+      "TRBL-90FFE37A43E5B323"
+    ],
+    "scenario_family_id": "SCN-287E98EA581F",
+    "source_unit_id": "tsu:a8045a8bd5e09634"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-7A8FE68B649EF83A"
+    ],
+    "clarification_variant_ids": [],
+    "full_context_candidate_ids": [],
+    "recovery_variant_ids": [
+      "TRBL-7A8FE68B649EF83A"
+    ],
+    "scenario_family_id": "SCN-2B25F30BAC47",
+    "source_unit_id": "tsu:7ff438f72dbdc062"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-FA87FE3129257E8A"
+    ],
+    "clarification_variant_ids": [],
+    "full_context_candidate_ids": [],
+    "recovery_variant_ids": [],
+    "scenario_family_id": "SCN-2E9EE8E39B72",
+    "source_unit_id": "tsu:7ff438f72dbdc062"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-5991E15E90982F36"
+    ],
+    "clarification_variant_ids": [],
+    "full_context_candidate_ids": [],
+    "recovery_variant_ids": [],
+    "scenario_family_id": "SCN-3E1A0C4A98DD",
+    "source_unit_id": "tsu:82192d91a37cf4b5"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-E3E7F20758C7511E"
+    ],
+    "clarification_variant_ids": [],
+    "full_context_candidate_ids": [],
+    "recovery_variant_ids": [
+      "TRBL-E3E7F20758C7511E"
+    ],
+    "scenario_family_id": "SCN-3E3C83EDA8F6",
+    "source_unit_id": "tsu:25de9aaecff4353d"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-F761749B1EBA4903"
+    ],
+    "clarification_variant_ids": [],
+    "full_context_candidate_ids": [],
+    "recovery_variant_ids": [
+      "TRBL-F761749B1EBA4903"
+    ],
+    "scenario_family_id": "SCN-3FC5E70D1155",
+    "source_unit_id": "tsu:82192d91a37cf4b5"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-363362F605E3C778",
+      "TRBL-363362F605E3C778"
+    ],
+    "clarification_variant_ids": [],
+    "full_context_candidate_ids": [],
+    "recovery_variant_ids": [],
+    "scenario_family_id": "SCN-5A12E7F51693",
+    "source_unit_id": "tsu:719a7f0c2ed1bad7"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-57A845C44EB14B55"
+    ],
+    "clarification_variant_ids": [],
+    "full_context_candidate_ids": [],
+    "recovery_variant_ids": [],
+    "scenario_family_id": "SCN-6BEBA0AA5D6F",
+    "source_unit_id": "tsu:d3be1ecb2cc32a42"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-532B3ACB93EF2EAF",
+      "TRBL-532B3ACB93EF2EAF"
+    ],
+    "clarification_variant_ids": [],
+    "full_context_candidate_ids": [],
+    "recovery_variant_ids": [],
+    "scenario_family_id": "SCN-764DD420C4F2",
+    "source_unit_id": "tsu:7ff438f72dbdc062"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-E56F3594B4616678"
+    ],
+    "clarification_variant_ids": [],
+    "full_context_candidate_ids": [],
+    "recovery_variant_ids": [],
+    "scenario_family_id": "SCN-76D18BAA4B84",
+    "source_unit_id": "tsu:719a7f0c2ed1bad7"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-B82BBC7DA5A8FD6C"
+    ],
+    "clarification_variant_ids": [],
+    "full_context_candidate_ids": [],
+    "recovery_variant_ids": [],
+    "scenario_family_id": "SCN-788983517236",
+    "source_unit_id": "tsu:0d18c98e1ccd091d"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-0DC24D5D71FBAA35",
+      "TRBL-B563860CBC42C966"
+    ],
+    "clarification_variant_ids": [
+      "TRBL-0DC24D5D71FBAA35"
+    ],
+    "full_context_candidate_ids": [
+      "TRBL-B563860CBC42C966"
+    ],
+    "recovery_variant_ids": [
+      "TRBL-0DC24D5D71FBAA35"
+    ],
+    "scenario_family_id": "SCN-799221894D0B",
+    "source_unit_id": "tsu:0d18c98e1ccd091d"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-AAE54E4F651F466F"
+    ],
+    "clarification_variant_ids": [],
+    "full_context_candidate_ids": [],
+    "recovery_variant_ids": [],
+    "scenario_family_id": "SCN-7A95C098544A",
+    "source_unit_id": "tsu:f0fd3ee1c37873e0"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-330DE5FCA6BADA7E"
+    ],
+    "clarification_variant_ids": [],
+    "full_context_candidate_ids": [],
+    "recovery_variant_ids": [],
+    "scenario_family_id": "SCN-7AE51B09B5D1",
+    "source_unit_id": "tsu:82192d91a37cf4b5"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-BC66D4A1D61935E2"
+    ],
+    "clarification_variant_ids": [],
+    "full_context_candidate_ids": [],
+    "recovery_variant_ids": [],
+    "scenario_family_id": "SCN-7B0E7777F128",
+    "source_unit_id": "tsu:f140057e3b1959da"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-AB7198CC31692368",
+      "TRBL-CF6F3D7AA8905BE4"
+    ],
+    "clarification_variant_ids": [
+      "TRBL-AB7198CC31692368"
+    ],
+    "full_context_candidate_ids": [
+      "TRBL-CF6F3D7AA8905BE4"
+    ],
+    "recovery_variant_ids": [
+      "TRBL-AB7198CC31692368"
+    ],
+    "scenario_family_id": "SCN-814D7CCDBF2A",
+    "source_unit_id": "tsu:a8045a8bd5e09634"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-51D4BFD583B7D158"
+    ],
+    "clarification_variant_ids": [],
+    "full_context_candidate_ids": [],
+    "recovery_variant_ids": [],
+    "scenario_family_id": "SCN-86BD68F4A9EC",
+    "source_unit_id": "tsu:25de9aaecff4353d"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-11A8A4D95600A947",
+      "TRBL-11A8A4D95600A947"
+    ],
+    "clarification_variant_ids": [],
+    "full_context_candidate_ids": [],
+    "recovery_variant_ids": [],
+    "scenario_family_id": "SCN-8EECB06B69E3",
+    "source_unit_id": "tsu:f0fd3ee1c37873e0"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-8308CB91C09374FE",
+      "TRBL-F46189675A2FF50B"
+    ],
+    "clarification_variant_ids": [
+      "TRBL-8308CB91C09374FE"
+    ],
+    "full_context_candidate_ids": [
+      "TRBL-F46189675A2FF50B"
+    ],
+    "recovery_variant_ids": [
+      "TRBL-8308CB91C09374FE"
+    ],
+    "scenario_family_id": "SCN-927C9EFFE3C1",
+    "source_unit_id": "tsu:e6e0a3598af5890d"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-AB4B0982566D98B0",
+      "TRBL-8B26E383AA16E987"
+    ],
+    "clarification_variant_ids": [
+      "TRBL-AB4B0982566D98B0"
+    ],
+    "full_context_candidate_ids": [
+      "TRBL-8B26E383AA16E987"
+    ],
+    "recovery_variant_ids": [
+      "TRBL-AB4B0982566D98B0"
+    ],
+    "scenario_family_id": "SCN-979AC3378B73",
+    "source_unit_id": "tsu:2d0b1ed1a0f97cd4"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-203F80778845FCD7"
+    ],
+    "clarification_variant_ids": [],
+    "full_context_candidate_ids": [],
+    "recovery_variant_ids": [],
+    "scenario_family_id": "SCN-A2D84F145E6A",
+    "source_unit_id": "tsu:9e2eca341b4e7170"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-19023DBEA62BEA05",
+      "TRBL-19023DBEA62BEA05"
+    ],
+    "clarification_variant_ids": [],
+    "full_context_candidate_ids": [],
+    "recovery_variant_ids": [],
+    "scenario_family_id": "SCN-AB079EE90F88",
+    "source_unit_id": "tsu:32fe925abff22c54"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-581288D867A27A3C"
+    ],
+    "clarification_variant_ids": [],
+    "full_context_candidate_ids": [],
+    "recovery_variant_ids": [],
+    "scenario_family_id": "SCN-AC230CC73612",
+    "source_unit_id": "tsu:a8045a8bd5e09634"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-5A893BC8429C6939"
+    ],
+    "clarification_variant_ids": [],
+    "full_context_candidate_ids": [],
+    "recovery_variant_ids": [],
+    "scenario_family_id": "SCN-AD45C0A2856F",
+    "source_unit_id": "tsu:e283a539476a0feb"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-D24C652A70C0AD03"
+    ],
+    "clarification_variant_ids": [],
+    "full_context_candidate_ids": [],
+    "recovery_variant_ids": [],
+    "scenario_family_id": "SCN-BC850F608B45",
+    "source_unit_id": "tsu:2a13bda27d48d936"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-EC5D7884B107D67E",
+      "TRBL-895FC5591105A167"
+    ],
+    "clarification_variant_ids": [
+      "TRBL-EC5D7884B107D67E"
+    ],
+    "full_context_candidate_ids": [
+      "TRBL-895FC5591105A167"
+    ],
+    "recovery_variant_ids": [
+      "TRBL-EC5D7884B107D67E"
+    ],
+    "scenario_family_id": "SCN-C9681AA6B0E1",
+    "source_unit_id": "tsu:c44d9da1b65975cf"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-7314E595DB85538E"
+    ],
+    "clarification_variant_ids": [],
+    "full_context_candidate_ids": [],
+    "recovery_variant_ids": [],
+    "scenario_family_id": "SCN-C9C8581B5318",
+    "source_unit_id": "tsu:e6e0a3598af5890d"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-E9FCD549E12ECA53"
+    ],
+    "clarification_variant_ids": [],
+    "full_context_candidate_ids": [],
+    "recovery_variant_ids": [],
+    "scenario_family_id": "SCN-CC48E602A8A2",
+    "source_unit_id": "tsu:25de9aaecff4353d"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-54339A1E4E904520"
+    ],
+    "clarification_variant_ids": [],
+    "full_context_candidate_ids": [],
+    "recovery_variant_ids": [],
+    "scenario_family_id": "SCN-D055B403FE1F",
+    "source_unit_id": "tsu:e283a539476a0feb"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-C7ABEEA72520B831"
+    ],
+    "clarification_variant_ids": [],
+    "full_context_candidate_ids": [],
+    "recovery_variant_ids": [
+      "TRBL-C7ABEEA72520B831"
+    ],
+    "scenario_family_id": "SCN-D466CC162DD7",
+    "source_unit_id": "tsu:f0fd3ee1c37873e0"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-FA3A7D79CD1A76DD",
+      "TRBL-700CB5670AACE210"
+    ],
+    "clarification_variant_ids": [
+      "TRBL-FA3A7D79CD1A76DD"
+    ],
+    "full_context_candidate_ids": [
+      "TRBL-700CB5670AACE210"
+    ],
+    "recovery_variant_ids": [
+      "TRBL-FA3A7D79CD1A76DD"
+    ],
+    "scenario_family_id": "SCN-D73ABE9B8B93",
+    "source_unit_id": "tsu:9e2eca341b4e7170"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-C322759E375BCB1B"
+    ],
+    "clarification_variant_ids": [],
+    "full_context_candidate_ids": [],
+    "recovery_variant_ids": [
+      "TRBL-C322759E375BCB1B"
+    ],
+    "scenario_family_id": "SCN-D91FF37A5D6E",
+    "source_unit_id": "tsu:719a7f0c2ed1bad7"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-6F9C429E864857C7",
+      "TRBL-6F9C429E864857C7"
+    ],
+    "clarification_variant_ids": [],
+    "full_context_candidate_ids": [],
+    "recovery_variant_ids": [],
+    "scenario_family_id": "SCN-D9E24A04F411",
+    "source_unit_id": "tsu:df627fa53e9b0c48"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-9C9F0FF7BA47E738"
+    ],
+    "clarification_variant_ids": [],
+    "full_context_candidate_ids": [],
+    "recovery_variant_ids": [],
+    "scenario_family_id": "SCN-DB3582B2CD7E",
+    "source_unit_id": "tsu:a0f29776fc44b8a5"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-3B61D3529BF35324"
+    ],
+    "clarification_variant_ids": [],
+    "full_context_candidate_ids": [],
+    "recovery_variant_ids": [],
+    "scenario_family_id": "SCN-E1724B3FC48D",
+    "source_unit_id": "tsu:25de9aaecff4353d"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-895AE2E5FC33EDF1"
+    ],
+    "clarification_variant_ids": [],
+    "full_context_candidate_ids": [],
+    "recovery_variant_ids": [
+      "TRBL-895AE2E5FC33EDF1"
+    ],
+    "scenario_family_id": "SCN-E72B8B7F4CA2",
+    "source_unit_id": "tsu:f140057e3b1959da"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-616639DE39C204D1"
+    ],
+    "clarification_variant_ids": [],
+    "full_context_candidate_ids": [],
+    "recovery_variant_ids": [
+      "TRBL-616639DE39C204D1"
+    ],
+    "scenario_family_id": "SCN-E8D7F297A24F",
+    "source_unit_id": "tsu:0d18c98e1ccd091d"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-AE21774A5C56B084",
+      "TRBL-6EC7C313CC6575D0"
+    ],
+    "clarification_variant_ids": [
+      "TRBL-AE21774A5C56B084"
+    ],
+    "full_context_candidate_ids": [
+      "TRBL-6EC7C313CC6575D0"
+    ],
+    "recovery_variant_ids": [
+      "TRBL-AE21774A5C56B084"
+    ],
+    "scenario_family_id": "SCN-E97DD658CC4D",
+    "source_unit_id": "tsu:2a13bda27d48d936"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-30B1C178E9B4DAC0"
+    ],
+    "clarification_variant_ids": [],
+    "full_context_candidate_ids": [],
+    "recovery_variant_ids": [
+      "TRBL-30B1C178E9B4DAC0"
+    ],
+    "scenario_family_id": "SCN-EB62957057FE",
+    "source_unit_id": "tsu:e283a539476a0feb"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-60A747BEE2B849D9"
+    ],
+    "clarification_variant_ids": [],
+    "full_context_candidate_ids": [],
+    "recovery_variant_ids": [
+      "TRBL-60A747BEE2B849D9"
+    ],
+    "scenario_family_id": "SCN-EC0136939044",
+    "source_unit_id": "tsu:df627fa53e9b0c48"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-88555ED84D3CBA95"
+    ],
+    "clarification_variant_ids": [],
+    "full_context_candidate_ids": [],
+    "recovery_variant_ids": [
+      "TRBL-88555ED84D3CBA95"
+    ],
+    "scenario_family_id": "SCN-F06AF0933B51",
+    "source_unit_id": "tsu:e6e0a3598af5890d"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-D90B0F4C6C2C9FDC"
+    ],
+    "clarification_variant_ids": [],
+    "full_context_candidate_ids": [],
+    "recovery_variant_ids": [],
+    "scenario_family_id": "SCN-F2ABD8BA878A",
+    "source_unit_id": "tsu:2db8c552844d0811"
+  },
+  {
+    "candidate_ids": [
+      "TRBL-B94934BCD83380FC"
+    ],
+    "clarification_variant_ids": [
+      "TRBL-B94934BCD83380FC"
+    ],
+    "full_context_candidate_ids": [],
+    "recovery_variant_ids": [
+      "TRBL-B94934BCD83380FC"
+    ],
+    "scenario_family_id": "SCN-F65FFD3B9422",
+    "source_unit_id": "tsu:2a13bda27d48d936"
+  }
+]

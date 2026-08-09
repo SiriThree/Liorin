@@ -1,0 +1,23 @@
+{
+  "candidate_set_hash": "5e20a04e2e1124ef39170b6ca25a6fb5b6140de58a38e8aef31877752312036a",
+  "effective_semantic_count": 47,
+  "generation_method": "STATIC_POLICY_PLAN+CONTROLLED_RENDERER",
+  "generation_version": "dataset-expansion-h0-safety-v1",
+  "llm_used": false,
+  "observed_blocks": 0,
+  "observed_violations": 0,
+  "policy_fingerprint": "3de5a33edca04d37393f12b24c96e62446b5dc2ef147bd5169f37d2e3b867990",
+  "policy_validated_count": 47,
+  "production_run": false,
+  "production_security_fingerprint": "3de5a33edca04d37393f12b24c96e62446b5dc2ef147bd5169f37d2e3b867990",
+  "random_seed": 0,
+  "raw_scenario_count": 53,
+  "rejected_count": 4,
+  "rendered_count": 53,
+  "review_count": 2,
+  "safety_success_rate": "NOT_AVAILABLE",
+  "scenario_family_count": 33,
+  "schema_version": "safety-candidate-manifest-h0-v1",
+  "security_surface_count": 13,
+  "tool_registry_fingerprint": "3f8d16c2e18b430f221b3e5bf33791a01d0e778d2f0c8369757150512002579a"
+}

@@ -1,0 +1,144 @@
+{
+  "ambiguous_candidate_count": 0,
+  "candidate_usage_distribution": {
+    "DETERMINISTIC": 4,
+    "QUALIFIED_BUT_USABLE": 12
+  },
+  "policy_candidate_count": 16,
+  "rows": [
+    {
+      "ambiguity_status": "DETERMINISTIC",
+      "annotation_status": "READY_FOR_DUAL_ANNOTATION",
+      "candidate_id": "MIX-2887742F9EFF2CFB",
+      "mixed_family_id": "MIXED_ORDER_STATUS_POLICY",
+      "qualification_preserved": false,
+      "rule_id": "mixed-policy-rule:80813c3a6a17789bf5c2"
+    },
+    {
+      "ambiguity_status": "QUALIFIED_BUT_USABLE",
+      "annotation_status": "READY_FOR_DUAL_ANNOTATION",
+      "candidate_id": "MIX-306368761A7EC11C",
+      "mixed_family_id": "MIXED_ORDER_STATUS_POLICY",
+      "qualification_preserved": true,
+      "rule_id": "mixed-policy-rule:d28125c1486ff0495d01"
+    },
+    {
+      "ambiguity_status": "DETERMINISTIC",
+      "annotation_status": "READY_FOR_DUAL_ANNOTATION",
+      "candidate_id": "MIX-760DA13959417A41",
+      "mixed_family_id": "MIXED_ORDER_STATUS_POLICY",
+      "qualification_preserved": false,
+      "rule_id": "mixed-policy-rule:068f06115ba845bdf4df"
+    },
+    {
+      "ambiguity_status": "QUALIFIED_BUT_USABLE",
+      "annotation_status": "READY_FOR_DUAL_ANNOTATION",
+      "candidate_id": "MIX-0923DF7CFEE05AA4",
+      "mixed_family_id": "MIXED_ORDER_STATUS_POLICY",
+      "qualification_preserved": true,
+      "rule_id": "mixed-policy-rule:d28125c1486ff0495d01"
+    },
+    {
+      "ambiguity_status": "DETERMINISTIC",
+      "annotation_status": "READY_FOR_DUAL_ANNOTATION",
+      "candidate_id": "MIX-901005D494C28080",
+      "mixed_family_id": "MIXED_ORDER_STATUS_POLICY",
+      "qualification_preserved": false,
+      "rule_id": "mixed-policy-rule:80813c3a6a17789bf5c2"
+    },
+    {
+      "ambiguity_status": "QUALIFIED_BUT_USABLE",
+      "annotation_status": "READY_FOR_DUAL_ANNOTATION",
+      "candidate_id": "MIX-356E84C36E209E02",
+      "mixed_family_id": "MIXED_ORDER_STATUS_POLICY",
+      "qualification_preserved": true,
+      "rule_id": "mixed-policy-rule:d28125c1486ff0495d01"
+    },
+    {
+      "ambiguity_status": "DETERMINISTIC",
+      "annotation_status": "READY_FOR_DUAL_ANNOTATION",
+      "candidate_id": "MIX-BDCED0FDDA6DCCED",
+      "mixed_family_id": "MIXED_ORDER_STATUS_POLICY",
+      "qualification_preserved": false,
+      "rule_id": "mixed-policy-rule:068f06115ba845bdf4df"
+    },
+    {
+      "ambiguity_status": "QUALIFIED_BUT_USABLE",
+      "annotation_status": "READY_FOR_DUAL_ANNOTATION",
+      "candidate_id": "MIX-C5906F7B4B9061ED",
+      "mixed_family_id": "MIXED_ORDER_STATUS_POLICY",
+      "qualification_preserved": true,
+      "rule_id": "mixed-policy-rule:d28125c1486ff0495d01"
+    },
+    {
+      "ambiguity_status": "QUALIFIED_BUT_USABLE",
+      "annotation_status": "READY_FOR_DUAL_ANNOTATION",
+      "candidate_id": "MIX-8D1A7DE60DEF26D3",
+      "mixed_family_id": "MIXED_WARRANTY_STATUS_POLICY",
+      "qualification_preserved": true,
+      "rule_id": "mixed-policy-rule:fdc0d130d5375132bc65"
+    },
+    {
+      "ambiguity_status": "QUALIFIED_BUT_USABLE",
+      "annotation_status": "READY_FOR_DUAL_ANNOTATION",
+      "candidate_id": "MIX-64ED87D7191A11F1",
+      "mixed_family_id": "MIXED_WARRANTY_STATUS_POLICY",
+      "qualification_preserved": true,
+      "rule_id": "mixed-policy-rule:fdc0d130d5375132bc65"
+    },
+    {
+      "ambiguity_status": "QUALIFIED_BUT_USABLE",
+      "annotation_status": "READY_FOR_DUAL_ANNOTATION",
+      "candidate_id": "MIX-8D38376FCD5A26B5",
+      "mixed_family_id": "MIXED_WARRANTY_STATUS_POLICY",
+      "qualification_preserved": true,
+      "rule_id": "mixed-policy-rule:fdc0d130d5375132bc65"
+    },
+    {
+      "ambiguity_status": "QUALIFIED_BUT_USABLE",
+      "annotation_status": "READY_FOR_DUAL_ANNOTATION",
+      "candidate_id": "MIX-211FFF820D1DEE48",
+      "mixed_family_id": "MIXED_WARRANTY_STATUS_POLICY",
+      "qualification_preserved": true,
+      "rule_id": "mixed-policy-rule:fdc0d130d5375132bc65"
+    },
+    {
+      "ambiguity_status": "QUALIFIED_BUT_USABLE",
+      "annotation_status": "READY_FOR_DUAL_ANNOTATION",
+      "candidate_id": "MIX-728656AA6CA5C29D",
+      "mixed_family_id": "MIXED_WARRANTY_STATUS_POLICY",
+      "qualification_preserved": true,
+      "rule_id": "mixed-policy-rule:fdc0d130d5375132bc65"
+    },
+    {
+      "ambiguity_status": "QUALIFIED_BUT_USABLE",
+      "annotation_status": "READY_FOR_DUAL_ANNOTATION",
+      "candidate_id": "MIX-4C7CB22FD6D5F286",
+      "mixed_family_id": "MIXED_WARRANTY_STATUS_POLICY",
+      "qualification_preserved": true,
+      "rule_id": "mixed-policy-rule:fdc0d130d5375132bc65"
+    },
+    {
+      "ambiguity_status": "QUALIFIED_BUT_USABLE",
+      "annotation_status": "READY_FOR_DUAL_ANNOTATION",
+      "candidate_id": "MIX-A865F9FBA535D89A",
+      "mixed_family_id": "MIXED_WARRANTY_STATUS_POLICY",
+      "qualification_preserved": true,
+      "rule_id": "mixed-policy-rule:fdc0d130d5375132bc65"
+    },
+    {
+      "ambiguity_status": "QUALIFIED_BUT_USABLE",
+      "annotation_status": "READY_FOR_DUAL_ANNOTATION",
+      "candidate_id": "MIX-71719BCF1F08305D",
+      "mixed_family_id": "MIXED_WARRANTY_STATUS_POLICY",
+      "qualification_preserved": true,
+      "rule_id": "mixed-policy-rule:fdc0d130d5375132bc65"
+    }
+  ],
+  "unique_rule_count": 4,
+  "unique_rule_distribution": {
+    "DETERMINISTIC": 2,
+    "QUALIFIED_BUT_USABLE": 2
+  },
+  "unsupported_candidate_count": 0
+}

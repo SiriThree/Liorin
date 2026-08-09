@@ -1,0 +1,1950 @@
+{
+  "aligned": 84,
+  "candidate_count": 84,
+  "misaligned": 0,
+  "multi_field_aligned": 15,
+  "multi_field_count": 15,
+  "order_item_audit": [
+    {
+      "candidate_id": "PBQ-A0E0BD8FDB4A7FCD",
+      "item_level_fields": [],
+      "status": "NOT_ITEM_LEVEL",
+      "underlying_order_item_count": 2,
+      "valid": true
+    },
+    {
+      "candidate_id": "PBQ-49C83A426692E569",
+      "item_level_fields": [],
+      "status": "NOT_ITEM_LEVEL",
+      "underlying_order_item_count": 3,
+      "valid": true
+    },
+    {
+      "candidate_id": "PBQ-B361D2B425C2A692",
+      "item_level_fields": [],
+      "status": "NOT_ITEM_LEVEL",
+      "underlying_order_item_count": 2,
+      "valid": true
+    },
+    {
+      "candidate_id": "PBQ-0484FC54944F2D5D",
+      "item_level_fields": [],
+      "status": "NOT_ITEM_LEVEL",
+      "underlying_order_item_count": 4,
+      "valid": true
+    },
+    {
+      "candidate_id": "PBQ-BB1850C6B8A4B8E2",
+      "item_level_fields": [],
+      "status": "NOT_ITEM_LEVEL",
+      "underlying_order_item_count": 2,
+      "valid": true
+    },
+    {
+      "candidate_id": "PBQ-DA1D7A18DE2FB14B",
+      "item_level_fields": [],
+      "status": "NOT_ITEM_LEVEL",
+      "underlying_order_item_count": 3,
+      "valid": true
+    },
+    {
+      "candidate_id": "PBQ-73E98E1E815868F3",
+      "item_level_fields": [],
+      "status": "NOT_ITEM_LEVEL",
+      "underlying_order_item_count": 2,
+      "valid": true
+    },
+    {
+      "candidate_id": "PBQ-774317DF1C3D2841",
+      "item_level_fields": [],
+      "status": "NOT_ITEM_LEVEL",
+      "underlying_order_item_count": 2,
+      "valid": true
+    },
+    {
+      "candidate_id": "PBQ-FDBA49930A35F10B",
+      "item_level_fields": [],
+      "status": "NOT_ITEM_LEVEL",
+      "underlying_order_item_count": 4,
+      "valid": true
+    },
+    {
+      "candidate_id": "PBQ-C1468131E149CBB2",
+      "item_level_fields": [
+        "product_id",
+        "product_name"
+      ],
+      "status": "VALID_SINGLE_ITEM",
+      "underlying_order_item_count": 1,
+      "valid": true
+    },
+    {
+      "candidate_id": "PBQ-FF352D0AD1F81958",
+      "item_level_fields": [
+        "product_id",
+        "product_name"
+      ],
+      "status": "VALID_SINGLE_ITEM",
+      "underlying_order_item_count": 1,
+      "valid": true
+    },
+    {
+      "candidate_id": "PBQ-A32B56AABF789C15",
+      "item_level_fields": [
+        "product_id",
+        "product_name"
+      ],
+      "status": "VALID_SINGLE_ITEM",
+      "underlying_order_item_count": 1,
+      "valid": true
+    },
+    {
+      "candidate_id": "PBQ-FF3905E05A55682A",
+      "item_level_fields": [
+        "product_id",
+        "product_name"
+      ],
+      "status": "VALID_SINGLE_ITEM",
+      "underlying_order_item_count": 1,
+      "valid": true
+    },
+    {
+      "candidate_id": "PBQ-267184687AA53A12",
+      "item_level_fields": [
+        "product_id",
+        "product_name"
+      ],
+      "status": "VALID_SINGLE_ITEM",
+      "underlying_order_item_count": 1,
+      "valid": true
+    },
+    {
+      "candidate_id": "PBQ-EF26F23133EF0DA0",
+      "item_level_fields": [
+        "quantity"
+      ],
+      "status": "VALID_SINGLE_ITEM",
+      "underlying_order_item_count": 1,
+      "valid": true
+    },
+    {
+      "candidate_id": "PBQ-966A380A3AE0A99A",
+      "item_level_fields": [
+        "quantity"
+      ],
+      "status": "VALID_SINGLE_ITEM",
+      "underlying_order_item_count": 1,
+      "valid": true
+    },
+    {
+      "candidate_id": "PBQ-D5AE75DD0E13A0DA",
+      "item_level_fields": [
+        "quantity"
+      ],
+      "status": "VALID_SINGLE_ITEM",
+      "underlying_order_item_count": 1,
+      "valid": true
+    },
+    {
+      "candidate_id": "PBQ-2AE02820A28CA2F4",
+      "item_level_fields": [
+        "quantity"
+      ],
+      "status": "VALID_SINGLE_ITEM",
+      "underlying_order_item_count": 1,
+      "valid": true
+    },
+    {
+      "candidate_id": "PBQ-95B8489A67C4B8FC",
+      "item_level_fields": [
+        "price_per_unit"
+      ],
+      "status": "VALID_SINGLE_ITEM",
+      "underlying_order_item_count": 1,
+      "valid": true
+    },
+    {
+      "candidate_id": "PBQ-ECD5E0E87E3A758C",
+      "item_level_fields": [
+        "price_per_unit"
+      ],
+      "status": "VALID_SINGLE_ITEM",
+      "underlying_order_item_count": 1,
+      "valid": true
+    },
+    {
+      "candidate_id": "PBQ-6C9819978962DE31",
+      "item_level_fields": [
+        "price_per_unit"
+      ],
+      "status": "VALID_SINGLE_ITEM",
+      "underlying_order_item_count": 1,
+      "valid": true
+    },
+    {
+      "candidate_id": "PBQ-FA3768D79BC5BC45",
+      "item_level_fields": [
+        "price_per_unit"
+      ],
+      "status": "VALID_SINGLE_ITEM",
+      "underlying_order_item_count": 1,
+      "valid": true
+    },
+    {
+      "candidate_id": "PBQ-5805FEA90F0BE37C",
+      "item_level_fields": [],
+      "status": "NOT_ITEM_LEVEL",
+      "underlying_order_item_count": 3,
+      "valid": true
+    },
+    {
+      "candidate_id": "PBQ-8A4098836EE94DE3",
+      "item_level_fields": [],
+      "status": "NOT_ITEM_LEVEL",
+      "underlying_order_item_count": 2,
+      "valid": true
+    },
+    {
+      "candidate_id": "PBQ-4C24169A3DD3BC92",
+      "item_level_fields": [],
+      "status": "NOT_ITEM_LEVEL",
+      "underlying_order_item_count": 2,
+      "valid": true
+    },
+    {
+      "candidate_id": "PBQ-0EE5C3C7108BED28",
+      "item_level_fields": [],
+      "status": "NOT_ITEM_LEVEL",
+      "underlying_order_item_count": 3,
+      "valid": true
+    },
+    {
+      "candidate_id": "PBQ-3FD50C98F0643170",
+      "item_level_fields": [],
+      "status": "NOT_ITEM_LEVEL",
+      "underlying_order_item_count": 1,
+      "valid": true
+    },
+    {
+      "candidate_id": "PBQ-8B1E0BE682E0287F",
+      "item_level_fields": [],
+      "status": "NOT_ITEM_LEVEL",
+      "underlying_order_item_count": 4,
+      "valid": true
+    },
+    {
+      "candidate_id": "PBQ-8E8E951F284FA604",
+      "item_level_fields": [],
+      "status": "NOT_ITEM_LEVEL",
+      "underlying_order_item_count": 2,
+      "valid": true
+    },
+    {
+      "candidate_id": "PBQ-B93874361DD58CDF",
+      "item_level_fields": [],
+      "status": "NOT_ITEM_LEVEL",
+      "underlying_order_item_count": 2,
+      "valid": true
+    },
+    {
+      "candidate_id": "PBQ-048CDC96FD654D9C",
+      "item_level_fields": [],
+      "status": "NOT_ITEM_LEVEL",
+      "underlying_order_item_count": 3,
+      "valid": true
+    },
+    {
+      "candidate_id": "PBQ-F56B400A5A088BA3",
+      "item_level_fields": [],
+      "status": "NOT_ITEM_LEVEL",
+      "underlying_order_item_count": 3,
+      "valid": true
+    },
+    {
+      "candidate_id": "PBQ-C37515E743F2D874",
+      "item_level_fields": [],
+      "status": "NOT_ITEM_LEVEL",
+      "underlying_order_item_count": 1,
+      "valid": true
+    },
+    {
+      "candidate_id": "PBQ-1F4E39D2F1DB6288",
+      "item_level_fields": [],
+      "status": "NOT_ITEM_LEVEL",
+      "underlying_order_item_count": 2,
+      "valid": true
+    },
+    {
+      "candidate_id": "PBQ-729E57F4C4422FD0",
+      "item_level_fields": [],
+      "status": "NOT_ITEM_LEVEL",
+      "underlying_order_item_count": 2,
+      "valid": true
+    },
+    {
+      "candidate_id": "PBQ-D0CBA96DE248F663",
+      "item_level_fields": [],
+      "status": "NOT_ITEM_LEVEL",
+      "underlying_order_item_count": 2,
+      "valid": true
+    }
+  ],
+  "rows": [
+    {
+      "candidate_fields": [
+        "status"
+      ],
+      "candidate_id": "PBQ-A0E0BD8FDB4A7FCD",
+      "gold_evidence_fields": [
+        "status"
+      ],
+      "gold_fact_fields": [
+        "status"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "status"
+      ],
+      "semantic_family_id": "ORDER_STATUS_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "status"
+      ],
+      "candidate_id": "PBQ-49C83A426692E569",
+      "gold_evidence_fields": [
+        "status"
+      ],
+      "gold_fact_fields": [
+        "status"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "status"
+      ],
+      "semantic_family_id": "ORDER_STATUS_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "status"
+      ],
+      "candidate_id": "PBQ-B361D2B425C2A692",
+      "gold_evidence_fields": [
+        "status"
+      ],
+      "gold_fact_fields": [
+        "status"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "status"
+      ],
+      "semantic_family_id": "ORDER_STATUS_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "status"
+      ],
+      "candidate_id": "PBQ-0484FC54944F2D5D",
+      "gold_evidence_fields": [
+        "status"
+      ],
+      "gold_fact_fields": [
+        "status"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "status"
+      ],
+      "semantic_family_id": "ORDER_STATUS_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "status"
+      ],
+      "candidate_id": "PBQ-BB1850C6B8A4B8E2",
+      "gold_evidence_fields": [
+        "status"
+      ],
+      "gold_fact_fields": [
+        "status"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "status"
+      ],
+      "semantic_family_id": "ORDER_STATUS_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "order_date"
+      ],
+      "candidate_id": "PBQ-DA1D7A18DE2FB14B",
+      "gold_evidence_fields": [
+        "order_date"
+      ],
+      "gold_fact_fields": [
+        "order_date"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "order_date"
+      ],
+      "semantic_family_id": "ORDER_DATE_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "order_date"
+      ],
+      "candidate_id": "PBQ-73E98E1E815868F3",
+      "gold_evidence_fields": [
+        "order_date"
+      ],
+      "gold_fact_fields": [
+        "order_date"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "order_date"
+      ],
+      "semantic_family_id": "ORDER_DATE_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "order_date"
+      ],
+      "candidate_id": "PBQ-774317DF1C3D2841",
+      "gold_evidence_fields": [
+        "order_date"
+      ],
+      "gold_fact_fields": [
+        "order_date"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "order_date"
+      ],
+      "semantic_family_id": "ORDER_DATE_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "order_date"
+      ],
+      "candidate_id": "PBQ-FDBA49930A35F10B",
+      "gold_evidence_fields": [
+        "order_date"
+      ],
+      "gold_fact_fields": [
+        "order_date"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "order_date"
+      ],
+      "semantic_family_id": "ORDER_DATE_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "product_id",
+        "product_name"
+      ],
+      "candidate_id": "PBQ-C1468131E149CBB2",
+      "gold_evidence_fields": [
+        "product_id",
+        "product_name"
+      ],
+      "gold_fact_fields": [
+        "product_id",
+        "product_name"
+      ],
+      "issues": [],
+      "multi_field": true,
+      "query_plan_fields": [
+        "product_id",
+        "product_name"
+      ],
+      "semantic_family_id": "ORDER_PRODUCT_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "product_id",
+        "product_name"
+      ],
+      "candidate_id": "PBQ-FF352D0AD1F81958",
+      "gold_evidence_fields": [
+        "product_id",
+        "product_name"
+      ],
+      "gold_fact_fields": [
+        "product_id",
+        "product_name"
+      ],
+      "issues": [],
+      "multi_field": true,
+      "query_plan_fields": [
+        "product_id",
+        "product_name"
+      ],
+      "semantic_family_id": "ORDER_PRODUCT_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "product_id",
+        "product_name"
+      ],
+      "candidate_id": "PBQ-A32B56AABF789C15",
+      "gold_evidence_fields": [
+        "product_id",
+        "product_name"
+      ],
+      "gold_fact_fields": [
+        "product_id",
+        "product_name"
+      ],
+      "issues": [],
+      "multi_field": true,
+      "query_plan_fields": [
+        "product_id",
+        "product_name"
+      ],
+      "semantic_family_id": "ORDER_PRODUCT_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "product_id",
+        "product_name"
+      ],
+      "candidate_id": "PBQ-FF3905E05A55682A",
+      "gold_evidence_fields": [
+        "product_id",
+        "product_name"
+      ],
+      "gold_fact_fields": [
+        "product_id",
+        "product_name"
+      ],
+      "issues": [],
+      "multi_field": true,
+      "query_plan_fields": [
+        "product_id",
+        "product_name"
+      ],
+      "semantic_family_id": "ORDER_PRODUCT_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "product_id",
+        "product_name"
+      ],
+      "candidate_id": "PBQ-267184687AA53A12",
+      "gold_evidence_fields": [
+        "product_id",
+        "product_name"
+      ],
+      "gold_fact_fields": [
+        "product_id",
+        "product_name"
+      ],
+      "issues": [],
+      "multi_field": true,
+      "query_plan_fields": [
+        "product_id",
+        "product_name"
+      ],
+      "semantic_family_id": "ORDER_PRODUCT_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "quantity"
+      ],
+      "candidate_id": "PBQ-EF26F23133EF0DA0",
+      "gold_evidence_fields": [
+        "quantity"
+      ],
+      "gold_fact_fields": [
+        "quantity"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "quantity"
+      ],
+      "semantic_family_id": "ORDER_QUANTITY_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "quantity"
+      ],
+      "candidate_id": "PBQ-966A380A3AE0A99A",
+      "gold_evidence_fields": [
+        "quantity"
+      ],
+      "gold_fact_fields": [
+        "quantity"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "quantity"
+      ],
+      "semantic_family_id": "ORDER_QUANTITY_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "quantity"
+      ],
+      "candidate_id": "PBQ-D5AE75DD0E13A0DA",
+      "gold_evidence_fields": [
+        "quantity"
+      ],
+      "gold_fact_fields": [
+        "quantity"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "quantity"
+      ],
+      "semantic_family_id": "ORDER_QUANTITY_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "quantity"
+      ],
+      "candidate_id": "PBQ-2AE02820A28CA2F4",
+      "gold_evidence_fields": [
+        "quantity"
+      ],
+      "gold_fact_fields": [
+        "quantity"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "quantity"
+      ],
+      "semantic_family_id": "ORDER_QUANTITY_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "price_per_unit"
+      ],
+      "candidate_id": "PBQ-95B8489A67C4B8FC",
+      "gold_evidence_fields": [
+        "price_per_unit"
+      ],
+      "gold_fact_fields": [
+        "price_per_unit"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "price_per_unit"
+      ],
+      "semantic_family_id": "ORDER_UNIT_PRICE_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "price_per_unit"
+      ],
+      "candidate_id": "PBQ-ECD5E0E87E3A758C",
+      "gold_evidence_fields": [
+        "price_per_unit"
+      ],
+      "gold_fact_fields": [
+        "price_per_unit"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "price_per_unit"
+      ],
+      "semantic_family_id": "ORDER_UNIT_PRICE_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "price_per_unit"
+      ],
+      "candidate_id": "PBQ-6C9819978962DE31",
+      "gold_evidence_fields": [
+        "price_per_unit"
+      ],
+      "gold_fact_fields": [
+        "price_per_unit"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "price_per_unit"
+      ],
+      "semantic_family_id": "ORDER_UNIT_PRICE_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "price_per_unit"
+      ],
+      "candidate_id": "PBQ-FA3768D79BC5BC45",
+      "gold_evidence_fields": [
+        "price_per_unit"
+      ],
+      "gold_fact_fields": [
+        "price_per_unit"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "price_per_unit"
+      ],
+      "semantic_family_id": "ORDER_UNIT_PRICE_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "total_amount"
+      ],
+      "candidate_id": "PBQ-5805FEA90F0BE37C",
+      "gold_evidence_fields": [
+        "total_amount"
+      ],
+      "gold_fact_fields": [
+        "total_amount"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "total_amount"
+      ],
+      "semantic_family_id": "ORDER_AMOUNT_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "total_amount"
+      ],
+      "candidate_id": "PBQ-8A4098836EE94DE3",
+      "gold_evidence_fields": [
+        "total_amount"
+      ],
+      "gold_fact_fields": [
+        "total_amount"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "total_amount"
+      ],
+      "semantic_family_id": "ORDER_AMOUNT_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "total_amount"
+      ],
+      "candidate_id": "PBQ-4C24169A3DD3BC92",
+      "gold_evidence_fields": [
+        "total_amount"
+      ],
+      "gold_fact_fields": [
+        "total_amount"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "total_amount"
+      ],
+      "semantic_family_id": "ORDER_AMOUNT_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "total_amount"
+      ],
+      "candidate_id": "PBQ-0EE5C3C7108BED28",
+      "gold_evidence_fields": [
+        "total_amount"
+      ],
+      "gold_fact_fields": [
+        "total_amount"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "total_amount"
+      ],
+      "semantic_family_id": "ORDER_AMOUNT_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "channel"
+      ],
+      "candidate_id": "PBQ-3FD50C98F0643170",
+      "gold_evidence_fields": [
+        "channel"
+      ],
+      "gold_fact_fields": [
+        "channel"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "channel"
+      ],
+      "semantic_family_id": "ORDER_CHANNEL_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "channel"
+      ],
+      "candidate_id": "PBQ-8B1E0BE682E0287F",
+      "gold_evidence_fields": [
+        "channel"
+      ],
+      "gold_fact_fields": [
+        "channel"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "channel"
+      ],
+      "semantic_family_id": "ORDER_CHANNEL_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "channel"
+      ],
+      "candidate_id": "PBQ-8E8E951F284FA604",
+      "gold_evidence_fields": [
+        "channel"
+      ],
+      "gold_fact_fields": [
+        "channel"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "channel"
+      ],
+      "semantic_family_id": "ORDER_CHANNEL_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "channel"
+      ],
+      "candidate_id": "PBQ-B93874361DD58CDF",
+      "gold_evidence_fields": [
+        "channel"
+      ],
+      "gold_fact_fields": [
+        "channel"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "channel"
+      ],
+      "semantic_family_id": "ORDER_CHANNEL_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "status",
+        "order_date"
+      ],
+      "candidate_id": "PBQ-048CDC96FD654D9C",
+      "gold_evidence_fields": [
+        "status",
+        "order_date"
+      ],
+      "gold_fact_fields": [
+        "status",
+        "order_date"
+      ],
+      "issues": [],
+      "multi_field": true,
+      "query_plan_fields": [
+        "status",
+        "order_date"
+      ],
+      "semantic_family_id": "ORDER_MULTI_FIELD_SUMMARY",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "status",
+        "order_date"
+      ],
+      "candidate_id": "PBQ-F56B400A5A088BA3",
+      "gold_evidence_fields": [
+        "status",
+        "order_date"
+      ],
+      "gold_fact_fields": [
+        "status",
+        "order_date"
+      ],
+      "issues": [],
+      "multi_field": true,
+      "query_plan_fields": [
+        "status",
+        "order_date"
+      ],
+      "semantic_family_id": "ORDER_MULTI_FIELD_SUMMARY",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "status",
+        "order_date"
+      ],
+      "candidate_id": "PBQ-C37515E743F2D874",
+      "gold_evidence_fields": [
+        "status",
+        "order_date"
+      ],
+      "gold_fact_fields": [
+        "status",
+        "order_date"
+      ],
+      "issues": [],
+      "multi_field": true,
+      "query_plan_fields": [
+        "status",
+        "order_date"
+      ],
+      "semantic_family_id": "ORDER_MULTI_FIELD_SUMMARY",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "status",
+        "order_date"
+      ],
+      "candidate_id": "PBQ-1F4E39D2F1DB6288",
+      "gold_evidence_fields": [
+        "status",
+        "order_date"
+      ],
+      "gold_fact_fields": [
+        "status",
+        "order_date"
+      ],
+      "issues": [],
+      "multi_field": true,
+      "query_plan_fields": [
+        "status",
+        "order_date"
+      ],
+      "semantic_family_id": "ORDER_MULTI_FIELD_SUMMARY",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "status",
+        "order_date"
+      ],
+      "candidate_id": "PBQ-729E57F4C4422FD0",
+      "gold_evidence_fields": [
+        "status",
+        "order_date"
+      ],
+      "gold_fact_fields": [
+        "status",
+        "order_date"
+      ],
+      "issues": [],
+      "multi_field": true,
+      "query_plan_fields": [
+        "status",
+        "order_date"
+      ],
+      "semantic_family_id": "ORDER_MULTI_FIELD_SUMMARY",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "status",
+        "order_date"
+      ],
+      "candidate_id": "PBQ-D0CBA96DE248F663",
+      "gold_evidence_fields": [
+        "status",
+        "order_date"
+      ],
+      "gold_fact_fields": [
+        "status",
+        "order_date"
+      ],
+      "issues": [],
+      "multi_field": true,
+      "query_plan_fields": [
+        "status",
+        "order_date"
+      ],
+      "semantic_family_id": "ORDER_MULTI_FIELD_SUMMARY",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "status"
+      ],
+      "candidate_id": "PBQ-D6F47B22A54885E0",
+      "gold_evidence_fields": [
+        "status"
+      ],
+      "gold_fact_fields": [
+        "status"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "status"
+      ],
+      "semantic_family_id": "TICKET_STATUS_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "status"
+      ],
+      "candidate_id": "PBQ-7759F304ED3D1D7A",
+      "gold_evidence_fields": [
+        "status"
+      ],
+      "gold_fact_fields": [
+        "status"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "status"
+      ],
+      "semantic_family_id": "TICKET_STATUS_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "status"
+      ],
+      "candidate_id": "PBQ-F60902293BED769D",
+      "gold_evidence_fields": [
+        "status"
+      ],
+      "gold_fact_fields": [
+        "status"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "status"
+      ],
+      "semantic_family_id": "TICKET_STATUS_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "status"
+      ],
+      "candidate_id": "PBQ-95CD26B20A25881C",
+      "gold_evidence_fields": [
+        "status"
+      ],
+      "gold_fact_fields": [
+        "status"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "status"
+      ],
+      "semantic_family_id": "TICKET_STATUS_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "priority"
+      ],
+      "candidate_id": "PBQ-53F1A4023BBF0306",
+      "gold_evidence_fields": [
+        "priority"
+      ],
+      "gold_fact_fields": [
+        "priority"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "priority"
+      ],
+      "semantic_family_id": "TICKET_PRIORITY_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "priority"
+      ],
+      "candidate_id": "PBQ-7140067BCF81A5E3",
+      "gold_evidence_fields": [
+        "priority"
+      ],
+      "gold_fact_fields": [
+        "priority"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "priority"
+      ],
+      "semantic_family_id": "TICKET_PRIORITY_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "priority"
+      ],
+      "candidate_id": "PBQ-A9EF3E7F5A8EBFAA",
+      "gold_evidence_fields": [
+        "priority"
+      ],
+      "gold_fact_fields": [
+        "priority"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "priority"
+      ],
+      "semantic_family_id": "TICKET_PRIORITY_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "issue_type"
+      ],
+      "candidate_id": "PBQ-6A5B844C42D2D9CD",
+      "gold_evidence_fields": [
+        "issue_type"
+      ],
+      "gold_fact_fields": [
+        "issue_type"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "issue_type"
+      ],
+      "semantic_family_id": "TICKET_ISSUE_TYPE_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "issue_type"
+      ],
+      "candidate_id": "PBQ-30FD848AD6799D56",
+      "gold_evidence_fields": [
+        "issue_type"
+      ],
+      "gold_fact_fields": [
+        "issue_type"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "issue_type"
+      ],
+      "semantic_family_id": "TICKET_ISSUE_TYPE_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "issue_type"
+      ],
+      "candidate_id": "PBQ-BD02DBE97CB739FD",
+      "gold_evidence_fields": [
+        "issue_type"
+      ],
+      "gold_fact_fields": [
+        "issue_type"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "issue_type"
+      ],
+      "semantic_family_id": "TICKET_ISSUE_TYPE_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "product_id"
+      ],
+      "candidate_id": "PBQ-1BA22E36EB7AB173",
+      "gold_evidence_fields": [
+        "product_id"
+      ],
+      "gold_fact_fields": [
+        "product_id"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "product_id"
+      ],
+      "semantic_family_id": "TICKET_PRODUCT_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "product_id"
+      ],
+      "candidate_id": "PBQ-B9ADBAB0968F43EF",
+      "gold_evidence_fields": [
+        "product_id"
+      ],
+      "gold_fact_fields": [
+        "product_id"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "product_id"
+      ],
+      "semantic_family_id": "TICKET_PRODUCT_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "product_id"
+      ],
+      "candidate_id": "PBQ-59758530D91BABE1",
+      "gold_evidence_fields": [
+        "product_id"
+      ],
+      "gold_fact_fields": [
+        "product_id"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "product_id"
+      ],
+      "semantic_family_id": "TICKET_PRODUCT_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "order_id"
+      ],
+      "candidate_id": "PBQ-39672ECCC91DCF93",
+      "gold_evidence_fields": [
+        "order_id"
+      ],
+      "gold_fact_fields": [
+        "order_id"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "order_id"
+      ],
+      "semantic_family_id": "TICKET_ORDER_LINK_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "order_id"
+      ],
+      "candidate_id": "PBQ-6502CDF309DFE341",
+      "gold_evidence_fields": [
+        "order_id"
+      ],
+      "gold_fact_fields": [
+        "order_id"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "order_id"
+      ],
+      "semantic_family_id": "TICKET_ORDER_LINK_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "order_id"
+      ],
+      "candidate_id": "PBQ-4C80552FBA9AB93C",
+      "gold_evidence_fields": [
+        "order_id"
+      ],
+      "gold_fact_fields": [
+        "order_id"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "order_id"
+      ],
+      "semantic_family_id": "TICKET_ORDER_LINK_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "assigned_team"
+      ],
+      "candidate_id": "PBQ-0E95762DC07FE11E",
+      "gold_evidence_fields": [
+        "assigned_team"
+      ],
+      "gold_fact_fields": [
+        "assigned_team"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "assigned_team"
+      ],
+      "semantic_family_id": "TICKET_ASSIGNED_TEAM_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "assigned_team"
+      ],
+      "candidate_id": "PBQ-CBB047604D840EDA",
+      "gold_evidence_fields": [
+        "assigned_team"
+      ],
+      "gold_fact_fields": [
+        "assigned_team"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "assigned_team"
+      ],
+      "semantic_family_id": "TICKET_ASSIGNED_TEAM_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "assigned_team"
+      ],
+      "candidate_id": "PBQ-9F14E359ADE264D6",
+      "gold_evidence_fields": [
+        "assigned_team"
+      ],
+      "gold_fact_fields": [
+        "assigned_team"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "assigned_team"
+      ],
+      "semantic_family_id": "TICKET_ASSIGNED_TEAM_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "summary"
+      ],
+      "candidate_id": "PBQ-D3F9460EEA7CCE2F",
+      "gold_evidence_fields": [
+        "summary"
+      ],
+      "gold_fact_fields": [
+        "summary"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "summary"
+      ],
+      "semantic_family_id": "TICKET_SUMMARY_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "summary"
+      ],
+      "candidate_id": "PBQ-437BC99A96ADC046",
+      "gold_evidence_fields": [
+        "summary"
+      ],
+      "gold_fact_fields": [
+        "summary"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "summary"
+      ],
+      "semantic_family_id": "TICKET_SUMMARY_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "summary"
+      ],
+      "candidate_id": "PBQ-EFE5162B873590A0",
+      "gold_evidence_fields": [
+        "summary"
+      ],
+      "gold_fact_fields": [
+        "summary"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "summary"
+      ],
+      "semantic_family_id": "TICKET_SUMMARY_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "created_at"
+      ],
+      "candidate_id": "PBQ-386B29A1542BB49D",
+      "gold_evidence_fields": [
+        "created_at"
+      ],
+      "gold_fact_fields": [
+        "created_at"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "created_at"
+      ],
+      "semantic_family_id": "TICKET_CREATED_AT_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "created_at"
+      ],
+      "candidate_id": "PBQ-CD860189F61FE74F",
+      "gold_evidence_fields": [
+        "created_at"
+      ],
+      "gold_fact_fields": [
+        "created_at"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "created_at"
+      ],
+      "semantic_family_id": "TICKET_CREATED_AT_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "status",
+        "priority"
+      ],
+      "candidate_id": "PBQ-3C9F1275E9730856",
+      "gold_evidence_fields": [
+        "status",
+        "priority"
+      ],
+      "gold_fact_fields": [
+        "status",
+        "priority"
+      ],
+      "issues": [],
+      "multi_field": true,
+      "query_plan_fields": [
+        "status",
+        "priority"
+      ],
+      "semantic_family_id": "TICKET_MULTI_FIELD_SUMMARY",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "status",
+        "priority"
+      ],
+      "candidate_id": "PBQ-86DBE00C3CB51556",
+      "gold_evidence_fields": [
+        "status",
+        "priority"
+      ],
+      "gold_fact_fields": [
+        "status",
+        "priority"
+      ],
+      "issues": [],
+      "multi_field": true,
+      "query_plan_fields": [
+        "status",
+        "priority"
+      ],
+      "semantic_family_id": "TICKET_MULTI_FIELD_SUMMARY",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "status"
+      ],
+      "candidate_id": "PBQ-E4A662D00009AF99",
+      "gold_evidence_fields": [
+        "status"
+      ],
+      "gold_fact_fields": [
+        "status"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "status"
+      ],
+      "semantic_family_id": "WARRANTY_STATUS_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "status"
+      ],
+      "candidate_id": "PBQ-CC0D8CF7C1B4B531",
+      "gold_evidence_fields": [
+        "status"
+      ],
+      "gold_fact_fields": [
+        "status"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "status"
+      ],
+      "semantic_family_id": "WARRANTY_STATUS_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "status"
+      ],
+      "candidate_id": "PBQ-4AFD378D10DDEB67",
+      "gold_evidence_fields": [
+        "status"
+      ],
+      "gold_fact_fields": [
+        "status"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "status"
+      ],
+      "semantic_family_id": "WARRANTY_STATUS_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "coverage_status"
+      ],
+      "candidate_id": "PBQ-8F10CDDD464D974F",
+      "gold_evidence_fields": [
+        "coverage_status"
+      ],
+      "gold_fact_fields": [
+        "coverage_status"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "coverage_status"
+      ],
+      "semantic_family_id": "WARRANTY_COVERAGE_STATUS_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "coverage_status"
+      ],
+      "candidate_id": "PBQ-4EB5124F3D51E623",
+      "gold_evidence_fields": [
+        "coverage_status"
+      ],
+      "gold_fact_fields": [
+        "coverage_status"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "coverage_status"
+      ],
+      "semantic_family_id": "WARRANTY_COVERAGE_STATUS_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "coverage_status"
+      ],
+      "candidate_id": "PBQ-787F6E379AD15E8E",
+      "gold_evidence_fields": [
+        "coverage_status"
+      ],
+      "gold_fact_fields": [
+        "coverage_status"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "coverage_status"
+      ],
+      "semantic_family_id": "WARRANTY_COVERAGE_STATUS_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "coverage_status"
+      ],
+      "candidate_id": "PBQ-9AAA1BDA47EE2037",
+      "gold_evidence_fields": [
+        "coverage_status"
+      ],
+      "gold_fact_fields": [
+        "coverage_status"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "coverage_status"
+      ],
+      "semantic_family_id": "WARRANTY_COVERAGE_STATUS_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "coverage_type"
+      ],
+      "candidate_id": "PBQ-6F809B9695B1A5A8",
+      "gold_evidence_fields": [
+        "coverage_type"
+      ],
+      "gold_fact_fields": [
+        "coverage_type"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "coverage_type"
+      ],
+      "semantic_family_id": "WARRANTY_COVERAGE_TYPE_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "coverage_type"
+      ],
+      "candidate_id": "PBQ-14F685DE33DE8F95",
+      "gold_evidence_fields": [
+        "coverage_type"
+      ],
+      "gold_fact_fields": [
+        "coverage_type"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "coverage_type"
+      ],
+      "semantic_family_id": "WARRANTY_COVERAGE_TYPE_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "coverage_type"
+      ],
+      "candidate_id": "PBQ-B5786DCEC2AE4D52",
+      "gold_evidence_fields": [
+        "coverage_type"
+      ],
+      "gold_fact_fields": [
+        "coverage_type"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "coverage_type"
+      ],
+      "semantic_family_id": "WARRANTY_COVERAGE_TYPE_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "expires_at"
+      ],
+      "candidate_id": "PBQ-20617690C580D073",
+      "gold_evidence_fields": [
+        "expires_at"
+      ],
+      "gold_fact_fields": [
+        "expires_at"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "expires_at"
+      ],
+      "semantic_family_id": "WARRANTY_EXPIRY_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "expires_at"
+      ],
+      "candidate_id": "PBQ-1F2375F8FC344B70",
+      "gold_evidence_fields": [
+        "expires_at"
+      ],
+      "gold_fact_fields": [
+        "expires_at"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "expires_at"
+      ],
+      "semantic_family_id": "WARRANTY_EXPIRY_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "expires_at"
+      ],
+      "candidate_id": "PBQ-FA0C3DDA49A03B16",
+      "gold_evidence_fields": [
+        "expires_at"
+      ],
+      "gold_fact_fields": [
+        "expires_at"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "expires_at"
+      ],
+      "semantic_family_id": "WARRANTY_EXPIRY_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "product_id"
+      ],
+      "candidate_id": "PBQ-AC71481D49DC5350",
+      "gold_evidence_fields": [
+        "product_id"
+      ],
+      "gold_fact_fields": [
+        "product_id"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "product_id"
+      ],
+      "semantic_family_id": "WARRANTY_PRODUCT_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "product_id"
+      ],
+      "candidate_id": "PBQ-E7CD67D25D06E0F2",
+      "gold_evidence_fields": [
+        "product_id"
+      ],
+      "gold_fact_fields": [
+        "product_id"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "product_id"
+      ],
+      "semantic_family_id": "WARRANTY_PRODUCT_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "product_id"
+      ],
+      "candidate_id": "PBQ-BE7CA26D370D40AE",
+      "gold_evidence_fields": [
+        "product_id"
+      ],
+      "gold_fact_fields": [
+        "product_id"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "product_id"
+      ],
+      "semantic_family_id": "WARRANTY_PRODUCT_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "order_id"
+      ],
+      "candidate_id": "PBQ-A15ADAE5745496C4",
+      "gold_evidence_fields": [
+        "order_id"
+      ],
+      "gold_fact_fields": [
+        "order_id"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "order_id"
+      ],
+      "semantic_family_id": "WARRANTY_ORDER_LINK_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "order_id"
+      ],
+      "candidate_id": "PBQ-0C548DF5C6D72B22",
+      "gold_evidence_fields": [
+        "order_id"
+      ],
+      "gold_fact_fields": [
+        "order_id"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "order_id"
+      ],
+      "semantic_family_id": "WARRANTY_ORDER_LINK_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "ticket_id"
+      ],
+      "candidate_id": "PBQ-8D7A5BC8F9875798",
+      "gold_evidence_fields": [
+        "ticket_id"
+      ],
+      "gold_fact_fields": [
+        "ticket_id"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "ticket_id"
+      ],
+      "semantic_family_id": "WARRANTY_TICKET_LINK_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "ticket_id"
+      ],
+      "candidate_id": "PBQ-B3814E796B44E38B",
+      "gold_evidence_fields": [
+        "ticket_id"
+      ],
+      "gold_fact_fields": [
+        "ticket_id"
+      ],
+      "issues": [],
+      "multi_field": false,
+      "query_plan_fields": [
+        "ticket_id"
+      ],
+      "semantic_family_id": "WARRANTY_TICKET_LINK_LOOKUP",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "coverage_status",
+        "expires_at"
+      ],
+      "candidate_id": "PBQ-D3B402ABEBF07E9E",
+      "gold_evidence_fields": [
+        "coverage_status",
+        "expires_at"
+      ],
+      "gold_fact_fields": [
+        "coverage_status",
+        "expires_at"
+      ],
+      "issues": [],
+      "multi_field": true,
+      "query_plan_fields": [
+        "coverage_status",
+        "expires_at"
+      ],
+      "semantic_family_id": "WARRANTY_MULTI_FIELD_SUMMARY",
+      "status": "aligned"
+    },
+    {
+      "candidate_fields": [
+        "coverage_status",
+        "expires_at"
+      ],
+      "candidate_id": "PBQ-1567DC77F259C130",
+      "gold_evidence_fields": [
+        "coverage_status",
+        "expires_at"
+      ],
+      "gold_fact_fields": [
+        "coverage_status",
+        "expires_at"
+      ],
+      "issues": [],
+      "multi_field": true,
+      "query_plan_fields": [
+        "coverage_status",
+        "expires_at"
+      ],
+      "semantic_family_id": "WARRANTY_MULTI_FIELD_SUMMARY",
+      "status": "aligned"
+    }
+  ]
+}

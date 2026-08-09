@@ -252,6 +252,10 @@ def test_supervisor_dynamic_prompt_uses_compaction(monkeypatch):
     middleware_mod.dynamic_prompt = identity_middleware
     middleware_mod.wrap_model_call = identity_middleware
     chat_models_mod.init_chat_model = lambda *args, **kwargs: FakeModel()
+    class FakeToolRuntime:
+        pass
+
+    tools_mod.ToolRuntime = FakeToolRuntime
     tools_mod.tool = fake_tool
     memory_mod.MemorySaver = FakeMemorySaver
     graph_mod.MessagesState = dict

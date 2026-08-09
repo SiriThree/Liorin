@@ -106,6 +106,20 @@ class TraceRecorder:
             _CURRENT_TRACE.reset(token)
 
     @contextmanager
+    def bind(self, trace: AgentExecutionTrace) -> Iterator[AgentExecutionTrace]:
+        """Bind an existing trace to the current context without creating a run.
+
+        This is used only to propagate observability across timeout worker threads;
+        it must not change Agent state, model inputs, retry policy, or business logic.
+        """
+
+        token = _CURRENT_TRACE.set(trace)
+        try:
+            yield trace
+        finally:
+            _CURRENT_TRACE.reset(token)
+
+    @contextmanager
     def span(self, event_prefix: str, *, attributes: Mapping[str, Any] | None = None) -> Iterator[None]:
         started = perf_counter()
         attrs = dict(attributes or {})

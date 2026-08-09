@@ -1,0 +1,228 @@
+{
+  "ambiguous": 0,
+  "answerable": 22,
+  "candidate_count": 22,
+  "rows": [
+    {
+      "candidate_id": "PBQ-E4A662D00009AF99",
+      "customer_case_count": 1,
+      "query_contains_disambiguator": true,
+      "raw_case_id_persisted": false,
+      "reason": "customer-level warranty list includes exactly one target case_id and all requested fields; runtime case_id can disambiguate",
+      "status": "ANSWERABLE",
+      "target_uniquely_identifiable": true,
+      "tool_result_sufficient": true
+    },
+    {
+      "candidate_id": "PBQ-CC0D8CF7C1B4B531",
+      "customer_case_count": 1,
+      "query_contains_disambiguator": true,
+      "raw_case_id_persisted": false,
+      "reason": "customer-level warranty list includes exactly one target case_id and all requested fields; runtime case_id can disambiguate",
+      "status": "ANSWERABLE",
+      "target_uniquely_identifiable": true,
+      "tool_result_sufficient": true
+    },
+    {
+      "candidate_id": "PBQ-4AFD378D10DDEB67",
+      "customer_case_count": 1,
+      "query_contains_disambiguator": true,
+      "raw_case_id_persisted": false,
+      "reason": "customer-level warranty list includes exactly one target case_id and all requested fields; runtime case_id can disambiguate",
+      "status": "ANSWERABLE",
+      "target_uniquely_identifiable": true,
+      "tool_result_sufficient": true
+    },
+    {
+      "candidate_id": "PBQ-8F10CDDD464D974F",
+      "customer_case_count": 1,
+      "query_contains_disambiguator": true,
+      "raw_case_id_persisted": false,
+      "reason": "customer-level warranty list includes exactly one target case_id and all requested fields; runtime case_id can disambiguate",
+      "status": "ANSWERABLE",
+      "target_uniquely_identifiable": true,
+      "tool_result_sufficient": true
+    },
+    {
+      "candidate_id": "PBQ-4EB5124F3D51E623",
+      "customer_case_count": 3,
+      "query_contains_disambiguator": true,
+      "raw_case_id_persisted": false,
+      "reason": "customer-level warranty list includes exactly one target case_id and all requested fields; runtime case_id can disambiguate",
+      "status": "ANSWERABLE",
+      "target_uniquely_identifiable": true,
+      "tool_result_sufficient": true
+    },
+    {
+      "candidate_id": "PBQ-787F6E379AD15E8E",
+      "customer_case_count": 2,
+      "query_contains_disambiguator": true,
+      "raw_case_id_persisted": false,
+      "reason": "customer-level warranty list includes exactly one target case_id and all requested fields; runtime case_id can disambiguate",
+      "status": "ANSWERABLE",
+      "target_uniquely_identifiable": true,
+      "tool_result_sufficient": true
+    },
+    {
+      "candidate_id": "PBQ-9AAA1BDA47EE2037",
+      "customer_case_count": 1,
+      "query_contains_disambiguator": true,
+      "raw_case_id_persisted": false,
+      "reason": "customer-level warranty list includes exactly one target case_id and all requested fields; runtime case_id can disambiguate",
+      "status": "ANSWERABLE",
+      "target_uniquely_identifiable": true,
+      "tool_result_sufficient": true
+    },
+    {
+      "candidate_id": "PBQ-6F809B9695B1A5A8",
+      "customer_case_count": 3,
+      "query_contains_disambiguator": true,
+      "raw_case_id_persisted": false,
+      "reason": "customer-level warranty list includes exactly one target case_id and all requested fields; runtime case_id can disambiguate",
+      "status": "ANSWERABLE",
+      "target_uniquely_identifiable": true,
+      "tool_result_sufficient": true
+    },
+    {
+      "candidate_id": "PBQ-14F685DE33DE8F95",
+      "customer_case_count": 3,
+      "query_contains_disambiguator": true,
+      "raw_case_id_persisted": false,
+      "reason": "customer-level warranty list includes exactly one target case_id and all requested fields; runtime case_id can disambiguate",
+      "status": "ANSWERABLE",
+      "target_uniquely_identifiable": true,
+      "tool_result_sufficient": true
+    },
+    {
+      "candidate_id": "PBQ-B5786DCEC2AE4D52",
+      "customer_case_count": 3,
+      "query_contains_disambiguator": true,
+      "raw_case_id_persisted": false,
+      "reason": "customer-level warranty list includes exactly one target case_id and all requested fields; runtime case_id can disambiguate",
+      "status": "ANSWERABLE",
+      "target_uniquely_identifiable": true,
+      "tool_result_sufficient": true
+    },
+    {
+      "candidate_id": "PBQ-20617690C580D073",
+      "customer_case_count": 1,
+      "query_contains_disambiguator": true,
+      "raw_case_id_persisted": false,
+      "reason": "customer-level warranty list includes exactly one target case_id and all requested fields; runtime case_id can disambiguate",
+      "status": "ANSWERABLE",
+      "target_uniquely_identifiable": true,
+      "tool_result_sufficient": true
+    },
+    {
+      "candidate_id": "PBQ-1F2375F8FC344B70",
+      "customer_case_count": 3,
+      "query_contains_disambiguator": true,
+      "raw_case_id_persisted": false,
+      "reason": "customer-level warranty list includes exactly one target case_id and all requested fields; runtime case_id can disambiguate",
+      "status": "ANSWERABLE",
+      "target_uniquely_identifiable": true,
+      "tool_result_sufficient": true
+    },
+    {
+      "candidate_id": "PBQ-FA0C3DDA49A03B16",
+      "customer_case_count": 2,
+      "query_contains_disambiguator": true,
+      "raw_case_id_persisted": false,
+      "reason": "customer-level warranty list includes exactly one target case_id and all requested fields; runtime case_id can disambiguate",
+      "status": "ANSWERABLE",
+      "target_uniquely_identifiable": true,
+      "tool_result_sufficient": true
+    },
+    {
+      "candidate_id": "PBQ-AC71481D49DC5350",
+      "customer_case_count": 1,
+      "query_contains_disambiguator": true,
+      "raw_case_id_persisted": false,
+      "reason": "customer-level warranty list includes exactly one target case_id and all requested fields; runtime case_id can disambiguate",
+      "status": "ANSWERABLE",
+      "target_uniquely_identifiable": true,
+      "tool_result_sufficient": true
+    },
+    {
+      "candidate_id": "PBQ-E7CD67D25D06E0F2",
+      "customer_case_count": 1,
+      "query_contains_disambiguator": true,
+      "raw_case_id_persisted": false,
+      "reason": "customer-level warranty list includes exactly one target case_id and all requested fields; runtime case_id can disambiguate",
+      "status": "ANSWERABLE",
+      "target_uniquely_identifiable": true,
+      "tool_result_sufficient": true
+    },
+    {
+      "candidate_id": "PBQ-BE7CA26D370D40AE",
+      "customer_case_count": 1,
+      "query_contains_disambiguator": true,
+      "raw_case_id_persisted": false,
+      "reason": "customer-level warranty list includes exactly one target case_id and all requested fields; runtime case_id can disambiguate",
+      "status": "ANSWERABLE",
+      "target_uniquely_identifiable": true,
+      "tool_result_sufficient": true
+    },
+    {
+      "candidate_id": "PBQ-A15ADAE5745496C4",
+      "customer_case_count": 3,
+      "query_contains_disambiguator": true,
+      "raw_case_id_persisted": false,
+      "reason": "customer-level warranty list includes exactly one target case_id and all requested fields; runtime case_id can disambiguate",
+      "status": "ANSWERABLE",
+      "target_uniquely_identifiable": true,
+      "tool_result_sufficient": true
+    },
+    {
+      "candidate_id": "PBQ-0C548DF5C6D72B22",
+      "customer_case_count": 1,
+      "query_contains_disambiguator": true,
+      "raw_case_id_persisted": false,
+      "reason": "customer-level warranty list includes exactly one target case_id and all requested fields; runtime case_id can disambiguate",
+      "status": "ANSWERABLE",
+      "target_uniquely_identifiable": true,
+      "tool_result_sufficient": true
+    },
+    {
+      "candidate_id": "PBQ-8D7A5BC8F9875798",
+      "customer_case_count": 1,
+      "query_contains_disambiguator": true,
+      "raw_case_id_persisted": false,
+      "reason": "customer-level warranty list includes exactly one target case_id and all requested fields; runtime case_id can disambiguate",
+      "status": "ANSWERABLE",
+      "target_uniquely_identifiable": true,
+      "tool_result_sufficient": true
+    },
+    {
+      "candidate_id": "PBQ-B3814E796B44E38B",
+      "customer_case_count": 1,
+      "query_contains_disambiguator": true,
+      "raw_case_id_persisted": false,
+      "reason": "customer-level warranty list includes exactly one target case_id and all requested fields; runtime case_id can disambiguate",
+      "status": "ANSWERABLE",
+      "target_uniquely_identifiable": true,
+      "tool_result_sufficient": true
+    },
+    {
+      "candidate_id": "PBQ-D3B402ABEBF07E9E",
+      "customer_case_count": 3,
+      "query_contains_disambiguator": true,
+      "raw_case_id_persisted": false,
+      "reason": "customer-level warranty list includes exactly one target case_id and all requested fields; runtime case_id can disambiguate",
+      "status": "ANSWERABLE",
+      "target_uniquely_identifiable": true,
+      "tool_result_sufficient": true
+    },
+    {
+      "candidate_id": "PBQ-1567DC77F259C130",
+      "customer_case_count": 1,
+      "query_contains_disambiguator": true,
+      "raw_case_id_persisted": false,
+      "reason": "customer-level warranty list includes exactly one target case_id and all requested fields; runtime case_id can disambiguate",
+      "status": "ANSWERABLE",
+      "target_uniquely_identifiable": true,
+      "tool_result_sufficient": true
+    }
+  ],
+  "tool_output_insufficient": 0
+}

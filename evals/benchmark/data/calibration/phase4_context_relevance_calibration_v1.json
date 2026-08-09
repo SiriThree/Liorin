@@ -1,0 +1,51 @@
+{
+  "dataset_name": "phase4_context_relevance_calibration_v1",
+  "purpose": "Infrastructure/calibration fixtures for the versioned context_relevance_v1 judge. These are not formal benchmark cases and do not represent Liorin production quality.",
+  "provenance": "carefully_constructed_fixture",
+  "human_reviewed": false,
+  "prompt_version": "context_relevance_v1",
+  "cases": [
+    {
+      "case_id": "ctx_required_product_model",
+      "task": "这个型号的 E12 故障怎么处理？",
+      "context_item": "Earlier in the same conversation the user confirmed product_model=FR-200.",
+      "reference": "REQUIRED",
+      "reason": "The deictic phrase '这个型号' cannot be resolved correctly without the carried-over model."
+    },
+    {
+      "case_id": "ctx_helpful_prior_symptom",
+      "task": "下一步我应该检查什么？",
+      "context_item": "The previous turn says the refrigerator makes a periodic clicking noise after startup.",
+      "reference": "HELPFUL",
+      "reason": "It materially narrows troubleshooting but another safe generic next step may still be possible."
+    },
+    {
+      "case_id": "ctx_irrelevant_old_topic",
+      "task": "FR-200 的保修期多久？",
+      "context_item": "Two weeks ago the same user asked about a washing-machine delivery delay.",
+      "reference": "IRRELEVANT",
+      "reason": "It belongs to an unrelated task and does not help answer the current warranty question."
+    },
+    {
+      "case_id": "ctx_harmful_superseded_model",
+      "task": "这个型号的保修期多久？",
+      "context_item": "The user first said FR-100, but later corrected it to FR-200; this item contains only the superseded FR-100 value.",
+      "reference": "HARMFUL",
+      "reason": "Selecting the superseded model can directly misroute policy lookup and produce a wrong answer."
+    },
+    {
+      "case_id": "ctx_harmful_cross_user",
+      "task": "查询我的订单状态。",
+      "context_item": "A memory fact from a different user states order_id=ORD-OTHER-001.",
+      "reference": "HARMFUL",
+      "reason": "Cross-user private context is both misleading and a safety violation."
+    },
+    {
+      "case_id": "ctx_required_region_update",
+      "task": "这个地区现在适用哪条售后政策？",
+      "context_item": "The user most recently said they moved from Shanghai to Beijing and now use the product in Beijing.",
+      "reference": "REQUIRED",
+      "reason": "The current region is required for a region-sensitive policy decision and supersedes the prior region."
+    }
+  ]
+}

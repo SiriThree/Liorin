@@ -1,0 +1,10 @@
+{
+  "context_type_distribution": {
+    "attribute_label_or_table_header": 43,
+    "condition_clause": 378,
+    "preceding_context": 67,
+    "referent_context": 455,
+    "section_heading": 4416
+  },
+  "facts_with_local_context": 4533
+}

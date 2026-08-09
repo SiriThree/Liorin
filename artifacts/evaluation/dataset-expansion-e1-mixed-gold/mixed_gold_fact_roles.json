@@ -1,0 +1,21 @@
+{
+  "document_fact_types": {
+    "FEATURE_OR_INSTRUCTION": 3,
+    "POLICY": 4,
+    "RETURN_POLICY": 4,
+    "TROUBLESHOOTING_STEP": 47,
+    "WARRANTY_POLICY": 8
+  },
+  "role_counts": {
+    "ANSWER_REQUIRED": 74,
+    "SUPPORTING_ONLY": 8,
+    "TASK_REQUIRED_INTERMEDIATE": 100
+  },
+  "structured_fact_types": {
+    "order.product_id": 18,
+    "order.status": 8,
+    "ticket.product_id": 8,
+    "warranty.coverage_status": 8,
+    "warranty.product_id": 16
+  }
+}

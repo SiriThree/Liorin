@@ -6,7 +6,7 @@ from dataclasses import dataclass
 from typing import Any, Callable
 
 from retrieval.budget import RetrievalBudget
-from retrieval.context_expander import expand_parent_context
+from retrieval.context_expander import ExpansionResult, expand_parent_context
 from retrieval.database_retriever import database_search
 from retrieval.dense_retriever import dense_search
 from retrieval.filters import InvalidRetrievalFilter, validate_filters
@@ -28,7 +28,7 @@ from retrieval.protocols import (
     RetrievalSubquery,
     RetrieverStatus,
 )
-from retrieval.reranker import rerank
+from retrieval.reranker import RerankResult, rerank
 from retrieval.sparse_retriever import bm25_search
 from retrieval.trace import trace_event
 
@@ -226,6 +226,8 @@ def hybrid_retrieve(
     candidate_k: int = 15,
     final_k: int = 5,
     use_cross_encoder: bool = True,
+    reranker_enabled: bool = True,
+    parent_expansion_enabled: bool = True,
     dense_fn: Callable[..., RetrieverExecutionResult] = dense_search,
     sparse_fn: Callable[..., RetrieverExecutionResult] = bm25_search,
     metadata_fn: Callable[..., RetrieverExecutionResult] = metadata_direct_lookup,
@@ -328,33 +330,53 @@ def hybrid_retrieve(
         limit=min(candidate_k, budget.max_candidates),
     ) if ranked_lists else []
 
-    coarse = rerank(
-        query,
-        fused,
-        limit=min(candidate_k, budget.max_candidates),
-        use_cross_encoder=use_cross_encoder,
-        include_parent=False,
-        budget=budget,
-        stage="coarse",
-        subquery_id=subquery.subquery_id,
-    )
-    expanded = expand_parent_context(
-        coarse.evidences,
-        principal=principal,
-        filters=filters,
-        budget=budget,
-        subquery_id=subquery.subquery_id,
-    )
-    final = rerank(
-        query,
-        expanded.evidences,
-        limit=min(final_k, budget.max_final_evidences),
-        use_cross_encoder=use_cross_encoder,
-        include_parent=True,
-        budget=budget,
-        stage="final",
-        subquery_id=subquery.subquery_id,
-    )
+    if reranker_enabled:
+        coarse = rerank(
+            query,
+            fused,
+            limit=min(candidate_k, budget.max_candidates),
+            use_cross_encoder=use_cross_encoder,
+            include_parent=False,
+            budget=budget,
+            stage="coarse",
+            subquery_id=subquery.subquery_id,
+        )
+    else:
+        coarse = RerankResult(
+            evidences=list(fused[: min(candidate_k, budget.max_candidates)]),
+            trace=[trace_event("reranker", "disabled", stage="coarse", subquery_id=subquery.subquery_id)],
+            method="disabled",
+        )
+    if parent_expansion_enabled:
+        expanded = expand_parent_context(
+            coarse.evidences,
+            principal=principal,
+            filters=filters,
+            budget=budget,
+            subquery_id=subquery.subquery_id,
+        )
+    else:
+        expanded = ExpansionResult(
+            evidences=list(coarse.evidences),
+            trace=[trace_event("parent_expansion", "disabled", subquery_id=subquery.subquery_id)],
+        )
+    if reranker_enabled:
+        final = rerank(
+            query,
+            expanded.evidences,
+            limit=min(final_k, budget.max_final_evidences),
+            use_cross_encoder=use_cross_encoder,
+            include_parent=parent_expansion_enabled,
+            budget=budget,
+            stage="final",
+            subquery_id=subquery.subquery_id,
+        )
+    else:
+        final = RerankResult(
+            evidences=list(expanded.evidences[: min(final_k, budget.max_final_evidences)]),
+            trace=[trace_event("reranker", "disabled", stage="final", subquery_id=subquery.subquery_id)],
+            method="disabled",
+        )
     evidences = with_citation_ids(final.evidences)
     budget.record_final_evidences(len(evidences))
 

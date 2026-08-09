@@ -1,4 +1,11 @@
-"""Stable Retrieval/Verifier/Agentic RAG evaluation schema and deterministic metrics."""
+"""Legacy retrieval/component diagnostics.
+
+Phase 3 formal Evidence Reliability is implemented in ``eval_platform.evidence``
+and consumes Canonical Gold plus a frozen Production PredictionRecord.  Metrics
+in this module remain for historical/component compatibility and must not be
+published as the formal Required Gold Evidence Recall / Selected Evidence
+Precision / Grounded Claim Rate.
+"""
 from __future__ import annotations
 
 from collections import Counter
@@ -9,6 +16,8 @@ from typing import Any, Literal
 from pydantic import BaseModel, ConfigDict, Field
 
 from retrieval.protocols import RetrievalPrincipal
+
+LEGACY_EVALUATION_STATUS = "LEGACY_DIAGNOSTIC_MIGRATE_TO_EVAL_PLATFORM_EVIDENCE"
 
 
 class RetrievalEvaluationSample(BaseModel):

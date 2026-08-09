@@ -1,0 +1,190 @@
+[
+  {
+    "candidate_task_types": [
+      "PRIVATE_BUSINESS_QUERY",
+      "MIXED_KNOWLEDGE_STRUCTURED"
+    ],
+    "gold_resolvable": true,
+    "join_key": "customer_id",
+    "left_type": "customer",
+    "notes": null,
+    "production_resolvable": true,
+    "relation_count": 1500,
+    "relation_id": "rel:customer:order",
+    "right_type": "order",
+    "source": "structured_db"
+  },
+  {
+    "candidate_task_types": [
+      "PRIVATE_BUSINESS_QUERY",
+      "MIXED_KNOWLEDGE_STRUCTURED"
+    ],
+    "gold_resolvable": true,
+    "join_key": "order_items(order_id,product_id)",
+    "left_type": "order",
+    "notes": null,
+    "production_resolvable": true,
+    "relation_count": 3355,
+    "relation_id": "rel:order:product",
+    "right_type": "product",
+    "source": "structured_db"
+  },
+  {
+    "candidate_task_types": [
+      "PRIVATE_BUSINESS_QUERY"
+    ],
+    "gold_resolvable": true,
+    "join_key": "order_id",
+    "left_type": "order",
+    "notes": null,
+    "production_resolvable": true,
+    "relation_count": 7296,
+    "relation_id": "rel:order:event",
+    "right_type": "order_event",
+    "source": "structured_db"
+  },
+  {
+    "candidate_task_types": [
+      "PRIVATE_BUSINESS_QUERY"
+    ],
+    "gold_resolvable": true,
+    "join_key": "customer_id",
+    "left_type": "customer",
+    "notes": null,
+    "production_resolvable": true,
+    "relation_count": 420,
+    "relation_id": "rel:customer:ticket",
+    "right_type": "ticket",
+    "source": "structured_db"
+  },
+  {
+    "candidate_task_types": [
+      "MIXED_KNOWLEDGE_STRUCTURED",
+      "TROUBLESHOOTING"
+    ],
+    "gold_resolvable": true,
+    "join_key": "product_id",
+    "left_type": "ticket",
+    "notes": null,
+    "production_resolvable": true,
+    "relation_count": 420,
+    "relation_id": "rel:ticket:product",
+    "right_type": "product",
+    "source": "structured_db"
+  },
+  {
+    "candidate_task_types": [
+      "PRIVATE_BUSINESS_QUERY"
+    ],
+    "gold_resolvable": true,
+    "join_key": "order_id",
+    "left_type": "ticket",
+    "notes": null,
+    "production_resolvable": true,
+    "relation_count": 403,
+    "relation_id": "rel:ticket:order",
+    "right_type": "order",
+    "source": "structured_db"
+  },
+  {
+    "candidate_task_types": [
+      "PRIVATE_BUSINESS_QUERY"
+    ],
+    "gold_resolvable": true,
+    "join_key": "ticket_id",
+    "left_type": "ticket",
+    "notes": null,
+    "production_resolvable": true,
+    "relation_count": 1576,
+    "relation_id": "rel:ticket:event",
+    "right_type": "ticket_event",
+    "source": "structured_db"
+  },
+  {
+    "candidate_task_types": [
+      "PRIVATE_BUSINESS_QUERY",
+      "MIXED_KNOWLEDGE_STRUCTURED"
+    ],
+    "gold_resolvable": true,
+    "join_key": "customer_id",
+    "left_type": "customer",
+    "notes": null,
+    "production_resolvable": true,
+    "relation_count": 140,
+    "relation_id": "rel:customer:warranty",
+    "right_type": "warranty",
+    "source": "structured_db"
+  },
+  {
+    "candidate_task_types": [
+      "MIXED_KNOWLEDGE_STRUCTURED"
+    ],
+    "gold_resolvable": true,
+    "join_key": "product_id",
+    "left_type": "warranty",
+    "notes": null,
+    "production_resolvable": true,
+    "relation_count": 140,
+    "relation_id": "rel:warranty:product",
+    "right_type": "product",
+    "source": "structured_db"
+  },
+  {
+    "candidate_task_types": [
+      "PRIVATE_BUSINESS_QUERY"
+    ],
+    "gold_resolvable": true,
+    "join_key": "order_id",
+    "left_type": "warranty",
+    "notes": null,
+    "production_resolvable": true,
+    "relation_count": 140,
+    "relation_id": "rel:warranty:order",
+    "right_type": "order",
+    "source": "structured_db"
+  },
+  {
+    "candidate_task_types": [
+      "PRIVATE_BUSINESS_QUERY"
+    ],
+    "gold_resolvable": true,
+    "join_key": "ticket_id",
+    "left_type": "warranty",
+    "notes": null,
+    "production_resolvable": true,
+    "relation_count": 140,
+    "relation_id": "rel:warranty:ticket",
+    "right_type": "ticket",
+    "source": "structured_db"
+  },
+  {
+    "candidate_task_types": [
+      "KNOWLEDGE_QA",
+      "TROUBLESHOOTING",
+      "MIXED_KNOWLEDGE_STRUCTURED"
+    ],
+    "gold_resolvable": true,
+    "join_key": "products.manual_file -> manual document",
+    "left_type": "product",
+    "notes": null,
+    "production_resolvable": true,
+    "relation_count": 20,
+    "relation_id": "rel:product:manual",
+    "right_type": "document",
+    "source": "structured+knowledge"
+  },
+  {
+    "candidate_task_types": [
+      "MIXED_KNOWLEDGE_STRUCTURED"
+    ],
+    "gold_resolvable": true,
+    "join_key": "global product after-sales applicability",
+    "left_type": "product",
+    "notes": "Policy is repository-global; product/contract/region exceptions may override.",
+    "production_resolvable": true,
+    "relation_count": 20,
+    "relation_id": "rel:product:after_sales_policy",
+    "right_type": "policy",
+    "source": "knowledge_policy"
+  }
+]

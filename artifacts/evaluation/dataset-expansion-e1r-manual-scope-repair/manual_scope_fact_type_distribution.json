@@ -1,0 +1,23 @@
+{
+  "fact_granularity": {
+    "ATOMIC_ACTION": 3,
+    "CONDITIONAL_ACTION": 14,
+    "FRAGMENT_ONLY": 5,
+    "LIMITATION": 5,
+    "MULTI_FACT_DEPENDENT": 2,
+    "PROCEDURE_STEP": 3,
+    "SAFETY_INSTRUCTION": 4,
+    "TROUBLESHOOTING_STEP": 6
+  },
+  "repair_type": {
+    "CONDITION_ACTION_TARGETING": 9,
+    "MINIMAL_FACT_GROUP": 12,
+    "SINGLE_FACT_TARGETING": 5,
+    "SPECIFIC_OPERATION_TARGETING": 10,
+    "SYMPTOM_STEP_TARGETING": 6
+  },
+  "source_fact_type": {
+    "FEATURE_OR_INSTRUCTION": 3,
+    "TROUBLESHOOTING_STEP": 39
+  }
+}
