@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 import sys
 import types
+from types import SimpleNamespace
 
 import pytest
 
@@ -739,6 +740,71 @@ def test_rule_fallback_decomposes_multi_requirement_question():
     assert any("故障" in item for item in rows)
     assert any("免费维修" in item for item in rows)
     assert any("维修周期" in item for item in rows)
+
+
+def test_understand_query_uses_deterministic_enrichment_not_free_llm_rewrite(monkeypatch):
+    from agents import knowledge_agent as ka
+
+    def fake_structured(*args, **kwargs):
+        return ka.QueryUnderstandingOutput(
+            product_model="AX-300",
+            error_code="E502",
+            region="CN",
+            task_type="troubleshooting_warranty",
+            rewritten_question="完全不同的问题，不应该被直接使用",
+            requirements=["解释 E502 的故障含义", "判断是否满足免费维修条件"],
+            needs_clarification=False,
+        )
+
+    monkeypatch.setattr(ka, "_safe_structured_invoke", fake_structured)
+    update = ka.understand_query({"messages": [SimpleNamespace(content="E502 能免费修吗？")]})
+    rewritten = update["rewritten_question"]
+    assert rewritten.startswith("E502 能免费修吗？")
+    assert "product_model:AX-300" in rewritten
+    assert "error_code:E502" in rewritten
+    assert "requirements:解释 E502 的故障含义；判断是否满足免费维修条件" in rewritten
+    assert "完全不同的问题" not in rewritten
+    assert update["query_understanding"]["normalized_query"] == rewritten
+
+
+def test_understand_query_clarifies_on_structured_slot_conflict(monkeypatch):
+    from agents import knowledge_agent as ka
+
+    def fake_structured(*args, **kwargs):
+        return ka.QueryUnderstandingOutput(
+            rewritten_question="AX-300 E502",
+            requirements=["解释 E502 的故障含义"],
+            needs_clarification=False,
+        )
+
+    monkeypatch.setattr(ka, "_safe_structured_invoke", fake_structured)
+    update = ka.understand_query(
+        {
+            "messages": [SimpleNamespace(content="AX-300 出现 E502")],
+            "product_model": "BX-200",
+        }
+    )
+    assert update["needs_clarification"] is True
+    assert "product_model conflict" in update["clarification_question"]
+
+
+def test_understand_query_clarifies_when_product_specific_identity_missing(monkeypatch):
+    from agents import knowledge_agent as ka
+
+    def fake_structured(*args, **kwargs):
+        return ka.QueryUnderstandingOutput(
+            error_code="E502",
+            task_type="warranty",
+            rewritten_question="E502 free repair",
+            requirements=["判断是否满足免费维修条件"],
+            needs_clarification=False,
+        )
+
+    monkeypatch.setattr(ka, "_safe_structured_invoke", fake_structured)
+    update = ka.understand_query({"messages": [SimpleNamespace(content="E502 能免费修吗？")]})
+    assert update["needs_clarification"] is True
+    assert "产品型号" in update["clarification_question"]
+    assert "product_model:" not in update["rewritten_question"]
 
 
 def test_benchmark_adapter_invokes_production_graph_and_scores_action(monkeypatch):
