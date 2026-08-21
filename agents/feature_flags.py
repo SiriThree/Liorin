@@ -21,6 +21,8 @@ class AgentFeatureConfig:
     clarification_recovery_enabled: bool = True
     reranker_enabled: bool = True
     parent_expansion_enabled: bool = True
+    entity_scoped_routing_enabled: bool = False
+    semantic_verifier_enabled: bool = False
 
     @classmethod
     def from_mapping(cls, value: Mapping[str, Any] | None) -> "AgentFeatureConfig":

@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import math
 import os
+import re
 from concurrent.futures import ThreadPoolExecutor, TimeoutError as FutureTimeout
 from dataclasses import dataclass, field
 from functools import lru_cache
@@ -11,12 +12,13 @@ from typing import Any
 from retrieval.budget import RetrievalBudget
 from retrieval.fusion import RetrievedEvidence
 from retrieval.protocols import RetrievalError
-from retrieval.sparse_retriever import tokenize
 from retrieval.trace import trace_event
 from retrieval.observability import record_reranker_fallback, record_reranker_request
 from retrieval.resilience import call_with_resilience, RetryPolicy
 
 DEFAULT_RERANKER_MODEL = os.getenv("RERANKER_MODEL", "BAAI/bge-reranker-v2-m3")
+ALNUM_PATTERN = re.compile(r"[A-Za-z]+[\w-]*|\d+")
+CHINESE_PATTERN = re.compile(r"[\u4e00-\u9fff]+")
 
 
 @dataclass
@@ -36,10 +38,20 @@ def _load_cross_encoder():
     return CrossEncoder(DEFAULT_RERANKER_MODEL)
 
 
+def _lightweight_terms(text: str) -> list[str]:
+    terms = [match.group(0).casefold() for match in ALNUM_PATTERN.finditer(text)]
+    for chunk in CHINESE_PATTERN.findall(text):
+        if len(chunk) <= 2:
+            terms.append(chunk.casefold())
+        else:
+            terms.extend(chunk[index:index + 2].casefold() for index in range(len(chunk) - 1))
+    return [term for term in terms if len(term) >= 2]
+
+
 def _near_match_excerpt(text: str, query: str, max_chars: int = 1200) -> str:
     if len(text) <= max_chars:
         return text
-    query_terms = [term.casefold() for term in tokenize(query) if len(term) >= 2]
+    query_terms = _lightweight_terms(query)
     lower = text.casefold()
     positions = [lower.find(term) for term in query_terms if lower.find(term) >= 0]
     center = min(positions) if positions else 0
@@ -78,7 +90,7 @@ def build_reranker_text(
 
 
 def _heuristic_score(query: str, evidence: RetrievedEvidence, *, include_parent: bool) -> float:
-    query_terms = {term for term in tokenize(query.casefold()) if len(term) >= 2}
+    query_terms = set(_lightweight_terms(query.casefold()))
     rerank_text = build_reranker_text(evidence, query, include_parent=include_parent).casefold()
     if not query_terms:
         overlap = 0.0

@@ -4,7 +4,7 @@ from __future__ import annotations
 import math
 import re
 from collections import Counter
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from functools import lru_cache
 from time import perf_counter
 
@@ -95,6 +95,39 @@ class BM25Index:
     term_counts: tuple[Counter, ...]
     doc_freq: Counter
     avg_len: float
+    metadata_postings: dict[str, dict[str, tuple[int, ...]]] = field(default_factory=dict)
+
+
+SCOPE_POSTING_FIELDS = (
+    "product_id",
+    "product_model",
+    "product_name",
+    "document_id",
+    "policy_id",
+    "source",
+    "doc_type",
+    "region",
+    "language",
+)
+
+
+def _metadata_scope_values(metadata: dict, field_name: str) -> list[str]:
+    aliases = {
+        "document_id": ("document_id", "doc_id"),
+        "product_model": ("product_model", "product_models"),
+        "product_id": ("product_id", "product_ids"),
+        "product_name": ("product_name", "product_names"),
+        "source": ("source", "doc_type"),
+        "region": ("region", "regions"),
+    }
+    values: list[str] = []
+    for key in aliases.get(field_name, (field_name,)):
+        raw = metadata.get(key)
+        if isinstance(raw, list):
+            values.extend(str(item).strip().casefold() for item in raw if str(item).strip())
+        elif raw not in (None, ""):
+            values.append(str(raw).strip().casefold())
+    return list(dict.fromkeys(values))
 
 
 @lru_cache(maxsize=4)
@@ -109,7 +142,16 @@ def _build_bm25_index(version: str) -> BM25Index:
     for tokens in tokenized:
         doc_freq.update(set(tokens))
     avg_len = sum(len(tokens) for tokens in tokenized) / max(1, len(tokenized))
-    return BM25Index(version, docs, tokenized, counts, doc_freq, avg_len)
+    postings: dict[str, dict[str, list[int]]] = {field_name: {} for field_name in SCOPE_POSTING_FIELDS}
+    for index, doc in enumerate(docs):
+        for field_name in SCOPE_POSTING_FIELDS:
+            for value in _metadata_scope_values(doc.metadata, field_name):
+                postings[field_name].setdefault(value, []).append(index)
+    frozen_postings = {
+        field_name: {value: tuple(indices) for value, indices in values.items()}
+        for field_name, values in postings.items()
+    }
+    return BM25Index(version, docs, tokenized, counts, doc_freq, avg_len, frozen_postings)
 
 
 def get_bm25_index(version: str | None = None) -> BM25Index:
@@ -118,6 +160,34 @@ def get_bm25_index(version: str | None = None) -> BM25Index:
 
 def clear_bm25_cache() -> None:
     _build_bm25_index.cache_clear()
+
+
+def _scope_candidate_indices(index: BM25Index, filters: RetrievalFilters) -> tuple[list[int], list[str]]:
+    candidates: set[int] | None = None
+    scoped_fields: list[str] = []
+    for field_name in SCOPE_POSTING_FIELDS:
+        expected = getattr(filters, field_name, None)
+        values = [str(item).strip().casefold() for item in _as_filter_values(expected)]
+        if not values:
+            continue
+        scoped_fields.append(field_name)
+        postings = index.metadata_postings.get(field_name, {})
+        field_indices: set[int] = set()
+        for value in values:
+            field_indices.update(postings.get(value, ()))
+        candidates = field_indices if candidates is None else candidates & field_indices
+        if not candidates:
+            return [], scoped_fields
+    if candidates is None:
+        return list(range(len(index.docs))), scoped_fields
+    return sorted(candidates), scoped_fields
+
+
+def _as_filter_values(value) -> list[str]:
+    if value in (None, "", [], {}):
+        return []
+    values = value if isinstance(value, (list, tuple, set)) else [value]
+    return [str(item).strip() for item in values if str(item).strip()]
 
 
 def bm25_search(
@@ -169,8 +239,13 @@ def bm25_search(
     query_tokens = tokenize(query)
     if not query_tokens:
         return RetrieverExecutionResult(retriever, RetrieverStatus.NO_RESULTS)
+    candidate_indices, scope_fields = _scope_candidate_indices(index, unified)
     scored: list[RetrievedEvidence] = []
-    for doc, counts, tokens in zip(index.docs, index.term_counts, index.tokenized_docs):
+    scored_doc_count = 0
+    for doc_index in candidate_indices:
+        doc = index.docs[doc_index]
+        counts = index.term_counts[doc_index]
+        tokens = index.tokenized_docs[doc_index]
         if budget and budget.latency_exceeded:
             partial = sorted(
                 scored,
@@ -194,6 +269,9 @@ def bm25_search(
                 subquery_id=subquery_id,
                 status="timeout",
                 returned_count=len(partial),
+                corpus_doc_count=len(index.docs),
+                scope_candidate_count=len(candidate_indices),
+                scored_doc_count=scored_doc_count,
                 candidate_count=len(index.docs),
                 elapsed_ms=round((perf_counter() - started) * 1000, 2),
                 corpus_version=index.version,
@@ -212,6 +290,7 @@ def bm25_search(
             )
         if not document_matches_filters(doc.metadata, unified, principal):
             continue
+        scored_doc_count += 1
         score = 0.0
         doc_len = len(tokens) or 1
         for token in query_tokens:
@@ -249,10 +328,14 @@ def bm25_search(
         "complete",
         subquery_id=subquery_id,
         status="success" if results else "no_results",
+        corpus_doc_count=len(index.docs),
+        scope_candidate_count=len(candidate_indices),
+        scored_doc_count=scored_doc_count,
         candidate_count=len(index.docs),
         returned_count=len(results),
         elapsed_ms=round(elapsed, 2),
         corpus_version=index.version,
+        scope_fields=scope_fields,
         access_cache_key=retrieval_cache_key(
             query,
             filters=unified,

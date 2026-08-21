@@ -34,6 +34,8 @@ class AblationFeature(StrEnum):
     CLARIFICATION = "clarification_recovery_enabled"
     RERANKER = "reranker_enabled"
     PARENT_EXPANSION = "parent_expansion_enabled"
+    ENTITY_SCOPED_ROUTING = "entity_scoped_routing_enabled"
+    SEMANTIC_VERIFIER = "semantic_verifier_enabled"
 
 
 @dataclass(frozen=True, slots=True)
@@ -156,6 +158,7 @@ def default_addition_configs(base: FullSystemConfig | None = None) -> tuple[Abla
         clarification_recovery_enabled=False,
         reranker_enabled=False,
         parent_expansion_enabled=False,
+        semantic_verifier_enabled=False,
     )
     stages = [
         ("a0_one_pass_basic", all_off, ()),
