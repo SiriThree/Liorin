@@ -26,6 +26,15 @@
     "document_id",
     "policy_id"
   ],
+  "semantic_verification": {
+    "model_fallback_enabled": false,
+    "rule_reject_threshold": 0.32,
+    "review_lower_bound": 0.18,
+    "rule_accept_threshold": 0.55,
+    "model_support_confidence_threshold": 0.7,
+    "max_pairs_per_round": 8,
+    "max_evidence_chars": 1200
+  },
   "requirement_rules": [
     {
       "type": "fault_meaning",

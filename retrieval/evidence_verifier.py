@@ -16,7 +16,7 @@ import hashlib
 import json
 from pathlib import Path
 import re
-from typing import Any, Iterable
+from typing import Any, Iterable, Protocol
 
 from retrieval.filters import document_matches_filters
 from retrieval.protocols import (
@@ -32,10 +32,13 @@ from retrieval.protocols import (
     RetrievalResponse,
     RetrievalStatus,
     RetrievalSubquery,
+    SemanticSupportAssessment,
+    SemanticSupportCase,
     SourceAuthorityAssessment,
     VerificationAction,
     VerificationDecision,
 )
+from retrieval.security import redact_text
 
 _POLICY_PATH = Path(__file__).with_name("verification_policy.json")
 _TOKEN_PATTERN = re.compile(r"[A-Za-z]+[A-Za-z0-9_-]*|\d+(?:\.\d+)?|[\u4e00-\u9fff]{2,}")
@@ -73,6 +76,17 @@ class VerificationResult:
     representative_evidences: list[dict[str, Any]]
 
 
+class SemanticEvidenceJudge(Protocol):
+    """Batch semantic support judge.
+
+    Implementations may call an LLM, but the verifier only depends on this
+    protocol.  Returned assessments are audit signals, not final decisions.
+    """
+
+    def assess(self, cases: list[SemanticSupportCase]) -> list[SemanticSupportAssessment]:
+        ...
+
+
 @lru_cache(maxsize=1)
 def load_verification_policy() -> dict[str, Any]:
     return json.loads(_POLICY_PATH.read_text(encoding="utf-8"))
@@ -80,6 +94,24 @@ def load_verification_policy() -> dict[str, Any]:
 
 def clear_verification_policy_cache() -> None:
     load_verification_policy.cache_clear()
+
+
+def _semantic_config() -> dict[str, Any]:
+    return dict(load_verification_policy().get("semantic_verification") or {})
+
+
+def _semantic_float(name: str, default: float) -> float:
+    try:
+        return float(_semantic_config().get(name, default))
+    except (TypeError, ValueError):
+        return default
+
+
+def _semantic_int(name: str, default: int) -> int:
+    try:
+        return int(_semantic_config().get(name, default))
+    except (TypeError, ValueError):
+        return default
 
 
 def _rules() -> list[RequirementRule]:
@@ -429,6 +461,51 @@ def _semantic_match_score(
     return min(1.0, 0.42 * lineage + 0.33 * indicator_score + 0.2 * lexical + 0.05 * phrase)
 
 
+def _semantic_case_text(evidence: dict[str, Any], *, max_chars: int) -> str:
+    text = "\n".join(
+        part
+        for part in [
+            evidence["document"].page_content,
+            str(evidence.get("parent_context") or ""),
+        ]
+        if part
+    )
+    return redact_text(text, keep_business_ids=False, limit=max_chars)
+
+
+def _is_structured_evidence(evidence: dict[str, Any]) -> bool:
+    return _source_type(evidence) in {"structured_db", "database"}
+
+
+def _semantic_support_lookup(
+    assessments: list[SemanticSupportAssessment],
+) -> dict[tuple[str, str], SemanticSupportAssessment]:
+    return {(item.requirement_id, item.evidence_id): item for item in assessments}
+
+
+def _run_semantic_judge(
+    cases: list[SemanticSupportCase],
+    semantic_judge: SemanticEvidenceJudge | None,
+) -> tuple[list[SemanticSupportAssessment], list[str], list[str]]:
+    if not cases or semantic_judge is None:
+        return [], [], []
+    try:
+        raw = semantic_judge.assess(cases)
+        assessments = [SemanticSupportAssessment.model_validate(item) for item in raw]
+    except Exception as exc:
+        return [], [f"semantic judge failed: {type(exc).__name__}: {exc}"], [str(exc)]
+    requested = {(item.requirement_id, item.evidence_id): item for item in cases}
+    output: list[SemanticSupportAssessment] = []
+    degraded: list[str] = []
+    for item in assessments:
+        case = requested.get((item.requirement_id, item.evidence_id))
+        if case is None:
+            degraded.append("semantic judge returned an assessment for an unknown pair")
+            continue
+        output.append(item.model_copy(update={"rule_score": case.rule_score}))
+    return output, degraded, []
+
+
 def _authority_assessment(
     evidence: dict[str, Any],
     requirement_id: str,
@@ -732,6 +809,8 @@ def verify_evidence(
     retry_count: int = 0,
     executed_signatures: set[str] | None = None,
     now: datetime | None = None,
+    semantic_judge: SemanticEvidenceJudge | None = None,
+    semantic_verifier_enabled: bool | None = None,
 ) -> VerificationResult:
     requirements = understanding.requirements or plan.original_requirements or [understanding.normalized_query]
     requirement_rules = [classify_requirement(requirement) for requirement in requirements]
@@ -762,13 +841,32 @@ def verify_evidence(
     coverages: list[RequirementCoverage] = []
     authority_rows: list[SourceAuthorityAssessment] = []
     candidate_ids_by_requirement: dict[str, list[str]] = {}
+    semantic_config = _semantic_config()
+    semantic_enabled = bool(
+        semantic_judge is not None
+        and (
+            semantic_verifier_enabled
+            if semantic_verifier_enabled is not None
+            else semantic_config.get("model_fallback_enabled", False)
+        )
+    )
+    rule_reject_threshold = _semantic_float("rule_reject_threshold", 0.32)
+    review_lower_bound = _semantic_float("review_lower_bound", rule_reject_threshold)
+    rule_accept_threshold = _semantic_float("rule_accept_threshold", 0.55)
+    model_confidence_threshold = _semantic_float("model_support_confidence_threshold", 0.7)
+    max_pairs = max(0, _semantic_int("max_pairs_per_round", 8))
+    max_evidence_chars = max(1, _semantic_int("max_evidence_chars", 1200))
+    pending_semantic: list[tuple[float, SemanticSupportCase]] = []
+    pending_rows: dict[tuple[str, str], tuple[float, str, bool, bool]] = {}
+    semantic_degraded: list[str] = []
+    semantic_errors: list[str] = []
     for index, (requirement, rule) in enumerate(zip(requirements, requirement_rules), start=1):
         req_id = f"req-{index}"
         candidate_rows: list[tuple[float, str, bool, bool]] = []
         for item in representatives:
             eid = evidence_id(item)
             semantic_score = _semantic_match_score(requirement, rule, item, plan)
-            if semantic_score < 0.32:
+            if semantic_score < (review_lower_bound if semantic_enabled else rule_reject_threshold):
                 continue
             authority = _authority_assessment(item, req_id, rule)
             authority_rows.append(authority)
@@ -784,6 +882,24 @@ def verify_evidence(
             )
             validity_pass = validity.validity_sufficient and temporal_pass and region_pass and product_pass
             authority_pass = authority.authority_passed or not rule.authority_required
+            if semantic_enabled and semantic_score < rule_accept_threshold:
+                if (
+                    semantic_score >= review_lower_bound
+                    and authority_pass
+                    and validity_pass
+                    and not _is_structured_evidence(item)
+                ):
+                    case = SemanticSupportCase(
+                        requirement_id=req_id,
+                        requirement=requirement,
+                        evidence_id=eid,
+                        evidence_text=_semantic_case_text(item, max_chars=max_evidence_chars),
+                        rule_score=semantic_score,
+                        evidence_type=rule.requirement_type,
+                    )
+                    pending_semantic.append((semantic_score, case))
+                    pending_rows[(req_id, eid)] = (0.0, eid, authority_pass, validity_pass)
+                continue
             confidence = min(1.0, semantic_score * 0.65 + authority.source_authority * 0.25 + (0.1 if validity_pass else 0.0))
             candidate_rows.append((confidence, eid, authority_pass, validity_pass))
         candidate_ids_by_requirement[req_id] = [row[1] for row in candidate_rows]
@@ -817,6 +933,63 @@ def verify_evidence(
                 critical=rule.critical,
             )
         )
+
+    semantic_assessments: list[SemanticSupportAssessment] = []
+    semantic_supported_pairs: set[tuple[str, str]] = set()
+    if semantic_enabled and pending_semantic:
+        selected_cases = [
+            item
+            for _, item in sorted(
+                pending_semantic,
+                key=lambda row: (abs(rule_accept_threshold - row[0]), row[0]),
+            )[:max_pairs]
+        ]
+        skipped = max(0, len(pending_semantic) - len(selected_cases))
+        if skipped:
+            semantic_degraded.append(f"semantic judge pair cap skipped {skipped} borderline pair(s)")
+        semantic_assessments, degraded, errors = _run_semantic_judge(selected_cases, semantic_judge)
+        semantic_degraded.extend(degraded)
+        semantic_errors.extend(errors)
+        semantic_by_pair = _semantic_support_lookup(semantic_assessments)
+        for coverage in coverages:
+            additions: list[tuple[float, str, bool, bool]] = []
+            for evidence_key, base_row in pending_rows.items():
+                req_id, eid = evidence_key
+                if req_id != coverage.requirement_id:
+                    continue
+                assessment = semantic_by_pair.get(evidence_key)
+                if not assessment:
+                    continue
+                if (
+                    assessment.verdict == "supports"
+                    and assessment.confidence >= model_confidence_threshold
+                ):
+                    _, _, authority_pass, validity_pass = base_row
+                    confidence = min(
+                        1.0,
+                        assessment.confidence * 0.65
+                        + assessment.rule_score * 0.2
+                        + (0.15 if validity_pass else 0.0),
+                    )
+                    additions.append((confidence, eid, authority_pass, validity_pass))
+                    semantic_supported_pairs.add(evidence_key)
+            if not additions:
+                continue
+            accepted = [row for row in additions if row[2] and row[3]]
+            accepted.sort(reverse=True)
+            if not accepted:
+                continue
+            new_ids = [row[1] for row in accepted]
+            coverage.evidence_ids = list(dict.fromkeys([*coverage.evidence_ids, *new_ids]))
+            coverage.covered = True
+            coverage.confidence = max(coverage.confidence, accepted[0][0])
+            coverage.authority_sufficient = coverage.authority_sufficient or any(row[2] for row in additions)
+            coverage.validity_sufficient = coverage.validity_sufficient or any(row[3] for row in additions)
+            coverage.reason = "covered by semantic verifier fallback plus deterministic hard gates"
+            candidate_ids_by_requirement.setdefault(coverage.requirement_id, [])
+            candidate_ids_by_requirement[coverage.requirement_id] = list(
+                dict.fromkeys([*candidate_ids_by_requirement[coverage.requirement_id], *new_ids])
+            )
 
     conflicts = detect_conflicts(
         coverages,
@@ -864,12 +1037,15 @@ def verify_evidence(
         evidence_validity=list(validity_by_id.values()),
         duplicate_groups=duplicate_groups,
         conflicts=conflicts,
+        semantic_assessments=semantic_assessments,
+        semantic_degraded_reasons=list(dict.fromkeys(semantic_degraded)),
+        semantic_judge_errors=list(dict.fromkeys(semantic_errors)),
         accepted_evidence_ids=accepted_ids,
         excluded_evidence_ids=excluded_ids,
         coverage_score=coverage_score,
         all_critical_requirements_covered=all_critical,
         unresolved_high_risk_conflicts=unresolved_high,
-        method="rules",
+        method="hybrid" if (semantic_assessments or semantic_degraded or semantic_errors) else "rules",
         policy_version=load_verification_policy()["version"],
     )
 
@@ -1008,4 +1184,6 @@ def verify_evidence(
                 partial_answer_allowed=bool(accepted_ids),
                 decision_source="rule",
             )
+    if semantic_supported_pairs:
+        decision = decision.model_copy(update={"decision_source": "hybrid"})
     return VerificationResult(audit=audit, decision=decision, representative_evidences=representatives)

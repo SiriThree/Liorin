@@ -490,6 +490,32 @@ class RequirementCoverage(ProtocolModel):
     critical: bool = True
 
 
+class SemanticSupportCase(ProtocolModel):
+    """Borderline requirement/evidence pair sent to an optional semantic judge."""
+
+    requirement_id: str
+    requirement: str
+    evidence_id: str
+    evidence_text: str
+    rule_score: float = Field(ge=0.0, le=1.0)
+    evidence_type: str = "general"
+
+
+class SemanticSupportAssessment(ProtocolModel):
+    """Semantic judge result for one requirement/evidence pair.
+
+    This record is audit-only.  It never authorizes access, overrides validity or
+    authority, or directly selects a final ``VerificationAction``.
+    """
+
+    requirement_id: str
+    evidence_id: str
+    verdict: Literal["supports", "does_not_support", "uncertain"]
+    confidence: float = Field(ge=0.0, le=1.0)
+    reason: str = ""
+    rule_score: float = Field(ge=0.0, le=1.0)
+
+
 class SourceAuthorityAssessment(ProtocolModel):
     """Requirement-aware authority assessment for one evidence item; persistent."""
 
@@ -575,6 +601,9 @@ class EvidenceAudit(ProtocolModel):
     evidence_validity: list[EvidenceValidity] = Field(default_factory=list)
     duplicate_groups: list[DuplicateEvidenceGroup] = Field(default_factory=list)
     conflicts: list[EvidenceConflict] = Field(default_factory=list)
+    semantic_assessments: list[SemanticSupportAssessment] = Field(default_factory=list)
+    semantic_degraded_reasons: list[str] = Field(default_factory=list)
+    semantic_judge_errors: list[str] = Field(default_factory=list)
     accepted_evidence_ids: list[str] = Field(default_factory=list)
     excluded_evidence_ids: list[str] = Field(default_factory=list)
     coverage_score: float = Field(default=0.0, ge=0.0, le=1.0)

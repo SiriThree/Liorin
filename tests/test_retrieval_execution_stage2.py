@@ -189,19 +189,21 @@ def test_e10_never_substring_matches_e1002(monkeypatch):
 
 def test_dense_and_bm25_run_in_parallel_and_fuse():
     barrier = threading.Barrier(2)
+    starts = {}
     d1 = doc("same", "故障处理", product_model="AX-300")
 
     def dense_fn(*args, **kwargs):
+        starts["dense"] = time.perf_counter()
         barrier.wait(timeout=1)
         time.sleep(0.03)
         return RetrieverExecutionResult("dense_milvus", RetrieverStatus.SUCCESS, [evidence(d1, "dense_milvus", 0.2, semantics=ScoreSemantics.DISTANCE_LOWER_BETTER)])
 
     def sparse_fn(*args, **kwargs):
+        starts["sparse"] = time.perf_counter()
         barrier.wait(timeout=1)
         time.sleep(0.03)
         return RetrieverExecutionResult("sparse_bm25", RetrieverStatus.SUCCESS, [evidence(d1, "sparse_bm25", 3.0)])
 
-    started = time.perf_counter()
     result = hybrid_retrieve(
         QueryUnderstanding(original_query="故障", normalized_query="故障", requirements=["故障"]),
         RetrievalSubquery(subquery_id="sq-1", query="故障", source="manual"),
@@ -211,8 +213,7 @@ def test_dense_and_bm25_run_in_parallel_and_fuse():
         dense_fn=dense_fn,
         sparse_fn=sparse_fn,
     )
-    elapsed = time.perf_counter() - started
-    assert elapsed < 0.25
+    assert abs(starts["dense"] - starts["sparse"]) < 0.05
     assert result.evidences
     assert result.response.status == RetrievalStatus.SUCCESS
     assert {c.retriever for c in result.evidences[0].contributions} == {"dense_milvus", "sparse_bm25"}
@@ -366,20 +367,21 @@ def test_benchmark_adapter_still_uses_production_retrieval():
     assert "hybrid_retriever" not in source
 
 
-def test_pipeline_does_not_invoke_metadata_lookup_without_entities():
+def test_pipeline_does_not_invoke_metadata_lookup_as_default_recall_channel():
     def no_results(name: str):
         return lambda *args, **kwargs: RetrieverExecutionResult(name, RetrieverStatus.NO_RESULTS)
 
     def forbidden_metadata(*args, **kwargs):
-        raise AssertionError("metadata lookup must not be invoked without deterministic entities")
+        raise AssertionError("metadata lookup must not be invoked as a default recall channel")
 
     result = hybrid_retrieve(
         QueryUnderstanding(
-            original_query="机器突然不工作",
-            normalized_query="机器突然不工作",
+            original_query="AX-300 机器突然不工作",
+            normalized_query="AX-300 机器突然不工作",
+            product_models=["AX-300"],
             requirements=["解释无法工作的原因"],
         ),
-        RetrievalSubquery(subquery_id="sq-no-entity", query="机器突然不工作", source="manual"),
+        RetrievalSubquery(subquery_id="sq-no-metadata", query="AX-300 机器突然不工作", source="manual"),
         principal=principal(),
         use_cross_encoder=False,
         dense_fn=no_results("dense_milvus"),
@@ -387,8 +389,7 @@ def test_pipeline_does_not_invoke_metadata_lookup_without_entities():
         metadata_fn=forbidden_metadata,
     )
     outcomes = result.response.audit["retriever_outcomes"]
-    metadata = next(item for item in outcomes if item["retriever"] == "metadata_direct_lookup")
-    assert metadata["status"] == RetrieverStatus.SKIPPED_BY_PLAN
+    assert {item["retriever"] for item in outcomes} == {"dense_milvus", "sparse_bm25"}
 
 
 def test_milvus_prefilter_contains_identity_acl_and_effective_time():
@@ -754,6 +755,289 @@ def test_bm25_soft_timeout_returns_ranked_partial_candidates(monkeypatch):
     )
 
 
+def test_manual_subquery_with_order_id_does_not_call_database_in_entity_scoped_mode():
+    calls = {"dense": 0, "sparse": 0, "metadata": 0, "database": 0}
+
+    def no_results(name: str, key: str):
+        def inner(*args, **kwargs):
+            calls[key] += 1
+            return RetrieverExecutionResult(name, RetrieverStatus.NO_RESULTS)
+        return inner
+
+    def forbidden_metadata(*args, **kwargs):
+        calls["metadata"] += 1
+        raise AssertionError("manual document route must not call metadata")
+
+    def forbidden_database(*args, **kwargs):
+        calls["database"] += 1
+        raise AssertionError("manual document route must not call database")
+
+    result = hybrid_retrieve(
+        QueryUnderstanding(
+            original_query="ORD-123 AX-300 manual help",
+            normalized_query="ORD-123 AX-300 manual help",
+            order_id="ORD-123",
+            product_models=["AX-300"],
+            requirements=["manual help"],
+        ),
+        RetrievalSubquery(subquery_id="sq-manual", query="AX-300 manual help", source="manual"),
+        principal=principal(),
+        use_cross_encoder=False,
+        entity_scoped_routing_enabled=True,
+        dense_fn=no_results("dense_milvus", "dense"),
+        sparse_fn=no_results("sparse_bm25", "sparse"),
+        metadata_fn=forbidden_metadata,
+        database_fn=forbidden_database,
+    )
+    assert result.response.status == RetrievalStatus.NO_RESULTS
+    assert calls == {"dense": 1, "sparse": 1, "metadata": 0, "database": 0}
+    assert result.response.audit["route"] == "document_hybrid"
+
+
+def test_database_subquery_calls_only_database_route():
+    calls = {"dense": 0, "sparse": 0, "metadata": 0, "database": 0}
+    db_doc = doc(
+        "db-order",
+        "structured order state",
+        document_id="db:order_lookup:ORD-123",
+        source="structured_db",
+        doc_type="structured_db",
+        classification="confidential",
+    )
+
+    def forbidden(key: str):
+        def inner(*args, **kwargs):
+            calls[key] += 1
+            raise AssertionError(f"{key} must not run for database route")
+        return inner
+
+    def database(*args, **kwargs):
+        calls["database"] += 1
+        return RetrieverExecutionResult(
+            "structured_database",
+            RetrieverStatus.SUCCESS,
+            [evidence(db_doc, "structured_database", 1.0)],
+        )
+
+    result = hybrid_retrieve(
+        QueryUnderstanding(
+            original_query="ORD-123 status",
+            normalized_query="ORD-123 status",
+            order_id="ORD-123",
+            requirements=["order status"],
+        ),
+        RetrievalSubquery(
+            subquery_id="sq-db",
+            query="ORD-123 status",
+            source="database",
+            retrieval_mode="database",
+        ),
+        principal=principal(),
+        use_cross_encoder=False,
+        entity_scoped_routing_enabled=True,
+        dense_fn=forbidden("dense"),
+        sparse_fn=forbidden("sparse"),
+        metadata_fn=forbidden("metadata"),
+        database_fn=database,
+    )
+    assert result.response.status == RetrievalStatus.SUCCESS
+    assert calls == {"dense": 0, "sparse": 0, "metadata": 0, "database": 1}
+    assert result.response.audit["route"] == "structured_database"
+    assert result.response.audit["coarse_rerank_method"] == "not_applicable_structured"
+
+
+def test_metadata_mode_does_not_trigger_database():
+    calls = {"metadata": 0, "database": 0}
+    target = doc("policy", "exact policy", document_id="policy-1", policy_id="policy-1")
+
+    def metadata(*args, **kwargs):
+        calls["metadata"] += 1
+        return RetrieverExecutionResult(
+            "metadata_direct_lookup",
+            RetrieverStatus.SUCCESS,
+            [evidence(target, "metadata_direct_lookup", 1.0)],
+        )
+
+    def database(*args, **kwargs):
+        calls["database"] += 1
+        raise AssertionError("metadata exact route must not call database")
+
+    result = hybrid_retrieve(
+        QueryUnderstanding(
+            original_query="policy-1",
+            normalized_query="policy-1",
+            policy_id="policy-1",
+            order_id="ORD-123",
+            requirements=["exact policy"],
+        ),
+        RetrievalSubquery(subquery_id="sq-meta", query="policy-1", source="metadata", retrieval_mode="metadata"),
+        principal=principal(),
+        use_cross_encoder=False,
+        entity_scoped_routing_enabled=True,
+        metadata_fn=metadata,
+        database_fn=database,
+    )
+    assert result.response.status == RetrievalStatus.SUCCESS
+    assert calls == {"metadata": 1, "database": 0}
+    assert result.response.audit["route"] == "metadata_exact"
+
+
+def test_product_model_is_added_to_effective_scope_when_planner_omits_it():
+    from retrieval.router import derive_search_scope
+
+    scope = derive_search_scope(
+        QueryUnderstanding(
+            original_query="AX-300 reset",
+            normalized_query="AX-300 reset",
+            product_models=["AX-300"],
+            requirements=["reset"],
+        ),
+        RetrievalSubquery(subquery_id="sq-scope", query="reset", source="manual", filters={}),
+        principal(),
+    )
+    assert scope.filters.product_model == "AX-300"
+    assert "product_model" in scope.scope_fields
+
+
+def test_product_id_takes_precedence_over_product_name_scope():
+    from retrieval.router import derive_search_scope
+
+    scope = derive_search_scope(
+        QueryUnderstanding(
+            original_query="PROD-003 chair",
+            normalized_query="PROD-003 chair",
+            product_id="PROD-003",
+            product_name="Chair",
+            requirements=["spec"],
+        ),
+        RetrievalSubquery(subquery_id="sq-scope", query="spec", source="manual", filters={"product_name": "Chair"}),
+        principal(),
+    )
+    assert scope.filters.product_id == "PROD-003"
+    assert scope.filters.product_name is None
+
+
+def test_conflicting_entity_and_planner_filters_do_not_silently_broaden_scope():
+    from retrieval.filters import InvalidRetrievalFilter
+    from retrieval.router import derive_search_scope
+
+    with pytest.raises(InvalidRetrievalFilter):
+        derive_search_scope(
+            QueryUnderstanding(
+                original_query="AX-300 reset",
+                normalized_query="AX-300 reset",
+                product_models=["AX-300"],
+                requirements=["reset"],
+            ),
+            RetrievalSubquery(
+                subquery_id="sq-conflict",
+                query="reset",
+                source="manual",
+                filters={"product_model": "BX-500"},
+            ),
+            principal(),
+        )
+
+
+def test_error_code_is_not_mandatory_hard_filter_by_default():
+    from retrieval.router import derive_search_scope
+
+    scope = derive_search_scope(
+        QueryUnderstanding(
+            original_query="AX-300 E502 troubleshoot",
+            normalized_query="AX-300 E502 troubleshoot",
+            product_models=["AX-300"],
+            error_codes=["E502"],
+            requirements=["troubleshoot"],
+        ),
+        RetrievalSubquery(subquery_id="sq-error", query="E502 troubleshoot", source="manual", filters={}),
+        principal(),
+    )
+    assert scope.filters.product_model == "AX-300"
+    assert scope.filters.error_code is None
+
+
+def test_entity_scoped_document_route_rrf_contains_only_dense_and_bm25_contributions():
+    dense_doc = doc("same", "AX-300 reset", product_model="AX-300", product_models=["AX-300"])
+
+    def dense(*args, **kwargs):
+        return RetrieverExecutionResult(
+            "dense_milvus",
+            RetrieverStatus.SUCCESS,
+            [evidence(dense_doc, "dense_milvus", 0.2, semantics=ScoreSemantics.DISTANCE_LOWER_BETTER)],
+        )
+
+    def sparse(*args, **kwargs):
+        return RetrieverExecutionResult(
+            "sparse_bm25",
+            RetrieverStatus.SUCCESS,
+            [evidence(dense_doc, "sparse_bm25", 2.0)],
+        )
+
+    def forbidden(*args, **kwargs):
+        raise AssertionError("metadata/database must not enter document RRF")
+
+    result = hybrid_retrieve(
+        QueryUnderstanding(
+            original_query="AX-300 reset ORD-123",
+            normalized_query="AX-300 reset ORD-123",
+            product_models=["AX-300"],
+            order_id="ORD-123",
+            requirements=["reset"],
+        ),
+        RetrievalSubquery(subquery_id="sq-doc", query="AX-300 reset", source="manual"),
+        principal=principal(),
+        use_cross_encoder=False,
+        entity_scoped_routing_enabled=True,
+        dense_fn=dense,
+        sparse_fn=sparse,
+        metadata_fn=forbidden,
+        database_fn=forbidden,
+    )
+    assert result.evidences
+    assert {c.retriever for item in result.evidences for c in item.contributions} == {
+        "dense_milvus",
+        "sparse_bm25",
+    }
+
+
+def test_bm25_scoped_candidate_index_reduces_scored_docs(monkeypatch):
+    import retrieval.sparse_retriever as sparse
+    from collections import Counter
+
+    ax = doc("ax", "AX-300 E502 reset sensor", product_model="AX-300", product_models=["AX-300"])
+    bx = doc("bx", "BX-500 E502 reset sensor", product_model="BX-500", product_models=["BX-500"])
+    cx = doc("cx", "CX-900 E502 reset sensor", product_model="CX-900", product_models=["CX-900"])
+    docs = (ax, bx, cx)
+    tokens = tuple(tuple(sparse.tokenize(item.page_content)) for item in docs)
+    counts = tuple(Counter(value) for value in tokens)
+    frequencies = Counter()
+    for value in tokens:
+        frequencies.update(set(value))
+    index = BM25Index(
+        "v",
+        docs,
+        tokens,
+        counts,
+        frequencies,
+        4.0,
+        {"product_model": {"ax-300": (0,), "bx-500": (1,), "cx-900": (2,)}},
+    )
+    monkeypatch.setattr(sparse, "get_bm25_index", lambda: index)
+    result = bm25_search(
+        "E502 reset",
+        principal=principal(),
+        filters={"product_model": "AX-300"},
+        budget=RetrievalBudget().start(),
+    )
+    assert [item.document.metadata["chunk_id"] for item in result.evidences] == ["ax"]
+    event_data = result.trace[-1]["data"]
+    assert event_data["corpus_doc_count"] == 3
+    assert event_data["scope_candidate_count"] == 1
+    assert event_data["scored_doc_count"] == 1
+    assert event_data["scored_doc_count"] < event_data["corpus_doc_count"]
+
+
 def test_local_production_pipeline_uses_real_bm25_corpus_and_section_expansion():
     budget = RetrievalBudget(
         max_dense_queries=0,
@@ -785,7 +1069,7 @@ def test_local_production_pipeline_uses_real_bm25_corpus_and_section_expansion()
     outcomes = {item.retriever: item for item in result.retriever_results}
     assert outcomes["dense_milvus"].status == RetrieverStatus.SKIPPED_BY_BUDGET
     assert outcomes["sparse_bm25"].status == RetrieverStatus.SUCCESS
-    assert outcomes["metadata_direct_lookup"].status == RetrieverStatus.SKIPPED_BY_PLAN
+    assert "metadata_direct_lookup" not in outcomes
     assert any(item.parent_context for item in result.evidences)
     assert result.response.status == RetrievalStatus.PARTIAL
 

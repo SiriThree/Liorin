@@ -29,6 +29,7 @@ from retrieval.protocols import (
     RetrieverStatus,
 )
 from retrieval.reranker import RerankResult, rerank
+from retrieval.router import RetrievalRoute, derive_search_scope, resolve_retrieval_route
 from retrieval.sparse_retriever import bm25_search
 from retrieval.trace import trace_event
 
@@ -73,11 +74,8 @@ def _query_aware_weights(understanding: QueryUnderstanding) -> dict[str, float]:
     weights = {
         "dense_milvus": 1.0,
         "sparse_bm25": 1.0,
-        "metadata_direct_lookup": 1.15,
         "structured_database": 1.25,
     }
-    if understanding.error_codes or understanding.product_models:
-        weights["metadata_direct_lookup"] = 1.45
     if any(field in entities for field in ("order_id", "ticket_id", "customer_id")):
         weights["structured_database"] = 1.6
     if not entities:
@@ -228,6 +226,7 @@ def hybrid_retrieve(
     use_cross_encoder: bool = True,
     reranker_enabled: bool = True,
     parent_expansion_enabled: bool = True,
+    entity_scoped_routing_enabled: bool = False,
     dense_fn: Callable[..., RetrieverExecutionResult] = dense_search,
     sparse_fn: Callable[..., RetrieverExecutionResult] = bm25_search,
     metadata_fn: Callable[..., RetrieverExecutionResult] = metadata_direct_lookup,
@@ -239,6 +238,315 @@ def hybrid_retrieve(
     query = subquery.query or understanding.normalized_query or understanding.original_query
     source = subquery.source
     trace: list[dict[str, Any]] = []
+
+    if entity_scoped_routing_enabled:
+        route = resolve_retrieval_route(subquery)
+        try:
+            scope = derive_search_scope(understanding, subquery, principal)
+            filters = validate_filters(scope.filters, principal=principal, source=source)
+        except InvalidRetrievalFilter as exc:
+            error = RetrievalError(
+                stage="retrieval_pipeline",
+                error_type="InvalidFilter",
+                message=str(exc),
+                dependency="filters",
+                subquery_id=subquery.subquery_id,
+            )
+            response = RetrievalResponse(
+                status=RetrievalStatus.INVALID_FILTER,
+                errors=[error],
+                budget_snapshot=budget.to_state(),
+                executed_subqueries=[subquery.subquery_id],
+                trace=[
+                    trace_event(
+                        "retrieval_router",
+                        "invalid_scope",
+                        subquery_id=subquery.subquery_id,
+                        route=str(route.route),
+                        reason=route.reason,
+                        error=str(exc),
+                    )
+                ],
+            )
+            return RetrievalPipelineResult(response, [], [])
+
+        trace.append(
+            trace_event(
+                "retrieval_router",
+                "resolved",
+                subquery_id=subquery.subquery_id,
+                route=str(route.route),
+                reason=route.reason,
+                scope_fields=list(scope.scope_fields),
+                scope_source=scope.scope_source,
+                scope_values_count=scope.scope_values_count,
+            )
+        )
+        results: list[RetrieverExecutionResult] = []
+
+        if route.route == RetrievalRoute.STRUCTURED_DATABASE:
+            entities = understanding.direct_lookup_entities() or extract_business_entities(query)
+            business_entities = {
+                field: values
+                for field, values in entities.items()
+                if field in {"order_id", "ticket_id", "customer_id"}
+            }
+            results.append(
+                database_fn(
+                    query,
+                    principal=principal,
+                    entities=business_entities,
+                    filters=filters,
+                    subquery_id=subquery.subquery_id,
+                    k=final_k,
+                    budget=budget,
+                )
+            )
+            evidences = with_citation_ids(results[0].evidences[: min(final_k, budget.max_final_evidences)])
+            budget.record_final_evidences(len(evidences))
+            errors = [error for result in results for error in result.errors]
+            degraded = list(dict.fromkeys(reason for result in results for reason in result.degraded_reasons))
+            status = RetrievalStatus.PARTIAL if evidences and (errors or degraded) else (
+                RetrievalStatus.SUCCESS if evidences else _result_error_status(results)
+            )
+            for result in results:
+                trace.extend(result.trace)
+            trace.append(
+                trace_event(
+                    "parent_expansion",
+                    "not_applicable_structured",
+                    subquery_id=subquery.subquery_id,
+                    status="skipped",
+                )
+            )
+            trace.append(
+                trace_event(
+                    "retrieval_pipeline",
+                    "complete",
+                    subquery_id=subquery.subquery_id,
+                    status=str(status),
+                    retriever_statuses={result.retriever: str(result.status) for result in results},
+                    fused_count=0,
+                    final_count=len(evidences),
+                    contribution_count=sum(len(item.contributions) for item in evidences),
+                    error_count=len(errors),
+                    degraded_reason_count=len(degraded),
+                    route=str(route.route),
+                    budget_after=budget.to_state(),
+                )
+            )
+            response = RetrievalResponse(
+                status=status,
+                evidences=[item.to_state() for item in evidences],
+                errors=errors,
+                audit={
+                    "retriever_outcomes": [result.to_state() for result in results],
+                    "route": str(route.route),
+                    "fused_candidate_count": 0,
+                    "coarse_rerank_method": "not_applicable_structured",
+                    "final_rerank_method": "not_applicable_structured",
+                    "soft_timeout": any(result.soft_timeout for result in results),
+                },
+                budget_snapshot=budget.to_state(),
+                trace=trace,
+                executed_subqueries=[subquery.subquery_id],
+                degraded_reasons=degraded,
+            )
+            return RetrievalPipelineResult(response, evidences, results)
+
+        if route.route == RetrievalRoute.METADATA_EXACT:
+            entities = understanding.direct_lookup_entities() or extract_business_entities(query)
+            results.append(
+                metadata_fn(
+                    entities=entities,
+                    query=query,
+                    principal=principal,
+                    filters=filters,
+                    source=None if source == "all" else source,
+                    subquery_id=subquery.subquery_id,
+                    k=final_k,
+                    budget=budget,
+                )
+            )
+            evidences = with_citation_ids(results[0].evidences[: min(final_k, budget.max_final_evidences)])
+            budget.record_final_evidences(len(evidences))
+            errors = [error for result in results for error in result.errors]
+            degraded = list(dict.fromkeys(reason for result in results for reason in result.degraded_reasons))
+            status = RetrievalStatus.PARTIAL if evidences and (errors or degraded) else (
+                RetrievalStatus.SUCCESS if evidences else _result_error_status(results)
+            )
+            for result in results:
+                trace.extend(result.trace)
+            trace.append(
+                trace_event(
+                    "retrieval_pipeline",
+                    "complete",
+                    subquery_id=subquery.subquery_id,
+                    status=str(status),
+                    retriever_statuses={result.retriever: str(result.status) for result in results},
+                    fused_count=0,
+                    final_count=len(evidences),
+                    contribution_count=sum(len(item.contributions) for item in evidences),
+                    error_count=len(errors),
+                    degraded_reason_count=len(degraded),
+                    route=str(route.route),
+                    budget_after=budget.to_state(),
+                )
+            )
+            response = RetrievalResponse(
+                status=status,
+                evidences=[item.to_state() for item in evidences],
+                errors=errors,
+                audit={
+                    "retriever_outcomes": [result.to_state() for result in results],
+                    "route": str(route.route),
+                    "fused_candidate_count": 0,
+                    "coarse_rerank_method": "not_applicable_metadata",
+                    "final_rerank_method": "not_applicable_metadata",
+                    "soft_timeout": any(result.soft_timeout for result in results),
+                },
+                budget_snapshot=budget.to_state(),
+                trace=trace,
+                executed_subqueries=[subquery.subquery_id],
+                degraded_reasons=degraded,
+            )
+            return RetrievalPipelineResult(response, evidences, results)
+
+        mode = "hybrid"
+        if route.route == RetrievalRoute.DENSE_ONLY:
+            mode = "dense"
+        elif route.route == RetrievalRoute.SPARSE_ONLY:
+            mode = "sparse"
+        results.extend(
+            _planned_main_recall(
+                query,
+                mode=mode,
+                principal=principal,
+                filters=filters,
+                source=None if source == "all" else source,
+                subquery_id=subquery.subquery_id,
+                dense_k=dense_k,
+                sparse_k=sparse_k,
+                budget=budget,
+                dense_fn=dense_fn,
+                sparse_fn=sparse_fn,
+            )
+        )
+        ranked_lists = [result.evidences for result in results if result.evidences]
+        fused = reciprocal_rank_fusion(
+            ranked_lists,
+            weights={"dense_milvus": 1.0, "sparse_bm25": 1.0},
+            limit=min(candidate_k, budget.max_candidates),
+        ) if ranked_lists else []
+        if reranker_enabled:
+            coarse = rerank(
+                query,
+                fused,
+                limit=min(candidate_k, budget.max_candidates),
+                use_cross_encoder=use_cross_encoder,
+                include_parent=False,
+                budget=budget,
+                stage="coarse",
+                subquery_id=subquery.subquery_id,
+            )
+        else:
+            coarse = RerankResult(
+                evidences=list(fused[: min(candidate_k, budget.max_candidates)]),
+                trace=[trace_event("reranker", "disabled", stage="coarse", subquery_id=subquery.subquery_id)],
+                method="disabled",
+            )
+        if parent_expansion_enabled:
+            expanded = expand_parent_context(
+                coarse.evidences,
+                principal=principal,
+                filters=filters,
+                budget=budget,
+                subquery_id=subquery.subquery_id,
+            )
+        else:
+            expanded = ExpansionResult(
+                evidences=list(coarse.evidences),
+                trace=[trace_event("parent_expansion", "disabled", subquery_id=subquery.subquery_id)],
+            )
+        if reranker_enabled:
+            final = rerank(
+                query,
+                expanded.evidences,
+                limit=min(final_k, budget.max_final_evidences),
+                use_cross_encoder=use_cross_encoder,
+                include_parent=parent_expansion_enabled,
+                budget=budget,
+                stage="final",
+                subquery_id=subquery.subquery_id,
+            )
+        else:
+            final = RerankResult(
+                evidences=list(expanded.evidences[: min(final_k, budget.max_final_evidences)]),
+                trace=[trace_event("reranker", "disabled", stage="final", subquery_id=subquery.subquery_id)],
+                method="disabled",
+            )
+        evidences = with_citation_ids(final.evidences)
+        budget.record_final_evidences(len(evidences))
+        errors = [error for result in results for error in result.errors]
+        errors.extend(coarse.errors)
+        errors.extend(expanded.errors)
+        errors.extend(final.errors)
+        degraded = [
+            reason
+            for result in results
+            if result.status != RetrieverStatus.SKIPPED_BY_PLAN
+            for reason in result.degraded_reasons
+        ]
+        degraded.extend(coarse.degraded_reasons)
+        degraded.extend(expanded.degraded_reasons)
+        degraded.extend(final.degraded_reasons)
+        degraded = list(dict.fromkeys(degraded))
+        status = RetrievalStatus.PARTIAL if evidences and (errors or degraded) else (
+            RetrievalStatus.SUCCESS if evidences else _result_error_status(results)
+        )
+        for result in results:
+            trace.extend(result.trace)
+        trace.extend(coarse.trace)
+        trace.extend(expanded.trace)
+        trace.extend(final.trace)
+        trace.append(
+            trace_event(
+                "retrieval_pipeline",
+                "complete",
+                subquery_id=subquery.subquery_id,
+                status=str(status),
+                retriever_statuses={result.retriever: str(result.status) for result in results},
+                fused_count=len(fused),
+                final_count=len(evidences),
+                contribution_count=sum(len(item.contributions) for item in evidences),
+                error_count=len(errors),
+                degraded_reason_count=len(degraded),
+                route=str(route.route),
+                budget_after=budget.to_state(),
+            )
+        )
+        response = RetrievalResponse(
+            status=status,
+            evidences=[item.to_state() for item in evidences],
+            errors=errors,
+            audit={
+                "retriever_outcomes": [result.to_state() for result in results],
+                "route": str(route.route),
+                "scope_fields": list(scope.scope_fields),
+                "fused_candidate_count": len(fused),
+                "coarse_rerank_method": coarse.method,
+                "final_rerank_method": final.method,
+                "soft_timeout": any(result.soft_timeout for result in results)
+                or coarse.soft_timeout
+                or final.soft_timeout,
+            },
+            budget_snapshot=budget.to_state(),
+            trace=trace,
+            executed_subqueries=[subquery.subquery_id],
+            degraded_reasons=degraded,
+        )
+        return RetrievalPipelineResult(response, evidences, results)
+
     try:
         filters = validate_filters(subquery.filters, principal=principal, source=source)
     except InvalidRetrievalFilter as exc:
@@ -263,9 +571,64 @@ def hybrid_retrieve(
         entities = extract_business_entities(query)
     results: list[RetrieverExecutionResult] = []
 
+    if source == "metadata" or subquery.retrieval_mode == "metadata":
+        results.append(
+            metadata_fn(
+                entities=entities,
+                query=query,
+                principal=principal,
+                filters=filters,
+                source=None,
+                subquery_id=subquery.subquery_id,
+                k=final_k,
+                budget=budget,
+            )
+        )
+        evidences = with_citation_ids(results[0].evidences[: min(final_k, budget.max_final_evidences)])
+        budget.record_final_evidences(len(evidences))
+        errors = [error for result in results for error in result.errors]
+        degraded = list(dict.fromkeys(reason for result in results for reason in result.degraded_reasons))
+        status = RetrievalStatus.PARTIAL if evidences and (errors or degraded) else (
+            RetrievalStatus.SUCCESS if evidences else _result_error_status(results)
+        )
+        for result in results:
+            trace.extend(result.trace)
+        trace.append(
+            trace_event(
+                "retrieval_pipeline",
+                "complete",
+                subquery_id=subquery.subquery_id,
+                status=str(status),
+                retriever_statuses={result.retriever: str(result.status) for result in results},
+                fused_count=0,
+                final_count=len(evidences),
+                contribution_count=sum(len(item.contributions) for item in evidences),
+                error_count=len(errors),
+                degraded_reason_count=len(degraded),
+                route="metadata_exact",
+                budget_after=budget.to_state(),
+            )
+        )
+        response = RetrievalResponse(
+            status=status,
+            evidences=[item.to_state() for item in evidences],
+            errors=errors,
+            audit={
+                "retriever_outcomes": [result.to_state() for result in results],
+                "route": "metadata_exact",
+                "fused_candidate_count": 0,
+                "coarse_rerank_method": "not_applicable_metadata",
+                "final_rerank_method": "not_applicable_metadata",
+                "soft_timeout": any(result.soft_timeout for result in results),
+            },
+            budget_snapshot=budget.to_state(),
+            trace=trace,
+            executed_subqueries=[subquery.subquery_id],
+            degraded_reasons=degraded,
+        )
+        return RetrievalPipelineResult(response, evidences, results)
+
     run_unstructured = source not in {"database", "structured_db"} and subquery.retrieval_mode != "database"
-    if subquery.retrieval_mode == "metadata":
-        run_unstructured = False
     if run_unstructured:
         results.extend(
             _planned_main_recall(
@@ -280,28 +643,6 @@ def hybrid_retrieve(
                 budget=budget,
                 dense_fn=dense_fn,
                 sparse_fn=sparse_fn,
-            )
-        )
-
-    # No call, index access or budget charge occurs without deterministic entities.
-    if entities:
-        results.append(
-            metadata_fn(
-                entities=entities,
-                query=query,
-                principal=principal,
-                filters=filters,
-                source=None if source in {"all", "database", "structured_db"} else source,
-                subquery_id=subquery.subquery_id,
-                k=sparse_k,
-                budget=budget,
-            )
-        )
-    else:
-        results.append(
-            RetrieverExecutionResult(
-                "metadata_direct_lookup",
-                RetrieverStatus.SKIPPED_BY_PLAN,
             )
         )
 
