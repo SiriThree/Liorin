@@ -13,8 +13,10 @@ _COMPACTION_SECTIONS = (
     "task_progress",
     "important_decisions",
     "confirmed_information",
+    "corrections",
     "pending_questions",
     "failed_attempts",
+    "continuity_notes",
 )
 
 
@@ -110,6 +112,7 @@ class CompactionDecision:
     compactable_item_count: int
     token_threshold: int
     item_threshold: int | None
+    attributes: Mapping[str, Any] = field(default_factory=dict)
 
     def to_state(self) -> dict[str, Any]:
         return _json_safe({
@@ -120,6 +123,7 @@ class CompactionDecision:
             "compactable_item_count": self.compactable_item_count,
             "token_threshold": self.token_threshold,
             "item_threshold": self.item_threshold,
+            **dict(self.attributes),
         })
 
 

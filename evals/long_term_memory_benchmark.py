@@ -60,15 +60,15 @@ def run_benchmark(*, case_count: int = 100) -> LongTermMemoryBenchmarkResult:
     cross_identity = 0
     context_token_increase = 0
 
-    # Session A: each authenticated user explicitly confirms stable facts.
+    # Session A: each authenticated user explicitly confirms stable user facts.
     for index in range(case_count):
         model = f"LF-{900 + index}"
         result = runtime.promote_from_state(
             {
                 "user_confirmed_facts": {
-                    "product_model": model,
+                    "owned_product": model,
                     "preferred_language": "中文",
-                    "region": "中国大陆" if index % 2 == 0 else "美国",
+                    "timezone": "Asia/Shanghai" if index % 2 == 0 else "America/New_York",
                 }
             },
             identity_context=_identity(index, "A"),
@@ -78,7 +78,7 @@ def run_benchmark(*, case_count: int = 100) -> LongTermMemoryBenchmarkResult:
         )
         persisted += len(result.persisted_facts)
 
-    # Session B: a new conversation/thread/session retrieves only product_model.
+    # Session B: a new conversation/thread/session retrieves only owned_product.
     for index in range(case_count):
         current_identity = _identity(index, "B")
         state = {
@@ -86,7 +86,7 @@ def run_benchmark(*, case_count: int = 100) -> LongTermMemoryBenchmarkResult:
             "messages": [
                 {
                     "role": "user",
-                    "content": "我之前确认的设备型号是什么？请按这个型号继续排查。",
+                    "content": "我之前确认自己拥有哪些设备？请按这个设备继续排查。",
                     "id": f"query-{index}",
                 }
             ],
@@ -102,7 +102,7 @@ def run_benchmark(*, case_count: int = 100) -> LongTermMemoryBenchmarkResult:
         for fact in result.facts:
             if not fact.is_owned_by(current_identity):
                 cross_identity += 1
-            if fact.key == "product_model" and fact.value == expected_model:
+            if fact.key == "owned_product" and fact.value == expected_model:
                 true_positive += 1
             else:
                 wrong += 1
@@ -159,7 +159,7 @@ def run_benchmark(*, case_count: int = 100) -> LongTermMemoryBenchmarkResult:
             "Deterministic 100-user Session A/Session B evaluation. Session A promotes "
             "three structured, explicitly confirmed facts per user through Candidate -> "
             "MemoryUpdate -> Policy -> Store. Session B uses a different conversation, "
-            "thread and session for the same tenant/user and asks only for product_model. "
+            "thread and session for the same tenant/user and asks only for owned_product. "
             "Precision/recall compare exact fact key/value; wrong injection includes irrelevant "
             "or cross-owner facts. Token increase is the bounded Context Runtime delta and is "
             "not a live-LLM answer-quality score."

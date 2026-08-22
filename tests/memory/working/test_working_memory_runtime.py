@@ -21,6 +21,26 @@ def test_working_memory_model():
     assert restored == memory
     assert state["last_updated"].endswith("+00:00")
     assert isinstance(state["confirmed_facts"], list)
+    assert state["schema_version"] == 2
+    assert state["active_task_id"]
+    assert state["tasks"][0]["status"] == "ACTIVE"
+
+
+def test_v1_working_memory_migrates_to_task_scoped_state():
+    legacy = {
+        "session_id": "legacy-session",
+        "task_goal": "排查 X100 E103",
+        "current_intent": "troubleshooting",
+        "confirmed_facts": ["product_model=X100", "error_code=E103"],
+        "last_updated": "2026-08-06T04:00:00+00:00",
+    }
+    memory = WorkingMemory.from_state(legacy)
+    assert memory.schema_version == 1
+    assert memory.active_task.status.value == "ACTIVE"
+    assert {fact.key: fact.value for fact in memory.active_structured_facts} == {
+        "product_model": "X100",
+        "error_code": "E103",
+    }
 
 
 def test_working_memory_builder():
@@ -44,6 +64,71 @@ def test_working_memory_builder():
     assert "requirement=不得拆机" in memory.constraints
     assert "verification_action=retrieve_more" in memory.decisions
     assert "执行补充检索" in memory.next_actions
+
+
+def test_same_task_correction_supersedes_old_entity():
+    now = datetime(2026, 8, 6, 4, 1, tzinfo=timezone.utc)
+    extractor = WorkingMemoryExtractor()
+    first = extractor.extract(
+        {
+            "messages": [{"role": "user", "content": "我的 X100 报 E103"}],
+            "task_goal": "排查 X100 E103",
+            "task_type": "troubleshooting",
+            "product_model": "X100",
+            "error_code": "E103",
+        },
+        session_id="correction-session",
+        now=now,
+    )
+    second = extractor.extract(
+        {
+            "messages": [{"role": "user", "content": "刚才型号说错了，是 X200"}],
+            "task_goal": "排查 X100 E103",
+            "task_type": "troubleshooting",
+            "product_model": "X200",
+        },
+        previous=first,
+        session_id="correction-session",
+        now=now + timedelta(minutes=1),
+    )
+    assert second.active_task_id == first.active_task_id
+    product_facts = [fact for fact in second.active_task.structured_facts if fact.key == "product_model"]
+    assert any(fact.value == "X100" and fact.status.value == "SUPERSEDED" for fact in product_facts)
+    assert any(fact.value == "X200" and fact.status.value == "ACTIVE" for fact in product_facts)
+    assert "product_model=X100" not in second.confirmed_facts
+    assert "product_model=X200" in second.confirmed_facts
+
+
+def test_task_switch_suspends_old_task_and_activates_new_task():
+    now = datetime(2026, 8, 6, 4, 1, tzinfo=timezone.utc)
+    extractor = WorkingMemoryExtractor()
+    first = extractor.extract(
+        {
+            "messages": [{"role": "user", "content": "X100 报 E103 怎么解决？"}],
+            "task_goal": "X100 报 E103 怎么解决？",
+            "task_type": "troubleshooting",
+            "product_model": "X100",
+            "error_code": "E103",
+        },
+        session_id="switch-session",
+        now=now,
+    )
+    second = extractor.extract(
+        {
+            "messages": [{"role": "user", "content": "另外我还有一台 X300，在美国买的，退货政策是什么？"}],
+            "task_goal": "X300 美国退货政策",
+            "task_type": "return_policy",
+            "product_model": "X300",
+            "region": "US",
+        },
+        previous=first,
+        session_id="switch-session",
+        now=now + timedelta(minutes=1),
+    )
+    assert second.active_task_id != first.active_task_id
+    assert any(task.task_id == first.active_task_id and task.status.value == "SUSPENDED" for task in second.tasks)
+    assert "product_model=X300" in second.confirmed_facts
+    assert "product_model=X100" not in second.confirmed_facts
 
 
 def test_working_memory_context_injection():

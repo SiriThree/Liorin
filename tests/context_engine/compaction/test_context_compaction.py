@@ -14,6 +14,7 @@ from context_engine import (
     ContextItem,
     ContextItemType,
     ContextRuntime,
+    HybridSemanticContextCompressor,
 )
 from identity import IdentityContext
 from memory.working import WorkingMemory
@@ -121,8 +122,10 @@ def test_summary_metadata():
         "task_progress",
         "important_decisions",
         "confirmed_information",
+        "corrections",
         "pending_questions",
         "failed_attempts",
+        "continuity_notes",
     }
 
 
@@ -307,3 +310,85 @@ def test_supervisor_dynamic_prompt_uses_compaction(monkeypatch):
     bounded_model_context(request, handler)
     assert forwarded["request"].messages == state["messages"][-2:]
     assert len(request.state["messages"]) == 130
+
+
+def test_hybrid_semantic_compaction_only_receives_compactable_history():
+    built = ContextBuilder().build(messages_state=_state(80))
+    captured: dict = {}
+
+    def semantic(payload):
+        captured["payload"] = payload
+        return {
+            "task_progress": ["用户一直在排查 LF-900 的压缩机噪音。"],
+            "important_decisions": ["先检查安装水平，再看压缩机。"],
+            "confirmed_information": ["型号 LF-900，噪音来自压缩机附近。"],
+            "corrections": [],
+            "pending_questions": ["仍需确认噪音是否只在制冷启动时出现。"],
+            "failed_attempts": ["重新插电未解决。"],
+            "continuity_notes": ["继续沿当前噪音排查任务推进。"],
+        }
+
+    result = HybridSemanticContextCompressor(
+        semantic_compactor=semantic,
+        recent_message_count=4,
+        summary_max_tokens=256,
+    ).compact(built)
+
+    payload_items = captured["payload"]["items"]
+    assert payload_items
+    assert {item["type"] for item in payload_items} <= {"USER_MESSAGE", "ASSISTANT_MESSAGE"}
+    assert not any("Active Task" in item["content"] for item in payload_items)
+    assert result.attributes["semantic_compaction_applied"] is True
+    assert result.summary.summary_metadata.generated_by.endswith("HybridSemanticContextCompressor/v1")
+    assert result.summary.summary_content["continuity_notes"]
+
+
+def test_hybrid_semantic_compaction_falls_back_on_invalid_output():
+    built = ContextBuilder().build(messages_state=_state(80))
+
+    def broken(payload):
+        del payload
+        return {"unsupported": ["bad schema"]}
+
+    result = HybridSemanticContextCompressor(
+        semantic_compactor=broken,
+        recent_message_count=4,
+        summary_max_tokens=256,
+    ).compact(built)
+
+    assert result.attributes["semantic_compaction_applied"] is False
+    assert result.attributes["fallback_mode"] == "deterministic"
+    assert result.summary.summary_content["task_progress"]
+
+
+def test_compaction_summary_preserves_corrections():
+    identity = _identity()
+    items = [
+        ContextItem(
+            id=f"message-{index}",
+            type=ContextItemType.USER_MESSAGE if index % 2 == 0 else ContextItemType.ASSISTANT_MESSAGE,
+            content=content,
+            source="messages_state",
+            priority=20,
+            metadata={
+                "sequence": index,
+                "is_current": False,
+                "role": "user" if index % 2 == 0 else "assistant",
+                "identity_context": identity.to_state(),
+            },
+        )
+        for index, content in enumerate(
+            [
+                "我确认型号是 X100，错误码 E17。",
+                "已记录 X100 和 E17。",
+                "刚才型号说错了，不是 X100，改成 X200。",
+                "继续用 X200 做后续排查。",
+                "现在下一步怎么做？",
+                "下一步先确认购买地区。",
+            ]
+        )
+    ]
+
+    result = ContextCompressor(recent_message_count=0, summary_max_tokens=256).compact(items)
+
+    assert any("X200" in item for item in result.summary.summary_content["corrections"])

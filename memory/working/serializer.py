@@ -35,7 +35,17 @@ class WorkingMemorySerializer:
 
     def to_context_content(self, memory: WorkingMemory | Mapping[str, Any]) -> str:
         memory = self.from_state(memory)
-        lines = [f"session_id={memory.session_id}"]
+        lines = [
+            f"session_id={memory.session_id}",
+            f"active_task_id={memory.active_task_id}",
+        ]
+        active = memory.active_task
+        lines.append(f"Active Task：{active.task_goal or memory.task_goal}")
+        lines.append(f"Task Status：{active.status.value}")
+        active_facts = active.active_structured_facts
+        if active_facts:
+            facts = "；".join(f"{fact.key}={fact.value}" for fact in active_facts)
+            lines.append("Active Structured State：" + facts)
         for field_name, label in self._FIELD_LABELS:
             value = getattr(memory, field_name)
             if not value:
@@ -44,6 +54,10 @@ class WorkingMemorySerializer:
                 lines.append(f"{label}：" + "；".join(value))
             else:
                 lines.append(f"{label}：{value}")
+        inactive = [task for task in memory.tasks if task.task_id != memory.active_task_id]
+        if inactive:
+            rendered = "；".join(f"{task.task_id}:{task.status.value}:{task.task_goal}" for task in inactive[:6])
+            lines.append("Inactive Tasks（仅历史，不是当前事实）：" + rendered)
         return "\n".join(lines)
 
     @staticmethod

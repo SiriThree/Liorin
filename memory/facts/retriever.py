@@ -13,12 +13,9 @@ from storage.interfaces import MemoryBackend
 
 
 _KEY_ALIASES: dict[str, tuple[str, ...]] = {
-    "product_model": ("型号", "model", "device", "设备", "产品"),
-    "device_model": ("型号", "model", "device", "设备"),
-    "product_name": ("产品", "设备", "product", "device"),
+    "owned_product": ("拥有", "owned", "device", "设备", "产品"),
     "preferred_language": ("语言", "language", "中文", "英文"),
     "language_preference": ("语言", "language", "中文", "英文"),
-    "region": ("地区", "区域", "region", "country"),
     "timezone": ("时区", "timezone", "时间"),
     "communication_preference": ("沟通", "回复", "communication", "reply"),
     "preferred_contact_channel": ("联系", "渠道", "contact", "channel"),

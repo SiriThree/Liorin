@@ -70,10 +70,10 @@ def run_benchmark() -> dict[str, Any]:
     writer = LongTermMemoryRuntime(store=base_store)
     for user_index in range(USER_COUNT):
         writer.promote_from_state(
-            {"user_confirmed_facts": {"product_model": f"LF-{900 + user_index}"}},
+            {"user_confirmed_facts": {"owned_product": f"LF-{900 + user_index}"}},
             identity_context=_identity(user_index, 0, origin=True),
             actor="evals.production_benchmark",
-            reason="seed stable device model",
+            reason="seed durable owned product",
             now=now,
         )
 
@@ -118,7 +118,7 @@ def run_benchmark() -> dict[str, Any]:
         )
         state = {
             "identity_context": identity.to_state(),
-            "messages": [{"role": "user", "content": "请按我的设备型号继续排查异常噪音"}],
+            "messages": [{"role": "user", "content": "请按我拥有的设备继续排查异常噪音"}],
             "artifact_refs": [{"artifact_id": artifact.artifact_id, "required": True}],
         }
         failure_count_before = flaky_store.injected_failures

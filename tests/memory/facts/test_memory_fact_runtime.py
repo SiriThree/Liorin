@@ -14,6 +14,7 @@ from memory.facts import (
     MemoryFact,
     MemoryFactCandidate,
     MemoryFactPolicy,
+    MemoryFactScope,
     MemoryFactSource,
 )
 from memory.working import WorkingMemory
@@ -39,7 +40,7 @@ def test_memory_fact_model():
     fact = MemoryFact(
         fact_id="memory-fact:1",
         identity_context=_identity(),
-        key="product_model",
+        key="owned_product",
         value="LF-900",
         source=MemoryFactSource.USER_CONFIRMATION.value,
         confidence=1.0,
@@ -84,7 +85,7 @@ def test_memory_fact_identity_isolation():
     now = datetime(2026, 8, 6, 5, 0, tzinfo=timezone.utc)
     runtime = _runtime()
     result = runtime.promote_from_state(
-        {"user_confirmed_facts": {"product_model": "LF-900"}},
+        {"user_confirmed_facts": {"owned_product": "LF-900"}},
         identity_context=_identity("user:u1"),
         actor="test",
         reason="user confirmed model",
@@ -96,7 +97,7 @@ def test_memory_fact_identity_isolation():
         runtime.get(fact.fact_id, identity_context=_identity("user:u2"))
 
     other_results = runtime.retrieve_for_context(
-        "我的设备型号是什么？",
+        "我拥有哪些设备？",
         identity_context=_identity("user:u2"),
         now=now,
     )
@@ -108,7 +109,7 @@ def test_memory_candidate_policy():
     policy = MemoryFactPolicy()
     approved = MemoryFactCandidate(
         identity_context=_identity(),
-        key="product_model",
+        key="owned_product",
         value="LF-900",
         source="user_confirmation",
         confidence=1.0,
@@ -134,13 +135,29 @@ def test_memory_candidate_policy():
     assert policy.evaluate(approved, now=now).approved is True
     decision = policy.evaluate(rejected, now=now)
     assert decision.approved is False
-    assert "source/confidence" in decision.reason or "inference" in decision.reason
+    assert "task-local" in decision.reason
+
+    task_local = MemoryFactCandidate(
+        identity_context=_identity(),
+        key="product_model",
+        value="LF-900",
+        source="user_confirmation",
+        confidence=1.0,
+        verified=True,
+        observed_at=now,
+        verified_at=now,
+        verified_by="user",
+        reason="current task product",
+        metadata={"stable": True, "future_reuse": True},
+        scope=MemoryFactScope.TASK,
+    )
+    assert policy.evaluate(task_local, now=now).approved is False
 
 
 def test_memory_delta_integration():
     t0 = datetime(2026, 8, 6, 5, 0, tzinfo=timezone.utc)
     runtime = _runtime()
-    state = {"user_confirmed_facts": {"product_model": "LF-900"}}
+    state = {"user_confirmed_facts": {"owned_product": "LF-900"}}
 
     first = runtime.promote_from_state(
         state,
@@ -172,6 +189,7 @@ def test_memory_retrieval_returns_only_relevant_fact():
         {
             "user_confirmed_facts": {
                 "product_model": "LF-900",
+                "owned_product": "LF-900",
                 "preferred_language": "中文",
                 "region": "中国大陆",
             }
@@ -183,13 +201,13 @@ def test_memory_retrieval_returns_only_relevant_fact():
     )
 
     result = runtime.retrieve_for_context(
-        {"messages": [{"role": "user", "content": "我的设备型号是什么？"}]},
+        {"messages": [{"role": "user", "content": "我拥有哪些设备？"}]},
         identity_context=_identity(conversation="conversation:c2", thread="thread:t2", session="session:s2"),
         limit=3,
         now=now,
     )
 
-    assert [fact.key for fact in result.facts] == ["product_model"]
+    assert [fact.key for fact in result.facts] == ["owned_product"]
     assert result.facts[0].value == "LF-900"
 
 
@@ -203,7 +221,7 @@ def test_memory_context_injection():
         session="session:s2",
     )
     runtime.promote_from_state(
-        {"user_confirmed_facts": {"product_model": "LF-900"}},
+        {"user_confirmed_facts": {"owned_product": "LF-900"}},
         identity_context=origin,
         actor="test",
         reason="session A confirmation",
@@ -211,7 +229,7 @@ def test_memory_context_injection():
     )
     state = {
         "identity_context": current.to_state(),
-        "messages": [{"role": "user", "content": "请按我的设备型号继续排查"}],
+            "messages": [{"role": "user", "content": "请按我拥有的设备继续排查"}],
     }
     builder = ContextBuilder(long_term_memory_runtime=runtime)
     items = builder.build(messages_state=state)
@@ -225,7 +243,7 @@ def test_memory_context_injection():
     assert len(memory_items) == 1
     item = memory_items[0]
     assert item.content == "LF-900"
-    assert item.metadata["fact_key"] == "product_model"
+    assert item.metadata["fact_key"] == "owned_product"
     assert item.metadata["verified"] is True
     assert item.metadata["identity_context"] == current.to_state()
     assert item.metadata["origin_identity_context"] == origin.to_state()
@@ -245,7 +263,8 @@ def test_expired_memory_not_injected():
         {
             "memory_fact_candidates": [
                 {
-                    "key": "product_model",
+                        "key": "product_model",
+                        "scope": "TASK",
                     "value": "LF-OLD",
                     "source": "user_confirmation",
                     "confidence": 1.0,
@@ -274,15 +293,15 @@ def test_expired_memory_not_injected():
     )
 
     assert result.facts == ()
-    assert len(result.expired_fact_ids) == 1
-    assert any(record.event.value == "EXPIRED" for record in runtime.lifecycle_records())
+    assert len(result.expired_fact_ids) == 0
+    assert runtime.store.count() == 0
 
 
 def test_memory_fact_update_delete_lifecycle():
     t0 = datetime(2026, 8, 6, 5, 0, tzinfo=timezone.utc)
     runtime = _runtime()
     first = runtime.promote_from_state(
-        {"user_confirmed_facts": {"product_model": "LF-900"}},
+        {"user_confirmed_facts": {"owned_product": "LF-900"}},
         identity_context=_identity(),
         actor="test",
         reason="initial model",
@@ -290,7 +309,7 @@ def test_memory_fact_update_delete_lifecycle():
     )
     fact_id = first.persisted_facts[0].fact_id
     updated = runtime.promote_from_state(
-        {"user_confirmed_facts": {"product_model": "LF-901"}},
+        {"user_confirmed_facts": {"owned_product": "LF-901"}},
         identity_context=_identity(
             conversation="conversation:c2",
             thread="thread:t2",

@@ -100,7 +100,7 @@ def test_support_workflow_node_persists_working_memory(monkeypatch):
     assert "task_goal" in persisted_record["attributes"]["changed_fields"]
     assert persisted_record["attributes"]["previous_fingerprint"] != persisted_record["attributes"]["candidate_fingerprint"]
     long_term_records = command.update["long_term_memory_lifecycle_records"]
-    assert long_term_records[-1]["memory"]["lifecycle_state"] == "PERSISTED"
+    assert long_term_records[-1]["memory"]["lifecycle_state"] == "POLICY_REJECTED"
     assert long_term_records[-1]["attributes"]["fact_key"] == "product_model"
 
     repeated_state = {
@@ -122,9 +122,5 @@ def test_support_workflow_node_persists_working_memory(monkeypatch):
         }
     )
     assert any(item.type is ContextItemType.MEMORY for item in items)
-    assert any(
-        item.metadata.get("memory_kind") == "long_term_fact"
-        and item.metadata.get("fact_key") == "product_model"
-        for item in items
-    )
+    assert not any(item.metadata.get("memory_kind") == "long_term_fact" for item in items)
     assert all(item.metadata["identity_context"] == identity for item in items)

@@ -8,18 +8,14 @@ import re
 from typing import Any
 
 from identity import IdentityContext
-from memory.facts.models import MemoryFactCandidate, MemoryFactSource
+from memory.facts.models import MemoryFactCandidate, MemoryFactScope, MemoryFactSource
 
 
 _DIRECT_STABLE_FIELDS = (
-    "product_model",
-    "product_name",
-    "device_model",
     "preferred_language",
     "language_preference",
     "communication_preference",
     "accessibility_preference",
-    "region",
     "timezone",
     "preferred_contact_channel",
 )
@@ -302,6 +298,7 @@ class MemoryCandidateExtractor:
                 "stable": True,
                 "future_reuse": True,
             },
+            scope=entry.get("scope") or entry.get("metadata", {}).get("scope") or MemoryFactScope.USER.value,
         )
 
 

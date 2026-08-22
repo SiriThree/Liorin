@@ -33,6 +33,14 @@ class ContextItemType(StrEnum):
     USER_PROFILE = "USER_PROFILE"
 
 
+class ContextRetentionPolicy(StrEnum):
+    MUST_KEEP = "MUST_KEEP"
+    KEEP_WHILE_ACTIVE = "KEEP_WHILE_ACTIVE"
+    REHYDRATABLE = "REHYDRATABLE"
+    COMPACTABLE = "COMPACTABLE"
+    DROPPABLE = "DROPPABLE"
+
+
 class MemoryLifecycleEvent(StrEnum):
     """Auditable events emitted by a future memory lifecycle pipeline.
 
@@ -489,7 +497,29 @@ class ContextItem:
     def required(self) -> bool:
         """Whether selection/budgeting must preserve this item."""
 
+        policy = self.retention_policy
+        if policy in {
+            ContextRetentionPolicy.MUST_KEEP,
+            ContextRetentionPolicy.KEEP_WHILE_ACTIVE,
+        }:
+            return True
         return bool(self.metadata.get("required", False))
+
+    @property
+    def retention_policy(self) -> ContextRetentionPolicy:
+        raw = self.metadata.get("retention_policy")
+        if raw:
+            try:
+                return ContextRetentionPolicy(str(raw))
+            except ValueError:
+                return ContextRetentionPolicy(str(raw).upper())
+        if bool(self.metadata.get("required", False)):
+            return ContextRetentionPolicy.MUST_KEEP
+        if self.type in {ContextItemType.EVIDENCE_REFERENCE, ContextItemType.ARTIFACT_REFERENCE}:
+            return ContextRetentionPolicy.REHYDRATABLE
+        if self.type in {ContextItemType.USER_MESSAGE, ContextItemType.ASSISTANT_MESSAGE, ContextItemType.SUMMARY}:
+            return ContextRetentionPolicy.COMPACTABLE
+        return ContextRetentionPolicy.COMPACTABLE
 
     @property
     def identity_context(self) -> IdentityContext | None:
@@ -554,6 +584,7 @@ class ContextItem:
             "timestamp": self.timestamp.isoformat(),
             "token_cost": self.token_cost,
             "metadata": dict(self.metadata),
+            "retention_policy": self.retention_policy.value,
         }
 
     @classmethod
@@ -569,7 +600,10 @@ class ContextItem:
             priority=int(value.get("priority", 0)),
             timestamp=timestamp,
             token_cost=value.get("token_cost"),
-            metadata=value.get("metadata") or {},
+            metadata={
+                **dict(value.get("metadata") or {}),
+                **({"retention_policy": value.get("retention_policy")} if value.get("retention_policy") else {}),
+            },
         )
 
 

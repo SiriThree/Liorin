@@ -7,7 +7,7 @@ from datetime import datetime, timezone
 from typing import Any, Mapping
 
 from math import ceil
-from memory.facts.models import MemoryFactCandidate, MemoryFactSource, display_value
+from memory.facts.models import MemoryFactCandidate, MemoryFactScope, MemoryFactSource, display_value
 
 
 _TRANSIENT_OR_SENSITIVE_KEYS = {
@@ -24,17 +24,22 @@ _TRANSIENT_OR_SENSITIVE_KEYS = {
     "open_question",
     "next_action",
     "completed_turn",
-}
-
-_STABLE_KEY_HINTS = (
     "product_model",
     "product_name",
     "device_model",
+    "product_version",
+    "region",
+    "current_region",
+    "document_id",
+    "policy_id",
+}
+
+_STABLE_KEY_HINTS = (
+    "owned_product",
     "preferred_language",
     "language_preference",
     "communication_preference",
     "accessibility_preference",
-    "region",
     "timezone",
     "preferred_contact_channel",
 )
@@ -82,6 +87,7 @@ class MemoryFactPolicy:
         criteria = {
             "stable": self._is_stable(candidate),
             "future_reuse": self._has_future_reuse(candidate),
+            "user_scope": candidate.scope == MemoryFactScope.USER,
             "trusted_source": self._trusted_source(candidate),
             "identity_bound": not candidate.identity_context.is_anonymous,
             "not_expired": candidate.expires_at is None or candidate.expires_at > now,
@@ -92,7 +98,9 @@ class MemoryFactPolicy:
         if key in _TRANSIENT_OR_SENSITIVE_KEYS or any(
             key.startswith(f"{prefix}.") for prefix in _TRANSIENT_OR_SENSITIVE_KEYS
         ):
-            return MemoryPolicyDecision(False, "transient or sensitive key is not long-term memory", criteria)
+            return MemoryPolicyDecision(False, "task-local or sensitive key is not long-term memory", criteria)
+        if not criteria["user_scope"]:
+            return MemoryPolicyDecision(False, "only USER scoped candidates can be promoted", criteria)
         if not criteria["identity_bound"]:
             return MemoryPolicyDecision(False, "anonymous identity cannot own long-term memory", criteria)
         if not criteria["not_expired"]:
