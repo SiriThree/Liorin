@@ -6,6 +6,7 @@ from collections.abc import Iterable
 
 from context_engine.models import (
     ContextItem,
+    ContextRetentionPolicy,
     ContextSelection,
     estimate_token_cost,
 )
@@ -34,6 +35,7 @@ class ContextBudgetManager:
         ranked = sorted(
             enumerate(materialized),
             key=lambda pair: (
+                -_retention_rank(pair[1]),
                 -int(pair[1].required),
                 -pair[1].priority,
                 -int(pair[1].metadata.get("is_current", False)),
@@ -59,8 +61,13 @@ class ContextBudgetManager:
 
             reserve_for_required = required_remaining
             available = max(0, remaining - reserve_for_required)
-            may_truncate = item.required or (
-                item.priority >= 70 and available >= self.minimum_partial_tokens
+            may_truncate = item.retention_policy != ContextRetentionPolicy.DROPPABLE and (
+                item.required
+                or item.retention_policy in {
+                    ContextRetentionPolicy.KEEP_WHILE_ACTIVE,
+                    ContextRetentionPolicy.REHYDRATABLE,
+                }
+                or (item.priority >= 70 and available >= self.minimum_partial_tokens)
             )
             if may_truncate and available > 0:
                 compacted = self._truncate(item, available)
@@ -119,3 +126,14 @@ class ContextBudgetManager:
             truncated=True,
             original_token_cost=item.token_cost,
         )
+
+
+def _retention_rank(item: ContextItem) -> int:
+    order = {
+        ContextRetentionPolicy.MUST_KEEP: 5,
+        ContextRetentionPolicy.KEEP_WHILE_ACTIVE: 4,
+        ContextRetentionPolicy.REHYDRATABLE: 3,
+        ContextRetentionPolicy.COMPACTABLE: 2,
+        ContextRetentionPolicy.DROPPABLE: 1,
+    }
+    return order.get(item.retention_policy, 0)

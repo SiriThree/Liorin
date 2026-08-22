@@ -5,7 +5,7 @@ from __future__ import annotations
 from collections.abc import Iterable
 from datetime import datetime
 
-from context_engine.models import ContextItem, ContextItemType
+from context_engine.models import ContextItem, ContextItemType, ContextRetentionPolicy
 
 
 _TYPE_ORDER = {
@@ -47,6 +47,7 @@ class ContextSelector:
                 deduplicated[key] = item
 
         selected = list(deduplicated.values())
+        selected = [item for item in selected if item.retention_policy != ContextRetentionPolicy.DROPPABLE]
         selected.sort(key=self._presentation_key)
         return selected
 
@@ -58,11 +59,13 @@ class ContextSelector:
     @staticmethod
     def _prefer(candidate: ContextItem, existing: ContextItem) -> bool:
         candidate_key = (
+            _retention_rank(candidate),
             int(candidate.required),
             candidate.priority,
             candidate.timestamp,
         )
         existing_key = (
+            _retention_rank(existing),
             int(existing.required),
             existing.priority,
             existing.timestamp,
@@ -78,3 +81,13 @@ class ContextSelector:
             item.timestamp,
             item.id,
         )
+
+
+def _retention_rank(item: ContextItem) -> int:
+    return {
+        ContextRetentionPolicy.MUST_KEEP: 5,
+        ContextRetentionPolicy.KEEP_WHILE_ACTIVE: 4,
+        ContextRetentionPolicy.REHYDRATABLE: 3,
+        ContextRetentionPolicy.COMPACTABLE: 2,
+        ContextRetentionPolicy.DROPPABLE: 1,
+    }.get(item.retention_policy, 0)

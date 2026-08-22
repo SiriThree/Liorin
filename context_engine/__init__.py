@@ -1,3 +1,5 @@
+"""Unified Context Runtime for Liorin agents."""
+
 from artifact import (
     Artifact,
     ArtifactLifecycleEvent,
@@ -8,7 +10,6 @@ from artifact import (
     ArtifactType,
     InMemoryArtifactStore,
 )
-"""Unified Context Runtime for Liorin agents."""
 
 from context_engine.budget import ContextBudgetManager
 from context_engine.compaction import (
@@ -21,11 +22,13 @@ from context_engine.compaction import (
     CompactionValidationResult,
     CompactionValidator,
     ContextCompressor,
+    HybridSemanticContextCompressor,
 )
 from context_engine.builder import ContextBuilder, ContextRuntime
 from context_engine.models import (
     ContextItem,
     ContextItemType,
+    ContextRetentionPolicy,
     ContextSelection,
     MemoryLifecycleEvent,
     MemoryLifecycleHook,
@@ -57,10 +60,12 @@ __all__ = [
     "CompactionValidationResult",
     "CompactionValidator",
     "ContextCompressor",
+    "HybridSemanticContextCompressor",
     "ContextBudgetManager",
     "ContextBuilder",
     "ContextItem",
     "ContextItemType",
+    "ContextRetentionPolicy",
     "ContextRuntime",
     "ContextEvaluationStrategy",
     "ContextStrategyConfig",

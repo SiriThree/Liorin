@@ -5,7 +5,7 @@ from __future__ import annotations
 from collections.abc import Iterable
 from dataclasses import dataclass
 
-from context_engine.models import ContextItem, ContextItemType
+from context_engine.models import ContextItem, ContextItemType, ContextRetentionPolicy
 from context_engine.compaction.models import CompactionDecision
 
 
@@ -20,6 +20,8 @@ def is_compactable_history(item: ContextItem) -> bool:
     """Return whether an item is historical context eligible for compaction."""
 
     if item.type not in _COMPACTABLE_TYPES:
+        return False
+    if item.retention_policy != ContextRetentionPolicy.COMPACTABLE:
         return False
     if item.required or item.metadata.get("is_current"):
         return False
@@ -50,7 +52,9 @@ class CompactionTrigger:
     def evaluate(self, items: Iterable[ContextItem]) -> CompactionDecision:
         materialized = list(items)
         input_tokens = sum(int(item.token_cost or 0) for item in materialized)
-        compactable_count = sum(is_compactable_history(item) for item in materialized)
+        composition = context_pressure_composition(materialized, token_threshold=self.token_threshold)
+        compactable_count = int(composition["compactable_item_count"])
+        compactable_tokens = int(composition["compactable_narrative_tokens"])
         token_exceeded = input_tokens > self.token_threshold
         item_exceeded = (
             self.item_threshold is not None
@@ -64,7 +68,7 @@ class CompactionTrigger:
         elif not enough_history:
             should_compact = False
             reason = "insufficient_compactable_history"
-        elif token_exceeded:
+        elif token_exceeded and compactable_tokens > 0:
             should_compact = True
             reason = "token_threshold_exceeded"
         elif item_exceeded:
@@ -82,4 +86,39 @@ class CompactionTrigger:
             compactable_item_count=compactable_count,
             token_threshold=self.token_threshold,
             item_threshold=self.item_threshold,
+            attributes=composition,
         )
+
+
+def context_pressure_composition(
+    items: Iterable[ContextItem],
+    *,
+    token_threshold: int,
+) -> dict[str, float | int]:
+    materialized = list(items)
+    total_tokens = sum(int(item.token_cost or 0) for item in materialized)
+    compactable = [item for item in materialized if is_compactable_history(item)]
+    rehydratable = [
+        item for item in materialized
+        if item.retention_policy == ContextRetentionPolicy.REHYDRATABLE
+    ]
+    protected = [
+        item for item in materialized
+        if item.retention_policy in {
+            ContextRetentionPolicy.MUST_KEEP,
+            ContextRetentionPolicy.KEEP_WHILE_ACTIVE,
+        }
+    ]
+    droppable = [
+        item for item in materialized
+        if item.retention_policy == ContextRetentionPolicy.DROPPABLE
+    ]
+    return {
+        "total_tokens": total_tokens,
+        "compactable_narrative_tokens": sum(int(item.token_cost or 0) for item in compactable),
+        "rehydratable_tokens": sum(int(item.token_cost or 0) for item in rehydratable),
+        "protected_active_tokens": sum(int(item.token_cost or 0) for item in protected),
+        "historical_noise_tokens": sum(int(item.token_cost or 0) for item in droppable),
+        "token_occupancy_ratio": total_tokens / token_threshold if token_threshold else 0.0,
+        "compactable_item_count": len(compactable),
+    }

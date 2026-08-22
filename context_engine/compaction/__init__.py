@@ -1,6 +1,9 @@
 """Context compaction engine for Liorin."""
 
-from context_engine.compaction.compressor import ContextCompressor
+from context_engine.compaction.compressor import (
+    ContextCompressor,
+    HybridSemanticContextCompressor,
+)
 from context_engine.compaction.models import (
     CompactionDecision,
     CompactionResult,
@@ -24,5 +27,6 @@ __all__ = [
     "CompactionValidationResult",
     "CompactionValidator",
     "ContextCompressor",
+    "HybridSemanticContextCompressor",
     "is_compactable_history",
 ]

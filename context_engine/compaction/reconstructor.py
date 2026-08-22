@@ -6,7 +6,7 @@ from datetime import datetime
 from hashlib import sha256
 import json
 
-from context_engine.models import ContextItem, ContextItemType
+from context_engine.models import ContextItem, ContextItemType, ContextRetentionPolicy
 from context_engine.compaction.models import CompactionSummary
 
 
@@ -36,10 +36,11 @@ class CompactionReconstructor:
             type=ContextItemType.SUMMARY,
             content=content,
             source=self.source,
-            priority=78,
+            priority=88,
             timestamp=metadata.created_at,
             metadata={
                 "required": False,
+                "retention_policy": ContextRetentionPolicy.KEEP_WHILE_ACTIVE.value,
                 "compaction_summary": True,
                 "summary_metadata": metadata.to_state(),
                 "summary_metadata_status": "validated",

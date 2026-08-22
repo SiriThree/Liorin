@@ -33,6 +33,9 @@ class CompactionValidator:
                 "content": item.content,
                 "source": item.source,
                 "session_id": item.metadata.get("session_id"),
+                "active_task_id": item.metadata.get("active_task_id"),
+                "task_state_fingerprint": item.metadata.get("task_state_fingerprint"),
+                "active_structured_fact_refs": item.metadata.get("active_structured_fact_refs"),
                 "identity_context": identity,
             }
             snapshots.append(

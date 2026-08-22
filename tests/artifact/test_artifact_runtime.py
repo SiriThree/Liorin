@@ -290,8 +290,15 @@ def test_compaction_artifact_integration():
     assert len(artifact_ids) == 30
     assert marker not in summary_state
     assert result.attributes["tool_output_content_retained"] is False
-    assert result.attributes["artifact_reference_count"] == 30
-    assert any(artifact_id in summary_state for artifact_id in artifact_ids)
+    assert result.attributes["artifact_reference_count"] == 0
+    assert not any(artifact_id in summary_state for artifact_id in artifact_ids)
+    preserved_artifact_ids = {
+        item.metadata["artifact_id"]
+        for item in result.items
+        if item.type is ContextItemType.ARTIFACT_REFERENCE
+        and item.metadata.get("artifact_id")
+    }
+    assert preserved_artifact_ids == artifact_ids
 
 
 def test_artifact_lifecycle_audits_reference_resolve_delete():

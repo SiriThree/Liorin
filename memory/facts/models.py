@@ -23,6 +23,12 @@ class MemoryFactSource(StrEnum):
     LEGACY_CHECKPOINT = "legacy_checkpoint"
 
 
+class MemoryFactScope(StrEnum):
+    TASK = "TASK"
+    CONVERSATION = "CONVERSATION"
+    USER = "USER"
+
+
 def _normalize_text(value: Any, *, field_name: str, max_chars: int = 512) -> str:
     text = " ".join(str(value or "").split()).strip()
     if not text:
@@ -97,6 +103,7 @@ class MemoryFact:
     created_at: datetime
     updated_at: datetime
     expires_at: datetime | None = None
+    scope: MemoryFactScope = MemoryFactScope.USER
 
     def __post_init__(self) -> None:
         object.__setattr__(self, "fact_id", _normalize_text(self.fact_id, field_name="MemoryFact.fact_id"))
@@ -142,6 +149,13 @@ class MemoryFact:
             raise ValueError("MemoryFact.observed_at must not follow updated_at")
         if expires_at is not None and expires_at <= observed_at:
             raise ValueError("MemoryFact.expires_at must follow observed_at")
+        if not isinstance(self.scope, MemoryFactScope):
+            raw_scope = str(self.scope or MemoryFactScope.USER.value)
+            try:
+                scope = MemoryFactScope(raw_scope)
+            except ValueError:
+                scope = MemoryFactScope(raw_scope.upper())
+            object.__setattr__(self, "scope", scope)
 
         verified_by = (
             _normalize_text(self.verified_by, field_name="MemoryFact.verified_by", max_chars=160)
@@ -191,6 +205,7 @@ class MemoryFact:
         verified_by: str | None,
         expires_at: datetime | None,
         updated_at: datetime,
+        scope: MemoryFactScope | None = None,
     ) -> "MemoryFact":
         return replace(
             self,
@@ -203,6 +218,7 @@ class MemoryFact:
             verified_by=verified_by,
             expires_at=expires_at,
             updated_at=updated_at,
+            scope=scope or self.scope,
         )
 
     def to_state(self) -> dict[str, Any]:
@@ -220,6 +236,7 @@ class MemoryFact:
             "created_at": self.created_at.isoformat(),
             "updated_at": self.updated_at.isoformat(),
             "expires_at": self.expires_at.isoformat() if self.expires_at else None,
+            "scope": self.scope.value,
         }
 
     @classmethod
@@ -238,6 +255,7 @@ class MemoryFact:
             created_at=value.get("created_at"),
             updated_at=value.get("updated_at"),
             expires_at=value.get("expires_at"),
+            scope=value.get("scope") or MemoryFactScope.USER.value,
         )
 
 
@@ -257,6 +275,7 @@ class MemoryFactCandidate:
     expires_at: datetime | None = None
     reason: str = "structured memory fact candidate"
     metadata: Mapping[str, Any] = field(default_factory=dict)
+    scope: MemoryFactScope = MemoryFactScope.USER
 
     def __post_init__(self) -> None:
         if not isinstance(self.identity_context, IdentityContext):
@@ -307,6 +326,13 @@ class MemoryFactCandidate:
         object.__setattr__(self, "expires_at", expires_at)
         object.__setattr__(self, "reason", _normalize_text(self.reason, field_name="MemoryFactCandidate.reason"))
         object.__setattr__(self, "metadata", _json_safe(dict(self.metadata)))
+        if not isinstance(self.scope, MemoryFactScope):
+            raw_scope = str(self.scope or MemoryFactScope.USER.value)
+            try:
+                scope = MemoryFactScope(raw_scope)
+            except ValueError:
+                scope = MemoryFactScope(raw_scope.upper())
+            object.__setattr__(self, "scope", scope)
 
     def to_fact(
         self,
@@ -333,6 +359,7 @@ class MemoryFactCandidate:
                 created_at=now,
                 updated_at=now,
                 expires_at=self.expires_at,
+                scope=self.scope,
             )
         if previous.key != self.key or not previous.is_owned_by(self.identity_context):
             raise ValueError("MemoryFactCandidate cannot update a different fact owner/key")
@@ -346,6 +373,7 @@ class MemoryFactCandidate:
             verified_by=self.verified_by,
             expires_at=self.expires_at,
             updated_at=now,
+            scope=self.scope,
         )
 
     def to_state(self) -> dict[str, Any]:
@@ -362,12 +390,14 @@ class MemoryFactCandidate:
             "expires_at": self.expires_at.isoformat() if self.expires_at else None,
             "reason": self.reason,
             "metadata": dict(self.metadata),
+            "scope": self.scope.value,
         }
 
 
 __all__ = [
     "MemoryFact",
     "MemoryFactCandidate",
+    "MemoryFactScope",
     "MemoryFactSource",
     "canonical_value",
     "display_value",

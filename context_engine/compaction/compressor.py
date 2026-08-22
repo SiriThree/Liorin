@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from collections.abc import Iterable
+from collections.abc import Callable, Iterable, Mapping as MappingABC
 from dataclasses import dataclass
 from datetime import datetime, timezone
 import json
@@ -24,6 +24,7 @@ from identity import IdentityContext
 
 _DECISION_MARKERS = ("决定", "选择", "采用", "确认执行", "下一步", "方案", "decision")
 _CONFIRMATION_MARKERS = ("确认", "型号", "订单", "客户", "邮箱", "错误码", "事实", "confirmed")
+_CORRECTION_MARKERS = ("更正", "纠正", "说错", "不是", "改成", "correct", "correction")
 _FAILURE_MARKERS = ("失败", "未找到", "无法", "错误", "超时", "拒绝", "not found", "failed")
 
 
@@ -184,8 +185,10 @@ class ContextCompressor:
             "task_progress": progress,
             "important_decisions": [],
             "confirmed_information": [],
+            "corrections": [],
             "pending_questions": [],
             "failed_attempts": [],
+            "continuity_notes": [],
         }
         for item in chronological:
             if item.type is ContextItemType.ARTIFACT_REFERENCE:
@@ -196,10 +199,17 @@ class ContextCompressor:
                 self._append_unique(sections["important_decisions"], snippet)
             if any(marker.casefold() in lowered for marker in _CONFIRMATION_MARKERS):
                 self._append_unique(sections["confirmed_information"], snippet)
+            if any(marker.casefold() in lowered for marker in _CORRECTION_MARKERS):
+                self._append_unique(sections["corrections"], snippet)
             if "?" in snippet or "？" in snippet:
                 self._append_unique(sections["pending_questions"], snippet)
             if any(marker.casefold() in lowered for marker in _FAILURE_MARKERS):
                 self._append_unique(sections["failed_attempts"], snippet)
+            if (
+                item.type is ContextItemType.ASSISTANT_MESSAGE
+                and any(marker.casefold() in lowered for marker in ("继续", "下一轮", "待确认", "continue"))
+            ):
+                self._append_unique(sections["continuity_notes"], snippet)
 
         # Ensure the summary remains useful even when the deterministic markers
         # do not match domain-specific phrasing.
@@ -241,9 +251,11 @@ class ContextCompressor:
 
         removable_order = (
             "confirmed_information",
+            "corrections",
             "pending_questions",
             "important_decisions",
             "failed_attempts",
+            "continuity_notes",
             "task_progress",
         )
         while token_cost() > self.summary_max_tokens:
@@ -283,3 +295,205 @@ class ContextCompressor:
             end_turn=max(sequences) if sequences else None,
             source_item_ids=tuple(item.id for item in items),
         )
+
+
+SemanticCompactionCallable = Callable[
+    [MappingABC[str, Any]],
+    MappingABC[str, Iterable[str] | str],
+]
+
+
+@dataclass(slots=True)
+class HybridSemanticContextCompressor:
+    """Try semantic narrative compaction, then fall back deterministically.
+
+    The semantic callable receives only compactable narrative history. Protected
+    working memory, verified evidence, artifact references, identity metadata,
+    and active task state remain outside the semantic compression boundary.
+    """
+
+    semantic_compactor: SemanticCompactionCallable | None = None
+    fallback: ContextCompressor | None = None
+    recent_message_count: int = 6
+    summary_max_tokens: int = 512
+    generated_by: str = "context_engine.compaction.HybridSemanticContextCompressor/v1"
+    confidence: float = 0.74
+    snippet_max_chars: int = 220
+    max_items: int = 80
+
+    def __post_init__(self) -> None:
+        if self.fallback is None:
+            self.fallback = ContextCompressor(
+                recent_message_count=self.recent_message_count,
+                summary_max_tokens=self.summary_max_tokens,
+                generated_by="context_engine.compaction.ContextCompressor/fallback-v1",
+            )
+
+    def compact(self, items: Iterable[ContextItem]) -> CompactionResult:
+        materialized = list(items)
+        if self.semantic_compactor is None:
+            return self._fallback(materialized, "semantic_compactor_not_configured")
+
+        identity: IdentityContext
+        try:
+            identity = ContextCompressor._resolve_identity(materialized)
+            compactable = [item for item in materialized if is_compactable_history(item)]
+            assert self.fallback is not None
+            compacted_items = self.fallback._select_old_history(compactable)
+            if not compacted_items:
+                raise ValueError("No historical ContextItems are eligible for compaction")
+            content = self._semantic_content(compacted_items)
+            summary = self._summary(compacted_items, identity, content)
+            summary_item = CompactionReconstructor().to_context_item(summary)
+            compacted_ids = {item.id for item in compacted_items}
+            preserved = [item for item in materialized if item.id not in compacted_ids]
+            return CompactionResult(
+                items=tuple(preserved + [summary_item]),
+                summary=summary,
+                compacted_item_ids=tuple(item.id for item in compacted_items),
+                preserved_item_ids=tuple(item.id for item in preserved),
+                attributes={
+                    "compaction_mode": "hybrid_semantic",
+                    "semantic_compaction_applied": True,
+                    "semantic_item_count": len(compacted_items),
+                    "source_history_retained": True,
+                    "tool_output_content_retained": False,
+                },
+            )
+        except Exception as exc:
+            return self._fallback(materialized, f"{type(exc).__name__}: {exc}")
+
+    def _fallback(self, items: list[ContextItem], reason: str) -> CompactionResult:
+        assert self.fallback is not None
+        result = self.fallback.compact(items)
+        attributes = {
+            **dict(result.attributes),
+            "compaction_mode": "hybrid_semantic",
+            "semantic_compaction_applied": False,
+            "semantic_compaction_failed": True,
+            "fallback_mode": "deterministic",
+            "fallback_reason": reason,
+        }
+        return CompactionResult(
+            items=result.items,
+            summary=result.summary,
+            compacted_item_ids=result.compacted_item_ids,
+            preserved_item_ids=result.preserved_item_ids,
+            validation=result.validation,
+            attributes=attributes,
+        )
+
+    def _semantic_content(self, items: list[ContextItem]) -> dict[str, list[str]]:
+        payload = {
+            "schema": {
+                "sections": [
+                    "task_progress",
+                    "important_decisions",
+                    "confirmed_information",
+                    "corrections",
+                    "pending_questions",
+                    "failed_attempts",
+                    "continuity_notes",
+                ]
+            },
+            "items": [
+                {
+                    "id": item.id,
+                    "type": item.type.value,
+                    "role": item.metadata.get("role"),
+                    "sequence": item.metadata.get("sequence"),
+                    "content": self._snippet(item),
+                }
+                for item in items[: self.max_items]
+            ],
+        }
+        assert self.semantic_compactor is not None
+        raw = self.semantic_compactor(payload)
+        if not isinstance(raw, MappingABC):
+            raise TypeError("semantic compactor must return a mapping")
+        allowed_sections = set(payload["schema"]["sections"])
+        unknown_sections = set(raw) - allowed_sections
+        if unknown_sections:
+            raise ValueError(
+                "semantic compactor returned unsupported sections: "
+                + ", ".join(sorted(str(section) for section in unknown_sections))
+            )
+        content = {key: self._section_values(raw.get(key)) for key in allowed_sections}
+        content = self._fallback_fill(content, items)
+        return self._fit_summary_budget(content)
+
+    def _section_values(self, raw: Iterable[str] | str | None) -> list[str]:
+        if raw is None:
+            return []
+        if isinstance(raw, str):
+            values = [raw]
+        else:
+            values = list(raw)
+        return [str(value).strip() for value in values if str(value).strip()]
+
+    def _fallback_fill(
+        self,
+        content: dict[str, list[str]],
+        items: list[ContextItem],
+    ) -> dict[str, list[str]]:
+        if content["task_progress"]:
+            return content
+        assert self.fallback is not None
+        deterministic = self.fallback._build_structured_content(items)
+        return {
+            key: content.get(key) or list(deterministic.get(key) or [])
+            for key in content
+        }
+
+    def _fit_summary_budget(
+        self,
+        content: dict[str, list[str]],
+    ) -> dict[str, list[str]]:
+        assert self.fallback is not None
+        original_limit = self.fallback.summary_max_tokens
+        try:
+            self.fallback.summary_max_tokens = self.summary_max_tokens
+            return self.fallback._fit_summary_budget(content)
+        finally:
+            self.fallback.summary_max_tokens = original_limit
+
+    def _summary(
+        self,
+        compacted_items: list[ContextItem],
+        identity: IdentityContext,
+        content: dict[str, list[str]],
+    ) -> CompactionSummary:
+        original_token_cost = sum(int(item.token_cost or 0) for item in compacted_items)
+        provisional = CompactionSummary(
+            summary_content=content,
+            summary_metadata=SummaryMetadata(
+                source_range=ContextCompressor._source_range(compacted_items),
+                generated_by=self.generated_by,
+                confidence=self.confidence,
+                created_at=datetime.now(timezone.utc),
+                original_token_cost=original_token_cost,
+                compressed_token_cost=0,
+                identity_context=identity,
+            ),
+            identity_context=identity,
+        )
+        rendered = CompactionReconstructor().render_content(provisional)
+        return CompactionSummary(
+            summary_content=content,
+            summary_metadata=SummaryMetadata(
+                source_range=provisional.summary_metadata.source_range,
+                generated_by=self.generated_by,
+                confidence=self.confidence,
+                created_at=provisional.summary_metadata.created_at,
+                original_token_cost=original_token_cost,
+                compressed_token_cost=estimate_token_cost(rendered),
+                identity_context=identity,
+            ),
+            identity_context=identity,
+        )
+
+    def _snippet(self, item: ContextItem) -> str:
+        text = re.sub(r"\s+", " ", item.content).strip()
+        if len(text) > self.snippet_max_chars:
+            text = text[: self.snippet_max_chars - 1].rstrip() + "…"
+        return text

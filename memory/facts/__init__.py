@@ -9,6 +9,7 @@ from memory.facts.extractor import MemoryCandidateExtractor
 from memory.facts.models import (
     MemoryFact,
     MemoryFactCandidate,
+    MemoryFactScope,
     MemoryFactSource,
     canonical_value,
     display_value,
@@ -40,6 +41,7 @@ __all__ = [
     "MemoryFactCandidate",
     "MemoryFactDeltaDetector",
     "MemoryFactPolicy",
+    "MemoryFactScope",
     "MemoryFactSource",
     "MemoryFactStore",
     "MemoryPolicy",

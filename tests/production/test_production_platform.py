@@ -51,7 +51,7 @@ def identity(*, session: str = "session:s1") -> IdentityContext:
 
 def test_backend_switch_preserves_runtime_behavior(tmp_path: Path):
     now = datetime(2026, 8, 6, 7, 0, tzinfo=timezone.utc)
-    state = {"user_confirmed_facts": {"product_model": "LF-900"}}
+    state = {"user_confirmed_facts": {"owned_product": "LF-900"}}
 
     in_memory = LongTermMemoryRuntime(store=InMemoryMemoryFactStore())
     memory_result = in_memory.promote_from_state(
@@ -134,7 +134,7 @@ def test_cache_hit_miss_and_invalidation():
     cached = CachedMemoryBackend(backend, InMemoryTTLCache(default_ttl_seconds=60))
     runtime = LongTermMemoryRuntime(store=cached)
     [fact] = runtime.promote_from_state(
-        {"user_confirmed_facts": {"product_model": "LF-900"}},
+        {"user_confirmed_facts": {"owned_product": "LF-900"}},
         identity_context=identity(),
         actor="test",
         reason="cache test",
@@ -175,7 +175,7 @@ def test_trace_complete_for_context_memory_and_artifact():
         agent_name="conversation_supervisor",
     ) as trace:
         memory_runtime.promote_from_state(
-            {"user_confirmed_facts": {"product_model": "LF-900"}},
+            {"user_confirmed_facts": {"owned_product": "LF-900"}},
             identity_context=identity(),
             actor="test",
             reason="trace memory write",
@@ -227,7 +227,7 @@ def test_metric_collection_from_real_runtime():
     now = datetime(2026, 8, 6, 7, 0, tzinfo=timezone.utc)
     runtime = LongTermMemoryRuntime(store=InMemoryMemoryFactStore())
     runtime.promote_from_state(
-        {"user_confirmed_facts": {"product_model": "LF-900"}},
+            {"user_confirmed_facts": {"owned_product": "LF-900"}},
         identity_context=identity(),
         actor="test",
         reason="metrics write",
@@ -270,7 +270,7 @@ def test_failure_recovery_and_circuit_breaker():
         identity_context=identity(),
     )
     promotion = runtime.promote_from_state(
-        {"user_confirmed_facts": {"product_model": "LF-900"}},
+        {"user_confirmed_facts": {"owned_product": "LF-900"}},
         identity_context=identity(),
         actor="test",
         reason="backend failure",
@@ -391,7 +391,7 @@ def test_memory_mutation_invalidates_identity_context_cache():
     assert cache.get(key) == {"sentinel": True}
 
     runtime.promote_from_state(
-        {"user_confirmed_facts": {"product_model": "LF-900"}},
+        {"user_confirmed_facts": {"owned_product": "LF-900"}},
         identity_context=identity(),
         actor="test",
         reason="invalidate stale context",

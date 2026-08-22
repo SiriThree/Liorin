@@ -42,6 +42,27 @@ def semantic_memory_state(memory: "WorkingMemory" | Mapping[str, Any] | None) ->
         # These fields are set-like task state. Sorting prevents order-only
         # changes from producing lifecycle noise.
         payload[field_name] = sorted(set(getattr(restored, field_name)))
+    payload["active_task_id"] = str(getattr(restored, "active_task_id", "") or "")
+    payload["tasks"] = [
+        {
+            "task_id": task.task_id,
+            "task_goal": task.task_goal,
+            "intent": task.intent,
+            "status": task.status.value,
+            "structured_facts": [
+                {
+                    "key": fact.key,
+                    "value": fact.value,
+                    "scope": fact.scope.value,
+                    "status": fact.status.value,
+                    "authority": fact.authority.value,
+                    "supersedes": fact.supersedes,
+                }
+                for fact in task.structured_facts
+            ],
+        }
+        for task in getattr(restored, "tasks", ())
+    ]
     return payload
 
 
@@ -84,7 +105,7 @@ class MemoryDeltaDetector:
         changed_fields: list[str] = []
         additions: dict[str, tuple[str, ...]] = {}
         removals: dict[str, tuple[str, ...]] = {}
-        for field_name in _SEMANTIC_FIELDS:
+        for field_name in (*_SEMANTIC_FIELDS, "active_task_id", "tasks"):
             old_value = previous_payload.get(field_name, [] if field_name in _COLLECTION_FIELDS else "")
             new_value = candidate_payload.get(field_name, [] if field_name in _COLLECTION_FIELDS else "")
             if old_value == new_value:
@@ -95,6 +116,9 @@ class MemoryDeltaDetector:
                 new_items = set(new_value)
                 added = tuple(item for item in new_value if item not in old_items)
                 removed = tuple(item for item in old_value if item not in new_items)
+            elif field_name == "tasks":
+                added = ("task_state_changed",)
+                removed = ()
             else:
                 added = (str(new_value),) if new_value not in (None, "") else ()
                 removed = (str(old_value),) if old_value not in (None, "") else ()

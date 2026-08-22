@@ -25,7 +25,7 @@ def identity(tenant="tenant:t1", user="user:u1", suffix="1"):
     )
 
 
-def promote(runtime, owner, *, key="product_model", value="LF-900", now=None, expires_at=None):
+def promote(runtime, owner, *, key="owned_product", value="LF-900", now=None, expires_at=None):
     now = now or datetime(2026, 8, 6, 6, 0, tzinfo=timezone.utc)
     return runtime.promote_candidate(
         MemoryFactCandidate(
@@ -62,7 +62,7 @@ def test_memory_acl():
     with pytest.raises(PermissionError):
         runtime.get(fact.fact_id, identity_context=stranger)
     assert runtime.retrieve_for_context(
-        {"required_memory_keys": ["product_model"]},
+        {"required_memory_keys": ["owned_product"]},
         identity_context=stranger,
     ).facts == ()
 
@@ -105,7 +105,7 @@ def test_memory_expiration_and_ttl():
     fact = promote(runtime, owner, expires_at=t0 + timedelta(hours=1), now=t0).fact
     assert fact is not None
     result = runtime.retrieve_for_context(
-        {"required_memory_keys": ["product_model"]},
+        {"required_memory_keys": ["owned_product"]},
         identity_context=owner,
         now=t0 + timedelta(hours=2),
     )
@@ -153,7 +153,7 @@ def test_backend_failure_degrades_without_agent_crash():
     assert promotion.persisted is False
     assert promotion.error and "backend" in promotion.error
     result = runtime.retrieve_for_context(
-        {"required_memory_keys": ["product_model"]},
+        {"required_memory_keys": ["owned_product"]},
         identity_context=owner,
     )
     assert result.facts == ()
@@ -202,7 +202,7 @@ def test_metrics_and_artifact_backend_use_real_runtime_data():
     owner = identity()
     promote(runtime, owner)
     runtime.retrieve_for_context(
-        {"required_memory_keys": ["product_model"]},
+        {"required_memory_keys": ["owned_product"]},
         identity_context=owner,
     )
     snapshot = metrics.snapshot()
@@ -256,8 +256,8 @@ def test_bulk_delete_by_user_and_tenant_admin():
         store=InMemoryMemoryFactStore(),
         access_policy=policy,
     )
-    promote(runtime, user1, key="product_model", value="A")
-    promote(runtime, user2, key="product_model", value="B")
+    promote(runtime, user1, key="owned_product", value="A")
+    promote(runtime, user2, key="owned_product", value="B")
     service = MemoryGovernanceService(runtime, access_policy=policy)
 
     with pytest.raises(MemoryAccessDenied):

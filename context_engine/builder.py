@@ -37,6 +37,7 @@ from context_engine.compaction import (
 from context_engine.models import (
     ContextItem,
     ContextItemType,
+    ContextRetentionPolicy,
     ContextSelection,
     SummaryMetadata,
 )
@@ -314,6 +315,15 @@ class ContextBuilder:
                 "sequence": index,
                 "is_current": is_current,
                 "required": required,
+                "retention_policy": (
+                    ContextRetentionPolicy.MUST_KEEP.value
+                    if role == "system" or (role == "user" and is_current)
+                    else ContextRetentionPolicy.KEEP_WHILE_ACTIVE.value
+                    if is_current
+                    else ContextRetentionPolicy.REHYDRATABLE.value
+                    if item_type is ContextItemType.ARTIFACT_REFERENCE
+                    else ContextRetentionPolicy.COMPACTABLE.value
+                ),
                 "model_message_visible": is_current,
                 "dedupe_key": dedupe_key,
             }
@@ -359,8 +369,13 @@ class ContextBuilder:
             timestamp=memory.last_updated,
             metadata={
                 "required": True,
+                "retention_policy": ContextRetentionPolicy.KEEP_WHILE_ACTIVE.value,
                 "memory_kind": "working",
                 "session_id": memory.session_id,
+                "active_task_id": memory.active_task_id,
+                "active_task_status": memory.active_task.status.value,
+                "task_state_fingerprint": memory.task_state_fingerprint(),
+                "active_structured_fact_refs": [fact.fact_ref for fact in memory.active_structured_facts],
                 "working_memory_fact_refs": _working_memory_fact_refs(memory),
                 "lifecycle_event": retrieval_record.to_state(),
                 "lifecycle_state": retrieval_record.memory.lifecycle_state.value,
@@ -414,6 +429,7 @@ class ContextBuilder:
                     timestamp=fact.updated_at,
                     metadata={
                         "required": False,
+                        "retention_policy": ContextRetentionPolicy.REHYDRATABLE.value,
                         "memory_kind": "long_term_fact",
                         "fact_id": fact.fact_id,
                         "fact_key": fact.key,
@@ -445,6 +461,7 @@ class ContextBuilder:
                     priority=96,
                     metadata={
                         "required": True,
+                        "retention_policy": ContextRetentionPolicy.KEEP_WHILE_ACTIVE.value,
                         "category": "current_task_state",
                         "dedupe_key": "workflow:current_task_state",
                         "sequence": -20,
@@ -463,6 +480,7 @@ class ContextBuilder:
                     priority=100,
                     metadata={
                         "required": True,
+                        "retention_policy": ContextRetentionPolicy.MUST_KEEP.value,
                         "category": "verified_identity_reference",
                         "dedupe_key": "workflow:verified_customer",
                         "sequence": -19,
@@ -482,6 +500,7 @@ class ContextBuilder:
                     priority=100,
                     metadata={
                         "required": True,
+                        "retention_policy": ContextRetentionPolicy.KEEP_WHILE_ACTIVE.value,
                         "category": "unresolved_slots",
                         "dedupe_key": "workflow:unresolved_slots",
                         "sequence": -18,
@@ -497,6 +516,7 @@ class ContextBuilder:
             )
             summary_item_metadata: dict[str, Any] = {
                 "required": False,
+                "retention_policy": ContextRetentionPolicy.COMPACTABLE.value,
                 "dedupe_key": "summary:conversation",
                 "sequence": -10,
                 "summary_metadata_status": "missing",
@@ -571,6 +591,7 @@ class ContextBuilder:
                     priority=94,
                     metadata={
                         "required": True,
+                        "retention_policy": ContextRetentionPolicy.KEEP_WHILE_ACTIVE.value,
                         "category": "knowledge_working_state",
                         "dedupe_key": "knowledge:working_state",
                         "sequence": -15,
@@ -600,6 +621,7 @@ class ContextBuilder:
             evidence_metadata = {
                 **descriptor["metadata"],
                 "required": verified,
+                "retention_policy": ContextRetentionPolicy.REHYDRATABLE.value,
                 "verified": verified,
                 "origin_field": field_name,
                 "dedupe_key": f"evidence:{evidence_id}",
@@ -686,6 +708,11 @@ class ContextBuilder:
                         metadata={
                             **metadata,
                             "required": bool(metadata.get("required", False)),
+                            "retention_policy": (
+                                ContextRetentionPolicy.REHYDRATABLE.value
+                                if item_type in {ContextItemType.RETRIEVAL_REFERENCE, ContextItemType.EVIDENCE_REFERENCE, ContextItemType.ARTIFACT_REFERENCE}
+                                else ContextRetentionPolicy.COMPACTABLE.value
+                            ),
                             "dedupe_key": f"{field_name}:{reference_id}",
                             "sequence": sequence,
                         },

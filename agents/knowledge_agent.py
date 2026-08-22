@@ -706,6 +706,90 @@ def _extract_product_version(question: str) -> str | None:
     return match.group(1).upper() if match else None
 
 
+def _norm_slot(value: object) -> str | None:
+    if value in (None, "", [], {}):
+        return None
+    if isinstance(value, list):
+        value = value[0] if value else None
+    text = str(value or "").strip()
+    return text or None
+
+
+def _slot_conflict(field: str, current: object, inherited: object) -> str | None:
+    left = _norm_slot(current)
+    right = _norm_slot(inherited)
+    if not left or not right:
+        return None
+    if left.casefold() == right.casefold():
+        return None
+    return f"{field} conflict: current query has {left}, inherited state has {right}"
+
+
+def _product_identity_missing(
+    question: str,
+    *,
+    product_id: str | None,
+    product_name: str | None,
+    product_model: str | None,
+    product_version: str | None,
+    error_code: str | None,
+    task_type: str | None,
+    requirements: list[str],
+) -> bool:
+    if product_id or product_name or product_model:
+        return False
+    text = " ".join([question or "", task_type or "", " ".join(requirements)]).casefold()
+    product_specific_markers = [
+        "故障", "报错", "错误码", "异常", "无法启动", "不能启动", "维修", "保修",
+        "质保", "免费维修", "操作步骤", "规格", "安装", "复位", "维护",
+        "troubleshoot", "warranty", "repair", "manual", "spec", "setup",
+    ]
+    return bool(error_code or any(marker in text for marker in product_specific_markers))
+
+
+def _build_enriched_query(
+    original: str,
+    *,
+    product_name: str | None = None,
+    product_id: str | None = None,
+    product_model: str | None = None,
+    product_version: str | None = None,
+    error_code: str | None = None,
+    order_id: str | None = None,
+    ticket_id: str | None = None,
+    customer_id: str | None = None,
+    document_id: str | None = None,
+    policy_id: str | None = None,
+    region: str | None = None,
+    task_type: str | None = None,
+    requirements: list[str] | None = None,
+) -> str:
+    """Deterministically enrich the raw query with confirmed structured slots."""
+
+    parts = [str(original or "").strip()]
+    slots = [
+        ("product_id", product_id),
+        ("product_model", product_model),
+        ("product_name", product_name),
+        ("product_version", product_version),
+        ("error_code", error_code),
+        ("region", region),
+        ("order_id", order_id),
+        ("ticket_id", ticket_id),
+        ("customer_id", customer_id),
+        ("document_id", document_id),
+        ("policy_id", policy_id),
+        ("task_type", task_type),
+    ]
+    slot_text = " ".join(f"{name}:{value}" for name, value in slots if value)
+    if slot_text:
+        parts.append(slot_text)
+    cleaned_requirements = list(dict.fromkeys(item.strip() for item in (requirements or []) if item and item.strip()))
+    if cleaned_requirements:
+        parts.append("requirements:" + "；".join(cleaned_requirements))
+    return " | ".join(part for part in parts if part)
+
+
 def understand_query(state: KnowledgeState, *, model: str | None = None) -> dict:
     question = _last_user_text(state)
     fallback_errors = extract_error_codes(question)
@@ -732,20 +816,68 @@ def understand_query(state: KnowledgeState, *, model: str | None = None) -> dict
     raw_principal = state.get("principal")
     if isinstance(raw_principal, dict):
         principal_region = raw_principal.get("region")
-    region = result.region or state.get("region") or _extract_region(question) or principal_region
-    product_version = result.product_version or state.get("product_version") or _extract_product_version(question)
+    current_region = _extract_region(question) or result.region
+    current_product_version = _extract_product_version(question) or result.product_version
+    current_product_id = (extracted_entities.get("product_id") or [None])[0] or result.product_id
+    current_product_model = extracted_model or result.product_model
+    current_error_code = (extracted_errors or [None])[0] or result.error_code
+    conflicts = [
+        item
+        for item in [
+            _slot_conflict("product_id", current_product_id, state.get("product_id")),
+            _slot_conflict("product_model", current_product_model, state.get("product_model")),
+            _slot_conflict("product_version", current_product_version, state.get("product_version")),
+            _slot_conflict("error_code", current_error_code, state.get("error_code")),
+            _slot_conflict("region", current_region, state.get("region")),
+        ]
+        if item
+    ]
+    region = current_region or state.get("region") or principal_region
+    product_version = current_product_version or state.get("product_version")
     requirements = result.requirements or _heuristic_requirements(question, extracted_errors)
+    missing_product_identity = _product_identity_missing(
+        question,
+        product_id=current_product_id,
+        product_name=result.product_name,
+        product_model=current_product_model,
+        product_version=product_version,
+        error_code=current_error_code,
+        task_type=result.task_type,
+        requirements=requirements,
+    )
+    needs_clarification = bool(result.needs_clarification or conflicts or missing_product_identity)
+    clarification_question = result.clarification_question
+    if conflicts:
+        clarification_question = "当前问题中的结构化信息与已有上下文冲突，请确认：" + "；".join(conflicts)
+    elif missing_product_identity and not clarification_question:
+        clarification_question = "为了避免跨产品误召回，请补充产品型号、产品 ID 或产品名称。"
+    enriched_query = _build_enriched_query(
+        question,
+        product_name=result.product_name,
+        product_id=current_product_id,
+        product_model=current_product_model,
+        product_version=product_version,
+        error_code=current_error_code,
+        order_id=(extracted_entities.get("order_id") or [None])[0],
+        ticket_id=(extracted_entities.get("ticket_id") or [None])[0],
+        customer_id=(extracted_entities.get("customer_id") or [None])[0],
+        document_id=(extracted_entities.get("document_id") or [None])[0],
+        policy_id=(extracted_entities.get("policy_id") or [None])[0],
+        region=region,
+        task_type=result.task_type,
+        requirements=requirements,
+    )
     understanding = QueryUnderstandingState(
         original_query=question,
-        normalized_query=result.rewritten_question or question,
+        normalized_query=enriched_query,
         language="zh" if re.search(r"[\u4e00-\u9fff]", question) else "en",
         intent=result.task_type,
         task_type=result.task_type,
         product_name=result.product_name,
-        product_id=result.product_id or (extracted_entities.get("product_id") or [None])[0],
-        product_models=[result.product_model or extracted_model] if (result.product_model or extracted_model) else [],
+        product_id=current_product_id,
+        product_models=[current_product_model] if current_product_model else [],
         product_version=product_version,
-        error_codes=[result.error_code or extracted_errors[0]] if (result.error_code or extracted_errors) else [],
+        error_codes=[current_error_code] if current_error_code else [],
         order_id=(extracted_entities.get("order_id") or [None])[0],
         ticket_id=(extracted_entities.get("ticket_id") or [None])[0],
         customer_id=(extracted_entities.get("customer_id") or [None])[0],
@@ -753,9 +885,9 @@ def understand_query(state: KnowledgeState, *, model: str | None = None) -> dict
         policy_id=(extracted_entities.get("policy_id") or [None])[0],
         region=region,
         requirements=requirements,
-        ambiguities=[result.reason] if result.needs_clarification and result.reason else [],
-        needs_clarification=result.needs_clarification,
-        clarification_question=result.clarification_question,
+        ambiguities=list(dict.fromkeys([*conflicts, *([result.reason] if result.needs_clarification and result.reason else [])])),
+        needs_clarification=needs_clarification,
+        clarification_question=clarification_question,
         confidence=0.8 if result.rewritten_question else 0.4,
     )
     request_id = str(state.get("request_id") or uuid4().hex)
@@ -764,12 +896,12 @@ def understand_query(state: KnowledgeState, *, model: str | None = None) -> dict
         "session_id": state.get("session_id"),
         "query_understanding": understanding.to_state(),
         "original_question": question,
-        "rewritten_question": result.rewritten_question or question,
+        "rewritten_question": enriched_query,
         "product_name": result.product_name,
         "product_id": understanding.product_id,
-        "product_model": result.product_model or extracted_model,
+        "product_model": current_product_model,
         "product_version": product_version,
-        "error_code": result.error_code or (extracted_errors[0] if extracted_errors else None),
+        "error_code": current_error_code,
         "order_id": understanding.order_id,
         "ticket_id": understanding.ticket_id,
         "customer_id": understanding.customer_id,
@@ -778,11 +910,11 @@ def understand_query(state: KnowledgeState, *, model: str | None = None) -> dict
         "region": region,
         "task_type": result.task_type,
         "requirements": requirements,
-        "needs_clarification": result.needs_clarification,
-        "clarification_question": result.clarification_question,
+        "needs_clarification": needs_clarification,
+        "clarification_question": clarification_question,
         "retry_count": state.get("retry_count", 0),
         "trace_events": state.get("trace_events", [])
-        + [trace_event("understand_query", "complete", request_id=request_id, session_id=state.get("session_id"), task_type=result.task_type, needs_clarification=result.needs_clarification)],
+        + [trace_event("understand_query", "complete", request_id=request_id, session_id=state.get("session_id"), task_type=result.task_type, needs_clarification=needs_clarification)],
         "estimated_cost": _append_cost(state, "understand_query", question),
     }
 

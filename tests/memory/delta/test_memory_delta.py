@@ -35,7 +35,7 @@ def test_memory_delta_detection():
     )
 
     assert delta.is_noop is False
-    assert delta.changed_fields == ("confirmed_facts", "open_questions")
+    assert delta.changed_fields == ("confirmed_facts", "open_questions", "tasks")
     assert delta.additions["confirmed_facts"] == ("error_code=E17",)
     assert delta.removals["open_questions"] == ("需要补充：error_code",)
     assert delta.additions["open_questions"] == ("需要补充：noise_timing",)
