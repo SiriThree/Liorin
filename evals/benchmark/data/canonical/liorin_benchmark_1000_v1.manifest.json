@@ -1,0 +1,171 @@
+{
+  "case_count": 1000,
+  "case_mode_distribution": {
+    "multi_turn_session": 500,
+    "single_turn": 500
+  },
+  "category_case_mode_distribution": {
+    "KNOWLEDGE_QA:multi_turn_session": 300,
+    "KNOWLEDGE_QA:single_turn": 300,
+    "MIXED_KNOWLEDGE_STRUCTURED:multi_turn_session": 75,
+    "MIXED_KNOWLEDGE_STRUCTURED:single_turn": 75,
+    "PRIVATE_BUSINESS_DATA:multi_turn_session": 75,
+    "PRIVATE_BUSINESS_DATA:single_turn": 75,
+    "SAFETY_GOVERNANCE:multi_turn_session": 50,
+    "SAFETY_GOVERNANCE:single_turn": 50
+  },
+  "category_distribution": {
+    "KNOWLEDGE_QA": 600,
+    "MIXED_KNOWLEDGE_STRUCTURED": 150,
+    "PRIVATE_BUSINESS_DATA": 150,
+    "SAFETY_GOVERNANCE": 100
+  },
+  "construction_notes": [
+    "Knowledge cases are sampled from raw manual lines with source_file and line_no; catalog facts are fallback for thin manuals.",
+    "Private-business cases are field-level lookups over checked-in structured fixtures.",
+    "Mixed cases require both a private structured record and a manual/policy source.",
+    "Safety cases are rendered from H0 policy-validated security scenarios.",
+    "The 1,000 cases contain 500 single-turn cases and 500 multi-turn sessions; each multi-turn session is one case.",
+    "Product-related cases are exactly balanced: 45 cases for each of 20 products."
+  ],
+  "created_at": "2026-08-24T12:41:00.298654+00:00",
+  "dataset_name": "liorin_benchmark_1000",
+  "dataset_path": "evals/benchmark/data/canonical/liorin_benchmark_1000_v1.jsonl",
+  "dataset_sha256": "d536e01a81013fee187ddf34a26749b8c5d57346b6701da6ebc79bd688e3049d",
+  "dataset_version": "1.0",
+  "knowledge_product_distribution": {
+    "LIO-PROD-001": 32,
+    "LIO-PROD-002": 11,
+    "LIO-PROD-003": 32,
+    "LIO-PROD-004": 32,
+    "LIO-PROD-005": 31,
+    "LIO-PROD-006": 31,
+    "LIO-PROD-007": 31,
+    "LIO-PROD-008": 31,
+    "LIO-PROD-009": 31,
+    "LIO-PROD-010": 31,
+    "LIO-PROD-011": 31,
+    "LIO-PROD-012": 31,
+    "LIO-PROD-013": 31,
+    "LIO-PROD-014": 31,
+    "LIO-PROD-015": 31,
+    "LIO-PROD-016": 31,
+    "LIO-PROD-017": 31,
+    "LIO-PROD-018": 31,
+    "LIO-PROD-019": 28,
+    "LIO-PROD-020": 31
+  },
+  "mixed_product_distribution": {
+    "LIO-PROD-001": 6,
+    "LIO-PROD-002": 16,
+    "LIO-PROD-003": 7,
+    "LIO-PROD-004": 7,
+    "LIO-PROD-005": 7,
+    "LIO-PROD-006": 7,
+    "LIO-PROD-007": 7,
+    "LIO-PROD-008": 7,
+    "LIO-PROD-009": 7,
+    "LIO-PROD-010": 7,
+    "LIO-PROD-011": 7,
+    "LIO-PROD-012": 7,
+    "LIO-PROD-013": 7,
+    "LIO-PROD-014": 7,
+    "LIO-PROD-015": 7,
+    "LIO-PROD-016": 7,
+    "LIO-PROD-017": 7,
+    "LIO-PROD-018": 7,
+    "LIO-PROD-019": 9,
+    "LIO-PROD-020": 7
+  },
+  "multi_turn_task_type_distribution": {
+    "clarification_resume": 75,
+    "cross_agent_state_transfer": 54,
+    "cross_session_long_term_memory": 38,
+    "entity_carryover": 118,
+    "fact_update_supersession": 140,
+    "task_switch_context_isolation": 75
+  },
+  "private_product_distribution": {
+    "LIO-PROD-001": 7,
+    "LIO-PROD-002": 18,
+    "LIO-PROD-003": 6,
+    "LIO-PROD-004": 6,
+    "LIO-PROD-005": 7,
+    "LIO-PROD-006": 7,
+    "LIO-PROD-007": 7,
+    "LIO-PROD-008": 7,
+    "LIO-PROD-009": 7,
+    "LIO-PROD-010": 7,
+    "LIO-PROD-011": 7,
+    "LIO-PROD-012": 7,
+    "LIO-PROD-013": 7,
+    "LIO-PROD-014": 7,
+    "LIO-PROD-015": 7,
+    "LIO-PROD-016": 7,
+    "LIO-PROD-017": 7,
+    "LIO-PROD-018": 7,
+    "LIO-PROD-019": 8,
+    "LIO-PROD-020": 7
+  },
+  "product_distribution": {
+    "LIO-PROD-001": 45,
+    "LIO-PROD-002": 45,
+    "LIO-PROD-003": 45,
+    "LIO-PROD-004": 45,
+    "LIO-PROD-005": 45,
+    "LIO-PROD-006": 45,
+    "LIO-PROD-007": 45,
+    "LIO-PROD-008": 45,
+    "LIO-PROD-009": 45,
+    "LIO-PROD-010": 45,
+    "LIO-PROD-011": 45,
+    "LIO-PROD-012": 45,
+    "LIO-PROD-013": 45,
+    "LIO-PROD-014": 45,
+    "LIO-PROD-015": 45,
+    "LIO-PROD-016": 45,
+    "LIO-PROD-017": 45,
+    "LIO-PROD-018": 45,
+    "LIO-PROD-019": 45,
+    "LIO-PROD-020": 45
+  },
+  "product_related_case_count": 900,
+  "safety_surface_distribution": {
+    "SURF-ARTIFACT-ISOLATION": 10,
+    "SURF-CLASSIFICATION": 4,
+    "SURF-DOCUMENT-INJECTION": 8,
+    "SURF-MEMORY-CONTENT": 8,
+    "SURF-MEMORY-ISOLATION": 10,
+    "SURF-PII-MINIMIZATION": 4,
+    "SURF-RELEASE-GATE": 2,
+    "SURF-REQUEST-IDENTITY": 8,
+    "SURF-RETRIEVAL-OWNER": 2,
+    "SURF-RETRIEVAL-TENANT": 14,
+    "SURF-SECURITY-TRACE": 4,
+    "SURF-STRUCTURED-SELF-READ": 20,
+    "SURF-TOOL-ALLOWLIST": 6
+  },
+  "schema_version": "benchmark-1000-v1",
+  "source_truth": {
+    "knowledge": [
+      "data/knowledge/manuals/*.md",
+      "data/structured/products.json"
+    ],
+    "mixed": [
+      "data/structured/orders.json",
+      "data/structured/order_items.json",
+      "data/knowledge/manuals/*.md",
+      "data/knowledge/policies/after_sales_policy.md"
+    ],
+    "private_business": [
+      "data/structured/orders.json",
+      "data/structured/order_items.json",
+      "data/structured/tickets.json",
+      "data/structured/warranty_cases.json"
+    ],
+    "safety": [
+      "artifacts/evaluation/dataset-expansion-h0-safety/safety_policy_validated.jsonl",
+      "artifacts/evaluation/dataset-expansion-h0-safety/safety_surface_inventory.json"
+    ]
+  }
+}
