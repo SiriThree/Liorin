@@ -44,6 +44,10 @@ on:
       mode:
         description: 'Scenario mode (static/dynamic/mixed)'
         default: 'dynamic'
+      deployment_url:
+        description: 'LangGraph deployment URL (overrides the repository secret)'
+        required: false
+        type: string
 
 jobs:
   simulate:
@@ -54,6 +58,11 @@ jobs:
       - uses: astral-sh/setup-uv@v9
       - run: uv sync
       - run: |
+          if [ -z "$DEPLOYMENT_URL" ]; then
+            echo "LANGGRAPH_DEPLOYMENT_URL is not configured. Add the repository secret or provide the deployment_url workflow input."
+            exit 1
+          fi
+
           if [ -n "${{ github.event.inputs.count }}" ]; then
             # Manual dispatch: use the specified count
             COUNT="${{ github.event.inputs.count }}"
@@ -73,11 +82,11 @@ jobs:
           fi
 
           MODE=${{ github.event.inputs.mode || 'dynamic' }}
-          uv run python simulations/run_simulation.py --count $COUNT --mode $MODE
+          uv run python simulations/run_simulation.py --url "$DEPLOYMENT_URL" --count "$COUNT" --mode "$MODE"
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           LANGSMITH_API_KEY: ${{ secrets.LANGSMITH_API_KEY }}
           LANGSMITH_TRACING: "true"
           LANGSMITH_PROJECT: "liorin"
-          LANGGRAPH_DEPLOYMENT_URL: ${{ secrets.LANGGRAPH_DEPLOYMENT_URL }}
+          DEPLOYMENT_URL: ${{ secrets.LANGGRAPH_DEPLOYMENT_URL || github.event.inputs.deployment_url }}
           LIORIN_MODEL: "anthropic:claude-haiku-4-5"
