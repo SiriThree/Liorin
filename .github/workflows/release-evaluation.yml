@@ -23,8 +23,8 @@ jobs:
       MILVUS_URI: ${{ secrets.MILVUS_URI }}
       DATABASE_URL: ${{ secrets.LIORIN_DATABASE_URL }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: astral-sh/setup-uv@v4
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10
       - run: uv sync --dev
       - run: uv run python -m eval_platform.cli doctor --root . --output readiness.json
       - name: Refuse silent release-eval skip
@@ -40,7 +40,7 @@ jobs:
         run: uv run python -m eval_platform.cli run --dataset evals/benchmark/data/canonical/validation_v7_3_canonical_v1.json --split VALIDATION --config evals/benchmark/configs/phase6_formal_evaluation.example.json --output artifacts/evaluation/release-current
       - name: Generate final report
         run: uv run python -m eval_platform.cli final-report --root . --output artifacts/evaluation/release-current
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         if: always()
         with:
           name: release-evaluation

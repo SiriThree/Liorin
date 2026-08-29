@@ -28,8 +28,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
-      - uses: astral-sh/setup-uv@v4
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10
       - run: uv sync --dev
       - name: Canonical dataset validation
         run: uv run python -m eval_platform.cli validate --dataset evals/benchmark/data/canonical/validation_v7_3_canonical_v1.json

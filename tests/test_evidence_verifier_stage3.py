@@ -807,6 +807,79 @@ def test_understand_query_clarifies_when_product_specific_identity_missing(monke
     assert "product_model:" not in update["rewritten_question"]
 
 
+def test_understand_query_receives_resolved_working_context(monkeypatch):
+    from agents import knowledge_agent as ka
+
+    captured = {}
+
+    def fake_structured(_llm, _model_cls, messages, fallback):
+        captured["user_payload"] = messages[-1]["content"]
+        return ka.QueryUnderstandingOutput(
+            rewritten_question="这个型号怎么清洁？",
+            requirements=["清洁维护"],
+            needs_clarification=False,
+        )
+
+    monkeypatch.setattr(ka, "_safe_structured_invoke", fake_structured)
+    update = ka.understand_query(
+        {
+            "messages": [SimpleNamespace(content="这个型号怎么清洁？")],
+            "working_context": {
+                "confirmed_slots": {"product_model": "AX-300"},
+                "stale_facts": [{"product_model": "BX-200"}],
+                "forbidden_context": [{"product_model": "BX-200"}],
+            },
+            "product_model": "AX-300",
+        }
+    )
+
+    payload = json.loads(captured["user_payload"])
+    assert payload["current_query"] == "这个型号怎么清洁？"
+    assert payload["working_context"]["confirmed_slots"]["product_model"] == "AX-300"
+    assert payload["working_context"]["stale_facts"][0]["product_model"] == "BX-200"
+    assert "product_model:AX-300" in update["rewritten_question"]
+
+
+def test_knowledge_agent_reuses_supervisor_understanding_and_plan(monkeypatch):
+    from agents import knowledge_agent as ka
+    from retrieval.protocols import QueryUnderstanding, RetrievalPlan, RetrievalSubquery
+
+    def forbidden_llm(*args, **kwargs):
+        raise AssertionError("Knowledge Agent should not re-run supervisor-layer LLM planning")
+
+    monkeypatch.setattr(ka, "_safe_structured_invoke", forbidden_llm)
+    state = {
+        "messages": [SimpleNamespace(content="AX-300 E502 怎么处理？")],
+        "understanding_layer": "conversation_supervisor",
+        "retrieval_planning_layer": "conversation_supervisor",
+        "query_understanding": QueryUnderstanding(
+            original_query="AX-300 E502 怎么处理？",
+            normalized_query="AX-300 E502 怎么处理？ | product_model:AX-300 | error_code:E502",
+            product_models=["AX-300"],
+            error_codes=["E502"],
+            requirements=["解释 E502 的故障处理"],
+        ).to_state(),
+        "retrieval_plan_v2": RetrievalPlan(
+            subqueries=[
+                RetrievalSubquery(
+                    subquery_id="sq-supervisor-1",
+                    query="AX-300 E502 故障处理",
+                    source="manual",
+                )
+            ],
+            created_by="conversation_supervisor.retrieval_planner",
+        ).to_state(),
+    }
+
+    understanding_update = ka.understand_query(state)
+    state.update(understanding_update)
+    plan_update = ka.plan_retrieval(state)
+
+    assert understanding_update["product_model"] == "AX-300"
+    assert plan_update["retrieval_plan"][0]["query"] == "AX-300 E502 故障处理"
+    assert any(event["status"] == "skipped" for event in plan_update["trace_events"])
+
+
 def test_benchmark_adapter_invokes_production_graph_and_scores_action(monkeypatch):
     from evals.benchmark.adapters import behavior
     from evals.benchmark.scoring.scorer import score_row

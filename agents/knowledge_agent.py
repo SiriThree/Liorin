@@ -144,6 +144,9 @@ class KnowledgeState(TypedDict, total=False):
     answer_verification_action: str
     request_id: str
     session_id: str | None
+    working_context: dict
+    understanding_layer: str
+    retrieval_planning_layer: str
 
 
 class QueryUnderstandingOutput(BaseModel):
@@ -202,12 +205,13 @@ class SemanticSupportBatchOutput(BaseModel):
 
 
 KNOWLEDGE_AGENT_SYSTEM_PROMPT = """你是 Liorin 的 Agentic RAG 知识检索子图。
-你需要围绕手册、政策、FAQ、历史工单和结构化订单数据库完成闭环：
-理解问题 -> 规划检索 -> ACL/Metadata 预过滤 -> Dense/BM25 主召回 -> 按需 Metadata Direct Lookup/结构化数据库 -> RRF -> 两阶段 Rerank -> 父章节扩展 -> 证据评分 -> 必要时改写或补充检索 -> 生成答案 -> 忠实性校验。
+你接收 Supervisor Agent 已经解析好的当前任务、Working Context、Query Understanding 和 Retrieval Plan，然后围绕手册、政策、FAQ、历史工单和结构化订单数据库完成证据检索与回答生成。
+为兼容直接调用和旧评测入口，如果 Supervisor 没有提供 Query Understanding 或 Retrieval Plan，才在本子图内执行兜底理解和规划。
 
 原则：
 - 不凭记忆回答，必须基于检索证据。
-- 复杂问题要拆成多个检索子目标。
+- 复杂问题应优先使用 Supervisor 下发的检索子目标。
+- 不要自行使用完整原始历史覆盖 Supervisor 给出的 Working Context；当前任务、确认槽位和过期事实以 Supervisor 状态为准。
 - 手册负责规格、使用、维护、故障排查和安全说明。
 - 政策负责退换货、退款、质保、维修受理和物流时效。
 - FAQ 负责常见流程和解释性问题。
@@ -218,6 +222,8 @@ KNOWLEDGE_AGENT_SYSTEM_PROMPT = """你是 Liorin 的 Agentic RAG 知识检索子
 
 UNDERSTAND_PROMPT = """请理解主管转来的知识类问题，抽取结构化信息。
 需要识别：产品名称、产品 ID、型号、产品/固件版本、错误码、地区、任务类型、用户真实目标，以及需要回答的独立子问题。
+输入可能包含 Supervisor 解析后的 working_context。它代表已选择和整理过的历史状态，包括 confirmed_slots、stale_facts、forbidden_context、open_clarifications 和 agent_outputs。
+只能继承 confirmed_slots 和当前仍有效的 agent_outputs；stale_facts 与 forbidden_context 不能用于增强检索查询。
 如果缺少关键信息会导致跨产品误召回，才需要澄清；如果仍可先检索，则不要澄清。
 请把问题改写成适合检索的中文查询。"""
 
@@ -791,6 +797,40 @@ def _build_enriched_query(
 
 
 def understand_query(state: KnowledgeState, *, model: str | None = None) -> dict:
+    if state.get("query_understanding") and state.get("understanding_layer") == "conversation_supervisor":
+        understanding = QueryUnderstandingState.from_legacy(state)
+        product_model = understanding.product_models[0] if understanding.product_models else state.get("product_model")
+        request_id = str(state.get("request_id") or uuid4().hex)
+        return {
+            "request_id": request_id,
+            "session_id": state.get("session_id"),
+            "query_understanding": understanding.to_state(),
+            "original_question": understanding.original_query,
+            "rewritten_question": understanding.normalized_query,
+            "product_name": understanding.product_name,
+            "product_id": understanding.product_id,
+            "product_model": product_model,
+            "product_version": understanding.product_version,
+            "error_code": (understanding.error_codes or [None])[0],
+            "order_id": understanding.order_id,
+            "ticket_id": understanding.ticket_id,
+            "customer_id": understanding.customer_id,
+            "document_id": understanding.document_id,
+            "policy_id": understanding.policy_id,
+            "region": understanding.region,
+            "task_type": understanding.task_type,
+            "requirements": understanding.requirements,
+            "needs_clarification": understanding.needs_clarification,
+            "clarification_question": understanding.clarification_question,
+            "trace_events": state.get("trace_events", [])
+            + [trace_event(
+                "understand_query",
+                "skipped",
+                request_id=request_id,
+                session_id=state.get("session_id"),
+                reason="supervisor_query_understanding_provided",
+            )],
+        }
     question = _last_user_text(state)
     fallback_errors = extract_error_codes(question)
     fallback = QueryUnderstandingOutput(
@@ -805,22 +845,45 @@ def understand_query(state: KnowledgeState, *, model: str | None = None) -> dict
         QueryUnderstandingOutput,
         [
             {"role": "system", "content": UNDERSTAND_PROMPT},
-            {"role": "user", "content": question},
+            {"role": "user", "content": json.dumps({
+                "current_query": question,
+                "working_context": state.get("working_context") or {},
+            }, ensure_ascii=False, sort_keys=True)},
         ],
         fallback,
     )
     extracted_errors = extract_error_codes(question)
     extracted_model = extract_product_model(question)
     extracted_entities = extract_business_entities(question)
+    working_context = state.get("working_context") if isinstance(state.get("working_context"), dict) else {}
+    confirmed_slots = (
+        working_context.get("confirmed_slots")
+        if isinstance(working_context.get("confirmed_slots"), dict)
+        else {}
+    )
     principal_region = None
     raw_principal = state.get("principal")
     if isinstance(raw_principal, dict):
         principal_region = raw_principal.get("region")
-    current_region = _extract_region(question) or result.region
-    current_product_version = _extract_product_version(question) or result.product_version
-    current_product_id = (extracted_entities.get("product_id") or [None])[0] or result.product_id
-    current_product_model = extracted_model or result.product_model
-    current_error_code = (extracted_errors or [None])[0] or result.error_code
+    current_region = _extract_region(question) or result.region or confirmed_slots.get("region")
+    current_product_version = (
+        _extract_product_version(question)
+        or result.product_version
+        or confirmed_slots.get("product_version")
+    )
+    current_product_id = (
+        (extracted_entities.get("product_id") or [None])[0]
+        or result.product_id
+        or confirmed_slots.get("product_id")
+    )
+    current_product_name = result.product_name or confirmed_slots.get("product_name")
+    current_product_model = extracted_model or result.product_model or confirmed_slots.get("product_model")
+    current_error_code = (extracted_errors or [None])[0] or result.error_code or confirmed_slots.get("error_code")
+    current_order_id = (extracted_entities.get("order_id") or [None])[0] or confirmed_slots.get("order_id")
+    current_ticket_id = (extracted_entities.get("ticket_id") or [None])[0] or confirmed_slots.get("ticket_id")
+    current_customer_id = (extracted_entities.get("customer_id") or [None])[0] or confirmed_slots.get("customer_id")
+    current_document_id = (extracted_entities.get("document_id") or [None])[0] or confirmed_slots.get("document_id")
+    current_policy_id = (extracted_entities.get("policy_id") or [None])[0] or confirmed_slots.get("policy_id")
     conflicts = [
         item
         for item in [
@@ -838,7 +901,7 @@ def understand_query(state: KnowledgeState, *, model: str | None = None) -> dict
     missing_product_identity = _product_identity_missing(
         question,
         product_id=current_product_id,
-        product_name=result.product_name,
+        product_name=current_product_name,
         product_model=current_product_model,
         product_version=product_version,
         error_code=current_error_code,
@@ -853,16 +916,16 @@ def understand_query(state: KnowledgeState, *, model: str | None = None) -> dict
         clarification_question = "为了避免跨产品误召回，请补充产品型号、产品 ID 或产品名称。"
     enriched_query = _build_enriched_query(
         question,
-        product_name=result.product_name,
+        product_name=current_product_name,
         product_id=current_product_id,
         product_model=current_product_model,
         product_version=product_version,
         error_code=current_error_code,
-        order_id=(extracted_entities.get("order_id") or [None])[0],
-        ticket_id=(extracted_entities.get("ticket_id") or [None])[0],
-        customer_id=(extracted_entities.get("customer_id") or [None])[0],
-        document_id=(extracted_entities.get("document_id") or [None])[0],
-        policy_id=(extracted_entities.get("policy_id") or [None])[0],
+        order_id=current_order_id,
+        ticket_id=current_ticket_id,
+        customer_id=current_customer_id,
+        document_id=current_document_id,
+        policy_id=current_policy_id,
         region=region,
         task_type=result.task_type,
         requirements=requirements,
@@ -873,16 +936,16 @@ def understand_query(state: KnowledgeState, *, model: str | None = None) -> dict
         language="zh" if re.search(r"[\u4e00-\u9fff]", question) else "en",
         intent=result.task_type,
         task_type=result.task_type,
-        product_name=result.product_name,
+        product_name=current_product_name,
         product_id=current_product_id,
         product_models=[current_product_model] if current_product_model else [],
         product_version=product_version,
         error_codes=[current_error_code] if current_error_code else [],
-        order_id=(extracted_entities.get("order_id") or [None])[0],
-        ticket_id=(extracted_entities.get("ticket_id") or [None])[0],
-        customer_id=(extracted_entities.get("customer_id") or [None])[0],
-        document_id=(extracted_entities.get("document_id") or [None])[0],
-        policy_id=(extracted_entities.get("policy_id") or [None])[0],
+        order_id=current_order_id,
+        ticket_id=current_ticket_id,
+        customer_id=current_customer_id,
+        document_id=current_document_id,
+        policy_id=current_policy_id,
         region=region,
         requirements=requirements,
         ambiguities=list(dict.fromkeys([*conflicts, *([result.reason] if result.needs_clarification and result.reason else [])])),
@@ -897,7 +960,7 @@ def understand_query(state: KnowledgeState, *, model: str | None = None) -> dict
         "query_understanding": understanding.to_state(),
         "original_question": question,
         "rewritten_question": enriched_query,
-        "product_name": result.product_name,
+        "product_name": current_product_name,
         "product_id": understanding.product_id,
         "product_model": current_product_model,
         "product_version": product_version,
@@ -966,6 +1029,20 @@ def clarify(state: KnowledgeState) -> dict:
 
 
 def plan_retrieval(state: KnowledgeState, *, model: str | None = None) -> dict:
+    if state.get("retrieval_plan_v2") and state.get("retrieval_planning_layer") == "conversation_supervisor":
+        structured_plan = RetrievalPlan.from_legacy(state)
+        plan = _legacy_plan_rows(structured_plan.subqueries)
+        return {
+            "retrieval_plan_v2": structured_plan.to_state(),
+            "retrieval_plan": plan,
+            "trace_events": state.get("trace_events", [])
+            + [trace_event(
+                "plan_retrieval",
+                "skipped",
+                plan=plan,
+                reason="supervisor_retrieval_plan_provided",
+            )],
+        }
     prompt_input = {
         "original_question": state.get("original_question"),
         "rewritten_question": state.get("rewritten_question"),
