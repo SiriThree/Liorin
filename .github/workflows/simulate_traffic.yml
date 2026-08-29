@@ -51,7 +51,7 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v7
-      - uses: astral-sh/setup-uv@v10
+      - uses: astral-sh/setup-uv@v9
       - run: uv sync
       - run: |
           if [ -n "${{ github.event.inputs.count }}" ]; then
