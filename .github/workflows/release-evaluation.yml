@@ -24,7 +24,7 @@ jobs:
       DATABASE_URL: ${{ secrets.LIORIN_DATABASE_URL }}
     steps:
       - uses: actions/checkout@v7
-      - uses: astral-sh/setup-uv@v10
+      - uses: astral-sh/setup-uv@v9
       - run: uv sync --dev
       - run: uv run python -m eval_platform.cli doctor --root . --output readiness.json
       - name: Refuse silent release-eval skip
